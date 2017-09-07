@@ -1,0 +1,2962 @@
+Microchip MPLAB XC8 Compiler V1.42 ()
+
+Linker command line:
+
+-W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.42\dat\en_msgs.txt -cs \
+  -h+dist/BOOTLOADER/production\MX2_W6_Skeleton.production.sym \
+  --cmf=dist/BOOTLOADER/production\MX2_W6_Skeleton.production.cmf -z \
+  -Q18F67J50 -oC:\Users\Robert\AppData\Local\Temp\s4oc.2 \
+  -Mdist/BOOTLOADER/production/MX2_W6_Skeleton.production.map -E1 -ver=XC8 \
+  --acfsm=1493 -ASTACK=033Ch-0f3fh -pstack=STACK \
+  -ACODE=01400h-01405h,01408h-01415h,01418h-01FFF7h \
+  -ACONST=01400h-01405h,01408h-01415h,01418h-01FFF7h \
+  -ASMALLCONST=01400h-01405h,01408h-01415h,01418h-014FFh,01500h-015FFhx490,01FF00h-01FFF7h \
+  -AMEDIUMCONST=01400h-01405h,01408h-01415h,01418h-0FFFFh,011000h-01FFF7h \
+  -ACOMRAM=01h-05Fh -AABS1=00h-0F3Fh -ABIGRAM=01h-0F3Fh \
+  -ARAM=060h-0FFh,0100h-01FFhx14,0F00h-0F3Fh -ABANK0=060h-0FFh \
+  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
+  -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh -ABANK6=0600h-06FFh \
+  -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
+  -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
+  -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh -ABANK15=0F00h-0F3Fh \
+  -ASFR=0F40h-0F5Fh,0F60h-0FFFh \
+  -preset_vec=01400h,intcode=01408h,intcodelo,powerup,init -pramtop=01000h \
+  -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
+  -AFARRAM=00h-00h -ACONFIG=01FFF8h-01FFFDh -pconfig=CONFIG \
+  -pjflash_buffer=01F800h \
+  -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
+  -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
+  -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
+  C:\Users\Robert\AppData\Local\Temp\s4oc.obj \
+  dist/BOOTLOADER/production\MX2_W6_Skeleton.production.obj 
+
+Object code version is 3.11
+
+Machine type is 18F67J50
+
+Call graph: (short form)
+
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+C:\Users\Robert\AppData\Local\Temp\s4oc.obj
+                init                               148A     148A        4      A04       0
+                reset_vec                          1400     1400        4      A00       0
+                config                            1FFF8    1FFF8        6    1FFF8       0
+dist/BOOTLOADER/production\MX2_W6_Skeleton.production.obj
+                intcode                            1408     1408       82      A04       0
+                temp                                 49       49        1        1       1
+                mediumconst                        FD2E     FD2E      2D2     7E97       0
+                text49                            11B86    11B86        E     8000       0
+                text48                            11BD2    11BD2        6     8DE3       0
+                text47                            11920    11920       40     8000       0
+                text46                            11A14    11A14       36     8000       0
+                text45                            11804    11804       4C     8000       0
+                text44                            114F8    114F8       76     8000       0
+                text43                            11B3A    11B3A       1A     8000       0
+                text42                            11A7A    11A7A       30     8000       0
+                text41                            110A2    110A2       AA     8000       0
+                text40                            11BA0    11BA0        C     8000       0
+                text39                            11BCC    11BCC        6     8DE3       0
+                text38                            10E2A    10E2A       FE     8000       0
+                text37                            11AAA    11AAA       2E     8000       0
+                text35                            11762    11762       52     8000       0
+                text34                            1199E    1199E       3E     8000       0
+                text33                            11B78    11B78        E     8000       0
+                text32                            11B54    11B54       16     8000       0
+                text31                            118DE    118DE       42     8000       0
+                text30                            11642    11642       64     8000       0
+                text29                            113E0    113E0       9C     8000       0
+                text28                            11B1C    11B1C       1E     8000       0
+                text27                            11960    11960       3E     8000       0
+                text26                            10F28    10F28       C4     8000       0
+                text25                            11B94    11B94        C     8000       0
+                text24                            11BC6    11BC6        6     8DE3       0
+                text23                            10D06    10D06      124     8000       0
+                text22                            11A4A    11A4A       30     8000       0
+                text21                            117B4    117B4       50     8000       0
+                text20                            1147C    1147C       7C     8000       0
+                text19                            10FEC    10FEC       B6     8000       0
+                text18                            11AFA    11AFA       22     8000       0
+                text17                            11898    11898       46     8000       0
+                text16                            1083A    1083A      1C0     8000       0
+                text15                            116A6    116A6       62     8000       0
+                text14                            11298    11298       A6     8000       0
+                text13                            111F2    111F2       A6     8000       0
+                text12                            1114C    1114C       A6     8000       0
+                text11                            11B6A    11B6A        E     8000       0
+                text10                            10000    10000      3BA     8000       0
+                text9                             115D8    115D8       6A     8000       0
+                text8                             11708    11708       5A     8000       0
+                text7                             11850    11850       48     8000       0
+                text6                             10610    10610      22A     8000       0
+                text5                             109FA    109FA      192     8000       0
+                text4                             11AD8    11AD8       22     8000       0
+                text3                             103BA    103BA      256     8000       0
+                text2                             1156E    1156E       6A     8000       0
+                text1                             10B8C    10B8C      17A     8000       0
+                text0                             119DC    119DC       38     8000       0
+                cstackCOMRAM                          1        1       24        1       1
+                cstackBANK0                          C8       C8       30       60       1
+                cstackBANK1                         1FA      1FA        6      100       1
+                cstackBANK2                         200      200       10      200       1
+                bssBIGRAM                           210      210      12C      210       1
+                dataBANK1                           1F2      1F2        8      100       1
+                bssBANK1                            100      100       F2      100       1
+                dataBANK0                            F8       F8        8       60       1
+                bssBANK0                             60       60       68       60       1
+                dataCOMRAM                           40       40        9        1       1
+                bssCOMRAM                            25       25       1B        1       1
+                cinit                             1133E    1133E       A2     8000       0
+                idataBANK1                        11BBD    11BBD        8     8000       0
+                idataBANK0                        11BB5    11BB5        8     8000       0
+                idataCOMRAM                       11BAC    11BAC        9     8000       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                intcode                            1408     1408       82         0
+                init                               148A     148A        4         0
+                reset_vec                          1400     1400        4         0
+                text49                            11B86    11B86        E         0
+                text48                            11BD2    11BD2        6         0
+                text47                            11920    11920       40         0
+                text46                            11A14    11A14       36         0
+                text45                            11804    11804       4C         0
+                text44                            114F8    114F8       76         0
+                text43                            11B3A    11B3A       1A         0
+                text42                            11A7A    11A7A       30         0
+                text41                            110A2    110A2       AA         0
+                text40                            11BA0    11BA0        C         0
+                text39                            11BCC    11BCC        6         0
+                text38                            10E2A    10E2A       FE         0
+                text37                            11AAA    11AAA       2E         0
+                text35                            11762    11762       52         0
+                text34                            1199E    1199E       3E         0
+                text33                            11B78    11B78        E         0
+                text32                            11B54    11B54       16         0
+                text31                            118DE    118DE       42         0
+                text30                            11642    11642       64         0
+                text29                            113E0    113E0       9C         0
+                text28                            11B1C    11B1C       1E         0
+                text27                            11960    11960       3E         0
+                text26                            10F28    10F28       C4         0
+                text25                            11B94    11B94        C         0
+                text24                            11BC6    11BC6        6         0
+                text23                            10D06    10D06      124         0
+                text22                            11A4A    11A4A       30         0
+                text21                            117B4    117B4       50         0
+                text20                            1147C    1147C       7C         0
+                text19                            10FEC    10FEC       B6         0
+                text18                            11AFA    11AFA       22         0
+                text17                            11898    11898       46         0
+                text16                            1083A    1083A      1C0         0
+                text15                            116A6    116A6       62         0
+                text14                            11298    11298       A6         0
+                text13                            111F2    111F2       A6         0
+                text12                            1114C    1114C       A6         0
+                text11                            11B6A    11B6A        E         0
+                text10                            10000    10000      3BA         0
+                text9                             115D8    115D8       6A         0
+                text8                             11708    11708       5A         0
+                text7                             11850    11850       48         0
+                text6                             10610    10610      22A         0
+                text5                             109FA    109FA      192         0
+                text4                             11AD8    11AD8       22         0
+                text3                             103BA    103BA      256         0
+                text2                             1156E    1156E       6A         0
+                text1                             10B8C    10B8C      17A         0
+                text0                             119DC    119DC       38         0
+                cinit                             1133E    1133E       A2         0
+                idataBANK1                        11BBD    11BBD        8         0
+                idataBANK0                        11BB5    11BB5        8         0
+                idataCOMRAM                       11BAC    11BAC        9         0
+
+        CLASS   CONST          
+
+        CLASS   SMALLCONST     
+
+        CLASS   MEDIUMCONST    
+                mediumconst                        FD2E     FD2E      2D2         0
+
+        CLASS   COMRAM         
+                temp                                 49       49        1         1
+                cstackCOMRAM                          1        1       24         1
+                dataCOMRAM                           40       40        9         1
+                bssCOMRAM                            25       25       1B         1
+
+        CLASS   ABS1           
+
+        CLASS   BIGRAM         
+                bssBIGRAM                           210      210      12C         1
+
+        CLASS   RAM            
+
+        CLASS   BANK0          
+                cstackBANK0                          C8       C8       30         1
+                dataBANK0                            F8       F8        8         1
+                bssBANK0                             60       60       68         1
+
+        CLASS   BANK1          
+                cstackBANK1                         1FA      1FA        6         1
+                dataBANK1                           1F2      1F2        8         1
+                bssBANK1                            100      100       F2         1
+
+        CLASS   BANK2          
+                cstackBANK2                         200      200       10         1
+
+        CLASS   BANK3          
+
+        CLASS   BANK4          
+
+        CLASS   BANK5          
+
+        CLASS   BANK6          
+
+        CLASS   BANK7          
+
+        CLASS   BANK8          
+
+        CLASS   BANK9          
+
+        CLASS   BANK10         
+
+        CLASS   BANK11         
+
+        CLASS   BANK12         
+
+        CLASS   BANK13         
+
+        CLASS   BANK14         
+
+        CLASS   BANK15         
+
+        CLASS   SFR            
+
+        CLASS   FARRAM         
+
+        CLASS   CONFIG         
+                config                            1FFF8    1FFF8        6         0
+
+        CLASS   IDLOC          
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
+
+                cstackCOMRAM                   000001  000049  00004A         1       1  COMRAM  
+                bssBANK0                       000060  0000A0  000100        60       1  BANK0   
+                bssBANK1                       000100  000100  000200       100       1  BANK1   
+                cstackBANK2                    000200  000010  000210       200       1  BANK2   
+                bssBIGRAM                      000210  00012C  00033C       210       1  BIGRAM  
+                reset_vec                      001400  000004  001404       A00       0  CODE    
+                intcode                        001408  000086  00148E       A04       0  CODE    
+                mediumconst                    00FD2E  0002D2  010000      7E97       0  MEDIUMCO
+                text10                         010000  001BC5  011BC5      8000       0  CODE    
+                text24                         011BC6  000012  011BD8      8DE3       0  CODE    
+                config                         01FFF8  000006  01FFFE     1FFF8       0  CONFIG  
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK10           00A00-00AFF             100
+        BANK11           00B00-00BFF             100
+        BANK12           00C00-00CFF             100
+        BANK13           00D00-00DFF             100
+        BANK14           00E00-00EFF             100
+        BANK15           00F00-00F3F              40
+        BANK3            0033C-003FF              C4
+        BANK4            00400-004FF             100
+        BANK5            00500-005FF             100
+        BANK6            00600-006FF             100
+        BANK7            00700-007FF             100
+        BANK8            00800-008FF             100
+        BANK9            00900-009FF             100
+        BIGRAM           0004A-0005F              16
+                         0033C-00F3F             C04
+        CODE             01404-01405               2
+                         0148E-0FD2D            E8A0
+                         11BC5-11BC5               1
+                         11BD8-1FFF7            E420
+        COMRAM           0004A-0005F              16
+        CONST            01404-01405               2
+                         0148E-0FD2D            E8A0
+                         11BC5-11BC5               1
+                         11BD8-1FFF7            E420
+        FARRAM           00000-00000               1
+        MEDIUMCONST      01404-01405               2
+                         0148E-0FD2D            E8A0
+                         11BC5-11BC5               1
+                         11BD8-1FFF7            E420
+        RAM              0033C-00F3F             100
+        SFR              00F40-00FFF              20
+        SMALLCONST       01404-01405               2
+                         0148E-0FD2D             100
+                         11BC5-11BC5               1
+                         11BD8-1FFF7             100
+        STACK            0033C-00F3F             C04
+
+                                  Symbol Table
+
+?_GetPortPORT                    cstackBANK0   000C8
+?_GetPortProperties              cstackBANK0   000C8
+?_GetPortTRIS                    cstackBANK0   000C8
+Byte_GetPair@pInput              cstackBANK0   000D1
+Byte_GetPair@pPair               cstackBANK0   000D3
+Byte_GetZone@MASK                cstackBANK0   000CE
+Byte_GetZone@Offset              cstackBANK0   000CF
+Byte_GetZone@Output              cstackBANK0   000D0
+Byte_GetZone@pChunk              cstackBANK0   000CB
+Byte_GetZone@pChunkSize          cstackBANK0   000CC
+Byte_GetZone@pInput              cstackBANK0   000C8
+Byte_GetZone@pMax                cstackBANK0   000CA
+Byte_SetBit@pBit                 cstackBANK0   000CA
+Byte_SetBit@pInput               cstackBANK0   000C8
+Byte_SetBit@pValue               cstackBANK0   000CB
+Byte_SetByte@pInput              cstackBANK0   000C8
+Byte_SetByte@pValue              cstackBANK0   000CA
+Byte_SetPair@pInput              cstackBANK0   000D3
+Byte_SetPair@pPair               cstackBANK0   000D5
+Byte_SetPair@pValue              cstackBANK0   000D6
+Byte_SetQuad@pInput              cstackBANK0   000D3
+Byte_SetQuad@pQuad               cstackBANK0   000D5
+Byte_SetQuad@pValue              cstackBANK0   000D6
+Byte_SetZone@MASK                cstackBANK0   000D2
+Byte_SetZone@Offset              cstackBANK0   000D1
+Byte_SetZone@pChunk              cstackBANK0   000CB
+Byte_SetZone@pChunkSize          cstackBANK0   000CC
+Byte_SetZone@pInput              cstackBANK0   000C8
+Byte_SetZone@pMax                cstackBANK0   000CA
+Byte_SetZone@pValue              cstackBANK0   000CD
+Console_MakeField@Fill           bssBANK1      0012A
+Console_Render@F6956             dataBANK1     001F2
+Event_TestButton@j               bssCOMRAM     00034
+GetPortPORT@pInput               cstackBANK0   000CA
+GetPortProperties@pInput         cstackBANK0   000CA
+GetPortTRIS@pInput               cstackBANK0   000CA
+HMI_GRender@a                    bssCOMRAM     00030
+HMI_SetButton@F7213              mediumconst   0FE0A
+LCD_DrawRectangle@p2             bssBANK0      000C4
+LCD_DrawRectangle@p4             bssBANK0      000C0
+LED_Init@pLED                    cstackBANK0   000F5
+LED_Set@pLED                     cstackBANK0   000DD
+LED_Set@pValue                   cstackBANK0   000DC
+MXK_BlockSwitchTo@CUR            cstackBANK0   000CE
+MXK_BlockSwitchTo@pModule        cstackBANK0   000CF
+MXK_Queue@pCallback              cstackBANK0   000C8
+MXK_SwitchTo@CUR                 cstackBANK0   000CE
+MXK_SwitchTo@pModule             cstackBANK0   000CF
+OutSeg@a                         bssCOMRAM     0003A
+OutSeg@cur                       bssCOMRAM     0003C
+OutSeg@segset                    bssCOMRAM     0003B
+PortProperty_Valid@Errors        cstackBANK0   000DD
+PortProperty_Valid@F6830         mediumconst   0FDF1
+PortProperty_Valid@Pair          cstackBANK0   000ED
+PortProperty_Valid@pInput        cstackBANK0   000D7
+PortProperty_Valid@pPin          cstackBANK0   000DA
+PortProperty_Valid@pPinDrive     cstackBANK0   000D9
+Port_CheckPairType@Output        cstackBANK0   000F4
+Port_CheckPairType@Pin1          cstackBANK0   000F2
+Port_CheckPairType@Pin2          cstackBANK0   000F3
+Port_CheckPairType@Props         cstackBANK0   000F5
+Port_CheckPairType@pDrive        cstackBANK0   000F1
+Port_CheckPairType@pInput        cstackBANK0   000EE
+Port_CheckPairType@pPair         cstackBANK0   000F0
+Port_CheckPortType@Output        cstackBANK0   000F7
+Port_CheckPortType@pDrive        cstackBANK2   00205
+Port_CheckPortType@pInput        cstackBANK2   00203
+Port_CheckQuadType@Output        cstackBANK2   00202
+Port_CheckQuadType@Pair1         cstackBANK2   00200
+Port_CheckQuadType@Pair2         cstackBANK2   00201
+Port_CheckQuadType@pDrive        cstackBANK1   001FD
+Port_CheckQuadType@pInput        cstackBANK1   001FA
+Port_CheckQuadType@pQuad         cstackBANK1   001FC
+Port_Init@i                      cstackBANK2   0020F
+Port_Init@pInput                 cstackBANK2   0020A
+Port_Init@pPort                  cstackBANK2   0020C
+Port_Set@Type                    cstackBANK0   000EE
+Port_Set@TypeActual              cstackBANK0   000EC
+Port_Set@TypeRequired            cstackBANK0   000EA
+Port_Set@pInput                  cstackBANK0   000D7
+Port_Set@pValue                  cstackBANK0   000D9
+Port_SetPin@Type                 cstackBANK0   000DB
+Port_SetPin@pInput               cstackBANK0   000D7
+Port_SetPin@pPin                 cstackBANK0   000D9
+Port_SetPin@pValue               cstackBANK0   000DA
+Port_SetPinType@Output           cstackBANK0   000F2
+Port_SetPinType@Props            cstackBANK0   000F3
+Port_SetPinType@pInput           cstackBANK0   000EE
+Port_SetPinType@pPin             cstackBANK0   000F0
+Port_SetPinType@pType            cstackBANK0   000F1
+Port_SetQuadType@Output          cstackBANK0   000F7
+Port_SetQuadType@pInput          cstackBANK2   00203
+Port_SetQuadType@pQuad           cstackBANK2   00205
+Port_SetQuadType@pType           cstackBANK2   00206
+Port_SetType@Output              cstackBANK2   00209
+Port_SetType@pInput              cstackBANK2   00206
+Port_SetType@pType               cstackBANK2   00208
+SPI_Send9@dat                    bssBANK0      00070
+Timer0_Init@DIV                  bssBANK0      00064
+Timer0_Init@PRE                  bssCOMRAM     00037
+Timer0_Init@PRESCALE             mediumconst   0FDE1
+Timer2_Init@DIV                  bssBANK0      00060
+Timer2_Init@INDEX                bssCOMRAM     00036
+Timer2_Init@PRE                  bssCOMRAM     00035
+Timer2_Init@PRESCALE             mediumconst   0FE0E
+Word_GetPair@pInput              cstackBANK0   000D4
+Word_GetPair@pPair               cstackBANK0   000D6
+Word_SetPair@pInput              cstackBANK0   000D7
+Word_SetPair@pPair               cstackBANK0   000D9
+Word_SetPair@pValue              cstackBANK0   000DA
+_ADCON0bits                      (abs)         00FC2
+_ADCON1bits                      (abs)         00FC1
+_ADC_AN0                         bssBANK0      000BB
+_ADC_AN1                         bssBANK0      000B6
+_ADC_AN2                         bssBANK0      000B1
+_ADC_AN3                         bssBANK0      000AC
+_ADC_Initialised                 bssBANK0      00075
+_ADRESH                          (abs)         00FC4
+_ADRESL                          (abs)         00FC3
+_ANCON0                          (abs)         00FC1
+_Bus_State                       dataCOMRAM    00044
+_Byte_GetPair                    text28        11B1C
+_Byte_GetZone                    text29        113E0
+_Byte_SetBit                     text30        11642
+_Byte_SetByte                    text11        11B6A
+_Byte_SetPair                    text18        11AFA
+_Byte_SetQuad                    text4         11AD8
+_Byte_SetZone                    text19        10FEC
+_COUNTER                         bssCOMRAM     0002A
+_DIPSwitch                       bssBANK1      001C0
+_Event_DIPSwitch                 (abs)         00000
+_Event_NULL                      (abs)         00000
+_Event_TestButton                (abs)         00000
+_Font5x7                         mediumconst   0FE11
+_GetPortPORT                     text14        11298
+_GetPortProperties               text13        111F2
+_GetPortTRIS                     text12        1114C
+_HMIBoard                        bssBANK1      00170
+_HMI_DIPSwitch                   (abs)         00000
+_HMI_DownSwitch                  (abs)         00000
+_HMI_InitButtons                 (abs)         00000
+_HMI_LeftSwitch                  (abs)         00000
+_HMI_RightSwitch                 (abs)         00000
+_HMI_UpSwitch                    (abs)         00000
+_I2C1T                           bssBANK0      000A5
+_I2C1_Done                       bssBANK1      00127
+_I2C1_More                       bssBANK1      00121
+_I2C2T                           bssBANK0      0009E
+_I2C2_Done                       bssBANK1      00124
+_I2C2_More                       bssBANK1      0011E
+_INDEX                           bssCOMRAM     00038
+_INTCONbits                      (abs)         00FF2
+_IPR1bits                        (abs)         00F9F
+_IPR3bits                        (abs)         00FA5
+_ISR_Function                    intcode       01408
+_InitList                        mediumconst   0FD2F
+_LATA                            (abs)         00F89
+_LATB                            (abs)         00F8A
+_LATC                            (abs)         00F8B
+_LATD                            (abs)         00F8C
+_LATE                            (abs)         00F8D
+_LATF                            (abs)         00F8E
+_LATG                            (abs)         00F8F
+_LED_Init                        text15        116A6
+_LED_Set                         text21        117B4
+_MASKS                           mediumconst   0FE01
+_MXK_BlockSwitchTo               text34        1199E
+_MXK_DIPSwitch                   (abs)         00000
+_MXK_Dequeue                     text22        11A4A
+_MXK_Init                        text1         10B8C
+_MXK_InitDIPSwitch               (abs)         00000
+_MXK_InitTestButton              (abs)         00000
+_MXK_Queue                       text33        11B78
+_MXK_Release                     text32        11B54
+_MXK_SwitchTo                    text31        118DE
+_MXK_TestButton                  (abs)         00000
+_Motor_Step                      text23        10D06
+_Motor_Step$intlevel0            text23        10D0C
+_OSCTUNEbits                     (abs)         00F9B
+_PIE1bits                        (abs)         00F9D
+_PIE3bits                        (abs)         00FA3
+_PIR1                            (abs)         00F9E
+_PIR1bits                        (abs)         00F9E
+_PIR2                            (abs)         00FA1
+_PIR3                            (abs)         00FA4
+_PIR3bits                        (abs)         00FA4
+_PORTA                           (abs)         00F80
+_PORTB                           (abs)         00F81
+_PORTC                           (abs)         00F82
+_PORTD                           (abs)         00F83
+_PORTE                           (abs)         00F84
+_PORTF                           (abs)         00F85
+_PORTFbits                       (abs)         00F85
+_PORTG                           (abs)         00F86
+_PR2                             (abs)         00FCB
+_PortA                           bssBANK1      001E8
+_PortA_Property                  mediumconst   0FFFD
+_PortB                           bssBANK1      001DE
+_PortB_Property                  mediumconst   0FFFB
+_PortC                           bssBANK0      0008A
+_PortC_Property                  mediumconst   0FFF9
+_PortD                           bssBANK0      00080
+_PortD_Property                  mediumconst   0FFF7
+_PortE                           bssBANK0      00076
+_PortE_Property                  mediumconst   0FFF5
+_PortF                           bssBANK0      00094
+_PortF_Property                  mediumconst   0FFF3
+_PortG                           bssBANK1      001D4
+_PortG_Property                  mediumconst   0FFF1
+_PortProperty_Valid              text20        1147C
+_Port_CheckPairType              text9         115D8
+_Port_CheckPortType              text7         11850
+_Port_CheckQuadType              text8         11708
+_Port_Init                       text5         109FA
+_Port_Set                        text10        10000
+_Port_SetPin                     text26        10F28
+_Port_SetPinType                 text16        1083A
+_Port_SetQuadType                text3         103BA
+_Port_SetType                    text6         10610
+_RCONbits                        (abs)         00FD0
+_SPI1                            bssBANK1      001AA
+_SPI2                            bssBANK1      001B5
+_SSP1ADD                         (abs)         00FC8
+_SSP1BUF                         (abs)         00FC9
+_SSP1CON1                        (abs)         00FC6
+_SSP1CON1bits                    (abs)         00FC6
+_SSP1CON2                        (abs)         00FC5
+_SSP1CON2bits                    (abs)         00FC5
+_SSP1STAT                        (abs)         00FC7
+_SSP1STATbits                    (abs)         00FC7
+_SSP2BUF                         (abs)         00F6F
+_SSP2CON1                        (abs)         00F6C
+_SSP2CON1bits                    (abs)         00F6C
+_SSP2CON2                        (abs)         00F6B
+_SSP2CON2bits                    (abs)         00F6B
+_SSP2STAT                        (abs)         00F6D
+_SSP2STATbits                    (abs)         00F6D
+_T0CONbits                       (abs)         00FD5
+_T2CONbits                       (abs)         00FCA
+_TMR0                            (abs)         00FD6
+_TRISA                           (abs)         00F92
+_TRISB                           (abs)         00F93
+_TRISC                           (abs)         00F94
+_TRISD                           (abs)         00F95
+_TRISE                           (abs)         00F96
+_TRISF                           (abs)         00F97
+_TRISG                           (abs)         00F98
+_TestButton                      bssBANK1      001CA
+_Timer0_ISR                      text37        11AAA
+_Timer0_Restart                  text25        11B94
+_Timer0_Stop                     text24        11BC6
+_Word_GetPair                    text27        11960
+_Word_SetPair                    text17        11898
+__CFG_CCP2MX$DEFAULT             (abs)         00000
+__CFG_CPUDIV$OSC1                (abs)         00000
+__CFG_FCMEN$OFF                  (abs)         00000
+__CFG_FOSC$HSPLL                 (abs)         00000
+__CFG_IESO$OFF                   (abs)         00000
+__CFG_MSSPMSK$MSK5               (abs)         00000
+__CFG_PLLDIV$3                   (abs)         00000
+__CFG_STVREN$ON                  (abs)         00000
+__CFG_WDTEN$OFF                  (abs)         00000
+__CFG_WDTPS$32768                (abs)         00000
+__CFG_XINST$OFF                  (abs)         00000
+__HRAM                           (abs)         00000
+__Habs1                          abs1          00000
+__Hbank0                         bank0         00000
+__Hbank1                         bank1         00000
+__Hbank10                        bank10        00000
+__Hbank11                        bank11        00000
+__Hbank12                        bank12        00000
+__Hbank13                        bank13        00000
+__Hbank14                        bank14        00000
+__Hbank15                        bank15        00000
+__Hbank2                         bank2         00000
+__Hbank3                         bank3         00000
+__Hbank4                         bank4         00000
+__Hbank5                         bank5         00000
+__Hbank6                         bank6         00000
+__Hbank7                         bank7         00000
+__Hbank8                         bank8         00000
+__Hbank9                         bank9         00000
+__Hbigbss                        bigbss        00000
+__Hbigdata                       bigdata       00000
+__Hbigram                        bigram        00000
+__Hbss                           bss           00000
+__HbssBANK0                      bssBANK0      00000
+__HbssBANK1                      bssBANK1      00000
+__HbssBIGRAM                     bssBIGRAM     00000
+__HbssCOMRAM                     bssCOMRAM     00000
+__Hcinit                         cinit         00000
+__Hclrtext                       clrtext       00000
+__Hcomram                        comram        00000
+__Hconfig                        config        1FFFE
+__Hconst                         const         00000
+__HcstackBANK0                   cstackBANK0   00000
+__HcstackBANK1                   cstackBANK1   00000
+__HcstackBANK2                   cstackBANK2   00000
+__HcstackCOMRAM                  cstackCOMRAM  00000
+__Hdata                          data          00000
+__HdataBANK0                     dataBANK0     00000
+__HdataBANK1                     dataBANK1     00000
+__HdataCOMRAM                    dataCOMRAM    00000
+__Hfarbss                        farbss        00000
+__Hfardata                       fardata       00000
+__Hibigdata                      ibigdata      00000
+__Hidata                         idata         00000
+__HidataBANK0                    idataBANK0    00000
+__HidataBANK1                    idataBANK1    00000
+__HidataCOMRAM                   idataCOMRAM   00000
+__Hidloc                         idloc         00000
+__Hifardata                      ifardata      00000
+__Hinit                          init          0148E
+__Hintcode                       intcode       0148A
+__Hintcode_body                  intcode_body  00000
+__Hintcodelo                     intcodelo     0148A
+__Hintentry                      intentry      00000
+__Hintret                        intret        00000
+__Hintsave_regs                  intsave_regs  00000
+__Hirdata                        irdata        00000
+__Hjflash_buffer                 jflash_buffer 1F800
+__Hmediumconst                   mediumconst   10000
+__HnvFARRAM                      nvFARRAM      00000
+__Hnvbit                         nvbit         00000
+__Hnvrram                        nvrram        00000
+__Hparam                         rparam        00000
+__Hpowerup                       powerup       0148A
+__Hram                           ram           00000
+__Hramtop                        ramtop        01000
+__Hrbit                          rbit          00000
+__Hrbss                          rbss          00000
+__Hrdata                         rdata         00000
+__Hreset_vec                     reset_vec     01404
+__Hrparam                        rparam        00000
+__Hsfr                           sfr           00000
+__Hsmallconst                    smallconst    00000
+__Hspace_0                       (abs)         1FFFE
+__Hspace_1                       (abs)         0033C
+__Hspace_2                       (abs)         00000
+__Hstack                         stack         00000
+__Hstruct                        struct        00000
+__Htemp                          temp          0004A
+__Htext                          text          00000
+__Htext0                         text0         00000
+__Htext1                         text1         00000
+__Htext10                        text10        00000
+__Htext11                        text11        00000
+__Htext12                        text12        00000
+__Htext13                        text13        00000
+__Htext14                        text14        00000
+__Htext15                        text15        00000
+__Htext16                        text16        00000
+__Htext17                        text17        00000
+__Htext18                        text18        00000
+__Htext19                        text19        00000
+__Htext2                         text2         00000
+__Htext20                        text20        00000
+__Htext21                        text21        00000
+__Htext22                        text22        00000
+__Htext23                        text23        00000
+__Htext24                        text24        00000
+__Htext25                        text25        00000
+__Htext26                        text26        00000
+__Htext27                        text27        00000
+__Htext28                        text28        00000
+__Htext29                        text29        00000
+__Htext3                         text3         00000
+__Htext30                        text30        00000
+__Htext31                        text31        00000
+__Htext32                        text32        00000
+__Htext33                        text33        00000
+__Htext34                        text34        00000
+__Htext35                        text35        00000
+__Htext37                        text37        00000
+__Htext38                        text38        00000
+__Htext39                        text39        00000
+__Htext4                         text4         00000
+__Htext40                        text40        00000
+__Htext41                        text41        00000
+__Htext42                        text42        00000
+__Htext43                        text43        00000
+__Htext44                        text44        00000
+__Htext45                        text45        00000
+__Htext46                        text46        00000
+__Htext47                        text47        00000
+__Htext48                        text48        00000
+__Htext49                        text49        00000
+__Htext5                         text5         00000
+__Htext50                        text50        00000
+__Htext6                         text6         00000
+__Htext7                         text7         00000
+__Htext8                         text8         00000
+__Htext9                         text9         00000
+__LRAM                           (abs)         00001
+__Labs1                          abs1          00000
+__Lbank0                         bank0         00000
+__Lbank1                         bank1         00000
+__Lbank10                        bank10        00000
+__Lbank11                        bank11        00000
+__Lbank12                        bank12        00000
+__Lbank13                        bank13        00000
+__Lbank14                        bank14        00000
+__Lbank15                        bank15        00000
+__Lbank2                         bank2         00000
+__Lbank3                         bank3         00000
+__Lbank4                         bank4         00000
+__Lbank5                         bank5         00000
+__Lbank6                         bank6         00000
+__Lbank7                         bank7         00000
+__Lbank8                         bank8         00000
+__Lbank9                         bank9         00000
+__Lbigbss                        bigbss        00000
+__Lbigdata                       bigdata       00000
+__Lbigram                        bigram        00000
+__Lbss                           bss           00000
+__LbssBANK0                      bssBANK0      00000
+__LbssBANK1                      bssBANK1      00000
+__LbssBIGRAM                     bssBIGRAM     00000
+__LbssCOMRAM                     bssCOMRAM     00000
+__Lcinit                         cinit         00000
+__Lclrtext                       clrtext       00000
+__Lcomram                        comram        00000
+__Lconfig                        config        1FFF8
+__Lconst                         const         00000
+__LcstackBANK0                   cstackBANK0   00000
+__LcstackBANK1                   cstackBANK1   00000
+__LcstackBANK2                   cstackBANK2   00000
+__LcstackCOMRAM                  cstackCOMRAM  00000
+__Ldata                          data          00000
+__LdataBANK0                     dataBANK0     00000
+__LdataBANK1                     dataBANK1     00000
+__LdataCOMRAM                    dataCOMRAM    00000
+__Lfarbss                        farbss        00000
+__Lfardata                       fardata       00000
+__Libigdata                      ibigdata      00000
+__Lidata                         idata         00000
+__LidataBANK0                    idataBANK0    00000
+__LidataBANK1                    idataBANK1    00000
+__LidataCOMRAM                   idataCOMRAM   00000
+__Lidloc                         idloc         00000
+__Lifardata                      ifardata      00000
+__Linit                          init          0148A
+__Lintcode                       intcode       01408
+__Lintcode_body                  intcode_body  00000
+__Lintcodelo                     intcodelo     0148A
+__Lintentry                      intentry      00000
+__Lintret                        intret        00000
+__Lintsave_regs                  intsave_regs  00000
+__Lirdata                        irdata        00000
+__Ljflash_buffer                 jflash_buffer 1F800
+__Lmediumconst                   mediumconst   0FD2E
+__LnvFARRAM                      nvFARRAM      00000
+__Lnvbit                         nvbit         00000
+__Lnvrram                        nvrram        00000
+__Lparam                         rparam        00000
+__Lpowerup                       powerup       0148A
+__Lram                           ram           00000
+__Lramtop                        ramtop        01000
+__Lrbit                          rbit          00000
+__Lrbss                          rbss          00000
+__Lrdata                         rdata         00000
+__Lreset_vec                     reset_vec     01400
+__Lrparam                        rparam        00000
+__Lsfr                           sfr           00000
+__Lsmallconst                    smallconst    00000
+__Lspace_0                       (abs)         00000
+__Lspace_1                       (abs)         00000
+__Lspace_2                       (abs)         00000
+__Lstack                         stack         00000
+__Lstruct                        struct        00000
+__Ltemp                          temp          00049
+__Ltext                          text          00000
+__Ltext0                         text0         00000
+__Ltext1                         text1         00000
+__Ltext10                        text10        00000
+__Ltext11                        text11        00000
+__Ltext12                        text12        00000
+__Ltext13                        text13        00000
+__Ltext14                        text14        00000
+__Ltext15                        text15        00000
+__Ltext16                        text16        00000
+__Ltext17                        text17        00000
+__Ltext18                        text18        00000
+__Ltext19                        text19        00000
+__Ltext2                         text2         00000
+__Ltext20                        text20        00000
+__Ltext21                        text21        00000
+__Ltext22                        text22        00000
+__Ltext23                        text23        00000
+__Ltext24                        text24        00000
+__Ltext25                        text25        00000
+__Ltext26                        text26        00000
+__Ltext27                        text27        00000
+__Ltext28                        text28        00000
+__Ltext29                        text29        00000
+__Ltext3                         text3         00000
+__Ltext30                        text30        00000
+__Ltext31                        text31        00000
+__Ltext32                        text32        00000
+__Ltext33                        text33        00000
+__Ltext34                        text34        00000
+__Ltext35                        text35        00000
+__Ltext37                        text37        00000
+__Ltext38                        text38        00000
+__Ltext39                        text39        00000
+__Ltext4                         text4         00000
+__Ltext40                        text40        00000
+__Ltext41                        text41        00000
+__Ltext42                        text42        00000
+__Ltext43                        text43        00000
+__Ltext44                        text44        00000
+__Ltext45                        text45        00000
+__Ltext46                        text46        00000
+__Ltext47                        text47        00000
+__Ltext48                        text48        00000
+__Ltext49                        text49        00000
+__Ltext5                         text5         00000
+__Ltext50                        text50        00000
+__Ltext6                         text6         00000
+__Ltext7                         text7         00000
+__Ltext8                         text8         00000
+__Ltext9                         text9         00000
+__S0                             (abs)         1FFFE
+__S1                             (abs)         0033C
+__S2                             (abs)         00000
+___extmem_base                   (abs)         20000
+___inthi_sp                      stack         00000
+___intlo_sp                      stack         00000
+___param_bank                    (abs)         00000
+___rparam_used                   (abs)         00001
+___sp                            stack         00000
+__accesstop                      (abs)         00060
+__activetblptr                   (abs)         00003
+__end_ofHMI_SetButton@F7213      mediumconst   0FE0E
+__end_ofPortProperty_Valid@F6830 mediumconst   0FE01
+__end_ofTimer0_Init@PRESCALE     mediumconst   0FDF1
+__end_ofTimer2_Init@PRESCALE     mediumconst   0FE11
+__end_of_Byte_GetPair            text28        11B3A
+__end_of_Byte_GetZone            text29        1147C
+__end_of_Byte_SetBit             text30        116A6
+__end_of_Byte_SetByte            text11        11B78
+__end_of_Byte_SetPair            text18        11B1C
+__end_of_Byte_SetQuad            text4         11AFA
+__end_of_Byte_SetZone            text19        110A2
+__end_of_Font5x7                 mediumconst   0FFF1
+__end_of_GetPortPORT             text14        1133E
+__end_of_GetPortProperties       text13        11298
+__end_of_GetPortTRIS             text12        111F2
+__end_of_ISR_Function            intcode       0148A
+__end_of_InitList                mediumconst   0FDE1
+__end_of_LED_Init                text15        11708
+__end_of_LED_Set                 text21        11804
+__end_of_MASKS                   mediumconst   0FE0A
+__end_of_MXK_BlockSwitchTo       text34        119DC
+__end_of_MXK_Dequeue             text22        11A7A
+__end_of_MXK_Init                text1         10D06
+__end_of_MXK_Queue               text33        11B86
+__end_of_MXK_Release             text32        11B6A
+__end_of_MXK_SwitchTo            text31        11920
+__end_of_Motor_Step              text23        10E2A
+__end_of_PortA_Property          mediumconst   0FFFF
+__end_of_PortB_Property          mediumconst   0FFFD
+__end_of_PortC_Property          mediumconst   0FFFB
+__end_of_PortD_Property          mediumconst   0FFF9
+__end_of_PortE_Property          mediumconst   0FFF7
+__end_of_PortF_Property          mediumconst   0FFF5
+__end_of_PortG_Property          mediumconst   0FFF3
+__end_of_PortProperty_Valid      text20        114F8
+__end_of_Port_CheckPairType      text9         11642
+__end_of_Port_CheckPortType      text7         11898
+__end_of_Port_CheckQuadType      text8         11762
+__end_of_Port_Init               text5         10B8C
+__end_of_Port_Set                text10        103BA
+__end_of_Port_SetPin             text26        10FEC
+__end_of_Port_SetPinType         text16        109FA
+__end_of_Port_SetQuadType        text3         10610
+__end_of_Port_SetType            text6         1083A
+__end_of_Timer0_ISR              text37        11AD8
+__end_of_Timer0_Restart          text25        11BA0
+__end_of_Timer0_Stop             text24        11BCC
+__end_of_Word_GetPair            text27        1199E
+__end_of_Word_SetPair            text17        118DE
+__end_of__initialization         cinit         113D6
+__end_of_delay_ms                text2         115D8
+__end_of_delay_us                text35        117B4
+__end_of_main                    text0         11A14
+__end_ofi2_Byte_GetPair          text43        11B54
+__end_ofi2_Byte_GetZone          text44        1156E
+__end_ofi2_Byte_SetBit           text45        11850
+__end_ofi2_MXK_Queue             text49        11B94
+__end_ofi2_MXK_Release           text48        11BD8
+__end_ofi2_MXK_SwitchTo          text46        11A4A
+__end_ofi2_Motor_Step            text38        10F28
+__end_ofi2_Port_SetPin           text41        1114C
+__end_ofi2_Timer0_Restart        text40        11BAC
+__end_ofi2_Timer0_Stop           text39        11BD2
+__end_ofi2_Word_GetPair          text42        11AAA
+__end_ofi2_delay_us              text47        11960
+__initialization                 cinit         1133E
+__mediumconst                    mediumconst   0FD2E
+__pbssBANK0                      bssBANK0      00060
+__pbssBANK1                      bssBANK1      00100
+__pbssBIGRAM                     bssBIGRAM     00210
+__pbssCOMRAM                     bssCOMRAM     00025
+__pcinit                         cinit         1133E
+__pcstackBANK0                   cstackBANK0   000C8
+__pcstackBANK1                   cstackBANK1   001FA
+__pcstackBANK2                   cstackBANK2   00200
+__pcstackCOMRAM                  cstackCOMRAM  00001
+__pdataBANK0                     dataBANK0     000F8
+__pdataBANK1                     dataBANK1     001F2
+__pdataCOMRAM                    dataCOMRAM    00040
+__pidataBANK0                    idataBANK0    11BB5
+__pidataBANK1                    idataBANK1    11BBD
+__pidataCOMRAM                   idataCOMRAM   11BAC
+__pintcode                       intcode       01408
+__pmediumconst                   mediumconst   0FD2E
+__ptext0                         text0         119DC
+__ptext1                         text1         10B8C
+__ptext10                        text10        10000
+__ptext11                        text11        11B6A
+__ptext12                        text12        1114C
+__ptext13                        text13        111F2
+__ptext14                        text14        11298
+__ptext15                        text15        116A6
+__ptext16                        text16        1083A
+__ptext17                        text17        11898
+__ptext18                        text18        11AFA
+__ptext19                        text19        10FEC
+__ptext2                         text2         1156E
+__ptext20                        text20        1147C
+__ptext21                        text21        117B4
+__ptext22                        text22        11A4A
+__ptext23                        text23        10D06
+__ptext24                        text24        11BC6
+__ptext25                        text25        11B94
+__ptext26                        text26        10F28
+__ptext27                        text27        11960
+__ptext28                        text28        11B1C
+__ptext29                        text29        113E0
+__ptext3                         text3         103BA
+__ptext30                        text30        11642
+__ptext31                        text31        118DE
+__ptext32                        text32        11B54
+__ptext33                        text33        11B78
+__ptext34                        text34        1199E
+__ptext35                        text35        11762
+__ptext37                        text37        11AAA
+__ptext38                        text38        10E2A
+__ptext39                        text39        11BCC
+__ptext4                         text4         11AD8
+__ptext40                        text40        11BA0
+__ptext41                        text41        110A2
+__ptext42                        text42        11A7A
+__ptext43                        text43        11B3A
+__ptext44                        text44        114F8
+__ptext45                        text45        11804
+__ptext46                        text46        11A14
+__ptext47                        text47        11920
+__ptext48                        text48        11BD2
+__ptext49                        text49        11B86
+__ptext5                         text5         109FA
+__ptext50                        text50        00000
+__ptext6                         text6         10610
+__ptext7                         text7         11850
+__ptext8                         text8         11708
+__ptext9                         text9         115D8
+__ramtop                         ramtop        01000
+__size_of_Byte_GetPair           (abs)         00000
+__size_of_Byte_GetZone           (abs)         00000
+__size_of_Byte_SetBit            (abs)         00000
+__size_of_Byte_SetByte           (abs)         00000
+__size_of_Byte_SetPair           (abs)         00000
+__size_of_Byte_SetQuad           (abs)         00000
+__size_of_Byte_SetZone           (abs)         00000
+__size_of_GetPortPORT            (abs)         00000
+__size_of_GetPortProperties      (abs)         00000
+__size_of_GetPortTRIS            (abs)         00000
+__size_of_ISR_Function           (abs)         00000
+__size_of_LED_Init               (abs)         00000
+__size_of_LED_Set                (abs)         00000
+__size_of_MXK_BlockSwitchTo      (abs)         00000
+__size_of_MXK_Dequeue            (abs)         00000
+__size_of_MXK_Init               (abs)         00000
+__size_of_MXK_Queue              (abs)         00000
+__size_of_MXK_Release            (abs)         00000
+__size_of_MXK_SwitchTo           (abs)         00000
+__size_of_Motor_Step             (abs)         00000
+__size_of_PortProperty_Valid     (abs)         00000
+__size_of_Port_CheckPairType     (abs)         00000
+__size_of_Port_CheckPortType     (abs)         00000
+__size_of_Port_CheckQuadType     (abs)         00000
+__size_of_Port_Init              (abs)         00000
+__size_of_Port_Set               (abs)         00000
+__size_of_Port_SetPin            (abs)         00000
+__size_of_Port_SetPinType        (abs)         00000
+__size_of_Port_SetQuadType       (abs)         00000
+__size_of_Port_SetType           (abs)         00000
+__size_of_Timer0_ISR             (abs)         00000
+__size_of_Timer0_Restart         (abs)         00000
+__size_of_Timer0_Stop            (abs)         00000
+__size_of_Word_GetPair           (abs)         00000
+__size_of_Word_SetPair           (abs)         00000
+__size_of_delay_ms               (abs)         00000
+__size_of_delay_us               (abs)         00000
+__size_of_main                   (abs)         00000
+__size_ofi2_Byte_GetPair         (abs)         00000
+__size_ofi2_Byte_GetZone         (abs)         00000
+__size_ofi2_Byte_SetBit          (abs)         00000
+__size_ofi2_MXK_Queue            (abs)         00000
+__size_ofi2_MXK_Release          (abs)         00000
+__size_ofi2_MXK_SwitchTo         (abs)         00000
+__size_ofi2_Motor_Step           (abs)         00000
+__size_ofi2_Port_SetPin          (abs)         00000
+__size_ofi2_Timer0_Restart       (abs)         00000
+__size_ofi2_Timer0_Stop          (abs)         00000
+__size_ofi2_Word_GetPair         (abs)         00000
+__size_ofi2_delay_us             (abs)         00000
+__smallconst                     smallconst    00000
+_change                          dataCOMRAM    00045
+_clearall                        bssCOMRAM     0003F
+_delay_ms                        text2         1156E
+_delay_us                        text35        11762
+_gBackcolour                     bssCOMRAM     00032
+_gCharSize                       dataBANK0     000F8
+_gCursor                         dataCOMRAM    00040
+_gForecolour                     dataBANK0     000FC
+_gISR                            bssBANK0      00068
+_gLineSize                       dataBANK1     001F6
+_i                               bssBANK0      00074
+_j                               bssBANK0      00073
+_l                               dataCOMRAM    00047
+_lBuffer                         bssBIGRAM     00210
+_lBufferX                        bssCOMRAM     0003E
+_lBufferY                        bssCOMRAM     0003D
+_lCBuffer                        bssBANK1      00100
+_lCurrent                        bssCOMRAM     0002E
+_lMotor                          bssCOMRAM     0002C
+_lQueue                          bssCOMRAM     00025
+_lStepFunction                   bssBANK0      0006B
+_main                            text0         119DC
+_pShiftVal                       bssCOMRAM     00028
+_u                               bssBANK0      00072
+_val                             bssBANK0      0006E
+_w                               dataCOMRAM    00048
+btemp                            temp          00049
+delay_ms@ms                      cstackBANK0   000C8
+delay_ms@u                       cstackBANK0   000CA
+delay_us@u                       cstackBANK0   000CA
+delay_us@us                      cstackBANK0   000C8
+end_of_initialization            cinit         113D6
+i2Byte_GetPair@pInput            cstackCOMRAM  0000A
+i2Byte_GetPair@pPair             cstackCOMRAM  0000C
+i2Byte_GetZone@MASK              cstackCOMRAM  00007
+i2Byte_GetZone@Offset            cstackCOMRAM  00008
+i2Byte_GetZone@Output            cstackCOMRAM  00009
+i2Byte_GetZone@pChunk            cstackCOMRAM  00004
+i2Byte_GetZone@pChunkSize        cstackCOMRAM  00005
+i2Byte_GetZone@pInput            cstackCOMRAM  00001
+i2Byte_GetZone@pMax              cstackCOMRAM  00003
+i2Byte_SetBit@pBit               cstackCOMRAM  00003
+i2Byte_SetBit@pInput             cstackCOMRAM  00001
+i2Byte_SetBit@pValue             cstackCOMRAM  00004
+i2MXK_Queue@pCallback            cstackCOMRAM  00001
+i2MXK_SwitchTo@CUR               cstackCOMRAM  00007
+i2MXK_SwitchTo@pModule           cstackCOMRAM  00008
+i2Port_SetPin@Type               cstackCOMRAM  00014
+i2Port_SetPin@pInput             cstackCOMRAM  00010
+i2Port_SetPin@pPin               cstackCOMRAM  00012
+i2Port_SetPin@pValue             cstackCOMRAM  00013
+i2Word_GetPair@pInput            cstackCOMRAM  0000D
+i2Word_GetPair@pPair             cstackCOMRAM  0000F
+i2_Byte_GetPair                  text43        11B3A
+i2_Byte_GetZone                  text44        114F8
+i2_Byte_SetBit                   text45        11804
+i2_MXK_Queue                     text49        11B86
+i2_MXK_Release                   text48        11BD2
+i2_MXK_SwitchTo                  text46        11A14
+i2_Motor_Step                    text38        10E2A
+i2_Port_SetPin                   text41        110A2
+i2_Timer0_Restart                text40        11BA0
+i2_Timer0_Stop                   text39        11BCC
+i2_Word_GetPair                  text42        11A7A
+i2_delay_us                      text47        11920
+i2delay_us@u                     cstackCOMRAM  00003
+i2delay_us@us                    cstackCOMRAM  00001
+int$flags                        temp          00049
+intlevel0                        text          00000
+intlevel1                        text          00000
+intlevel2                        text          00000
+intlevel3                        text          00000
+rand@screw                       bssCOMRAM     00039
+stackhi                          (abs)         00F3F
+stacklo                          (abs)         0033C
+start                            init          0148A
+start_initialization             cinit         1133E
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 22 in file "main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, pclath, tosl, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels required when called:   17
+ This function calls:
+		_MXK_BlockSwitchTo
+		_MXK_Dequeue
+		_MXK_Init
+		_MXK_Release
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _MXK_Init *****************
+ Defined at:
+		line 33 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   16
+ This function calls:
+		_LED_Init
+		_Port_Init
+		_Port_SetPin
+		_Port_SetPinType
+		_Port_SetQuadType
+		_Port_SetType
+		_delay_ms
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _delay_ms *****************
+ Defined at:
+		line 240 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  ms              2    0[BANK0 ] unsigned short 
+ Auto vars:     Size  Location     Type
+  u               4    2[BANK0 ] volatile unsigned long 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_MXK_Init
+		_LCD_Reset
+		_LCD_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_SetQuadType *****************
+ Defined at:
+		line 399 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2    3[BANK2 ] const PTR struct Port
+		 -> PortB(10), PortD(10), 
+  pQuad           1    5[BANK2 ] enum E6776
+  pType           1    6[BANK2 ] enum E6795
+ Auto vars:     Size  Location     Type
+  Output          1   47[BANK0 ] enum E6475
+ Return value:  Size  Location     Type
+                  1    wreg      enum E6475
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       4       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       1       0       4       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   13
+ This function calls:
+		_Byte_SetQuad
+		_Port_CheckQuadType
+		_Word_SetPair
+ This function is called by:
+		_MXK_Init
+		_MXK_InitDIPSwitch
+ This function uses a non-reentrant model
+
+
+ *************** function _Byte_SetQuad *****************
+ Defined at:
+		line 101 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2   11[BANK0 ] PTR struct Byte
+		 -> SSP2CON1(1), SSP1CON1(1), TRISG(1), TRISF(1), 
+		 -> TRISE(1), TRISD(1), TRISC(1), TRISB(1), 
+		 -> TRISA(1), PORTG(1), PORTF(1), PORTE(1), 
+		 -> PORTD(1), PORTC(1), PORTB(1), PORTA(1), 
+		 -> NULL(0), 
+  pQuad           1   13[BANK0 ] unsigned char 
+  pValue          1   14[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    8
+ This function calls:
+		_Byte_SetZone
+ This function is called by:
+		_Port_SetQuadType
+		_Port_SetQuad
+		_SPI_Init
+		_SPI_MinSpeed
+		_SPI_MaxSpeed
+		_Word_SetQuad
+		_I2C_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_Init *****************
+ Defined at:
+		line 150 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2   10[BANK2 ] const PTR struct Port
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortC(10), PortF(10), 
+  pPort           1   12[BANK2 ] enum E6786
+ Auto vars:     Size  Location     Type
+  i               1   15[BANK2 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       6       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   15
+ This function calls:
+		_GetPortPORT
+		_GetPortProperties
+		_GetPortTRIS
+		_Port_Set
+		_Port_SetPinType
+		_Port_SetType
+		_Word_GetPair
+ This function is called by:
+		_MXK_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_SetType *****************
+ Defined at:
+		line 513 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2    6[BANK2 ] const PTR struct Port
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortC(10), PortF(10), 
+  pType           1    8[BANK2 ] enum E6795
+ Auto vars:     Size  Location     Type
+  Output          1    9[BANK2 ] enum E6475
+ Return value:  Size  Location     Type
+                  1    wreg      enum E6475
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       1       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       2       4       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   14
+ This function calls:
+		_Port_CheckPortType
+		_Word_SetPair
+ This function is called by:
+		_Port_Init
+		_MXK_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_CheckPortType *****************
+ Defined at:
+		line 138 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2    3[BANK2 ] const PTR struct Port
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortC(10), PortF(10), 
+  pDrive          1    5[BANK2 ] enum E6469
+ Auto vars:     Size  Location     Type
+  Output          1   47[BANK0 ] enum E6475
+ Return value:  Size  Location     Type
+                  1    wreg      enum E6475
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       1       0       3       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   13
+ This function calls:
+		_Port_CheckQuadType
+ This function is called by:
+		_Port_SetType
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_CheckQuadType *****************
+ Defined at:
+		line 126 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2    0[BANK1 ] const PTR struct Port
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortC(10), PortF(10), 
+  pQuad           1    2[BANK1 ] enum E6776
+  pDrive          1    3[BANK1 ] enum E6469
+ Auto vars:     Size  Location     Type
+  Output          1    2[BANK2 ] enum E6475
+  Pair2           1    1[BANK2 ] enum E6760
+  Pair1           1    0[BANK2 ] enum E6760
+ Return value:  Size  Location     Type
+                  1    wreg      enum E6475
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       3       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       4       3       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   12
+ This function calls:
+		_Port_CheckPairType
+ This function is called by:
+		_Port_CheckPortType
+		_Port_SetQuadType
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_CheckPairType *****************
+ Defined at:
+		line 112 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2   38[BANK0 ] const PTR struct Port
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortC(10), PortF(10), 
+  pPair           1   40[BANK0 ] enum E6760
+  pDrive          1   41[BANK0 ] enum E6469
+ Auto vars:     Size  Location     Type
+  Props           2   45[BANK0 ] PTR struct PortProperty
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortG_Property(2), PortF_Property(2), PortE_Property(2), 
+		 -> PortD_Property(2), PortC_Property(2), PortB_Property(2), PortA_Property(2), 
+		 -> PortC(10), PortF(10), NULL(0), 
+  Output          1   44[BANK0 ] enum E6475
+  Pin2            1   43[BANK0 ] enum E6750
+  Pin1            1   42[BANK0 ] enum E6750
+ Return value:  Size  Location     Type
+                  1    wreg      enum E6475
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       9       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   11
+ This function calls:
+		_PortProperty_Valid
+ This function is called by:
+		_Port_CheckQuadType
+		_Port_SetPairType
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_Set *****************
+ Defined at:
+		line 570 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2   15[BANK0 ] const PTR struct Port
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortC(10), PortF(10), 
+  pValue          1   17[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  TypeActual      2   36[BANK0 ] unsigned short 
+  TypeRequired    2   34[BANK0 ] unsigned short 
+  Type            1   38[BANK0 ] enum E6795
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0      16       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0      24       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       24 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   10
+ This function calls:
+		_Byte_SetByte
+		_Word_GetPair
+ This function is called by:
+		_Port_Init
+		_Port_Toggle
+ This function uses a non-reentrant model
+
+
+ *************** function _Byte_SetByte *****************
+ Defined at:
+		line 110 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2    0[BANK0 ] PTR struct Byte
+		 -> SSP2CON2(1), SSP1CON2(1), TRISG(1), TRISF(1), 
+		 -> TRISE(1), TRISD(1), TRISC(1), TRISB(1), 
+		 -> TRISA(1), PORTG(1), PORTF(1), PORTE(1), 
+		 -> PORTD(1), PORTC(1), PORTB(1), PORTA(1), 
+		 -> NULL(0), 
+  pValue          1    2[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		fsr2l, fsr2h
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Port_Set
+		_I2C_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _GetPortTRIS *****************
+ Defined at:
+		line 67 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          1    wreg     enum E6786
+ Auto vars:     Size  Location     Type
+  pInput          1    2[BANK0 ] enum E6786
+ Return value:  Size  Location     Type
+                  2    0[BANK0 ] PTR struct Byte
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Port_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _GetPortProperties *****************
+ Defined at:
+		line 21 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          1    wreg     enum E6786
+ Auto vars:     Size  Location     Type
+  pInput          1    2[BANK0 ] enum E6786
+ Return value:  Size  Location     Type
+                  2    0[BANK0 ] PTR struct PortProperty
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Port_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _GetPortPORT *****************
+ Defined at:
+		line 44 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          1    wreg     enum E6786
+ Auto vars:     Size  Location     Type
+  pInput          1    2[BANK0 ] enum E6786
+ Return value:  Size  Location     Type
+                  2    0[BANK0 ] PTR struct Byte
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Port_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _LED_Init *****************
+ Defined at:
+		line 15 in file "Library/LED.c"
+ Parameters:    Size  Location     Type
+  pLED            1    wreg     enum E6739
+ Auto vars:     Size  Location     Type
+  pLED            1   45[BANK0 ] enum E6739
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   12
+ This function calls:
+		_LED_Set
+		_Port_SetPinType
+ This function is called by:
+		_MXK_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_SetPinType *****************
+ Defined at:
+		line 189 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2   38[BANK0 ] const PTR struct Port
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortC(10), PortF(10), 
+  pPin            1   40[BANK0 ] enum E6750
+  pType           1   41[BANK0 ] enum E6795
+ Auto vars:     Size  Location     Type
+  Props           2   43[BANK0 ] PTR struct PortProperty
+		 -> PortG_Property(2), PortF_Property(2), PortE_Property(2), PortD_Property(2), 
+		 -> PortC_Property(2), PortB_Property(2), PortA_Property(2), NULL(0), 
+  Output          1   42[BANK0 ] enum E6475
+ Return value:  Size  Location     Type
+                  1    wreg      enum E6475
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       7       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   11
+ This function calls:
+		_Byte_SetBit
+		_PortProperty_Valid
+		_Word_SetPair
+ This function is called by:
+		_LED_Init
+		_Port_Init
+		_MXK_Init
+		_Configure_GPIOs
+		_SPI_Init
+		_I2C_Init
+		_Motor_Init
+		_MXK_InitTestButton
+ This function uses a non-reentrant model
+
+
+ *************** function _Word_SetPair *****************
+ Defined at:
+		line 149 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2   15[BANK0 ] PTR struct Word
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortC(10), PortF(10), 
+  pPair           1   17[BANK0 ] unsigned char 
+  pValue          1   18[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    9
+ This function calls:
+		_Byte_SetPair
+ This function is called by:
+		_Port_SetPinType
+		_Port_SetQuadType
+		_Port_SetType
+		_Port_SetPairType
+		_PortProperty_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Byte_SetPair *****************
+ Defined at:
+		line 83 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2   11[BANK0 ] PTR struct Byte
+		 -> PortF..(2), PortC..(2), PortD..(2), PortE..(2), 
+		 -> PortB..(2), PortA..(2), PortG..(2), PortG(10), 
+		 -> PortA(10), PortB(10), PortE(10), PortD(10), 
+		 -> TRISG(1), TRISF(1), TRISE(1), TRISD(1), 
+		 -> TRISC(1), TRISB(1), TRISA(1), PORTG(1), 
+		 -> PORTF(1), PORTE(1), PORTD(1), PORTC(1), 
+		 -> PORTB(1), PORTA(1), PortC(10), PortF(10), 
+		 -> NULL(0), 
+  pPair           1   13[BANK0 ] unsigned char 
+  pValue          1   14[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    8
+ This function calls:
+		_Byte_SetZone
+ This function is called by:
+		_Word_SetPair
+		_Port_SetPairType
+		_Port_SetPair
+ This function uses a non-reentrant model
+
+
+ *************** function _Byte_SetZone *****************
+ Defined at:
+		line 47 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2    0[BANK0 ] PTR struct Byte
+		 -> PortF..(2), PortC..(2), PortD..(2), PortE..(2), 
+		 -> PortB..(2), PortA..(2), PortG..(2), PortG(10), 
+		 -> PortA(10), PortB(10), PortE(10), SSP2CON1(1), 
+		 -> PortD(10), SSP1CON1(1), TRISG(1), TRISF(1), 
+		 -> TRISE(1), TRISD(1), TRISC(1), TRISB(1), 
+		 -> TRISA(1), PORTG(1), PORTF(1), PORTE(1), 
+		 -> PORTD(1), PORTC(1), PORTB(1), PORTA(1), 
+		 -> PortC(10), PortF(10), NULL(0), 
+  pMax            1    2[BANK0 ] unsigned char 
+  pChunk          1    3[BANK0 ] unsigned char 
+  pChunkSize      1    4[BANK0 ] unsigned char 
+  pValue          1    5[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  MASK            1   10[BANK0 ] unsigned char 
+  Offset          1    9[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0      11       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       11 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Byte_SetPair
+		_Byte_SetQuad
+		_Byte_SetTriple
+ This function uses a non-reentrant model
+
+
+ *************** function _PortProperty_Valid *****************
+ Defined at:
+		line 220 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2   15[BANK0 ] PTR struct PortProperty
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortG_Property(2), PortF_Property(2), PortE_Property(2), 
+		 -> PortD_Property(2), PortC_Property(2), PortB_Property(2), PortA_Property(2), 
+		 -> PortC(10), PortF(10), NULL(0), 
+  pPinDrive       1   17[BANK0 ] enum E6469
+  pPin            1   18[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  Errors         16   21[BANK0 ] const enum E6475[4][4]
+  Pair            1   37[BANK0 ] enum E6469
+ Return value:  Size  Location     Type
+                  1    wreg      enum E6475
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0      17       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0      23       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       23 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   10
+ This function calls:
+		_Word_GetPair
+ This function is called by:
+		_Port_CheckPairType
+		_Port_SetPinType
+ This function uses a non-reentrant model
+
+
+ *************** function _LED_Set *****************
+ Defined at:
+		line 33 in file "Library/LED.c"
+ Parameters:    Size  Location     Type
+  pLED            1    wreg     enum E6739
+  pValue          1   20[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  pLED            1   21[BANK0 ] enum E6739
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   11
+ This function calls:
+		_Port_SetPin
+ This function is called by:
+		_LED_Init
+		_SYSTEM_Initialize
+ This function uses a non-reentrant model
+
+
+ *************** function _MXK_Dequeue *****************
+ Defined at:
+		line 153 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, pclath, tosl, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   12
+ This function calls:
+		Absolute function
+		_Motor_Step
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _Motor_Step *****************
+ Defined at:
+		line 75 in file "Library/Motor.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   11
+ This function calls:
+		_MXK_Queue
+		_MXK_Release
+		_MXK_SwitchTo
+		_Port_SetPin
+		_Timer0_Restart
+		_Timer0_Stop
+ This function is called by:
+		_Motor_Init
+		_Timer0_ISR
+		_MXK_Dequeue
+ This function uses a non-reentrant model
+
+
+ *************** function _Timer0_Stop *****************
+ Defined at:
+		line 89 in file "Library/Timer0.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function _Timer0_Restart *****************
+ Defined at:
+		line 83 in file "Library/Timer0.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function _Port_SetPin *****************
+ Defined at:
+		line 247 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2   15[BANK0 ] const PTR struct Port
+		 -> PortG(10), PortE(10), PortC(10), PortF(10), 
+  pPin            1   17[BANK0 ] enum E6750
+  pValue          1   18[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  Type            1   19[BANK0 ] enum E6795
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:   10
+ This function calls:
+		_Byte_SetBit
+		_Word_GetPair
+ This function is called by:
+		_LED_Set
+		_Motor_Step
+		_MXK_Init
+		_Reset_Low
+		_Reset_High
+		_Port_TogglePin
+		_Motor_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Word_GetPair *****************
+ Defined at:
+		line 156 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2   12[BANK0 ] PTR struct Word
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortG_Property(2), PortF_Property(2), PortE_Property(2), 
+		 -> PortD_Property(2), PortC_Property(2), PortB_Property(2), PortA_Property(2), 
+		 -> PortC(10), PortF(10), NULL(0), 
+  pPair           1   14[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    9
+ This function calls:
+		_Byte_GetPair
+ This function is called by:
+		_Port_Init
+		_Port_SetPin
+		_Port_Set
+		_PortProperty_Valid
+		_Port_SetPair
+		_Port_SetQuad
+ This function uses a non-reentrant model
+
+
+ *************** function _Byte_GetPair *****************
+ Defined at:
+		line 87 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2    9[BANK0 ] PTR struct Byte
+		 -> PortA_Property..(2), PortB_Property..(2), PortC_Property..(2), PortD_Property..(2), 
+		 -> PortE_Property..(2), PortF_Property..(2), PortG_Property..(2), PortF..(2), 
+		 -> PortC..(2), PortD..(2), PortE..(2), PortB..(2), 
+		 -> PortA..(2), PortG..(2), PortG(10), PortA(10), 
+		 -> PortB(10), PortE(10), PortD(10), PortG_Property(2), 
+		 -> PortF_Property(2), PortE_Property(2), PortD_Property(2), PortC_Property(2), 
+		 -> PortB_Property(2), PortA_Property(2), PortC(10), PortF(10), 
+		 -> NULL(0), 
+  pPair           1   11[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    8
+ This function calls:
+		_Byte_GetZone
+ This function is called by:
+		_Word_GetPair
+ This function uses a non-reentrant model
+
+
+ *************** function _Byte_GetZone *****************
+ Defined at:
+		line 64 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2    0[BANK0 ] PTR struct Byte
+		 -> PortA_Property..(2), PortB_Property..(2), PortC_Property..(2), PortD_Property..(2), 
+		 -> PortE_Property..(2), PortF_Property..(2), PortG_Property..(2), PortF..(2), 
+		 -> PortC..(2), PortD..(2), PortE..(2), PortB..(2), 
+		 -> PortA..(2), PortG..(2), PortG(10), PortA(10), 
+		 -> PortB(10), PortE(10), PortD(10), PortG_Property(2), 
+		 -> PortF_Property(2), PortE_Property(2), PortD_Property(2), PortC_Property(2), 
+		 -> PortB_Property(2), PortA_Property(2), PortC(10), PortF(10), 
+		 -> NULL(0), 
+  pMax            1    2[BANK0 ] unsigned char 
+  pChunk          1    3[BANK0 ] unsigned char 
+  pChunkSize      1    4[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  Output          1    8[BANK0 ] unsigned char 
+  Offset          1    7[BANK0 ] unsigned char 
+  MASK            1    6[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       9       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Byte_GetPair
+		_Byte_GetTriple
+		_Byte_GetQuad
+ This function uses a non-reentrant model
+
+
+ *************** function _Byte_SetBit *****************
+ Defined at:
+		line 32 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2    0[BANK0 ] PTR struct Byte
+		 -> SSP2CON2(1), SSP1CON2(1), SSP2CON1(1), SSP2STAT(1), 
+		 -> SSP1CON1(1), SSP1STAT(1), TRISG(1), TRISF(1), 
+		 -> TRISE(1), TRISD(1), TRISC(1), TRISB(1), 
+		 -> TRISA(1), PORTG(1), PORTF(1), PORTE(1), 
+		 -> PORTD(1), PORTC(1), PORTB(1), PORTA(1), 
+		 -> NULL(0), 
+  pBit            1    2[BANK0 ] unsigned char 
+  pValue          1    3[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       7       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Port_SetPinType
+		_Port_SetPin
+		_SPI_Init
+		_SPI_MinSpeed
+		_SPI_MaxSpeed
+		_Word_SetBit
+		_I2C_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _MXK_SwitchTo *****************
+ Defined at:
+		line 105 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+  pModule         1    wreg     enum E6927
+ Auto vars:     Size  Location     Type
+  pModule         1    7[BANK0 ] enum E6927
+  CUR             1    6[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    8
+ This function calls:
+		_delay_us
+ This function is called by:
+		_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function _MXK_Release *****************
+ Defined at:
+		line 130 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Motor_Step
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _MXK_Queue *****************
+ Defined at:
+		line 144 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+  pCallback       3    0[BANK0 ] PTR FTN()void 
+		 -> Absolute function(1), Motor_Step(1), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function _MXK_BlockSwitchTo *****************
+ Defined at:
+		line 82 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+  pModule         1    wreg     enum E6927
+ Auto vars:     Size  Location     Type
+  pModule         1    7[BANK0 ] enum E6927
+  CUR             1    6[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    8
+ This function calls:
+		_delay_us
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _delay_us *****************
+ Defined at:
+		line 255 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  us              2    0[BANK0 ] unsigned short 
+ Auto vars:     Size  Location     Type
+  u               4    2[BANK0 ] unsigned long 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_MXK_BlockSwitchTo
+		_MXK_SwitchTo
+ This function uses a non-reentrant model
+
+
+ *************** function _ISR_Function *****************
+ Defined at:
+		line 38 in file "Library/ISR.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, pclath, tosl, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:         14       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        14       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       14 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_Timer0_ISR
+ This function is called by:
+		Interrupt level 2
+ This function uses a non-reentrant model
+
+
+ *************** function _Timer0_ISR *****************
+ Defined at:
+		line 94 in file "Library/Timer0.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, pclath, tosl, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		Absolute function
+		i2_Motor_Step
+		i2_Timer0_Stop
+ This function is called by:
+		_ISR_Function
+ This function uses a non-reentrant model
+
+
+ *************** function i2_Motor_Step *****************
+ Defined at:
+		line 75 in file "Library/Motor.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		i2_MXK_Queue
+		i2_MXK_Release
+		i2_MXK_SwitchTo
+		i2_Port_SetPin
+		i2_Timer0_Restart
+		i2_Timer0_Stop
+ This function is called by:
+ This function uses a non-reentrant model
+
+
+ *************** function i2_Timer0_Stop *****************
+ Defined at:
+		line 89 in file "Library/Timer0.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_Timer0_ISR
+		i2_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function i2_Timer0_Restart *****************
+ Defined at:
+		line 83 in file "Library/Timer0.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function i2_Port_SetPin *****************
+ Defined at:
+		line 247 in file "Library/Port.c"
+ Parameters:    Size  Location     Type
+  pInput          2   15[COMRAM] const PTR struct Port
+		 -> PortG(10), PortE(10), PortC(10), PortF(10), 
+  pPin            1   17[COMRAM] enum E6750
+  pValue          1   18[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  Port_SetPin     1   19[COMRAM] enum E6795
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		i2_Byte_SetBit
+		i2_Word_GetPair
+ This function is called by:
+		i2_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function i2_Word_GetPair *****************
+ Defined at:
+		line 156 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2   12[COMRAM] PTR struct Word
+		 -> PortG(10), PortA(10), PortB(10), PortE(10), 
+		 -> PortD(10), PortG_Property(2), PortF_Property(2), PortE_Property(2), 
+		 -> PortD_Property(2), PortC_Property(2), PortB_Property(2), PortA_Property(2), 
+		 -> PortC(10), PortF(10), NULL(0), 
+  pPair           1   14[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		i2_Byte_GetPair
+ This function is called by:
+		i2_Port_SetPin
+ This function uses a non-reentrant model
+
+
+ *************** function i2_Byte_GetPair *****************
+ Defined at:
+		line 87 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2    9[COMRAM] PTR struct Byte
+		 -> PortA_Property..(2), PortB_Property..(2), PortC_Property..(2), PortD_Property..(2), 
+		 -> PortE_Property..(2), PortF_Property..(2), PortG_Property..(2), PortF..(2), 
+		 -> PortC..(2), PortD..(2), PortE..(2), PortB..(2), 
+		 -> PortA..(2), PortG..(2), PortG(10), PortA(10), 
+		 -> PortB(10), PortE(10), PortD(10), PortG_Property(2), 
+		 -> PortF_Property(2), PortE_Property(2), PortD_Property(2), PortC_Property(2), 
+		 -> PortB_Property(2), PortA_Property(2), PortC(10), PortF(10), 
+		 -> NULL(0), 
+  pPair           1   11[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		i2_Byte_GetZone
+ This function is called by:
+		i2_Word_GetPair
+ This function uses a non-reentrant model
+
+
+ *************** function i2_Byte_GetZone *****************
+ Defined at:
+		line 64 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2    0[COMRAM] PTR struct Byte
+		 -> PortA_Property..(2), PortB_Property..(2), PortC_Property..(2), PortD_Property..(2), 
+		 -> PortE_Property..(2), PortF_Property..(2), PortG_Property..(2), PortF..(2), 
+		 -> PortC..(2), PortD..(2), PortE..(2), PortB..(2), 
+		 -> PortA..(2), PortG..(2), PortG(10), PortA(10), 
+		 -> PortB(10), PortE(10), PortD(10), PortG_Property(2), 
+		 -> PortF_Property(2), PortE_Property(2), PortD_Property(2), PortC_Property(2), 
+		 -> PortB_Property(2), PortA_Property(2), PortC(10), PortF(10), 
+		 -> NULL(0), 
+  pMax            1    2[COMRAM] unsigned char 
+  pChunk          1    3[COMRAM] unsigned char 
+  pChunkSize      1    4[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  Byte_GetZone    1    8[COMRAM] unsigned char 
+  Byte_GetZone    1    7[COMRAM] unsigned char 
+  Byte_GetZone    1    6[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         9       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_Byte_GetPair
+ This function uses a non-reentrant model
+
+
+ *************** function i2_Byte_SetBit *****************
+ Defined at:
+		line 32 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  pInput          2    0[COMRAM] PTR struct Byte
+		 -> SSP2CON2(1), SSP1CON2(1), SSP2CON1(1), SSP2STAT(1), 
+		 -> SSP1CON1(1), SSP1STAT(1), TRISG(1), TRISF(1), 
+		 -> TRISE(1), TRISD(1), TRISC(1), TRISB(1), 
+		 -> TRISA(1), PORTG(1), PORTF(1), PORTE(1), 
+		 -> PORTD(1), PORTC(1), PORTB(1), PORTA(1), 
+		 -> NULL(0), 
+  pBit            1    2[COMRAM] unsigned char 
+  pValue          1    3[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_Port_SetPin
+ This function uses a non-reentrant model
+
+
+ *************** function i2_MXK_SwitchTo *****************
+ Defined at:
+		line 105 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+  pModule         1    wreg     enum E6927
+ Auto vars:     Size  Location     Type
+  pModule         1    7[COMRAM] enum E6927
+  MXK_SwitchTo    1    6[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		i2_delay_us
+ This function is called by:
+		i2_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function i2_delay_us *****************
+ Defined at:
+		line 255 in file "Library/Types.c"
+ Parameters:    Size  Location     Type
+  us              2    0[COMRAM] unsigned short 
+ Auto vars:     Size  Location     Type
+  delay_us        4    2[COMRAM] unsigned long 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_MXK_SwitchTo
+ This function uses a non-reentrant model
+
+
+ *************** function i2_MXK_Release *****************
+ Defined at:
+		line 130 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_Motor_Step
+ This function uses a non-reentrant model
+
+
+ *************** function i2_MXK_Queue *****************
+ Defined at:
+		line 144 in file "Library/MXK.c"
+ Parameters:    Size  Location     Type
+  pCallback       3    0[COMRAM] PTR FTN()void 
+		 -> Absolute function(1), Motor_Step(1), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		i2_Motor_Step
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+Library/MXK.c
+		_MXK_BlockSwitchTo		CODE           	1199E	0000	63
+		_MXK_Release   		CODE           	11B54	0000	23
+		_MXK_Dequeue   		CODE           	11A4A	0000	49
+		_MXK_SwitchTo  		CODE           	118DE	0000	67
+		_MXK_Init      		CODE           	10B8C	0000	379
+		_MXK_Queue     		CODE           	11B78	0000	15
+
+Library/MXK.c estimated size: 596
+
+Library/Port.c
+		_GetPortTRIS   		CODE           	1114C	0000	167
+		_GetPortPORT   		CODE           	11298	0000	167
+		_Port_SetPinType		CODE           	1083A	0000	449
+		_Port_Init     		CODE           	109FA	0000	403
+		_GetPortProperties		CODE           	111F2	0000	167
+		_Port_Set      		CODE           	10000	0000	955
+		_Port_SetPin   		CODE           	10F28	0000	197
+		_Port_SetType  		CODE           	10610	0000	555
+		_Port_CheckQuadType		CODE           	11708	0000	91
+		_Port_CheckPairType		CODE           	115D8	0000	107
+		_Port_CheckPortType		CODE           	11850	0000	73
+		_Port_SetQuadType		CODE           	103BA	0000	599
+
+Library/Port.c estimated size: 3930
+
+Library/LED.c
+		_LED_Init      		CODE           	116A6	0000	99
+		_LED_Set       		CODE           	117B4	0000	81
+
+Library/LED.c estimated size: 180
+
+Library/Motor.c
+		_Motor_Step    		CODE           	10D06	0000	293
+
+Library/Motor.c estimated size: 293
+
+shared
+		_InitList      		MEDIUMCONST    	FD2F	0000	179
+		_PortE_Property		MEDIUMCONST    	FFF5	0000	3
+		i2_Byte_SetBit 		CODE           	11804	0000	77
+		_Font5x7       		MEDIUMCONST    	FE11	0000	481
+		i2_Motor_Step  		CODE           	10E2A	0000	255
+		Timer2_Init@PRESCALE		MEDIUMCONST    	FE0E	0000	4
+		_PortF_Property		MEDIUMCONST    	FFF3	0000	3
+		i2_Byte_GetZone		CODE           	114F8	0000	119
+		i2_Byte_GetPair		CODE           	11B3A	0000	27
+		_PortA_Property		MEDIUMCONST    	FFFD	0000	3
+		i2_Timer0_Stop 		CODE           	11BCC	0000	7
+		_PortG_Property		MEDIUMCONST    	FFF1	0000	3
+		i2_Timer0_Restart		CODE           	11BA0	0000	13
+		HMI_SetButton@F7213		MEDIUMCONST    	FE0A	0000	5
+		__initialization		CODE           	1133E	0000	153
+		i2_MXK_SwitchTo		CODE           	11A14	0000	55
+		_PortB_Property		MEDIUMCONST    	FFFB	0000	3
+		_MASKS         		MEDIUMCONST    	FE01	0000	10
+		i2_Word_GetPair		CODE           	11A7A	0000	49
+		i2_Port_SetPin 		CODE           	110A2	0000	171
+		i2_MXK_Release 		CODE           	11BD2	0000	7
+		_PortC_Property		MEDIUMCONST    	FFF9	0000	3
+		PortProperty_Valid@F6830		MEDIUMCONST    	FDF1	0000	17
+		Timer0_Init@PRESCALE		MEDIUMCONST    	FDE1	0000	17
+		i2_delay_us    		CODE           	11920	0000	65
+		_PortD_Property		MEDIUMCONST    	FFF7	0000	3
+		i2_MXK_Queue   		CODE           	11B86	0000	15
+
+shared estimated size: 1747
+
+Library/ISR.c
+		_ISR_Function  		CODE           	1408	0000	131
+
+Library/ISR.c estimated size: 131
+
+main.c
+		_main          		CODE           	119DC	0000	57
+
+main.c estimated size: 57
+
+Library/Types.c
+		_Word_GetPair  		CODE           	11960	0000	63
+		_delay_us      		CODE           	11762	0000	83
+		_Word_SetPair  		CODE           	11898	0000	71
+		_Byte_GetZone  		CODE           	113E0	0000	157
+		_Byte_GetPair  		CODE           	11B1C	0000	31
+		_Byte_SetBit   		CODE           	11642	0000	101
+		_Byte_SetQuad  		CODE           	11AD8	0000	35
+		_Byte_SetZone  		CODE           	10FEC	0000	183
+		_Byte_SetByte  		CODE           	11B6A	0000	15
+		_Byte_SetPair  		CODE           	11AFA	0000	35
+		_delay_ms      		CODE           	1156E	0000	107
+		_PortProperty_Valid		CODE           	1147C	0000	125
+
+Library/Types.c estimated size: 1006
+
+Library/Timer0.c
+		_Timer0_ISR    		CODE           	11AAA	0000	47
+		_Timer0_Stop   		CODE           	11BC6	0000	7
+		_Timer0_Restart		CODE           	11B94	0000	13
+
+Library/Timer0.c estimated size: 67
+
