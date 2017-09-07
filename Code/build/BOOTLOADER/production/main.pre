@@ -1,17 +1,17 @@
 
 # 1 "main.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h"
 extern volatile unsigned short PMSTAT @ 0xF40;
 
 asm("PMSTAT equ 0F40h");
@@ -7895,7 +7895,7 @@ extern volatile __bit nW2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
 extern volatile __bit nWRITE2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
-# 18 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -7922,6 +7922,53 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdbool.h"
+typedef unsigned char bool;
+
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\__size_t.h"
+typedef unsigned size_t;
+
+# 14 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 36
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
 
 # 18 "ProcessorConfig.h"
 #pragma config XINST = OFF
@@ -7935,9 +7982,6 @@ extern __nonreentrant void _delay3(unsigned char);
 #pragma config WDTPS = 32768
 #pragma config MSSPMSK = MSK5
 #pragma config CCP2MX = DEFAULT
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdbool.h"
-typedef unsigned char bool;
 
 # 273 "Library\Types.h"
 typedef unsigned int bits;
@@ -8462,6 +8506,90 @@ UINT8 MXK_DIPSwitch();
 UINT8 MXK_ReadIO();
 UINT8 MXK_ReadISR();
 
+# 16 "Library\HMI.h"
+typedef struct HMI HMI;
+typedef HMI * const HMIPtr;
+extern HMI HMIBoard;
+
+struct HMI
+{
+
+union
+{
+UINT8 Bytes[8];
+struct
+{
+UINT8 pSevenSegment[6];
+union
+{
+struct
+{
+UINT8 pButton : 4;
+UINT8 : 4;
+};
+
+struct
+{
+UINT8 GLED : 1;
+UINT8 RLED : 1;
+UINT8 BLED : 1;
+UINT8 YLED : 1;
+UINT8 : 4;
+};
+
+struct
+{
+UINT8 UPLED : 1;
+UINT8 DOWNLED : 1;
+UINT8 LEFTLED : 1;
+UINT8 RIGHTLED : 1;
+UINT8 : 4;
+};
+};
+UINT8 pBarGraph;
+};
+};
+
+# 63
+Button mRight, mLeft, mUp, mDown;
+Button mDIP;
+};
+
+# 71
+void HMI_InitButtons ();
+
+
+UINT8 HMI_DIPSwitch ();
+UINT8 HMI_LeftSwitch ();
+UINT8 HMI_RightSwitch ();
+UINT8 HMI_UpSwitch ();
+UINT8 HMI_DownSwitch ();
+
+# 84
+void HMI_Init ();
+
+void HMI_Render ();
+void HMI_GRender ();
+
+void HMI_SetLeft (UINT8 pValue);
+void HMI_SetRight (UINT8 pValue);
+void HMI_SetUp (UINT8 pValue);
+void HMI_SetDown (UINT8 pValue);
+UINT8 HMI_GetBar ();
+
+void HMI_SetButton (UINT8 pValue);
+void HMI_SetButtons (UINT8 pValue);
+
+
+void HMI_SetBar (UINT8 pValue);
+
+
+void HMI_SetBargraph (UINT8 pValue);
+void HMI_SetNumber (int pInput);
+void HMI_SetSegments (str pString);
+
+void HMI_Poll ();
+
 # 14 "Functions.h"
 extern UINT8 i, j, u;
 extern Button TestButton;
@@ -8505,29 +8633,17 @@ inline void Console_SetBackcolour (Colour pColour);
 inline void Console_SetForecolourRGB(UINT8 r, UINT8 g, UINT8 b);
 inline void Console_SetBackcolourRGB(UINT8 r, UINT8 g, UINT8 b);
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h"
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\errno.h"
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\errno.h"
 extern int errno;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\conio.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -8541,7 +8657,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -8650,91 +8766,384 @@ void LED_Set(eLEDS pLED, UINT8 pValue);
 # 42
 void LED_Toggle(eLEDS pLED);
 
-# 16 "Library\HMI.h"
-typedef struct HMI HMI;
-typedef HMI * const HMIPtr;
-extern HMI HMIBoard;
-
-struct HMI
-{
-
-union
-{
-UINT8 Bytes[8];
-struct
-{
-UINT8 pSevenSegment[6];
-union
-{
-struct
-{
-UINT8 pButton : 4;
-UINT8 : 4;
-};
-
-struct
-{
-UINT8 GLED : 1;
-UINT8 RLED : 1;
-UINT8 BLED : 1;
-UINT8 YLED : 1;
-UINT8 : 4;
-};
-
-struct
-{
-UINT8 UPLED : 1;
-UINT8 DOWNLED : 1;
-UINT8 LEFTLED : 1;
-UINT8 RIGHTLED : 1;
-UINT8 : 4;
-};
-};
-UINT8 pBarGraph;
-};
-};
-
-# 63
-Button mRight, mLeft, mUp, mDown;
-Button mDIP;
-};
-
-# 71
-void HMI_InitButtons ();
+# 41 "main.c"
+typedef enum{
+iR_START = 128,
+iR_FULL_MODE = 132,
+iR_DRIVE = 137,
+iR_LEDS = 139,
+iR_SONG_INIT = 140,
+iR_SONG_PLAY = 141,
+iR_SENSORS = 142,
+iR_DIRECT_DRIVE = 145,
+iR_STREAM = 148,
+iR_QUERY_LIST = 149,
+iR_SCRIPT = 152,
+iR_SCRIPT_PLAY = 153,
+iR_WAIT_TIME = 155,
+iR_WAIT_DISTANCE = 156,
+iR_WAIT_ANGLE = 157,
+iR_WAIT_EVENT = 158,
+}iR_OPCODE;
 
 
-UINT8 HMI_DIPSwitch ();
-UINT8 HMI_LeftSwitch ();
-UINT8 HMI_RightSwitch ();
-UINT8 HMI_UpSwitch ();
-UINT8 HMI_DownSwitch ();
-
-# 84
-void HMI_Init ();
-
-void HMI_Render ();
-void HMI_GRender ();
-
-void HMI_SetLeft (UINT8 pValue);
-void HMI_SetRight (UINT8 pValue);
-void HMI_SetUp (UINT8 pValue);
-void HMI_SetDown (UINT8 pValue);
-UINT8 HMI_GetBar ();
-
-void HMI_SetButton (UINT8 pValue);
-void HMI_SetButtons (UINT8 pValue);
+typedef enum{
+iR_PKT_BUMP_DROP = 7,
+iR_PKT_WALL = 8,
+iR_PKT_CLIFF_L = 9,
+iR_PKT_CLIFF_FL = 10,
+iR_PKT_CLIFF_FR = 11,
+iR_PKT_CLIFF_R = 12,
+iR_PKT_V_WALL = 13,
+iR_PKT_DISTANCE = 19,
+iR_PKT_ANGLE = 20,
+}iR_PACKET;
 
 
-void HMI_SetBar (UINT8 pValue);
+typedef enum{
+iR_PKT_BUMP_DROP_BN = 1,
+iR_PKT_WALL_BN = 1,
+iR_PKT_CLIFF_L_BN = 1,
+iR_PKT_CLIFF_FL_BN = 1,
+iR_PKT_CLIFF_FR_BN = 1,
+iR_PKT_CLIFF_R_BN = 1,
+iR_PKT_V_WALL_BN = 1,
+iR_PKT_DISTANCE_BN = 2,
+iR_PKT_ANGLE_BN = 2,
+}iR_PACKET_SIZE;
 
 
-void HMI_SetBargraph (UINT8 pValue);
-void HMI_SetNumber (int pInput);
-void HMI_SetSegments (str pString);
+typedef enum{
+iR_CONST_STRAIGHT_1 = 0x8000,
+iR_CONST_STRAIGHT_2 = 0x7FFF,
+iR_CONST_CW = 0xFFFF,
+iR_CONST_CCW = 0x1,
+iR_CONST_GREEN = 0x0,
+iR_CONST_YELLOW = 0x55,
+iR_CONST_ORANGE = 0xAA,
+iR_CONST_RED = 0xFF,
+iR_CONST_LED_ON = 0xFF,
+}iR_CONSTANTS;
 
-void HMI_Poll ();
 
-# 22 "main.c"
+
+
+UINT8 get_packet_size(UINT8 packetID);
+void rx_assign(UINT8 packetID, UINT8 packetIDValue, UINT8 byteNumber);
+void sort_iRBumpDrop(void);
+
+void eusart_init(void);
+void eusart_putch(UINT8 eusartSendChar);
+UINT8 eusart_getch(void);
+void irobot_query_and_update(UINT8 numberOfPacketRequests, ...);
+
+UINT16 twos_complement_of(INT16 complementValue);
+void load_iRScriptStack(UINT8 bytesToLoad, ...);
+void irobot_script_play(void);
+void irobot_init(void);
+void irobot_angle_wait(INT16 angleWait);
+void irobot_distance_wait(INT16 distanceWait);
+void irobot_move(bool isScript, INT16 moveSpeed, INT16 moveTurnRadius);
+void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLuminosity);
+
+void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed);
+void irobot_stop_motion(bool isScript);
+void irobot_led_power_on(UINT8 powerOnColour);
+void irobot_led_power_off(void);
+void irobot_move_straight(INT16 straightSpeed);
+void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed);
+void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed);
+
+# 132
+typedef struct{
+UINT16 HB, LB;
+} splitShort;
+
+splitShort iRDistanceSS, iRAngleSS;
+
+UINT16
+iRDistance,
+iRAngle;
+
+# 147
+UINT8
+iRScriptStack [100],
+iRScriptIndex = 0,
+iRBumpDrop,
+iRWall,
+iRCliffL,
+iRCliffFL,
+iRCliffFR,
+iRCliffR,
+iRVirtualWall;
+
+bool
+iRBumpRight,
+iRBumpLeft,
+iRDropRight,
+iRDropLeft,
+iRDropCaster;
+
+
+
+
+UINT8 get_packet_size(UINT8 packetID){
+switch (packetID){
+case iR_PKT_BUMP_DROP: return iR_PKT_BUMP_DROP_BN;
+case iR_PKT_WALL: return iR_PKT_WALL_BN;
+case iR_PKT_CLIFF_L: return iR_PKT_CLIFF_L_BN;
+case iR_PKT_CLIFF_FL: return iR_PKT_CLIFF_FL_BN;
+case iR_PKT_CLIFF_FR: return iR_PKT_CLIFF_FR_BN;
+case iR_PKT_CLIFF_R: return iR_PKT_CLIFF_R_BN;
+case iR_PKT_V_WALL: return iR_PKT_V_WALL_BN;
+case iR_PKT_DISTANCE: return iR_PKT_DISTANCE_BN;
+case iR_PKT_ANGLE: return iR_PKT_ANGLE_BN;
+}
+}
+
+void rx_assign(UINT8 packetID, UINT8 packetIDValue, UINT8 byteNumber){
+switch (packetID){
+case iR_PKT_BUMP_DROP: iRBumpDrop = packetIDValue; sort_iRBumpDrop(); break;
+case iR_PKT_WALL: iRWall = packetIDValue; break;
+case iR_PKT_CLIFF_L: iRCliffL = packetIDValue; break;
+case iR_PKT_CLIFF_FL: iRCliffFL = packetIDValue; break;
+case iR_PKT_CLIFF_FR: iRCliffFR = packetIDValue; break;
+case iR_PKT_CLIFF_R: iRCliffR = packetIDValue; break;
+case iR_PKT_V_WALL: iRVirtualWall = packetIDValue; break;
+case iR_PKT_DISTANCE:
+(byteNumber == 0) ? (iRDistanceSS.HB = packetIDValue) : (iRDistanceSS.LB = packetIDValue,
+iRDistance = ((iRDistanceSS.HB)<<8) + iRDistanceSS.LB); break;
+case iR_PKT_ANGLE:
+(byteNumber == 0) ? (iRAngleSS.HB = packetIDValue) : (iRAngleSS.LB = packetIDValue,
+iRAngle = ((iRAngleSS.HB)<<8) + iRAngleSS.LB); break;
+}
+}
+
+void sort_iRBumpDrop(void){
+(iRBumpDrop & 0x1) ? (iRBumpRight = 1) : (iRBumpRight = 0);
+((iRBumpDrop >> 0x1) & (0x1)) ? (iRBumpLeft = 1) : (iRBumpLeft = 0);
+((iRBumpDrop >> 0x2) & (0x1)) ? (iRDropRight = 1) : (iRDropRight = 0);
+((iRBumpDrop >> 0x3) & (0x1)) ? (iRDropLeft = 1) : (iRDropLeft = 0);
+((iRBumpDrop >> 0x4) & (0x1)) ? (iRDropCaster = 1) : (iRDropCaster = 0);
+}
+
+
+
+
+void eusart_init(void){
+TRISCbits.TRISC6 = 0;
+TRISCbits.TRISC7 = 1;
+
+TXSTA1 = 0b00100100;
+RCSTA1 = 0b10011000;
+
+BAUDCON1bits.DTRXP = 0;
+BAUDCON1bits.SCKP = 0;
+BAUDCON1bits.WUE = 0;
+BAUDCON1bits.ABDEN = 0;
+
+TXSTA1bits.BRGH = 1;
+BAUDCON1bits.BRG16 = 0;
+SPBRG1 = 51;
+}
+
+void eusart_putch(UINT8 eusartSendChar){
+while (!TXSTA1bits.TRMT) {};
+TXREG1 = eusartSendChar;
+}
+
+UINT8 eusart_getch(void){
+while (!PIR1bits.RC1IF) {};
+return RCREG1;
+}
+
+void irobot_query_and_update(UINT8 numberOfPacketRequests, ...){
+UINT8 i, j, packetVariable, streamSize = 0, startIndex = 0, RXArray[256], TXArray[256];
+
+va_list packetIDs;
+*packetIDs = __va_start();
+eusart_putch(iR_QUERY_LIST);
+eusart_putch(numberOfPacketRequests);
+for (i = 0; i < numberOfPacketRequests; i++){
+packetVariable = (*(int *)__va_arg((*(int **)packetIDs), (int)0));
+streamSize += get_packet_size(packetVariable);
+TXArray[i] = packetVariable;
+eusart_putch(packetVariable);
+}
+;
+
+for (i = 0; i < streamSize; i++){RXArray[i] = eusart_getch();}
+
+for (i = 0; i < numberOfPacketRequests; i++){
+for (j = startIndex; j < get_packet_size(TXArray[i]) + startIndex; j++){
+rx_assign(TXArray[i], RXArray[j], j - startIndex);
+}
+startIndex += get_packet_size(TXArray[i]);
+}
+}
+
+# 275
+UINT16 twos_complement_of(INT16 complementValue){
+if (complementValue < 0){
+complementValue = ((complementValue) > 0 ? (complementValue) : -(complementValue));
+complementValue = ~complementValue;
+complementValue += 1;
+}
+return complementValue;
+}
+
+void load_iRScriptStack(UINT8 bytesToLoad, ...){
+va_list loadByte;
+*loadByte = __va_start();
+for (UINT8 i = 0; i < bytesToLoad; i++){
+iRScriptStack[iRScriptIndex + i] = (*(int *)__va_arg((*(int **)loadByte), (int)0));
+}
+;
+iRScriptIndex += bytesToLoad;
+}
+
+
+
+
+void irobot_script_play(void){
+eusart_putch(iR_SCRIPT);
+eusart_putch(iRScriptIndex);
+for (UINT8 i = 0; i < iRScriptIndex; i++){eusart_putch(iRScriptStack[i]);}
+eusart_putch(iR_SCRIPT_PLAY);
+memset(iRScriptStack, 0x00, sizeof(iRScriptStack));
+iRScriptIndex = 0;
+}
+
+void irobot_init(void){
+eusart_putch(iR_START);
+eusart_putch(iR_FULL_MODE);
+}
+
+
+void irobot_angle_wait(INT16 angleWait){
+angleWait = twos_complement_of(angleWait);
+
+load_iRScriptStack(3, iR_WAIT_ANGLE,
+(((angleWait)>>8) & 0xFF), ((angleWait) & 0xFF));
+}
+
+
+void irobot_distance_wait(INT16 distanceWait){
+distanceWait = twos_complement_of(distanceWait);
+
+load_iRScriptStack(3, iR_WAIT_DISTANCE,
+(((distanceWait)>>8) & 0xFF), ((distanceWait) & 0xFF));
+}
+
+
+void irobot_move(bool isScript, INT16 moveSpeed, INT16 moveTurnRadius){
+moveSpeed = twos_complement_of(moveSpeed);
+moveTurnRadius = twos_complement_of(moveTurnRadius);
+
+if (isScript){
+load_iRScriptStack(5, iR_DRIVE,
+(((moveSpeed)>>8) & 0xFF), ((moveSpeed) & 0xFF),
+(((moveTurnRadius)>>8) & 0xFF), ((moveTurnRadius) & 0xFF));
+}
+else{
+eusart_putch(iR_DRIVE);
+eusart_putch((((moveSpeed)>>8) & 0xFF));
+eusart_putch(((moveSpeed) & 0xFF));
+eusart_putch((((moveTurnRadius)>>8) & 0xFF));
+eusart_putch(((moveTurnRadius) & 0xFF));
+}
+}
+
+
+void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLuminosity){
+if (isScript){
+load_iRScriptStack(4, iR_LEDS,
+LEDBit, powerColour, powerLuminosity);
+}
+else{
+eusart_putch(iR_LEDS);
+eusart_putch(LEDBit);
+eusart_putch(powerColour);
+eusart_putch(powerLuminosity);
+}
+}
+
+void irobot_init_song_0(void){
+eusart_putch(iR_SONG_INIT);
+eusart_putch(0);
+eusart_putch(1);
+eusart_putch(60);
+eusart_putch(4);
+}
+
+# 382
+void irobot_song_play(UINT8 songNumber){
+eusart_putch(iR_SONG_PLAY);
+eusart_putch(songNumber);
+}
+
+
+void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed){
+(rotateAngle > 0) ? (rotateAngle = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
+(isScript) ?
+irobot_move(1, rotateSpeed, rotateAngle):
+irobot_move(0, rotateSpeed, rotateAngle);
+}
+
+
+void irobot_stop_motion(bool isScript){
+(isScript) ? irobot_move(1,0,0) : irobot_move(0,0,0);
+}
+
+
+void irobot_led_power_on(UINT8 powerOnColour){
+irobot_leds(0, 0, powerOnColour, iR_CONST_LED_ON);
+}
+
+
+void irobot_led_power_off(void){
+irobot_leds(0, 0, 0, 0);
+}
+
+
+void irobot_move_straight(INT16 straightSpeed){
+irobot_move(0, straightSpeed, iR_CONST_STRAIGHT_2);
+}
+
+
+void update_bump_and_cliff(){
+irobot_query_and_update(5, iR_PKT_BUMP_DROP,
+iR_PKT_CLIFF_L, iR_PKT_CLIFF_FL,
+iR_PKT_CLIFF_FR, iR_PKT_CLIFF_R);
+}
+
+
+void update_distance(){
+irobot_query_and_update(1, iR_PKT_DISTANCE);
+}
+
+
+void update_angle(){
+irobot_query_and_update(1, iR_PKT_ANGLE);
+}
+
+# 436
+void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed){
+irobot_move(1, moveToSpeed, iR_CONST_STRAIGHT_2);
+irobot_distance_wait(moveToDistance);
+irobot_stop_motion(1);
+}
+
+
+void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed){
+irobot_rotate(1, rotateToAngle, rotateSpeed);
+irobot_angle_wait(rotateToAngle);
+irobot_stop_motion(1);
+}
+
+
+
+
 void main()
 {
 
@@ -8742,20 +9151,64 @@ MXK_Init();
 
 
 if (MXK_BlockSwitchTo(eMXK_HMI)) {
+Console_Init();
+HMI_Init();
+LCD_Init();
+if (MXK_Release())
+MXK_Dequeue();
+}
+eusart_init();
+irobot_init();
+irobot_led_power_on(0xA);
+delay_ms(1000);
+irobot_led_power_off();
+irobot_init_song_0();
+delay_ms(20);
+
+irobot_move_straight(250);
+INT16 distanceTotal = 0;
+int time = 0;
+
+for(;;){
+time ++;
+if((time/10)%2 == 0){
+irobot_led_power_on(0x0);
+}else{
+irobot_led_power_off();
+}
+
+
+update_bump_and_cliff();
+update_distance();
+distanceTotal += iRDistance;
+
+if (iRBumpLeft || iRBumpRight){
+irobot_song_play(0);
+irobot_stop_motion(0);
+}
+HMI_Poll();
+
+if (MXK_SwitchTo(eMXK_HMI)) {
+printf("%c", (char)35);
+printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
+printf("Running: %d\n", HMIBoard.mUp.mGetState());
+if(HMIBoard.mUp.mGetState()){
+int dist = 0;
+while (dist<=5000){
+irobot_move_straight(500);
+update_distance();
+dist += iRDistance;
+printf("%c",(char)35);
+printf("Total Distance: %d\n\n\n\n\n\n\n",dist);
+Console_Render();
+}
+irobot_stop_motion(0);
+}
+Console_Render();
 
 if (MXK_Release())
 MXK_Dequeue();
 }
-
-# 59
-for(;;)
-{
-
-# 76
-if (MXK_BlockSwitchTo(eMXK_HMI)) {
-
-if (MXK_Release())
-MXK_Dequeue();
 }
-}
+
 }

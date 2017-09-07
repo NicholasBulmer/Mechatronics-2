@@ -40,7 +40,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "426
 [s S623 `S626 1 ]
 [n S623 Byte . ]
-"12914 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"12914 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [s S495 :2 `uc 1 :1 `uc 1 ]
 [n S495 . . R_NOT_W ]
 "12918
@@ -91,7 +91,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "107 Library/SPI.h
 [u S643 `*S623 1 `*S494 1 ]
 [n S643 . SSPSTATT SSPSTATTb ]
-"3031 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"3031 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [s S116 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S116 . SSPM CKP SSPEN SSPOV WCOL ]
 "3038
@@ -142,7 +142,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Port_SetPinType `(E6475 ~T0 @X0 0 ef3`C*S645`E6826`E6871 ]
 "25
 [v _PortC `S645 ~T0 @X0 0 e ]
-"12610 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"12610 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP1STAT `Vuc ~T0 @X0 0 e@4039 ]
 "12372
 [v _SSP1CON1 `Vuc ~T0 @X0 0 e@4038 ]
@@ -150,7 +150,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SSP1BUF `Vuc ~T0 @X0 0 e@4041 ]
 "25 Library/Port.h
 [v _PortD `S645 ~T0 @X0 0 e ]
-"3145 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"3145 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2STAT `Vuc ~T0 @X0 0 e@3949 ]
 "3025
 [v _SSP2CON1 `Vuc ~T0 @X0 0 e@3948 ]
@@ -162,7 +162,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Timer2_Init `(v ~T0 @X0 0 ef1`ul ]
 "129 Library/SPI.h
 [v _SPI_DisableISR `(v ~T0 @X0 0 ef1`*S640 ]
-"8695 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"8695 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [s S327 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S327 . TMR1IP TMR2IP CCP1IP SSP1IP TX1IP RC1IP ADIP PMPIP ]
 "8705
@@ -194,7 +194,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F6783 `(uc ~T0 @X0 1 tf1`*S640 ]
 "122 Library/SPI.h
 [v _SPI_BF `TF6783 ~T0 @X0 0 e ]
-"8603 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"8603 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [s S323 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S323 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF PMPIF ]
 "8613
@@ -394,7 +394,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f67j50.h: 50: extern volatile unsigned short PMSTAT @ 0xF40;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [; ;pic18f67j50.h: 52: asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
 [; ;pic18f67j50.h: 57: extern volatile unsigned char PMSTATL @ 0xF40;

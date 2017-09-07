@@ -1,21 +1,171 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"132 main.c
+[s S652 `us 1 `us 1 ]
+[n S652 . HB LB ]
+"170
+[c E7349 1 1 1 1 1 1 1 2 2 .. ]
+[n E7349 . iR_PKT_BUMP_DROP_BN iR_PKT_WALL_BN iR_PKT_CLIFF_L_BN iR_PKT_CLIFF_FL_BN iR_PKT_CLIFF_FR_BN iR_PKT_CLIFF_R_BN iR_PKT_V_WALL_BN iR_PKT_DISTANCE_BN iR_PKT_ANGLE_BN  ]
+"169
+[c E7338 7 8 9 10 11 12 13 19 20 .. ]
+[n E7338 . iR_PKT_BUMP_DROP iR_PKT_WALL iR_PKT_CLIFF_L iR_PKT_CLIFF_FL iR_PKT_CLIFF_FR iR_PKT_CLIFF_R iR_PKT_V_WALL iR_PKT_DISTANCE iR_PKT_ANGLE  ]
+"104
+[v _sort_iRBumpDrop `(v ~T0 @X0 0 ef ]
+"7282 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
+[s S278 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S278 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"7292
+[s S279 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S279 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"7281
+[u S277 `S278 1 `S279 1 ]
+[n S277 . . . ]
+"7303
+[v _TRISCbits `VS277 ~T0 @X0 0 e@3988 ]
+"9844
+[v _TXSTA1 `Vuc ~T0 @X0 0 e@4013 ]
+"9520
+[v _RCSTA1 `Vuc ~T0 @X0 0 e@4012 ]
+"4405
+[s S178 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S178 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
+"4415
+[s S179 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S179 . . SCKP DTRXP RCMT ]
+"4421
+[s S180 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S180 . ABDEN1 WUE1 . BRG161 CKTXP DTRXP1 RCIDL1 ABDOVF1 ]
+"4431
+[s S181 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S181 . . SCKP1 RXDTP1 RCMT1 ]
+"4437
+[s S182 :4 `uc 1 :1 `uc 1 ]
+[n S182 . . TXCKP1 ]
+"4441
+[s S183 :5 `uc 1 :1 `uc 1 ]
+[n S183 . . RXCKP ]
+"4445
+[s S184 :1 `uc 1 :1 `uc 1 ]
+[n S184 . . W4E ]
+"4404
+[u S177 `S178 1 `S179 1 `S180 1 `S181 1 `S182 1 `S183 1 `S184 1 ]
+[n S177 . . . . . . . . ]
+"4450
+[v _BAUDCON1bits `VS177 ~T0 @X0 0 e@3966 ]
+"9855
+[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S378 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"9865
+[s S379 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S379 . TXD8 . TX8_9 ]
+"9870
+[s S380 :6 `uc 1 :1 `uc 1 ]
+[n S380 . . NOT_TX8 ]
+"9874
+[s S381 :6 `uc 1 :1 `uc 1 ]
+[n S381 . . nTX8 ]
+"9878
+[s S382 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S382 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
+"9854
+[u S377 `S378 1 `S379 1 `S380 1 `S381 1 `S382 1 ]
+[n S377 . . . . . . ]
+"9889
+[v _TXSTA1bits `VS377 ~T0 @X0 0 e@4013 ]
+"10156
+[v _SPBRG1 `Vuc ~T0 @X0 0 e@4016 ]
+"10132
+[v _TXREG1 `Vuc ~T0 @X0 0 e@4014 ]
+"8603
+[s S323 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S323 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF PMPIF ]
+"8613
+[s S324 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S324 . . SSPIF TXIF RCIF ]
+"8619
+[s S325 :7 `uc 1 :1 `uc 1 ]
+[n S325 . . PSPIF ]
+"8602
+[u S322 `S323 1 `S324 1 `S325 1 ]
+[n S322 . . . . ]
+"8624
+[v _PIR1bits `VS322 ~T0 @X0 0 e@3998 ]
+"10144
+[v _RCREG1 `Vuc ~T0 @X0 0 e@4015 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdarg.h
+[v ___va_start `(*v ~T0 @X0 0 ef ]
+[p i ___va_start ]
+"243 main.c
+[c E7320 128 132 137 139 140 141 142 145 148 149 152 153 155 156 157 158 .. ]
+[n E7320 . iR_START iR_FULL_MODE iR_DRIVE iR_LEDS iR_SONG_INIT iR_SONG_PLAY iR_SENSORS iR_DIRECT_DRIVE iR_STREAM iR_QUERY_LIST iR_SCRIPT iR_SCRIPT_PLAY iR_WAIT_TIME iR_WAIT_DISTANCE iR_WAIT_ANGLE iR_WAIT_EVENT  ]
+"13 C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdarg.h
+[v ___va_arg `(*v ~T0 @X0 0 ev`*v ]
+[p i ___va_arg ]
+"16 C:\Program Files (x86)\Microchip\xc8\v1.43\include\string.h
+[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
+"389 main.c
+[c E7360 32768 32767 65535 1 0 85 170 255 255 .. ]
+[n E7360 . iR_CONST_STRAIGHT_1 iR_CONST_STRAIGHT_2 iR_CONST_CW iR_CONST_CCW iR_CONST_GREEN iR_CONST_YELLOW iR_CONST_ORANGE iR_CONST_RED iR_CONST_LED_ON  ]
 [p mainexit ]
 "40 Library\MXK.h
 [v _MXK_Init `(v ~T0 @X0 0 ef ]
-"28 main.c
-[c E6940 8 4 1 2 0 .. ]
-[n E6940 . eMXK_Motor eMXK_IMU eMXK_HMI eMXK_FPGA eMXK_None  ]
+"458 main.c
+[c E7030 8 4 1 2 0 .. ]
+[n E7030 . eMXK_Motor eMXK_IMU eMXK_HMI eMXK_FPGA eMXK_None  ]
 "50 Library\MXK.h
-[v _MXK_BlockSwitchTo `(uc ~T0 @X0 0 ef1`E6940 ]
-"52
+[v _MXK_BlockSwitchTo `(uc ~T0 @X0 0 ef1`E7030 ]
+"20 Library\Console.h
+[v _Console_Init `(v ~T0 @X0 0 ef ]
+"84 Library\HMI.h
+[v _HMI_Init `(v ~T0 @X0 0 ef ]
+"102 Library\LCD.h
+[v _LCD_Init `(v ~T0 @X0 0 ef ]
+"52 Library\MXK.h
 [v _MXK_Release `(uc ~T0 @X0 0 ef ]
 "54
 [v _MXK_Dequeue `(v ~T0 @X0 0 ef ]
+"606 Library\Types.h
+[v _delay_ms `(v ~T0 @X0 0 ef1`us ]
+"106 Library\HMI.h
+[v _HMI_Poll `(v ~T0 @X0 0 ef ]
+"51 Library\MXK.h
+[v _MXK_SwitchTo `(uc ~T0 @X0 0 ef1`E7030 ]
+"195 C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"32 Library\HMI.h
+[s S646 :4 `uc 1 :4 `uc 1 ]
+[n S646 . pButton . ]
+"38
+[s S647 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S647 . GLED RLED BLED YLED . ]
+"47
+[s S648 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S648 . UPLED DOWNLED LEFTLED RIGHTLED . ]
+"30
+[u S645 `S646 1 `S647 1 `S648 1 ]
+[n S645 . . . . ]
+"27
+[s S644 `uc -> 6 `i `S645 1 `uc 1 ]
+[n S644 . pSevenSegment . pBarGraph ]
+"24
+[u S643 `uc -> 8 `i `S644 1 ]
+[n S643 . Bytes . ]
+[v F6984 `(v ~T0 @X0 0 tf1`uc ]
+[v F7010 `(uc ~T0 @X0 0 tf ]
+"21 Library\Button.h
+[s S641 `uc 1 `uc 1 `us 1 `*F6984 1 `*F7010 1 ]
+[n S641 Button mState mCount mThreshold mFunction mGetState ]
+"20 Library\HMI.h
+[s S642 `S643 1 `S641 1 `S641 1 `S641 1 `S641 1 `S641 1 ]
+[n S642 HMI . mRight mLeft mUp mDown mDIP ]
+"18
+[v _HMIBoard `S642 ~T0 @X0 0 e ]
+"28 Library\Console.h
+[v _Console_Render `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f67j50.h: 50: extern volatile unsigned short PMSTAT @ 0xF40;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [; ;pic18f67j50.h: 52: asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
 [; ;pic18f67j50.h: 57: extern volatile unsigned char PMSTATL @ 0xF40;
@@ -5937,6 +6087,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 36: extern char * strcat(char *, const char *);
+[; ;string.h: 37: extern char * strcpy(char *, const char *);
+[; ;string.h: 38: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 39: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 40: extern char * strdup(const char *);
+[; ;string.h: 41: extern char * strtok(char *, const char *);
+[; ;string.h: 44: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 45: extern int strcmp(const char *, const char *);
+[; ;string.h: 46: extern int stricmp(const char *, const char *);
+[; ;string.h: 47: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 48: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 49: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 50: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 51: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 52: extern size_t strspn(const char *, const char *);
+[; ;string.h: 53: extern char * strstr(const char *, const char *);
+[; ;string.h: 54: extern char * stristr(const char *, const char *);
+[; ;string.h: 55: extern char * strerror(int);
+[; ;string.h: 56: extern size_t strlen(const char *);
+[; ;string.h: 57: extern char * strchr(const char *, int);
+[; ;string.h: 58: extern char * strichr(const char *, int);
+[; ;string.h: 59: extern char * strrchr(const char *, int);
+[; ;string.h: 60: extern char * strrichr(const char *, int);
 "18 ProcessorConfig.h
 [p x XINST=OFF ]
 "19
@@ -5959,7 +6140,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x MSSPMSK=MSK5 ]
 "28
 [p x CCP2MX=DEFAULT ]
-[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;Types.h: 273: typedef unsigned int bits;
 [; ;Types.h: 274: typedef unsigned char byte;
 [; ;Types.h: 275: typedef signed char INT8;
@@ -6364,6 +6544,68 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MXK.h: 64: UINT8 MXK_DIPSwitch();
 [; ;MXK.h: 69: UINT8 MXK_ReadIO();
 [; ;MXK.h: 70: UINT8 MXK_ReadISR();
+[; ;HMI.h: 16: typedef struct HMI HMI;
+[; ;HMI.h: 17: typedef HMI * const HMIPtr;
+[; ;HMI.h: 18: extern HMI HMIBoard;
+[; ;HMI.h: 20: struct HMI
+[; ;HMI.h: 21: {
+[; ;HMI.h: 23: union
+[; ;HMI.h: 24: {
+[; ;HMI.h: 25: UINT8 Bytes[8];
+[; ;HMI.h: 26: struct
+[; ;HMI.h: 27: {
+[; ;HMI.h: 28: UINT8 pSevenSegment[6];
+[; ;HMI.h: 29: union
+[; ;HMI.h: 30: {
+[; ;HMI.h: 31: struct
+[; ;HMI.h: 32: {
+[; ;HMI.h: 33: UINT8 pButton : 4;
+[; ;HMI.h: 34: UINT8 : 4;
+[; ;HMI.h: 35: };
+[; ;HMI.h: 37: struct
+[; ;HMI.h: 38: {
+[; ;HMI.h: 39: UINT8 GLED : 1;
+[; ;HMI.h: 40: UINT8 RLED : 1;
+[; ;HMI.h: 41: UINT8 BLED : 1;
+[; ;HMI.h: 42: UINT8 YLED : 1;
+[; ;HMI.h: 43: UINT8 : 4;
+[; ;HMI.h: 44: };
+[; ;HMI.h: 46: struct
+[; ;HMI.h: 47: {
+[; ;HMI.h: 48: UINT8 UPLED : 1;
+[; ;HMI.h: 49: UINT8 DOWNLED : 1;
+[; ;HMI.h: 50: UINT8 LEFTLED : 1;
+[; ;HMI.h: 51: UINT8 RIGHTLED : 1;
+[; ;HMI.h: 52: UINT8 : 4;
+[; ;HMI.h: 53: };
+[; ;HMI.h: 54: };
+[; ;HMI.h: 55: UINT8 pBarGraph;
+[; ;HMI.h: 56: };
+[; ;HMI.h: 57: };
+[; ;HMI.h: 63: Button mRight, mLeft, mUp, mDown;
+[; ;HMI.h: 64: Button mDIP;
+[; ;HMI.h: 65: };
+[; ;HMI.h: 71: void HMI_InitButtons ();
+[; ;HMI.h: 74: UINT8 HMI_DIPSwitch ();
+[; ;HMI.h: 75: UINT8 HMI_LeftSwitch ();
+[; ;HMI.h: 76: UINT8 HMI_RightSwitch ();
+[; ;HMI.h: 77: UINT8 HMI_UpSwitch ();
+[; ;HMI.h: 78: UINT8 HMI_DownSwitch ();
+[; ;HMI.h: 84: void HMI_Init ();
+[; ;HMI.h: 86: void HMI_Render ();
+[; ;HMI.h: 87: void HMI_GRender ();
+[; ;HMI.h: 89: void HMI_SetLeft (UINT8 pValue);
+[; ;HMI.h: 90: void HMI_SetRight (UINT8 pValue);
+[; ;HMI.h: 91: void HMI_SetUp (UINT8 pValue);
+[; ;HMI.h: 92: void HMI_SetDown (UINT8 pValue);
+[; ;HMI.h: 93: UINT8 HMI_GetBar ();
+[; ;HMI.h: 95: void HMI_SetButton (UINT8 pValue);
+[; ;HMI.h: 96: void HMI_SetButtons (UINT8 pValue);
+[; ;HMI.h: 99: void HMI_SetBar (UINT8 pValue);
+[; ;HMI.h: 102: void HMI_SetBargraph (UINT8 pValue);
+[; ;HMI.h: 103: void HMI_SetNumber (int pInput);
+[; ;HMI.h: 104: void HMI_SetSegments (str pString);
+[; ;HMI.h: 106: void HMI_Poll ();
 [; ;Functions.h: 14: extern UINT8 i, j, u;
 [; ;Functions.h: 15: extern Button TestButton;
 [; ;Functions.h: 16: extern Button DIPSwitch;
@@ -6392,10 +6634,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Console.h: 35: inline void Console_SetBackcolour (Colour pColour);
 [; ;Console.h: 36: inline void Console_SetForecolourRGB(UINT8 r, UINT8 g, UINT8 b);
 [; ;Console.h: 37: inline void Console_SetBackcolourRGB(UINT8 r, UINT8 g, UINT8 b);
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
 [; ;stdio.h: 43: struct __prbuf
 [; ;stdio.h: 44: {
 [; ;stdio.h: 45: char * ptr;
@@ -6471,124 +6709,1212 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LED.h: 28: void LED_Init(eLEDS pLED);
 [; ;LED.h: 36: void LED_Set(eLEDS pLED, UINT8 pValue);
 [; ;LED.h: 42: void LED_Toggle(eLEDS pLED);
-[; ;HMI.h: 16: typedef struct HMI HMI;
-[; ;HMI.h: 17: typedef HMI * const HMIPtr;
-[; ;HMI.h: 18: extern HMI HMIBoard;
-[; ;HMI.h: 20: struct HMI
-[; ;HMI.h: 21: {
-[; ;HMI.h: 23: union
-[; ;HMI.h: 24: {
-[; ;HMI.h: 25: UINT8 Bytes[8];
-[; ;HMI.h: 26: struct
-[; ;HMI.h: 27: {
-[; ;HMI.h: 28: UINT8 pSevenSegment[6];
-[; ;HMI.h: 29: union
-[; ;HMI.h: 30: {
-[; ;HMI.h: 31: struct
-[; ;HMI.h: 32: {
-[; ;HMI.h: 33: UINT8 pButton : 4;
-[; ;HMI.h: 34: UINT8 : 4;
-[; ;HMI.h: 35: };
-[; ;HMI.h: 37: struct
-[; ;HMI.h: 38: {
-[; ;HMI.h: 39: UINT8 GLED : 1;
-[; ;HMI.h: 40: UINT8 RLED : 1;
-[; ;HMI.h: 41: UINT8 BLED : 1;
-[; ;HMI.h: 42: UINT8 YLED : 1;
-[; ;HMI.h: 43: UINT8 : 4;
-[; ;HMI.h: 44: };
-[; ;HMI.h: 46: struct
-[; ;HMI.h: 47: {
-[; ;HMI.h: 48: UINT8 UPLED : 1;
-[; ;HMI.h: 49: UINT8 DOWNLED : 1;
-[; ;HMI.h: 50: UINT8 LEFTLED : 1;
-[; ;HMI.h: 51: UINT8 RIGHTLED : 1;
-[; ;HMI.h: 52: UINT8 : 4;
-[; ;HMI.h: 53: };
-[; ;HMI.h: 54: };
-[; ;HMI.h: 55: UINT8 pBarGraph;
-[; ;HMI.h: 56: };
-[; ;HMI.h: 57: };
-[; ;HMI.h: 63: Button mRight, mLeft, mUp, mDown;
-[; ;HMI.h: 64: Button mDIP;
-[; ;HMI.h: 65: };
-[; ;HMI.h: 71: void HMI_InitButtons ();
-[; ;HMI.h: 74: UINT8 HMI_DIPSwitch ();
-[; ;HMI.h: 75: UINT8 HMI_LeftSwitch ();
-[; ;HMI.h: 76: UINT8 HMI_RightSwitch ();
-[; ;HMI.h: 77: UINT8 HMI_UpSwitch ();
-[; ;HMI.h: 78: UINT8 HMI_DownSwitch ();
-[; ;HMI.h: 84: void HMI_Init ();
-[; ;HMI.h: 86: void HMI_Render ();
-[; ;HMI.h: 87: void HMI_GRender ();
-[; ;HMI.h: 89: void HMI_SetLeft (UINT8 pValue);
-[; ;HMI.h: 90: void HMI_SetRight (UINT8 pValue);
-[; ;HMI.h: 91: void HMI_SetUp (UINT8 pValue);
-[; ;HMI.h: 92: void HMI_SetDown (UINT8 pValue);
-[; ;HMI.h: 93: UINT8 HMI_GetBar ();
-[; ;HMI.h: 95: void HMI_SetButton (UINT8 pValue);
-[; ;HMI.h: 96: void HMI_SetButtons (UINT8 pValue);
-[; ;HMI.h: 99: void HMI_SetBar (UINT8 pValue);
-[; ;HMI.h: 102: void HMI_SetBargraph (UINT8 pValue);
-[; ;HMI.h: 103: void HMI_SetNumber (int pInput);
-[; ;HMI.h: 104: void HMI_SetSegments (str pString);
-[; ;HMI.h: 106: void HMI_Poll ();
-[v $root$_main `(v ~T0 @X0 0 e ]
-"22 main.c
-[v _main `(v ~T0 @X0 1 ef ]
-"23
+[; ;main.c: 41: typedef enum{
+[; ;main.c: 42: iR_START = 128,
+[; ;main.c: 43: iR_FULL_MODE = 132,
+[; ;main.c: 44: iR_DRIVE = 137,
+[; ;main.c: 45: iR_LEDS = 139,
+[; ;main.c: 46: iR_SONG_INIT = 140,
+[; ;main.c: 47: iR_SONG_PLAY = 141,
+[; ;main.c: 48: iR_SENSORS = 142,
+[; ;main.c: 49: iR_DIRECT_DRIVE = 145,
+[; ;main.c: 50: iR_STREAM = 148,
+[; ;main.c: 51: iR_QUERY_LIST = 149,
+[; ;main.c: 52: iR_SCRIPT = 152,
+[; ;main.c: 53: iR_SCRIPT_PLAY = 153,
+[; ;main.c: 54: iR_WAIT_TIME = 155,
+[; ;main.c: 55: iR_WAIT_DISTANCE = 156,
+[; ;main.c: 56: iR_WAIT_ANGLE = 157,
+[; ;main.c: 57: iR_WAIT_EVENT = 158,
+[; ;main.c: 58: }iR_OPCODE;
+[; ;main.c: 61: typedef enum{
+[; ;main.c: 62: iR_PKT_BUMP_DROP = 7,
+[; ;main.c: 63: iR_PKT_WALL = 8,
+[; ;main.c: 64: iR_PKT_CLIFF_L = 9,
+[; ;main.c: 65: iR_PKT_CLIFF_FL = 10,
+[; ;main.c: 66: iR_PKT_CLIFF_FR = 11,
+[; ;main.c: 67: iR_PKT_CLIFF_R = 12,
+[; ;main.c: 68: iR_PKT_V_WALL = 13,
+[; ;main.c: 69: iR_PKT_DISTANCE = 19,
+[; ;main.c: 70: iR_PKT_ANGLE = 20,
+[; ;main.c: 71: }iR_PACKET;
+[; ;main.c: 74: typedef enum{
+[; ;main.c: 75: iR_PKT_BUMP_DROP_BN = 1,
+[; ;main.c: 76: iR_PKT_WALL_BN = 1,
+[; ;main.c: 77: iR_PKT_CLIFF_L_BN = 1,
+[; ;main.c: 78: iR_PKT_CLIFF_FL_BN = 1,
+[; ;main.c: 79: iR_PKT_CLIFF_FR_BN = 1,
+[; ;main.c: 80: iR_PKT_CLIFF_R_BN = 1,
+[; ;main.c: 81: iR_PKT_V_WALL_BN = 1,
+[; ;main.c: 82: iR_PKT_DISTANCE_BN = 2,
+[; ;main.c: 83: iR_PKT_ANGLE_BN = 2,
+[; ;main.c: 84: }iR_PACKET_SIZE;
+[; ;main.c: 87: typedef enum{
+[; ;main.c: 88: iR_CONST_STRAIGHT_1 = 0x8000,
+[; ;main.c: 89: iR_CONST_STRAIGHT_2 = 0x7FFF,
+[; ;main.c: 90: iR_CONST_CW = 0xFFFF,
+[; ;main.c: 91: iR_CONST_CCW = 0x1,
+[; ;main.c: 92: iR_CONST_GREEN = 0x0,
+[; ;main.c: 93: iR_CONST_YELLOW = 0x55,
+[; ;main.c: 94: iR_CONST_ORANGE = 0xAA,
+[; ;main.c: 95: iR_CONST_RED = 0xFF,
+[; ;main.c: 96: iR_CONST_LED_ON = 0xFF,
+[; ;main.c: 97: }iR_CONSTANTS;
+[; ;main.c: 102: UINT8 get_packet_size(UINT8 packetID);
+[; ;main.c: 103: void rx_assign(UINT8 packetID, UINT8 packetIDValue, UINT8 byteNumber);
+[; ;main.c: 104: void sort_iRBumpDrop(void);
+[; ;main.c: 106: void eusart_init(void);
+[; ;main.c: 107: void eusart_putch(UINT8 eusartSendChar);
+[; ;main.c: 108: UINT8 eusart_getch(void);
+[; ;main.c: 109: void irobot_query_and_update(UINT8 numberOfPacketRequests, ...);
+[; ;main.c: 111: UINT16 twos_complement_of(INT16 complementValue);
+[; ;main.c: 112: void load_iRScriptStack(UINT8 bytesToLoad, ...);
+[; ;main.c: 113: void irobot_script_play(void);
+[; ;main.c: 114: void irobot_init(void);
+[; ;main.c: 115: void irobot_angle_wait(INT16 angleWait);
+[; ;main.c: 116: void irobot_distance_wait(INT16 distanceWait);
+[; ;main.c: 117: void irobot_move(bool isScript, INT16 moveSpeed, INT16 moveTurnRadius);
+[; ;main.c: 118: void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLuminosity);
+[; ;main.c: 120: void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed);
+[; ;main.c: 121: void irobot_stop_motion(bool isScript);
+[; ;main.c: 122: void irobot_led_power_on(UINT8 powerOnColour);
+[; ;main.c: 123: void irobot_led_power_off(void);
+[; ;main.c: 124: void irobot_move_straight(INT16 straightSpeed);
+[; ;main.c: 125: void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed);
+[; ;main.c: 126: void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed);
+[; ;main.c: 132: typedef struct{
+[; ;main.c: 133: UINT16 HB, LB;
+[; ;main.c: 134: } splitShort;
+"136 main.c
+[v _iRDistanceSS `S652 ~T0 @X0 1 e ]
+[v _iRAngleSS `S652 ~T0 @X0 1 e ]
+[; ;main.c: 136: splitShort iRDistanceSS, iRAngleSS;
+"139
+[v _iRDistance `us ~T0 @X0 1 e ]
+"140
+[v _iRAngle `us ~T0 @X0 1 e ]
+[; ;main.c: 138: UINT16
+[; ;main.c: 139: iRDistance,
+[; ;main.c: 140: iRAngle;
+"148
+[v _iRScriptStack `uc ~T0 @X0 -> 100 `i e ]
+"149
+[v _iRScriptIndex `uc ~T0 @X0 1 e ]
+[i _iRScriptIndex
+-> -> 0 `i `uc
+]
+"150
+[v _iRBumpDrop `uc ~T0 @X0 1 e ]
+"151
+[v _iRWall `uc ~T0 @X0 1 e ]
+"152
+[v _iRCliffL `uc ~T0 @X0 1 e ]
+"153
+[v _iRCliffFL `uc ~T0 @X0 1 e ]
+"154
+[v _iRCliffFR `uc ~T0 @X0 1 e ]
+"155
+[v _iRCliffR `uc ~T0 @X0 1 e ]
+"156
+[v _iRVirtualWall `uc ~T0 @X0 1 e ]
+[; ;main.c: 147: UINT8
+[; ;main.c: 148: iRScriptStack [100],
+[; ;main.c: 149: iRScriptIndex = 0,
+[; ;main.c: 150: iRBumpDrop,
+[; ;main.c: 151: iRWall,
+[; ;main.c: 152: iRCliffL,
+[; ;main.c: 153: iRCliffFL,
+[; ;main.c: 154: iRCliffFR,
+[; ;main.c: 155: iRCliffR,
+[; ;main.c: 156: iRVirtualWall;
+"159
+[v _iRBumpRight `uc ~T0 @X0 1 e ]
+"160
+[v _iRBumpLeft `uc ~T0 @X0 1 e ]
+"161
+[v _iRDropRight `uc ~T0 @X0 1 e ]
+"162
+[v _iRDropLeft `uc ~T0 @X0 1 e ]
+"163
+[v _iRDropCaster `uc ~T0 @X0 1 e ]
+[; ;main.c: 158: bool
+[; ;main.c: 159: iRBumpRight,
+[; ;main.c: 160: iRBumpLeft,
+[; ;main.c: 161: iRDropRight,
+[; ;main.c: 162: iRDropLeft,
+[; ;main.c: 163: iRDropCaster;
+"168
+[v _get_packet_size `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;main.c: 22: void main()
-[; ;main.c: 23: {
+[; ;main.c: 168: UINT8 get_packet_size(UINT8 packetID){
+[e :U _get_packet_size ]
+[v _packetID `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 169: switch (packetID){
+"169
+[e $U 655  ]
+{
+[; ;main.c: 170: case iR_PKT_BUMP_DROP: return iR_PKT_BUMP_DROP_BN;
+"170
+[e :U 656 ]
+[e ) -> . `E7349 0 `uc ]
+[e $UE 653  ]
+[; ;main.c: 171: case iR_PKT_WALL: return iR_PKT_WALL_BN;
+"171
+[e :U 657 ]
+[e ) -> . `E7349 1 `uc ]
+[e $UE 653  ]
+[; ;main.c: 172: case iR_PKT_CLIFF_L: return iR_PKT_CLIFF_L_BN;
+"172
+[e :U 658 ]
+[e ) -> . `E7349 2 `uc ]
+[e $UE 653  ]
+[; ;main.c: 173: case iR_PKT_CLIFF_FL: return iR_PKT_CLIFF_FL_BN;
+"173
+[e :U 659 ]
+[e ) -> . `E7349 3 `uc ]
+[e $UE 653  ]
+[; ;main.c: 174: case iR_PKT_CLIFF_FR: return iR_PKT_CLIFF_FR_BN;
+"174
+[e :U 660 ]
+[e ) -> . `E7349 4 `uc ]
+[e $UE 653  ]
+[; ;main.c: 175: case iR_PKT_CLIFF_R: return iR_PKT_CLIFF_R_BN;
+"175
+[e :U 661 ]
+[e ) -> . `E7349 5 `uc ]
+[e $UE 653  ]
+[; ;main.c: 176: case iR_PKT_V_WALL: return iR_PKT_V_WALL_BN;
+"176
+[e :U 662 ]
+[e ) -> . `E7349 6 `uc ]
+[e $UE 653  ]
+[; ;main.c: 177: case iR_PKT_DISTANCE: return iR_PKT_DISTANCE_BN;
+"177
+[e :U 663 ]
+[e ) -> . `E7349 7 `uc ]
+[e $UE 653  ]
+[; ;main.c: 178: case iR_PKT_ANGLE: return iR_PKT_ANGLE_BN;
+"178
+[e :U 664 ]
+[e ) -> . `E7349 8 `uc ]
+[e $UE 653  ]
+"179
+}
+[; ;main.c: 179: }
+[e $U 654  ]
+"169
+[e :U 655 ]
+[e [\ _packetID , $ -> . `E7338 0 `uc 656
+ , $ -> . `E7338 1 `uc 657
+ , $ -> . `E7338 2 `uc 658
+ , $ -> . `E7338 3 `uc 659
+ , $ -> . `E7338 4 `uc 660
+ , $ -> . `E7338 5 `uc 661
+ , $ -> . `E7338 6 `uc 662
+ , $ -> . `E7338 7 `uc 663
+ , $ -> . `E7338 8 `uc 664
+ 654 ]
+"179
+[e :U 654 ]
+[; ;main.c: 180: }
+"180
+[e :UE 653 ]
+}
+"182
+[v _rx_assign `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[; ;main.c: 182: void rx_assign(UINT8 packetID, UINT8 packetIDValue, UINT8 byteNumber){
+[e :U _rx_assign ]
+[v _packetID `uc ~T0 @X0 1 r1 ]
+[v _packetIDValue `uc ~T0 @X0 1 r2 ]
+[v _byteNumber `uc ~T0 @X0 1 r3 ]
+[f ]
+[; ;main.c: 183: switch (packetID){
+"183
+[e $U 667  ]
+{
+[; ;main.c: 184: case iR_PKT_BUMP_DROP: iRBumpDrop = packetIDValue; sort_iRBumpDrop(); break;
+"184
+[e :U 668 ]
+[e = _iRBumpDrop _packetIDValue ]
+[e ( _sort_iRBumpDrop ..  ]
+[e $U 666  ]
+[; ;main.c: 185: case iR_PKT_WALL: iRWall = packetIDValue; break;
+"185
+[e :U 669 ]
+[e = _iRWall _packetIDValue ]
+[e $U 666  ]
+[; ;main.c: 186: case iR_PKT_CLIFF_L: iRCliffL = packetIDValue; break;
+"186
+[e :U 670 ]
+[e = _iRCliffL _packetIDValue ]
+[e $U 666  ]
+[; ;main.c: 187: case iR_PKT_CLIFF_FL: iRCliffFL = packetIDValue; break;
+"187
+[e :U 671 ]
+[e = _iRCliffFL _packetIDValue ]
+[e $U 666  ]
+[; ;main.c: 188: case iR_PKT_CLIFF_FR: iRCliffFR = packetIDValue; break;
+"188
+[e :U 672 ]
+[e = _iRCliffFR _packetIDValue ]
+[e $U 666  ]
+[; ;main.c: 189: case iR_PKT_CLIFF_R: iRCliffR = packetIDValue; break;
+"189
+[e :U 673 ]
+[e = _iRCliffR _packetIDValue ]
+[e $U 666  ]
+[; ;main.c: 190: case iR_PKT_V_WALL: iRVirtualWall = packetIDValue; break;
+"190
+[e :U 674 ]
+[e = _iRVirtualWall _packetIDValue ]
+[e $U 666  ]
+[; ;main.c: 191: case iR_PKT_DISTANCE:
+"191
+[e :U 675 ]
+[; ;main.c: 192: (byteNumber == 0) ? (iRDistanceSS.HB = packetIDValue) : (iRDistanceSS.LB = packetIDValue,
+[; ;main.c: 193: iRDistance = ((iRDistanceSS.HB)<<8) + iRDistanceSS.LB); break;
+"193
+[e ? == -> _byteNumber `i -> 0 `i : -> = . _iRDistanceSS 0 -> _packetIDValue `us `ui -> ; = . _iRDistanceSS 1 -> _packetIDValue `us = _iRDistance -> + << -> . _iRDistanceSS 0 `ui -> 8 `i -> . _iRDistanceSS 1 `ui `us `ui ]
+[e $U 666  ]
+[; ;main.c: 194: case iR_PKT_ANGLE:
+"194
+[e :U 676 ]
+[; ;main.c: 195: (byteNumber == 0) ? (iRAngleSS.HB = packetIDValue) : (iRAngleSS.LB = packetIDValue,
+[; ;main.c: 196: iRAngle = ((iRAngleSS.HB)<<8) + iRAngleSS.LB); break;
+"196
+[e ? == -> _byteNumber `i -> 0 `i : -> = . _iRAngleSS 0 -> _packetIDValue `us `ui -> ; = . _iRAngleSS 1 -> _packetIDValue `us = _iRAngle -> + << -> . _iRAngleSS 0 `ui -> 8 `i -> . _iRAngleSS 1 `ui `us `ui ]
+[e $U 666  ]
+"197
+}
+[; ;main.c: 197: }
+[e $U 666  ]
+"183
+[e :U 667 ]
+[e [\ _packetID , $ -> . `E7338 0 `uc 668
+ , $ -> . `E7338 1 `uc 669
+ , $ -> . `E7338 2 `uc 670
+ , $ -> . `E7338 3 `uc 671
+ , $ -> . `E7338 4 `uc 672
+ , $ -> . `E7338 5 `uc 673
+ , $ -> . `E7338 6 `uc 674
+ , $ -> . `E7338 7 `uc 675
+ , $ -> . `E7338 8 `uc 676
+ 666 ]
+"197
+[e :U 666 ]
+[; ;main.c: 198: }
+"198
+[e :UE 665 ]
+}
+"200
+[v _sort_iRBumpDrop `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 200: void sort_iRBumpDrop(void){
+[e :U _sort_iRBumpDrop ]
+[f ]
+[; ;main.c: 201: (iRBumpDrop & 0x1) ? (iRBumpRight = 1) : (iRBumpRight = 0);
+"201
+[e ? != & -> _iRBumpDrop `i -> 1 `i -> 0 `i : -> = _iRBumpRight -> -> 1 `i `uc `i -> = _iRBumpRight -> -> 0 `i `uc `i ]
+[; ;main.c: 202: ((iRBumpDrop >> 0x1) & (0x1)) ? (iRBumpLeft = 1) : (iRBumpLeft = 0);
+"202
+[e ? != & >> -> _iRBumpDrop `i -> 1 `i -> 1 `i -> 0 `i : -> = _iRBumpLeft -> -> 1 `i `uc `i -> = _iRBumpLeft -> -> 0 `i `uc `i ]
+[; ;main.c: 203: ((iRBumpDrop >> 0x2) & (0x1)) ? (iRDropRight = 1) : (iRDropRight = 0);
+"203
+[e ? != & >> -> _iRBumpDrop `i -> 2 `i -> 1 `i -> 0 `i : -> = _iRDropRight -> -> 1 `i `uc `i -> = _iRDropRight -> -> 0 `i `uc `i ]
+[; ;main.c: 204: ((iRBumpDrop >> 0x3) & (0x1)) ? (iRDropLeft = 1) : (iRDropLeft = 0);
+"204
+[e ? != & >> -> _iRBumpDrop `i -> 3 `i -> 1 `i -> 0 `i : -> = _iRDropLeft -> -> 1 `i `uc `i -> = _iRDropLeft -> -> 0 `i `uc `i ]
+[; ;main.c: 205: ((iRBumpDrop >> 0x4) & (0x1)) ? (iRDropCaster = 1) : (iRDropCaster = 0);
+"205
+[e ? != & >> -> _iRBumpDrop `i -> 4 `i -> 1 `i -> 0 `i : -> = _iRDropCaster -> -> 1 `i `uc `i -> = _iRDropCaster -> -> 0 `i `uc `i ]
+[; ;main.c: 206: }
+"206
+[e :UE 677 ]
+}
+"211
+[v _eusart_init `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 211: void eusart_init(void){
+[e :U _eusart_init ]
+[f ]
+[; ;main.c: 212: TRISCbits.TRISC6 = 0;
+"212
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;main.c: 213: TRISCbits.TRISC7 = 1;
+"213
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 215: TXSTA1 = 0b00100100;
+"215
+[e = _TXSTA1 -> -> 36 `i `uc ]
+[; ;main.c: 216: RCSTA1 = 0b10011000;
+"216
+[e = _RCSTA1 -> -> 152 `i `uc ]
+[; ;main.c: 218: BAUDCON1bits.DTRXP = 0;
+"218
+[e = . . _BAUDCON1bits 1 2 -> -> 0 `i `uc ]
+[; ;main.c: 219: BAUDCON1bits.SCKP = 0;
+"219
+[e = . . _BAUDCON1bits 1 1 -> -> 0 `i `uc ]
+[; ;main.c: 220: BAUDCON1bits.WUE = 0;
+"220
+[e = . . _BAUDCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 221: BAUDCON1bits.ABDEN = 0;
+"221
+[e = . . _BAUDCON1bits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 223: TXSTA1bits.BRGH = 1;
+"223
+[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 224: BAUDCON1bits.BRG16 = 0;
+"224
+[e = . . _BAUDCON1bits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 225: SPBRG1 = 51;
+"225
+[e = _SPBRG1 -> -> 51 `i `uc ]
+[; ;main.c: 226: }
+"226
+[e :UE 678 ]
+}
+"228
+[v _eusart_putch `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;main.c: 228: void eusart_putch(UINT8 eusartSendChar){
+[e :U _eusart_putch ]
+[v _eusartSendChar `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 229: while (!TXSTA1bits.TRMT) {};
+"229
+[e $U 680  ]
+[e :U 681 ]
+{
+}
+[e :U 680 ]
+[e $ ! != -> . . _TXSTA1bits 0 1 `i -> -> -> 0 `i `Vuc `i 681  ]
+[e :U 682 ]
+[; ;main.c: 230: TXREG1 = eusartSendChar;
+"230
+[e = _TXREG1 _eusartSendChar ]
+[; ;main.c: 231: }
+"231
+[e :UE 679 ]
+}
+"233
+[v _eusart_getch `(uc ~T0 @X0 1 ef ]
+{
+[; ;main.c: 233: UINT8 eusart_getch(void){
+[e :U _eusart_getch ]
+[f ]
+[; ;main.c: 234: while (!PIR1bits.RC1IF) {};
+"234
+[e $U 684  ]
+[e :U 685 ]
+{
+}
+[e :U 684 ]
+[e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 685  ]
+[e :U 686 ]
+[; ;main.c: 235: return RCREG1;
+"235
+[e ) _RCREG1 ]
+[e $UE 683  ]
+[; ;main.c: 236: }
+"236
+[e :UE 683 ]
+}
+"238
+[v _irobot_query_and_update `(v ~T0 @X0 1 ev`uc ]
+{
+[; ;main.c: 238: void irobot_query_and_update(UINT8 numberOfPacketRequests, ...){
+[e :U _irobot_query_and_update ]
+[v _numberOfPacketRequests `uc ~T0 @X0 1 r0 ]
+[f ]
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+"239
+[v _packetVariable `uc ~T0 @X0 1 a ]
+[v _streamSize `uc ~T0 @X0 1 a ]
+[; ;main.c: 239: UINT8 i, j, packetVariable, streamSize = 0, startIndex = 0, RXArray[256], TXArray[256];
+[e = _streamSize -> -> 0 `i `uc ]
+[v _startIndex `uc ~T0 @X0 1 a ]
+[e = _startIndex -> -> 0 `i `uc ]
+[v _RXArray `uc ~T0 @X0 -> 256 `i a ]
+[v _TXArray `uc ~T0 @X0 -> 256 `i a ]
+"241
+[v _packetIDs `*v ~T0 @X0 -> -> 1 `i `ux a ]
+[; ;main.c: 241: va_list packetIDs;
+[; ;main.c: 242: *packetIDs = __va_start();
+"242
+[e = *U &U _packetIDs ( ___va_start ..  ]
+[; ;main.c: 243: eusart_putch(iR_QUERY_LIST);
+"243
+[e ( _eusart_putch (1 -> . `E7320 9 `uc ]
+[; ;main.c: 244: eusart_putch(numberOfPacketRequests);
+"244
+[e ( _eusart_putch (1 _numberOfPacketRequests ]
+[; ;main.c: 245: for (i = 0; i < numberOfPacketRequests; i++){
+"245
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 691  ]
+[e :U 688 ]
+{
+[; ;main.c: 246: packetVariable = (*(int *)__va_arg((*(int **)packetIDs), (int)0));
+"246
+[e = _packetVariable -> *U -> ( ___va_arg , (. -> *U -> &U _packetIDs `**i `*v -> 0 `i `*i `uc ]
+[; ;main.c: 247: streamSize += get_packet_size(packetVariable);
+"247
+[e =+ _streamSize ( _get_packet_size (1 _packetVariable ]
+[; ;main.c: 248: TXArray[i] = packetVariable;
+"248
+[e = *U + &U _TXArray * -> _i `ux -> -> # *U &U _TXArray `ui `ux _packetVariable ]
+[; ;main.c: 249: eusart_putch(packetVariable);
+"249
+[e ( _eusart_putch (1 _packetVariable ]
+"250
+}
+"245
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 691 ]
+[e $ < -> _i `i -> _numberOfPacketRequests `i 688  ]
+[e :U 689 ]
+"250
+}
+[; ;main.c: 250: }
+[; ;main.c: 251: ;
+[; ;main.c: 253: for (i = 0; i < streamSize; i++){RXArray[i] = eusart_getch();}
+"253
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 695  ]
+[e :U 692 ]
+{
+[e = *U + &U _RXArray * -> _i `ux -> -> # *U &U _RXArray `ui `ux ( _eusart_getch ..  ]
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 695 ]
+[e $ < -> _i `i -> _streamSize `i 692  ]
+[e :U 693 ]
+}
+[; ;main.c: 255: for (i = 0; i < numberOfPacketRequests; i++){
+"255
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 699  ]
+[e :U 696 ]
+{
+[; ;main.c: 256: for (j = startIndex; j < get_packet_size(TXArray[i]) + startIndex; j++){
+"256
+{
+[e = _j _startIndex ]
+[e $U 703  ]
+[e :U 700 ]
+{
+[; ;main.c: 257: rx_assign(TXArray[i], RXArray[j], j - startIndex);
+"257
+[e ( _rx_assign (3 , , *U + &U _TXArray * -> _i `ux -> -> # *U &U _TXArray `ui `ux *U + &U _RXArray * -> _j `ux -> -> # *U &U _RXArray `ui `ux -> - -> _j `i -> _startIndex `i `uc ]
+"258
+}
+"256
+[e ++ _j -> -> 1 `i `uc ]
+[e :U 703 ]
+[e $ < -> _j `i + -> ( _get_packet_size (1 *U + &U _TXArray * -> _i `ux -> -> # *U &U _TXArray `ui `ux `i -> _startIndex `i 700  ]
+[e :U 701 ]
+"258
+}
+[; ;main.c: 258: }
+[; ;main.c: 259: startIndex += get_packet_size(TXArray[i]);
+"259
+[e =+ _startIndex ( _get_packet_size (1 *U + &U _TXArray * -> _i `ux -> -> # *U &U _TXArray `ui `ux ]
+"260
+}
+"255
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 699 ]
+[e $ < -> _i `i -> _numberOfPacketRequests `i 696  ]
+[e :U 697 ]
+"260
+}
+[; ;main.c: 260: }
+[; ;main.c: 261: }
+"261
+[e :UE 687 ]
+}
+"275
+[v _twos_complement_of `(us ~T0 @X0 1 ef1`s ]
+{
+[; ;main.c: 275: UINT16 twos_complement_of(INT16 complementValue){
+[e :U _twos_complement_of ]
+[v _complementValue `s ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 276: if (complementValue < 0){
+"276
+[e $ ! < -> _complementValue `i -> 0 `i 705  ]
+{
+[; ;main.c: 277: complementValue = ((complementValue) > 0 ? (complementValue) : -(complementValue));
+"277
+[e = _complementValue -> ? > -> _complementValue `i -> 0 `i : -> _complementValue `i -U -> _complementValue `i `s ]
+[; ;main.c: 278: complementValue = ~complementValue;
+"278
+[e = _complementValue -> ~ -> _complementValue `i `s ]
+[; ;main.c: 279: complementValue += 1;
+"279
+[e =+ _complementValue -> -> 1 `i `s ]
+"280
+}
+[e :U 705 ]
+[; ;main.c: 280: }
+[; ;main.c: 281: return complementValue;
+"281
+[e ) -> _complementValue `us ]
+[e $UE 704  ]
+[; ;main.c: 282: }
+"282
+[e :UE 704 ]
+}
+"284
+[v _load_iRScriptStack `(v ~T0 @X0 1 ev`uc ]
+{
+[; ;main.c: 284: void load_iRScriptStack(UINT8 bytesToLoad, ...){
+[e :U _load_iRScriptStack ]
+[v _bytesToLoad `uc ~T0 @X0 1 r0 ]
+[f ]
+"285
+[v _loadByte `*v ~T0 @X0 -> -> 1 `i `ux a ]
+[; ;main.c: 285: va_list loadByte;
+[; ;main.c: 286: *loadByte = __va_start();
+"286
+[e = *U &U _loadByte ( ___va_start ..  ]
+[; ;main.c: 287: for (UINT8 i = 0; i < bytesToLoad; i++){
+"287
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 710  ]
+[e :U 707 ]
+{
+[; ;main.c: 288: iRScriptStack[iRScriptIndex + i] = (*(int *)__va_arg((*(int **)loadByte), (int)0));
+"288
+[e = *U + &U _iRScriptStack * -> -> + -> _iRScriptIndex `i -> _i `i `ui `ux -> -> # *U &U _iRScriptStack `ui `ux -> *U -> ( ___va_arg , (. -> *U -> &U _loadByte `**i `*v -> 0 `i `*i `uc ]
+"289
+}
+"287
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 710 ]
+[e $ < -> _i `i -> _bytesToLoad `i 707  ]
+[e :U 708 ]
+"289
+}
+[; ;main.c: 289: }
+[; ;main.c: 290: ;
+[; ;main.c: 291: iRScriptIndex += bytesToLoad;
+"291
+[e =+ _iRScriptIndex _bytesToLoad ]
+[; ;main.c: 292: }
+"292
+[e :UE 706 ]
+}
+"297
+[v _irobot_script_play `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 297: void irobot_script_play(void){
+[e :U _irobot_script_play ]
+[f ]
+[; ;main.c: 298: eusart_putch(iR_SCRIPT);
+"298
+[e ( _eusart_putch (1 -> . `E7320 10 `uc ]
+[; ;main.c: 299: eusart_putch(iRScriptIndex);
+"299
+[e ( _eusart_putch (1 _iRScriptIndex ]
+[; ;main.c: 300: for (UINT8 i = 0; i < iRScriptIndex; i++){eusart_putch(iRScriptStack[i]);}
+"300
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 715  ]
+[e :U 712 ]
+{
+[e ( _eusart_putch (1 *U + &U _iRScriptStack * -> _i `ux -> -> # *U &U _iRScriptStack `ui `ux ]
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 715 ]
+[e $ < -> _i `i -> _iRScriptIndex `i 712  ]
+[e :U 713 ]
+}
+[; ;main.c: 301: eusart_putch(iR_SCRIPT_PLAY);
+"301
+[e ( _eusart_putch (1 -> . `E7320 11 `uc ]
+[; ;main.c: 302: memset(iRScriptStack, 0x00, sizeof(iRScriptStack));
+"302
+[e ( _memset (3 , , -> &U _iRScriptStack `*v -> 0 `i -> # _iRScriptStack `ui ]
+[; ;main.c: 303: iRScriptIndex = 0;
+"303
+[e = _iRScriptIndex -> -> 0 `i `uc ]
+[; ;main.c: 304: }
+"304
+[e :UE 711 ]
+}
+"306
+[v _irobot_init `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 306: void irobot_init(void){
+[e :U _irobot_init ]
+[f ]
+[; ;main.c: 307: eusart_putch(iR_START);
+"307
+[e ( _eusart_putch (1 -> . `E7320 0 `uc ]
+[; ;main.c: 308: eusart_putch(iR_FULL_MODE);
+"308
+[e ( _eusart_putch (1 -> . `E7320 1 `uc ]
+[; ;main.c: 309: }
+"309
+[e :UE 716 ]
+}
+"312
+[v _irobot_angle_wait `(v ~T0 @X0 1 ef1`s ]
+{
+[; ;main.c: 312: void irobot_angle_wait(INT16 angleWait){
+[e :U _irobot_angle_wait ]
+[v _angleWait `s ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 313: angleWait = twos_complement_of(angleWait);
+"313
+[e = _angleWait -> ( _twos_complement_of (1 _angleWait `s ]
+[; ;main.c: 315: load_iRScriptStack(3, iR_WAIT_ANGLE,
+[; ;main.c: 316: (((angleWait)>>8) & 0xFF), ((angleWait) & 0xFF));
+"316
+[e ( _load_iRScriptStack , , , (. -> -> 3 `i `uc -> . `E7320 14 `i & >> -> _angleWait `i -> 8 `i -> 255 `i & -> _angleWait `i -> 255 `i ]
+[; ;main.c: 317: }
+"317
+[e :UE 717 ]
+}
+"320
+[v _irobot_distance_wait `(v ~T0 @X0 1 ef1`s ]
+{
+[; ;main.c: 320: void irobot_distance_wait(INT16 distanceWait){
+[e :U _irobot_distance_wait ]
+[v _distanceWait `s ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 321: distanceWait = twos_complement_of(distanceWait);
+"321
+[e = _distanceWait -> ( _twos_complement_of (1 _distanceWait `s ]
+[; ;main.c: 323: load_iRScriptStack(3, iR_WAIT_DISTANCE,
+[; ;main.c: 324: (((distanceWait)>>8) & 0xFF), ((distanceWait) & 0xFF));
+"324
+[e ( _load_iRScriptStack , , , (. -> -> 3 `i `uc -> . `E7320 13 `i & >> -> _distanceWait `i -> 8 `i -> 255 `i & -> _distanceWait `i -> 255 `i ]
+[; ;main.c: 325: }
+"325
+[e :UE 718 ]
+}
+"328
+[v _irobot_move `(v ~T0 @X0 1 ef3`uc`s`s ]
+{
+[; ;main.c: 328: void irobot_move(bool isScript, INT16 moveSpeed, INT16 moveTurnRadius){
+[e :U _irobot_move ]
+[v _isScript `uc ~T0 @X0 1 r1 ]
+[v _moveSpeed `s ~T0 @X0 1 r2 ]
+[v _moveTurnRadius `s ~T0 @X0 1 r3 ]
+[f ]
+[; ;main.c: 329: moveSpeed = twos_complement_of(moveSpeed);
+"329
+[e = _moveSpeed -> ( _twos_complement_of (1 _moveSpeed `s ]
+[; ;main.c: 330: moveTurnRadius = twos_complement_of(moveTurnRadius);
+"330
+[e = _moveTurnRadius -> ( _twos_complement_of (1 _moveTurnRadius `s ]
+[; ;main.c: 332: if (isScript){
+"332
+[e $ ! != -> _isScript `i -> -> -> 0 `i `uc `i 720  ]
+{
+[; ;main.c: 333: load_iRScriptStack(5, iR_DRIVE,
+[; ;main.c: 334: (((moveSpeed)>>8) & 0xFF), ((moveSpeed) & 0xFF),
+[; ;main.c: 335: (((moveTurnRadius)>>8) & 0xFF), ((moveTurnRadius) & 0xFF));
+"335
+[e ( _load_iRScriptStack , , , , , (. -> -> 5 `i `uc -> . `E7320 2 `i & >> -> _moveSpeed `i -> 8 `i -> 255 `i & -> _moveSpeed `i -> 255 `i & >> -> _moveTurnRadius `i -> 8 `i -> 255 `i & -> _moveTurnRadius `i -> 255 `i ]
+"336
+}
+[; ;main.c: 336: }
+[e $U 721  ]
+"337
+[e :U 720 ]
+[; ;main.c: 337: else{
+{
+[; ;main.c: 338: eusart_putch(iR_DRIVE);
+"338
+[e ( _eusart_putch (1 -> . `E7320 2 `uc ]
+[; ;main.c: 339: eusart_putch((((moveSpeed)>>8) & 0xFF));
+"339
+[e ( _eusart_putch (1 -> & >> -> _moveSpeed `i -> 8 `i -> 255 `i `uc ]
+[; ;main.c: 340: eusart_putch(((moveSpeed) & 0xFF));
+"340
+[e ( _eusart_putch (1 -> & -> _moveSpeed `i -> 255 `i `uc ]
+[; ;main.c: 341: eusart_putch((((moveTurnRadius)>>8) & 0xFF));
+"341
+[e ( _eusart_putch (1 -> & >> -> _moveTurnRadius `i -> 8 `i -> 255 `i `uc ]
+[; ;main.c: 342: eusart_putch(((moveTurnRadius) & 0xFF));
+"342
+[e ( _eusart_putch (1 -> & -> _moveTurnRadius `i -> 255 `i `uc ]
+"343
+}
+[e :U 721 ]
+[; ;main.c: 343: }
+[; ;main.c: 344: }
+"344
+[e :UE 719 ]
+}
+"347
+[v _irobot_leds `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
+{
+[; ;main.c: 347: void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLuminosity){
+[e :U _irobot_leds ]
+[v _isScript `uc ~T0 @X0 1 r1 ]
+[v _LEDBit `uc ~T0 @X0 1 r2 ]
+[v _powerColour `uc ~T0 @X0 1 r3 ]
+[v _powerLuminosity `uc ~T0 @X0 1 r4 ]
+[f ]
+[; ;main.c: 348: if (isScript){
+"348
+[e $ ! != -> _isScript `i -> -> -> 0 `i `uc `i 723  ]
+{
+[; ;main.c: 349: load_iRScriptStack(4, iR_LEDS,
+[; ;main.c: 350: LEDBit, powerColour, powerLuminosity);
+"350
+[e ( _load_iRScriptStack , , , , (. -> -> 4 `i `uc -> . `E7320 3 `i -> _LEDBit `i -> _powerColour `i -> _powerLuminosity `i ]
+"351
+}
+[; ;main.c: 351: }
+[e $U 724  ]
+"352
+[e :U 723 ]
+[; ;main.c: 352: else{
+{
+[; ;main.c: 353: eusart_putch(iR_LEDS);
+"353
+[e ( _eusart_putch (1 -> . `E7320 3 `uc ]
+[; ;main.c: 354: eusart_putch(LEDBit);
+"354
+[e ( _eusart_putch (1 _LEDBit ]
+[; ;main.c: 355: eusart_putch(powerColour);
+"355
+[e ( _eusart_putch (1 _powerColour ]
+[; ;main.c: 356: eusart_putch(powerLuminosity);
+"356
+[e ( _eusart_putch (1 _powerLuminosity ]
+"357
+}
+[e :U 724 ]
+[; ;main.c: 357: }
+[; ;main.c: 358: }
+"358
+[e :UE 722 ]
+}
+"360
+[v _irobot_init_song_0 `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 360: void irobot_init_song_0(void){
+[e :U _irobot_init_song_0 ]
+[f ]
+[; ;main.c: 361: eusart_putch(iR_SONG_INIT);
+"361
+[e ( _eusart_putch (1 -> . `E7320 4 `uc ]
+[; ;main.c: 362: eusart_putch(0);
+"362
+[e ( _eusart_putch (1 -> -> 0 `i `uc ]
+[; ;main.c: 363: eusart_putch(1);
+"363
+[e ( _eusart_putch (1 -> -> 1 `i `uc ]
+[; ;main.c: 364: eusart_putch(60);
+"364
+[e ( _eusart_putch (1 -> -> 60 `i `uc ]
+[; ;main.c: 365: eusart_putch(4);
+"365
+[e ( _eusart_putch (1 -> -> 4 `i `uc ]
+[; ;main.c: 366: }
+"366
+[e :UE 725 ]
+}
+"382
+[v _irobot_song_play `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;main.c: 382: void irobot_song_play(UINT8 songNumber){
+[e :U _irobot_song_play ]
+[v _songNumber `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 383: eusart_putch(iR_SONG_PLAY);
+"383
+[e ( _eusart_putch (1 -> . `E7320 5 `uc ]
+[; ;main.c: 384: eusart_putch(songNumber);
+"384
+[e ( _eusart_putch (1 _songNumber ]
+[; ;main.c: 385: }
+"385
+[e :UE 726 ]
+}
+"388
+[v _irobot_rotate `(v ~T0 @X0 1 ef3`uc`s`s ]
+{
+[; ;main.c: 388: void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed){
+[e :U _irobot_rotate ]
+[v _isScript `uc ~T0 @X0 1 r1 ]
+[v _rotateAngle `s ~T0 @X0 1 r2 ]
+[v _rotateSpeed `s ~T0 @X0 1 r3 ]
+[f ]
+[; ;main.c: 389: (rotateAngle > 0) ? (rotateAngle = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
+"389
+[e ? > -> _rotateAngle `i -> 0 `i : -> = _rotateAngle -> . `E7360 3 `s `i -> = _rotateAngle -> . `E7360 2 `s `i ]
+[; ;main.c: 390: (isScript) ?
+[; ;main.c: 391: irobot_move(1, rotateSpeed, rotateAngle):
+[; ;main.c: 392: irobot_move(0, rotateSpeed, rotateAngle);
+"392
+[e ? != -> _isScript `i -> -> -> 0 `i `uc `i : ( _irobot_move (3 , , -> -> 1 `i `uc _rotateSpeed _rotateAngle ( _irobot_move (3 , , -> -> 0 `i `uc _rotateSpeed _rotateAngle ]
+[; ;main.c: 393: }
+"393
+[e :UE 727 ]
+}
+"396
+[v _irobot_stop_motion `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;main.c: 396: void irobot_stop_motion(bool isScript){
+[e :U _irobot_stop_motion ]
+[v _isScript `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 397: (isScript) ? irobot_move(1,0,0) : irobot_move(0,0,0);
+"397
+[e ? != -> _isScript `i -> -> -> 0 `i `uc `i : ( _irobot_move (3 , , -> -> 1 `i `uc -> -> 0 `i `s -> -> 0 `i `s ( _irobot_move (3 , , -> -> 0 `i `uc -> -> 0 `i `s -> -> 0 `i `s ]
+[; ;main.c: 398: }
+"398
+[e :UE 728 ]
+}
+"401
+[v _irobot_led_power_on `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;main.c: 401: void irobot_led_power_on(UINT8 powerOnColour){
+[e :U _irobot_led_power_on ]
+[v _powerOnColour `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 402: irobot_leds(0, 0, powerOnColour, iR_CONST_LED_ON);
+"402
+[e ( _irobot_leds (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc _powerOnColour -> . `E7360 8 `uc ]
+[; ;main.c: 403: }
+"403
+[e :UE 729 ]
+}
+"406
+[v _irobot_led_power_off `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 406: void irobot_led_power_off(void){
+[e :U _irobot_led_power_off ]
+[f ]
+[; ;main.c: 407: irobot_leds(0, 0, 0, 0);
+"407
+[e ( _irobot_leds (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 408: }
+"408
+[e :UE 730 ]
+}
+"411
+[v _irobot_move_straight `(v ~T0 @X0 1 ef1`s ]
+{
+[; ;main.c: 411: void irobot_move_straight(INT16 straightSpeed){
+[e :U _irobot_move_straight ]
+[v _straightSpeed `s ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 412: irobot_move(0, straightSpeed, iR_CONST_STRAIGHT_2);
+"412
+[e ( _irobot_move (3 , , -> -> 0 `i `uc _straightSpeed -> . `E7360 1 `s ]
+[; ;main.c: 413: }
+"413
+[e :UE 731 ]
+}
+"416
+[v _update_bump_and_cliff `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 416: void update_bump_and_cliff(){
+[e :U _update_bump_and_cliff ]
+[f ]
+[; ;main.c: 417: irobot_query_and_update(5, iR_PKT_BUMP_DROP,
+[; ;main.c: 418: iR_PKT_CLIFF_L, iR_PKT_CLIFF_FL,
+[; ;main.c: 419: iR_PKT_CLIFF_FR, iR_PKT_CLIFF_R);
+"419
+[e ( _irobot_query_and_update , , , , , (. -> -> 5 `i `uc -> . `E7338 0 `i -> . `E7338 2 `i -> . `E7338 3 `i -> . `E7338 4 `i -> . `E7338 5 `i ]
+[; ;main.c: 420: }
+"420
+[e :UE 732 ]
+}
+"423
+[v _update_distance `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 423: void update_distance(){
+[e :U _update_distance ]
+[f ]
+[; ;main.c: 424: irobot_query_and_update(1, iR_PKT_DISTANCE);
+"424
+[e ( _irobot_query_and_update , (. -> -> 1 `i `uc -> . `E7338 7 `i ]
+[; ;main.c: 425: }
+"425
+[e :UE 733 ]
+}
+"428
+[v _update_angle `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 428: void update_angle(){
+[e :U _update_angle ]
+[f ]
+[; ;main.c: 429: irobot_query_and_update(1, iR_PKT_ANGLE);
+"429
+[e ( _irobot_query_and_update , (. -> -> 1 `i `uc -> . `E7338 8 `i ]
+[; ;main.c: 430: }
+"430
+[e :UE 734 ]
+}
+"436
+[v _irobot_move_to_simple `(v ~T0 @X0 1 ef2`s`s ]
+{
+[; ;main.c: 436: void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed){
+[e :U _irobot_move_to_simple ]
+[v _moveToDistance `s ~T0 @X0 1 r1 ]
+[v _moveToSpeed `s ~T0 @X0 1 r2 ]
+[f ]
+[; ;main.c: 437: irobot_move(1, moveToSpeed, iR_CONST_STRAIGHT_2);
+"437
+[e ( _irobot_move (3 , , -> -> 1 `i `uc _moveToSpeed -> . `E7360 1 `s ]
+[; ;main.c: 438: irobot_distance_wait(moveToDistance);
+"438
+[e ( _irobot_distance_wait (1 _moveToDistance ]
+[; ;main.c: 439: irobot_stop_motion(1);
+"439
+[e ( _irobot_stop_motion (1 -> -> 1 `i `uc ]
+[; ;main.c: 440: }
+"440
+[e :UE 735 ]
+}
+"443
+[v _irobot_rotate_to `(v ~T0 @X0 1 ef2`s`s ]
+{
+[; ;main.c: 443: void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed){
+[e :U _irobot_rotate_to ]
+[v _rotateToAngle `s ~T0 @X0 1 r1 ]
+[v _rotateSpeed `s ~T0 @X0 1 r2 ]
+[f ]
+[; ;main.c: 444: irobot_rotate(1, rotateToAngle, rotateSpeed);
+"444
+[e ( _irobot_rotate (3 , , -> -> 1 `i `uc _rotateToAngle _rotateSpeed ]
+[; ;main.c: 445: irobot_angle_wait(rotateToAngle);
+"445
+[e ( _irobot_angle_wait (1 _rotateToAngle ]
+[; ;main.c: 446: irobot_stop_motion(1);
+"446
+[e ( _irobot_stop_motion (1 -> -> 1 `i `uc ]
+[; ;main.c: 447: }
+"447
+[e :UE 736 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"452
+[v _main `(v ~T0 @X0 1 ef ]
+"453
+{
+[; ;main.c: 452: void main()
+[; ;main.c: 453: {
 [e :U _main ]
 [f ]
-[; ;main.c: 25: MXK_Init();
-"25
+[; ;main.c: 455: MXK_Init();
+"455
 [e ( _MXK_Init ..  ]
-[; ;main.c: 28: if (MXK_BlockSwitchTo(eMXK_HMI)) {
-"28
-[e $ ! != -> ( _MXK_BlockSwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 653  ]
+[; ;main.c: 458: if (MXK_BlockSwitchTo(eMXK_HMI)) {
+"458
+[e $ ! != -> ( _MXK_BlockSwitchTo (1 . `E7030 2 `i -> -> -> 0 `i `uc `i 738  ]
 {
-[; ;main.c: 30: if (MXK_Release())
-"30
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 654  ]
-[; ;main.c: 31: MXK_Dequeue();
-"31
+[; ;main.c: 459: Console_Init();
+"459
+[e ( _Console_Init ..  ]
+[; ;main.c: 460: HMI_Init();
+"460
+[e ( _HMI_Init ..  ]
+[; ;main.c: 461: LCD_Init();
+"461
+[e ( _LCD_Init ..  ]
+[; ;main.c: 462: if (MXK_Release())
+"462
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 739  ]
+[; ;main.c: 463: MXK_Dequeue();
+"463
 [e ( _MXK_Dequeue ..  ]
-[e :U 654 ]
-"32
+[e :U 739 ]
+"464
 }
-[e :U 653 ]
-[; ;main.c: 32: }
-[; ;main.c: 59: for(;;)
-"59
+[e :U 738 ]
+[; ;main.c: 464: }
+[; ;main.c: 465: eusart_init();
+"465
+[e ( _eusart_init ..  ]
+[; ;main.c: 466: irobot_init();
+"466
+[e ( _irobot_init ..  ]
+[; ;main.c: 467: irobot_led_power_on(0xA);
+"467
+[e ( _irobot_led_power_on (1 -> -> 10 `i `uc ]
+[; ;main.c: 468: delay_ms(1000);
+"468
+[e ( _delay_ms (1 -> -> 1000 `i `us ]
+[; ;main.c: 469: irobot_led_power_off();
+"469
+[e ( _irobot_led_power_off ..  ]
+[; ;main.c: 470: irobot_init_song_0();
+"470
+[e ( _irobot_init_song_0 ..  ]
+[; ;main.c: 471: delay_ms(20);
+"471
+[e ( _delay_ms (1 -> -> 20 `i `us ]
+[; ;main.c: 473: irobot_move_straight(250);
+"473
+[e ( _irobot_move_straight (1 -> -> 250 `i `s ]
+"474
+[v _distanceTotal `s ~T0 @X0 1 a ]
+[; ;main.c: 474: INT16 distanceTotal = 0;
+[e = _distanceTotal -> -> 0 `i `s ]
+"475
+[v _time `i ~T0 @X0 1 a ]
+[; ;main.c: 475: int time = 0;
+[e = _time -> 0 `i ]
+[; ;main.c: 477: for(;;){
+"477
 {
-"60
-[e :U 655 ]
-[; ;main.c: 60: {
+[e :U 740 ]
 {
-[; ;main.c: 76: if (MXK_BlockSwitchTo(eMXK_HMI)) {
-"76
-[e $ ! != -> ( _MXK_BlockSwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 658  ]
+[; ;main.c: 478: time ++;
+"478
+[e ++ _time -> 1 `i ]
+[; ;main.c: 479: if((time/10)%2 == 0){
+"479
+[e $ ! == % / _time -> 10 `i -> 2 `i -> 0 `i 743  ]
 {
-[; ;main.c: 78: if (MXK_Release())
-"78
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 659  ]
-[; ;main.c: 79: MXK_Dequeue();
-"79
+[; ;main.c: 480: irobot_led_power_on(0x0);
+"480
+[e ( _irobot_led_power_on (1 -> -> 0 `i `uc ]
+"481
+}
+[; ;main.c: 481: }else{
+[e $U 744  ]
+[e :U 743 ]
+{
+[; ;main.c: 482: irobot_led_power_off();
+"482
+[e ( _irobot_led_power_off ..  ]
+"483
+}
+[e :U 744 ]
+[; ;main.c: 483: }
+[; ;main.c: 486: update_bump_and_cliff();
+"486
+[e ( _update_bump_and_cliff ..  ]
+[; ;main.c: 487: update_distance();
+"487
+[e ( _update_distance ..  ]
+[; ;main.c: 488: distanceTotal += iRDistance;
+"488
+[e =+ _distanceTotal -> _iRDistance `s ]
+[; ;main.c: 490: if (iRBumpLeft || iRBumpRight){
+"490
+[e $ ! || != -> _iRBumpLeft `i -> -> -> 0 `i `uc `i != -> _iRBumpRight `i -> -> -> 0 `i `uc `i 745  ]
+{
+[; ;main.c: 491: irobot_song_play(0);
+"491
+[e ( _irobot_song_play (1 -> -> 0 `i `uc ]
+[; ;main.c: 492: irobot_stop_motion(0);
+"492
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+"493
+}
+[e :U 745 ]
+[; ;main.c: 493: }
+[; ;main.c: 494: HMI_Poll();
+"494
+[e ( _HMI_Poll ..  ]
+[; ;main.c: 496: if (MXK_SwitchTo(eMXK_HMI)) {
+"496
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E7030 2 `i -> -> -> 0 `i `uc `i 746  ]
+{
+[; ;main.c: 497: printf("%c", (char)35);
+"497
+[e ( _printf , (. :s 1C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 498: printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
+"498
+[e ( _printf , , , (. :s 2C -> _distanceTotal `i -> _iRBumpLeft `i -> _iRBumpRight `i ]
+[; ;main.c: 499: printf("Running: %d\n", HMIBoard.mUp.mGetState());
+"499
+[e ( _printf , (. :s 3C -> ( *U . . _HMIBoard 3 4 ..  `i ]
+[; ;main.c: 500: if(HMIBoard.mUp.mGetState()){
+"500
+[e $ ! != -> ( *U . . _HMIBoard 3 4 ..  `i -> -> -> 0 `i `uc `i 747  ]
+{
+"501
+[v _dist `i ~T0 @X0 1 a ]
+[; ;main.c: 501: int dist = 0;
+[e = _dist -> 0 `i ]
+[; ;main.c: 502: while (dist<=5000){
+"502
+[e $U 748  ]
+[e :U 749 ]
+{
+[; ;main.c: 503: irobot_move_straight(500);
+"503
+[e ( _irobot_move_straight (1 -> -> 500 `i `s ]
+[; ;main.c: 504: update_distance();
+"504
+[e ( _update_distance ..  ]
+[; ;main.c: 505: dist += iRDistance;
+"505
+[e =+ _dist -> _iRDistance `i ]
+[; ;main.c: 506: printf("%c",(char)35);
+"506
+[e ( _printf , (. :s 4C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 507: printf("Total Distance: %d\n\n\n\n\n\n\n",dist);
+"507
+[e ( _printf , (. :s 5C _dist ]
+[; ;main.c: 508: Console_Render();
+"508
+[e ( _Console_Render ..  ]
+"509
+}
+[e :U 748 ]
+"502
+[e $ <= _dist -> 5000 `i 749  ]
+[e :U 750 ]
+[; ;main.c: 509: }
+[; ;main.c: 510: irobot_stop_motion(0);
+"510
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+"511
+}
+[e :U 747 ]
+[; ;main.c: 511: }
+[; ;main.c: 512: Console_Render();
+"512
+[e ( _Console_Render ..  ]
+[; ;main.c: 514: if (MXK_Release())
+"514
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 751  ]
+[; ;main.c: 515: MXK_Dequeue();
+"515
 [e ( _MXK_Dequeue ..  ]
-[e :U 659 ]
-"80
+[e :U 751 ]
+"516
 }
-[e :U 658 ]
-"81
+[e :U 746 ]
+"517
 }
-[; ;main.c: 80: }
-[; ;main.c: 81: }
-[e $U 655  ]
-[e :U 656 ]
+[; ;main.c: 516: }
+[; ;main.c: 517: }
+[e $U 740  ]
+[e :U 741 ]
 }
-[; ;main.c: 82: }
-"82
-[e :UE 652 ]
+[; ;main.c: 519: }
+"519
+[e :UE 737 ]
 }
+[p f _printf 8914048 ]
+[a 1C 37 99 0 ]
+[a 4C 37 99 0 ]
+[a 2C 84 111 116 97 108 32 68 105 115 116 97 110 99 101 58 37 117 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 32 66 117 109 112 58 37 117 10 0 ]
+[a 3C 82 117 110 110 105 110 103 58 32 37 100 10 0 ]
+[a 5C 84 111 116 97 108 32 68 105 115 116 97 110 99 101 58 32 37 100 10 10 10 10 10 10 10 0 ]

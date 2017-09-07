@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"14960 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"14960 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
 "15445
 [s S616 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -31,7 +31,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f67j50.h: 50: extern volatile unsigned short PMSTAT @ 0xF40;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [; ;pic18f67j50.h: 52: asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
 [; ;pic18f67j50.h: 57: extern volatile unsigned char PMSTATL @ 0xF40;

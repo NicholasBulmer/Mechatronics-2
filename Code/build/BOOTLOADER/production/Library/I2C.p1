@@ -53,7 +53,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "426
 [s S623 `S626 1 ]
 [n S623 Byte . ]
-"12610 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"12610 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP1STAT `Vuc ~T0 @X0 0 e@4039 ]
 "12372
 [v _SSP1CON1 `Vuc ~T0 @X0 0 e@4038 ]
@@ -89,7 +89,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Port_SetPinType `(E6475 ~T0 @X0 0 ef3`C*S640`E6750`E6795 ]
 "25
 [v _PortC `S640 ~T0 @X0 0 e ]
-"3145 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"3145 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2STAT `Vuc ~T0 @X0 0 e@3949 ]
 "3025
 [v _SSP2CON1 `Vuc ~T0 @X0 0 e@3948 ]
@@ -103,7 +103,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Byte_SetQuad `(v ~T0 @X0 0 ef3`*S623`uc`uc ]
 "571
 [v _Byte_SetByte `(v ~T0 @X0 0 ef2`*S623`uc ]
-"13208 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"13208 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP1ADD `Vuc ~T0 @X0 0 e@4040 ]
 "8511
 [s S319 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -223,7 +223,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "362 Library/I2C.c
 [c E6905 0 1 .. ]
 [n E6905 . eI2C_NACK eI2C_ACK  ]
-"12029 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"12029 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [s S461 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S461 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
 "12039
@@ -263,7 +263,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f67j50.h: 50: extern volatile unsigned short PMSTAT @ 0xF40;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [; ;pic18f67j50.h: 52: asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
 [; ;pic18f67j50.h: 57: extern volatile unsigned char PMSTATL @ 0xF40;

@@ -105,7 +105,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n E6971 . eLED1 eLED2  ]
 "28 Library/LED.h
 [v _LED_Init `(v ~T0 @X0 0 ef1`E6971 ]
-"8597 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"8597 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _PIR1 `Vuc ~T0 @X0 0 e@3998 ]
 "8861
 [v _PIR2 `Vuc ~T0 @X0 0 e@4001 ]
@@ -121,7 +121,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OSCTUNEbits `VS307 ~T0 @X0 0 e@3995 ]
 "606 Library/Types.h
 [v _delay_ms `(v ~T0 @X0 0 ef1`us ]
-"13969 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"13969 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [s S550 :1 `uc 1 ]
 [n S550 . NOT_BOR ]
 "13972
@@ -156,11 +156,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "83 Library/MXK.c
 [c E6927 8 4 1 2 0 .. ]
 [n E6927 . eMXK_Motor eMXK_IMU eMXK_HMI eMXK_FPGA eMXK_None  ]
-"5943 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"5943 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _PORTG `Vuc ~T0 @X0 0 e@3974 ]
 "607 Library/Types.h
 [v _delay_us `(v ~T0 @X0 0 ef1`us ]
-"5572 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"5572 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _PORTE `Vuc ~T0 @X0 0 e@3972 ]
 "5065
 [v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
@@ -169,7 +169,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f67j50.h: 50: extern volatile unsigned short PMSTAT @ 0xF40;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f67j50.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [; ;pic18f67j50.h: 52: asm("PMSTAT equ 0F40h");
 [; <" PMSTAT equ 0F40h ;# ">
 [; ;pic18f67j50.h: 57: extern volatile unsigned char PMSTATL @ 0xF40;

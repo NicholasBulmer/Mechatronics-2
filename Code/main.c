@@ -13,6 +13,7 @@
 #include "ProcessorConfig.h"
 #include "ISR.h"
 #include "MXK.h"
+#include "HMI.h"
 #include "Config.h"
 #include "Functions.h"
 
@@ -464,13 +465,24 @@ void main()
     eusart_init();
     irobot_init();
     irobot_led_power_on(0xA);
+    delay_ms(1000);
+    irobot_led_power_off();
     irobot_init_song_0();
     delay_ms(20);
     
-    irobot_move_straight(500);
+    irobot_move_straight(250);
     INT16 distanceTotal = 0;
-    loop()
-    {
+    int time = 0;
+    
+    loop(){
+        time ++;
+        if((time/10)%2 == 0){
+            irobot_led_power_on(0x0);
+        }else{
+            irobot_led_power_off();
+        }
+    
+
     update_bump_and_cliff();
     update_distance();
     distanceTotal += iRDistance;
@@ -479,11 +491,26 @@ void main()
         irobot_song_play(0);
         irobot_stop_motion(0);
     }
+    HMI_Poll();
 	//irobot_stream_and_update(1, iR_PKT_BUMP);
         if (MXK_SwitchTo(eMXK_HMI)) {
             printf("%c", ENDOFTEXT);
             printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
+            printf("Running: %d\n", HMIBoard.mUp.mGetState());
+            if(HMIBoard.mUp.mGetState()){
+                int dist = 0;
+                while (dist<=5000){
+                    irobot_move_straight(500);
+                    update_distance();
+                    dist += iRDistance;
+                    printf("%c",ENDOFTEXT);
+                    printf("Total Distance: %d\n\n\n\n\n\n\n",dist);
+                    Console_Render();
+                }
+                irobot_stop_motion(0);
+            }
             Console_Render();
+            
             if (MXK_Release())
             MXK_Dequeue();
         }
