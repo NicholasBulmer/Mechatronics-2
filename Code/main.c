@@ -13,7 +13,6 @@
 #include "ProcessorConfig.h"
 #include "ISR.h"
 #include "MXK.h"
-#include "HMI.h"
 #include "Config.h"
 #include "Functions.h"
 
@@ -476,13 +475,12 @@ void main()
     
     loop(){
         time ++;
-        if((time/10)%2 == 0){
+        if((time/20)%2 == 0){
             irobot_led_power_on(0x0);
         }else{
             irobot_led_power_off();
         }
-    
-
+        
     update_bump_and_cliff();
     update_distance();
     distanceTotal += iRDistance;
@@ -508,6 +506,9 @@ void main()
                     Console_Render();
                 }
                 irobot_stop_motion(0);
+            }
+            if(HMIBoard.mDown.mGetState()){
+                
             }
             Console_Render();
             

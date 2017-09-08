@@ -66,11 +66,23 @@ void main() {
         if (angleTotal > 90) { //Wait until 90degrees has been reached
             irobot_stop_motion(0); //Stop robot when reached
         }
-
+        HMI_Poll();
         if (MXK_SwitchTo(eMXK_HMI)) {
             printf("%c", ENDOFTEXT);
             printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
             Console_Render();
+            if(HMIBoard.mUp.mGetState()){
+                int dist = 0;
+                irobot_move_straight(200);
+                while(dist<5000){
+                    update_distance();
+                    dist += iRDistance;
+                    printf("%c",ENDOFTEXT);
+                    printf("Distance: %d\n",dist);
+                    Console_Render();
+                }
+                irobot_stop_motion(0);
+            }
             if (MXK_Release())
                 MXK_Dequeue();
         }

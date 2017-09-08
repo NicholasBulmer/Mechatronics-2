@@ -45,12 +45,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _irobot_song_play `(v ~T0 @X0 0 ef1`uc ]
 "101
 [v _irobot_stop_motion `(v ~T0 @X0 0 ef1`uc ]
+"106 Library\HMI.h
+[v _HMI_Poll `(v ~T0 @X0 0 ef ]
 "51 Library\MXK.h
 [v _MXK_SwitchTo `(uc ~T0 @X0 0 ef1`E6940 ]
 "195 C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "28 Library\Console.h
 [v _Console_Render `(v ~T0 @X0 0 ef ]
+"32 Library\HMI.h
+[s S649 :4 `uc 1 :4 `uc 1 ]
+[n S649 . pButton . ]
+"38
+[s S650 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S650 . GLED RLED BLED YLED . ]
+"47
+[s S651 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S651 . UPLED DOWNLED LEFTLED RIGHTLED . ]
+"30
+[u S648 `S649 1 `S650 1 `S651 1 ]
+[n S648 . . . . ]
+"27
+[s S647 `uc -> 6 `i `S648 1 `uc 1 ]
+[n S647 . pSevenSegment . pBarGraph ]
+"24
+[u S646 `uc -> 8 `i `S647 1 ]
+[n S646 . Bytes . ]
+[v F6894 `(v ~T0 @X0 0 tf1`uc ]
+[v F6920 `(uc ~T0 @X0 0 tf ]
+"21 Library\Button.h
+[s S641 `uc 1 `uc 1 `us 1 `*F6894 1 `*F6920 1 ]
+[n S641 Button mState mCount mThreshold mFunction mGetState ]
+"20 Library\HMI.h
+[s S645 `S646 1 `S641 1 `S641 1 `S641 1 `S641 1 `S641 1 ]
+[n S645 HMI . mRight mLeft mUp mDown mDIP ]
+"18
+[v _HMIBoard `S645 ~T0 @X0 0 e ]
+"102 Library\iRobotSerial.h
+[v _irobot_move_straight `(v ~T0 @X0 0 ef1`s ]
+"113
+[v _iRDistance `us ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -6769,6 +6803,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 659 ]
 [; ;main.c: 68: }
+[; ;main.c: 69: HMI_Poll();
+"69
+[e ( _HMI_Poll ..  ]
 [; ;main.c: 70: if (MXK_SwitchTo(eMXK_HMI)) {
 "70
 [e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 660  ]
@@ -6782,27 +6819,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 73: Console_Render();
 "73
 [e ( _Console_Render ..  ]
-[; ;main.c: 74: if (MXK_Release())
+[; ;main.c: 74: if(HMIBoard.mUp.mGetState()){
 "74
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 661  ]
-[; ;main.c: 75: MXK_Dequeue();
+[e $ ! != -> ( *U . . _HMIBoard 3 4 ..  `i -> -> -> 0 `i `uc `i 661  ]
+{
 "75
-[e ( _MXK_Dequeue ..  ]
-[e :U 661 ]
+[v _dist `i ~T0 @X0 1 a ]
+[; ;main.c: 75: int dist = 0;
+[e = _dist -> 0 `i ]
+[; ;main.c: 76: irobot_move_straight(200);
 "76
+[e ( _irobot_move_straight (1 -> -> 200 `i `s ]
+[; ;main.c: 77: while(dist<5000){
+"77
+[e $U 662  ]
+[e :U 663 ]
+{
+[; ;main.c: 78: update_distance();
+"78
+[e ( _update_distance ..  ]
+[; ;main.c: 79: dist += iRDistance;
+"79
+[e =+ _dist -> _iRDistance `i ]
+[; ;main.c: 80: printf("%c",(char)35);
+"80
+[e ( _printf , (. :s 3C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 81: printf("Distance: %d\n",dist);
+"81
+[e ( _printf , (. :s 4C _dist ]
+[; ;main.c: 82: Console_Render();
+"82
+[e ( _Console_Render ..  ]
+"83
+}
+[e :U 662 ]
+"77
+[e $ < _dist -> 5000 `i 663  ]
+[e :U 664 ]
+[; ;main.c: 83: }
+[; ;main.c: 84: irobot_stop_motion(0);
+"84
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+"85
+}
+[e :U 661 ]
+[; ;main.c: 85: }
+[; ;main.c: 86: if (MXK_Release())
+"86
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 665  ]
+[; ;main.c: 87: MXK_Dequeue();
+"87
+[e ( _MXK_Dequeue ..  ]
+[e :U 665 ]
+"88
 }
 [e :U 660 ]
-"77
+"89
 }
-[; ;main.c: 76: }
-[; ;main.c: 77: }
+[; ;main.c: 88: }
+[; ;main.c: 89: }
 [e $U 655  ]
 [e :U 656 ]
 }
-[; ;main.c: 78: }
-"78
+[; ;main.c: 90: }
+"90
 [e :UE 652 ]
 }
-[p f _printf 8913920 ]
+[p f _printf 8914048 ]
 [a 1C 37 99 0 ]
+[a 3C 37 99 0 ]
 [a 2C 84 111 116 97 108 32 68 105 115 116 97 110 99 101 58 37 117 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 32 66 117 109 112 58 37 117 10 0 ]
+[a 4C 68 105 115 116 97 110 99 101 58 32 37 100 10 0 ]

@@ -310,6 +310,11 @@ switch(c = *f++) {
 case 0:
 goto alldone;
 
+# 697
+case 'd':
+case 'i':
+break;
+
 # 784
 case 'c':
 
@@ -325,13 +330,32 @@ continue;
 
 # 817
 case 'u':
-flag |= 0xC0;
+flag |= 0x40;
 break;
 
 
 }
 
-# 1273
+# 1251
+if((flag & 0x40) == 0x00)
+
+{
+
+# 1259
+val = (int)(*(int *)__va_arg((*(int **)ap), (int)0));
+
+if((int)val < 0) {
+flag |= 0x03;
+val = -val;
+}
+
+}
+
+else
+
+
+
+
 {
 
 # 1286
@@ -345,6 +369,10 @@ break;
 
 # 1422
 {
+
+# 1438
+if(flag & 0x03)
+(putch('-') );
 
 # 1469
 }

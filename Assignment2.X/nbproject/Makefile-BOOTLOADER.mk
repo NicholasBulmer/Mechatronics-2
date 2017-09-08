@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Library/Button.c Library/LCD.c Library/LED.c Library/Point.c Library/Port.c Library/SPI.c Library/Types.c Library/Console.c HMI.c Library/ADC.c Library/Colours.c Library/I2C.c Library/ISR.c Library/Motor.c Library/MXK.c Library/system.c Library/Timer0.c Library/Timer2.c Events.c Functions.c main.c Library/iRobotSerial.c
+SOURCEFILES_QUOTED_IF_SPACED=Library/Button.c Library/LCD.c Library/LED.c Library/Point.c Library/Port.c Library/SPI.c Library/Types.c Library/Console.c HMI.c Library/ADC.c Library/Colours.c Library/I2C.c Library/ISR.c Library/Motor.c Library/MXK.c Library/system.c Library/Timer0.c Library/Timer2.c Events.c Functions.c Library/iRobotSerial.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Library/Button.p1 ${OBJECTDIR}/Library/LCD.p1 ${OBJECTDIR}/Library/LED.p1 ${OBJECTDIR}/Library/Point.p1 ${OBJECTDIR}/Library/Port.p1 ${OBJECTDIR}/Library/SPI.p1 ${OBJECTDIR}/Library/Types.p1 ${OBJECTDIR}/Library/Console.p1 ${OBJECTDIR}/HMI.p1 ${OBJECTDIR}/Library/ADC.p1 ${OBJECTDIR}/Library/Colours.p1 ${OBJECTDIR}/Library/I2C.p1 ${OBJECTDIR}/Library/ISR.p1 ${OBJECTDIR}/Library/Motor.p1 ${OBJECTDIR}/Library/MXK.p1 ${OBJECTDIR}/Library/system.p1 ${OBJECTDIR}/Library/Timer0.p1 ${OBJECTDIR}/Library/Timer2.p1 ${OBJECTDIR}/Events.p1 ${OBJECTDIR}/Functions.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/Library/iRobotSerial.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/Library/Button.p1.d ${OBJECTDIR}/Library/LCD.p1.d ${OBJECTDIR}/Library/LED.p1.d ${OBJECTDIR}/Library/Point.p1.d ${OBJECTDIR}/Library/Port.p1.d ${OBJECTDIR}/Library/SPI.p1.d ${OBJECTDIR}/Library/Types.p1.d ${OBJECTDIR}/Library/Console.p1.d ${OBJECTDIR}/HMI.p1.d ${OBJECTDIR}/Library/ADC.p1.d ${OBJECTDIR}/Library/Colours.p1.d ${OBJECTDIR}/Library/I2C.p1.d ${OBJECTDIR}/Library/ISR.p1.d ${OBJECTDIR}/Library/Motor.p1.d ${OBJECTDIR}/Library/MXK.p1.d ${OBJECTDIR}/Library/system.p1.d ${OBJECTDIR}/Library/Timer0.p1.d ${OBJECTDIR}/Library/Timer2.p1.d ${OBJECTDIR}/Events.p1.d ${OBJECTDIR}/Functions.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/Library/iRobotSerial.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Library/Button.p1 ${OBJECTDIR}/Library/LCD.p1 ${OBJECTDIR}/Library/LED.p1 ${OBJECTDIR}/Library/Point.p1 ${OBJECTDIR}/Library/Port.p1 ${OBJECTDIR}/Library/SPI.p1 ${OBJECTDIR}/Library/Types.p1 ${OBJECTDIR}/Library/Console.p1 ${OBJECTDIR}/HMI.p1 ${OBJECTDIR}/Library/ADC.p1 ${OBJECTDIR}/Library/Colours.p1 ${OBJECTDIR}/Library/I2C.p1 ${OBJECTDIR}/Library/ISR.p1 ${OBJECTDIR}/Library/Motor.p1 ${OBJECTDIR}/Library/MXK.p1 ${OBJECTDIR}/Library/system.p1 ${OBJECTDIR}/Library/Timer0.p1 ${OBJECTDIR}/Library/Timer2.p1 ${OBJECTDIR}/Events.p1 ${OBJECTDIR}/Functions.p1 ${OBJECTDIR}/Library/iRobotSerial.p1 ${OBJECTDIR}/main.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/Library/Button.p1.d ${OBJECTDIR}/Library/LCD.p1.d ${OBJECTDIR}/Library/LED.p1.d ${OBJECTDIR}/Library/Point.p1.d ${OBJECTDIR}/Library/Port.p1.d ${OBJECTDIR}/Library/SPI.p1.d ${OBJECTDIR}/Library/Types.p1.d ${OBJECTDIR}/Library/Console.p1.d ${OBJECTDIR}/HMI.p1.d ${OBJECTDIR}/Library/ADC.p1.d ${OBJECTDIR}/Library/Colours.p1.d ${OBJECTDIR}/Library/I2C.p1.d ${OBJECTDIR}/Library/ISR.p1.d ${OBJECTDIR}/Library/Motor.p1.d ${OBJECTDIR}/Library/MXK.p1.d ${OBJECTDIR}/Library/system.p1.d ${OBJECTDIR}/Library/Timer0.p1.d ${OBJECTDIR}/Library/Timer2.p1.d ${OBJECTDIR}/Events.p1.d ${OBJECTDIR}/Functions.p1.d ${OBJECTDIR}/Library/iRobotSerial.p1.d ${OBJECTDIR}/main.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Library/Button.p1 ${OBJECTDIR}/Library/LCD.p1 ${OBJECTDIR}/Library/LED.p1 ${OBJECTDIR}/Library/Point.p1 ${OBJECTDIR}/Library/Port.p1 ${OBJECTDIR}/Library/SPI.p1 ${OBJECTDIR}/Library/Types.p1 ${OBJECTDIR}/Library/Console.p1 ${OBJECTDIR}/HMI.p1 ${OBJECTDIR}/Library/ADC.p1 ${OBJECTDIR}/Library/Colours.p1 ${OBJECTDIR}/Library/I2C.p1 ${OBJECTDIR}/Library/ISR.p1 ${OBJECTDIR}/Library/Motor.p1 ${OBJECTDIR}/Library/MXK.p1 ${OBJECTDIR}/Library/system.p1 ${OBJECTDIR}/Library/Timer0.p1 ${OBJECTDIR}/Library/Timer2.p1 ${OBJECTDIR}/Events.p1 ${OBJECTDIR}/Functions.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/Library/iRobotSerial.p1
+OBJECTFILES=${OBJECTDIR}/Library/Button.p1 ${OBJECTDIR}/Library/LCD.p1 ${OBJECTDIR}/Library/LED.p1 ${OBJECTDIR}/Library/Point.p1 ${OBJECTDIR}/Library/Port.p1 ${OBJECTDIR}/Library/SPI.p1 ${OBJECTDIR}/Library/Types.p1 ${OBJECTDIR}/Library/Console.p1 ${OBJECTDIR}/HMI.p1 ${OBJECTDIR}/Library/ADC.p1 ${OBJECTDIR}/Library/Colours.p1 ${OBJECTDIR}/Library/I2C.p1 ${OBJECTDIR}/Library/ISR.p1 ${OBJECTDIR}/Library/Motor.p1 ${OBJECTDIR}/Library/MXK.p1 ${OBJECTDIR}/Library/system.p1 ${OBJECTDIR}/Library/Timer0.p1 ${OBJECTDIR}/Library/Timer2.p1 ${OBJECTDIR}/Events.p1 ${OBJECTDIR}/Functions.p1 ${OBJECTDIR}/Library/iRobotSerial.p1 ${OBJECTDIR}/main.p1
 
 # Source Files
-SOURCEFILES=Library/Button.c Library/LCD.c Library/LED.c Library/Point.c Library/Port.c Library/SPI.c Library/Types.c Library/Console.c HMI.c Library/ADC.c Library/Colours.c Library/I2C.c Library/ISR.c Library/Motor.c Library/MXK.c Library/system.c Library/Timer0.c Library/Timer2.c Events.c Functions.c main.c Library/iRobotSerial.c
+SOURCEFILES=Library/Button.c Library/LCD.c Library/LED.c Library/Point.c Library/Port.c Library/SPI.c Library/Types.c Library/Console.c HMI.c Library/ADC.c Library/Colours.c Library/I2C.c Library/ISR.c Library/Motor.c Library/MXK.c Library/system.c Library/Timer0.c Library/Timer2.c Events.c Functions.c Library/iRobotSerial.c main.c
 
 
 CFLAGS=
@@ -253,14 +253,6 @@ ${OBJECTDIR}/Functions.p1: Functions.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/Functions.d ${OBJECTDIR}/Functions.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Functions.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.p1.d 
-	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=32 --float=32 --emi=wordwrite --rom=default,-0-13FF,-1406-1407,-1416-1417 --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=free -P -N255 -I"Library" -I"../" -I"./" -I"Library/USB/inc" -I"Library/USB/src" --warn=-3 --asmlist -DXPRJ_BOOTLOADER=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
-	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/Library/iRobotSerial.p1: Library/iRobotSerial.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Library" 
 	@${RM} ${OBJECTDIR}/Library/iRobotSerial.p1.d 
@@ -268,6 +260,14 @@ ${OBJECTDIR}/Library/iRobotSerial.p1: Library/iRobotSerial.c  nbproject/Makefile
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=32 --float=32 --emi=wordwrite --rom=default,-0-13FF,-1406-1407,-1416-1417 --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=free -P -N255 -I"Library" -I"../" -I"./" -I"Library/USB/inc" -I"Library/USB/src" --warn=-3 --asmlist -DXPRJ_BOOTLOADER=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/Library/iRobotSerial.p1  Library/iRobotSerial.c 
 	@-${MV} ${OBJECTDIR}/Library/iRobotSerial.d ${OBJECTDIR}/Library/iRobotSerial.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Library/iRobotSerial.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=32 --float=32 --emi=wordwrite --rom=default,-0-13FF,-1406-1407,-1416-1417 --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=free -P -N255 -I"Library" -I"../" -I"./" -I"Library/USB/inc" -I"Library/USB/src" --warn=-3 --asmlist -DXPRJ_BOOTLOADER=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/Library/Button.p1: Library/Button.c  nbproject/Makefile-${CND_CONF}.mk
@@ -430,14 +430,6 @@ ${OBJECTDIR}/Functions.p1: Functions.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/Functions.d ${OBJECTDIR}/Functions.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Functions.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.p1.d 
-	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=wordwrite --rom=default,-0-13FF,-1406-1407,-1416-1417 --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=free -P -N255 -I"Library" -I"../" -I"./" -I"Library/USB/inc" -I"Library/USB/src" --warn=-3 --asmlist -DXPRJ_BOOTLOADER=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
-	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/Library/iRobotSerial.p1: Library/iRobotSerial.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Library" 
 	@${RM} ${OBJECTDIR}/Library/iRobotSerial.p1.d 
@@ -445,6 +437,14 @@ ${OBJECTDIR}/Library/iRobotSerial.p1: Library/iRobotSerial.c  nbproject/Makefile
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=wordwrite --rom=default,-0-13FF,-1406-1407,-1416-1417 --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=free -P -N255 -I"Library" -I"../" -I"./" -I"Library/USB/inc" -I"Library/USB/src" --warn=-3 --asmlist -DXPRJ_BOOTLOADER=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/Library/iRobotSerial.p1  Library/iRobotSerial.c 
 	@-${MV} ${OBJECTDIR}/Library/iRobotSerial.d ${OBJECTDIR}/Library/iRobotSerial.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Library/iRobotSerial.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=wordwrite --rom=default,-0-13FF,-1406-1407,-1416-1417 --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=free -P -N255 -I"Library" -I"../" -I"./" -I"Library/USB/inc" -I"Library/USB/src" --warn=-3 --asmlist -DXPRJ_BOOTLOADER=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
