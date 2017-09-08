@@ -1,0 +1,147 @@
+
+/* 
+ * File:   Motor.h
+ * Author: User
+ *
+ * Created on 29 November 2016, 1:09 PM
+ */
+#include "Motor.h"
+#include "Types.h"
+#include "Timer0.h"
+#include "Port.h"
+#include "MXK.h"    
+
+#define STEP_PIN    PORTEbits.RE0
+#define DIR_PIN	    PORTEbits.RE1
+
+extern Port PortA, PortB, PortC, PortE, PortE, PortF, PortG;
+void Motor_Step();
+
+Function lStepFunction;
+MotorPtr lMotor;
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void Motor_Init(MotorPtr pMotor, UINT16 pAddress)
+{
+    pMotor->mDelta      = 0;
+    pMotor->mFrequency  = 0;  
+    pMotor->mAddress = pAddress;
+    
+    //Setup GPIO
+    Port_SetPinType (&PortE, DIR,   eTypeOutput);
+    Port_SetPinType (&PortE, STEP,  eTypeOutput);
+    Port_SetPin	    (&PortE, DIR,   0);
+    Port_SetPin	    (&PortE, STEP,  0);
+    
+    lStepFunction = Motor_Step;
+    Timer0_Init(1000);
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//  Motor_Move
+//      pMotor -> A pointer to the motor structure
+//      pAddress -> The address of the module that the motor is attached to
+//      pFrequency -> The update rate for the motor step and direction pins
+//  Return:
+//      Returns false when previous movement isn't complete
+bool Motor_Move(MotorPtr pMotor, INT16 pDelta)
+{
+    ////////////////////////////////////////////////////////////////////////////
+    lMotor = pMotor;
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //Movement not complete
+    if (pMotor->mDelta != 0)
+        return false;
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //Sets the motor structure variables
+    pMotor->mDelta = pDelta;
+
+    ////////////////////////////////////////////////////////////////////////////
+    //Reconfigures the timer
+    Timer0_Start(lStepFunction);
+    return true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void Motor_Step()
+{
+    if (MXK_SwitchTo(lMotor->mAddress))
+    {
+	if (lMotor->mDelta != 0)
+	{
+	    //Sets the direction
+	    if (lMotor->mDelta > 0)
+	    {
+		if (lMotor->mDelta != 32767)
+		    lMotor->mDelta --;
+
+		Port_SetPin(&PortE, DIR,   1);
+	    }
+	    else
+	    {
+		if (lMotor->mDelta != -32767)
+		    lMotor->mDelta ++;
+
+		Port_SetPin(&PortE, DIR,   0);
+	    }
+
+	    //Toggle Step
+	    Port_SetPin(&PortE, STEP,   1);
+	    Port_SetPin(&PortE, STEP,   0);
+	    
+	    MXK_Release();
+	    Timer0_Restart();
+	    return;
+	}
+	MXK_Release();
+	Timer0_Stop();
+	return;
+    }
+    
+    //Wait for next available time
+    MXK_Queue(lStepFunction);
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+bool Motor_Speed(MotorPtr pMotor, UINT16 pFrequency)
+{
+    pMotor->mFrequency = pFrequency;
+    Timer0_Init(pFrequency);
+    return true;
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//  Motor_Continious
+//      pMotor -> A pointer to the motor structure
+//	pDirection -> This is a value which when positive indicates forward.
+//          
+//      This function makes the motor move continiously at the speed defined
+//      by the function above. The speed can be changed during operation.
+//      continious mode is defined when mDelta is equal to 2^15 - 1 = 32767
+//  Return:
+//      Returns false when previous movement isn't complete
+bool Motor_Continious(MotorPtr pMotor, INT16 pDirection)
+{
+    if (pMotor == 0)
+	return false;
+    
+    if (pDirection > 0)
+	pMotor->mDelta = 32767;
+    else
+	pMotor->mDelta = -32767;
+    
+    return true;
+}

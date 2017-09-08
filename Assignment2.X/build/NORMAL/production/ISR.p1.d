@@ -1,0 +1,27 @@
+ build/NORMAL/production/ISR.d  \
+ build/NORMAL/production/ISR.p1:  \
+ ISR.c  \
+MXK.h  \
+Library/FIFO.h  \
+I2C.h  \
+Library/HMI.h  \
+Config.h  \
+Library/Port.h  \
+Library/LCD.h  \
+Library/LED.h  \
+Tetris.h  \
+Motor.h  \
+Library/Button.h  \
+Colours.h  \
+./Config.h  \
+IMU.h  \
+Library/Point.h  \
+USB_Wrap.h  \
+Library/USB/inc/usb_config.h  \
+ISR.h  \
+./Colours.h  \
+Library/Console.h  \
+Events.h  \
+Timer0.h  \
+Library/SPI.h  \
+Library/Types.h 
