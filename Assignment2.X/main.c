@@ -1,4 +1,8 @@
-
+/* TODO:
+ * Please use FUNCTIONS. Makes life so much easier for everyone.
+ * Please comment your functions too as well as the indivudual lines of code.
+ * This is just good practice.
+ */
 
 /*
  * File:        main.c
