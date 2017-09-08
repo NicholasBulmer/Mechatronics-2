@@ -8735,7 +8735,7 @@ void HMI_SetSegments (str pString);
 void HMI_Poll ();
 
 # 14 "Library\iRobotSerial.h"
-typedef enum{
+typedef enum {
 iR_START = 128,
 iR_FULL_MODE = 132,
 iR_DRIVE = 137,
@@ -8755,7 +8755,7 @@ iR_WAIT_EVENT = 158,
 }iR_OPCODE;
 
 
-typedef enum{
+typedef enum {
 iR_PKT_BUMP_DROP = 7,
 iR_PKT_WALL = 8,
 iR_PKT_CLIFF_L = 9,
@@ -8768,7 +8768,7 @@ iR_PKT_ANGLE = 20,
 }iR_PACKET;
 
 
-typedef enum{
+typedef enum {
 iR_PKT_BUMP_DROP_BN = 1,
 iR_PKT_WALL_BN = 1,
 iR_PKT_CLIFF_L_BN = 1,
@@ -8781,7 +8781,7 @@ iR_PKT_ANGLE_BN = 2,
 }iR_PACKET_SIZE;
 
 
-typedef enum{
+typedef enum {
 iR_CONST_STRAIGHT_1 = 0x8000,
 iR_CONST_STRAIGHT_2 = 0x7FFF,
 iR_CONST_CW = 0xFFFF,
@@ -8852,8 +8852,26 @@ iRDropRight,
 iRDropLeft,
 iRDropCaster;
 
-# 30 "main.c"
-void main() {
+# 37 "main.c"
+INT16 distanceTotal = 0;
+INT16 angleTotal = 0;
+int dip;
+int mode;
+int selectedMode1;
+int selectedMode2;
+int selectedMode3;
+int selectedMode4;
+
+
+void init();
+void getMode();
+void mode1();
+void mode2();
+void mode3();
+void mode4();
+
+
+void init(){
 
 MXK_Init();
 
@@ -8875,10 +8893,37 @@ delay_ms(20);
 
 irobot_rotate(0, 90, 200);
 
-INT16 distanceTotal = 0;
-INT16 angleTotal = 0;
+distanceTotal = 0;
+angleTotal = 0;
+}
 
-for(;;) {
+
+void getMode(){
+
+selectedMode1 = HMIBoard.mUp.mGetState();
+selectedMode2 = HMIBoard.mRight.mGetState();
+selectedMode3 = HMIBoard.mDown.mGetState();
+selectedMode4 = HMIBoard.mLeft.mGetState();
+
+if((selectedMode1 + selectedMode2 + selectedMode3 + selectedMode4) != 1) {
+mode = 0;
+}
+
+else if (selectedMode1 == 1) {
+mode = 1;
+}
+else if (selectedMode2 == 1) {
+mode = 2;
+}
+else if (selectedMode3 == 1) {
+mode = 3;
+}
+else if (selectedMode4 == 1) {
+mode = 4;
+}
+}
+
+void mode2(){
 update_bump_and_cliff();
 update_distance();
 update_angle();
@@ -8897,10 +8942,10 @@ if (MXK_SwitchTo(eMXK_HMI)) {
 printf("%c", (char)35);
 printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
 Console_Render();
-if(HMIBoard.mUp.mGetState()){
+if(HMIBoard.mUp.mGetState()) {
 int dist = 0;
 irobot_move_straight(200);
-while(dist<5000){
+while(dist<5000) {
 update_distance();
 dist += iRDistance;
 printf("%c",(char)35);
@@ -8912,5 +8957,26 @@ irobot_stop_motion(0);
 if (MXK_Release())
 MXK_Dequeue();
 }
+}
+
+
+void main() {
+init();
+for(;;) {
+switch (mode) {
+case 1:
+mode1();
+break;
+case 2:
+mode2();
+break;
+case 3:
+mode3();
+break;
+case 4:
+mode4();
+break;
+}
+
 }
 }
