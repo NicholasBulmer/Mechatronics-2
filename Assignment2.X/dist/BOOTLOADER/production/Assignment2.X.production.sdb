@@ -1263,9 +1263,15 @@ eMXK_None 0
 [v _swap swap `(v  1 e 1 0 ]
 "55 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"107
+"108
+[v _mode1 mode1 `(v  1 e 1 0 ]
+"113
 [v _mode2 mode2 `(v  1 e 1 0 ]
-"144
+"150
+[v _mode3 mode3 `(v  1 e 1 0 ]
+"155
+[v _mode4 mode4 `(v  1 e 1 0 ]
+"160
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -2218,17 +2224,27 @@ eMXK_None 0
 [v _selectedMode3 selectedMode3 `i  1 e 2 0 ]
 "44
 [v _selectedMode4 selectedMode4 `i  1 e 2 0 ]
-"144
+"160
 [v _main main `(v  1 e 1 0 ]
 {
-"163
+"179
 } 0
-"107
+"155
+[v _mode4 mode4 `(v  1 e 1 0 ]
+{
+"157
+} 0
+"150
+[v _mode3 mode3 `(v  1 e 1 0 ]
+{
+"152
+} 0
+"113
 [v _mode2 mode2 `(v  1 e 1 0 ]
 {
-"127
+"133
 [v mode2@dist dist `i  1 a 2 44 ]
-"141
+"147
 } 0
 "315 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/iRobotSerial.c
 [v _update_distance update_distance `(v  1 e 1 0 ]
@@ -2836,7 +2852,12 @@ eMXK_None 0
 [v Byte_GetBit@pBit pBit `uc  1 p 1 2 ]
 "45
 } 0
-"55 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"108 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+[v _mode1 mode1 `(v  1 e 1 0 ]
+{
+"110
+} 0
+"55
 [v _init init `(v  1 e 1 0 ]
 {
 "79

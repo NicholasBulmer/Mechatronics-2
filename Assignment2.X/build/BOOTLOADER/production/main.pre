@@ -8923,6 +8923,12 @@ mode = 4;
 }
 }
 
+
+void mode1(){
+
+}
+
+
 void mode2(){
 update_bump_and_cliff();
 update_distance();
@@ -8957,6 +8963,16 @@ irobot_stop_motion(0);
 if (MXK_Release())
 MXK_Dequeue();
 }
+}
+
+
+void mode3(){
+
+}
+
+
+void mode4(){
+
 }
 
 
