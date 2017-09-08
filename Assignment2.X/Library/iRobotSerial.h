@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   iRobotSerial.h
  * Author: Chad Aryana
  *
@@ -11,62 +11,62 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 ///These are the OPCodes as per defined in the iRobot Create OI Specification
-typedef enum{
-	iR_START 			= 128,
-	iR_FULL_MODE 		= 132,
-	iR_DRIVE 			= 137,
-	iR_LEDS				= 139,
-	iR_SONG_INIT		= 140,
-	iR_SONG_PLAY		= 141,
-	iR_SENSORS 			= 142,
-	iR_DIRECT_DRIVE		= 145,
-	iR_STREAM 			= 148,
-	iR_QUERY_LIST		= 149,
-	iR_SCRIPT			= 152,
-	iR_SCRIPT_PLAY		= 153,
-	iR_WAIT_TIME 		= 155,
-	iR_WAIT_DISTANCE 	= 156,
-	iR_WAIT_ANGLE 		= 157,
-	iR_WAIT_EVENT 		= 158,	 
- }iR_OPCODE;
+typedef enum {
+								iR_START    = 128,
+								iR_FULL_MODE   = 132,
+								iR_DRIVE    = 137,
+								iR_LEDS    = 139,
+								iR_SONG_INIT  = 140,
+								iR_SONG_PLAY  = 141,
+								iR_SENSORS    = 142,
+								iR_DIRECT_DRIVE  = 145,
+								iR_STREAM    = 148,
+								iR_QUERY_LIST  = 149,
+								iR_SCRIPT   = 152,
+								iR_SCRIPT_PLAY  = 153,
+								iR_WAIT_TIME   = 155,
+								iR_WAIT_DISTANCE  = 156,
+								iR_WAIT_ANGLE   = 157,
+								iR_WAIT_EVENT   = 158,
+}iR_OPCODE;
 
 ///Data Packets ID numbers as per defined in the iRobot Create OI Specification
-typedef enum{
-	iR_PKT_BUMP_DROP	= 7,
-	iR_PKT_WALL			= 8,
-	iR_PKT_CLIFF_L		= 9,
-	iR_PKT_CLIFF_FL		= 10,
-	iR_PKT_CLIFF_FR		= 11,
-	iR_PKT_CLIFF_R		= 12,
-	iR_PKT_V_WALL		= 13,
-	iR_PKT_DISTANCE		= 19,
-	iR_PKT_ANGLE		= 20,
- }iR_PACKET;
+typedef enum {
+								iR_PKT_BUMP_DROP = 7,
+								iR_PKT_WALL   = 8,
+								iR_PKT_CLIFF_L  = 9,
+								iR_PKT_CLIFF_FL  = 10,
+								iR_PKT_CLIFF_FR  = 11,
+								iR_PKT_CLIFF_R  = 12,
+								iR_PKT_V_WALL  = 13,
+								iR_PKT_DISTANCE  = 19,
+								iR_PKT_ANGLE  = 20,
+}iR_PACKET;
 
 ///Data Packets sizes (bytes) as per defined in the iRobot Create OI Specification
-typedef enum{
-	iR_PKT_BUMP_DROP_BN	= 1,	
-	iR_PKT_WALL_BN		= 1,
-	iR_PKT_CLIFF_L_BN	= 1,
-	iR_PKT_CLIFF_FL_BN	= 1,
-	iR_PKT_CLIFF_FR_BN	= 1,
-	iR_PKT_CLIFF_R_BN	= 1,
-	iR_PKT_V_WALL_BN	= 1,
-	iR_PKT_DISTANCE_BN	= 2,
-	iR_PKT_ANGLE_BN		= 2,
+typedef enum {
+								iR_PKT_BUMP_DROP_BN = 1,
+								iR_PKT_WALL_BN  = 1,
+								iR_PKT_CLIFF_L_BN = 1,
+								iR_PKT_CLIFF_FL_BN = 1,
+								iR_PKT_CLIFF_FR_BN = 1,
+								iR_PKT_CLIFF_R_BN = 1,
+								iR_PKT_V_WALL_BN = 1,
+								iR_PKT_DISTANCE_BN = 2,
+								iR_PKT_ANGLE_BN  = 2,
 }iR_PACKET_SIZE;
 
 ///Random constants that the iRobot specifies
-typedef enum{
-	iR_CONST_STRAIGHT_1	= 0x8000,
-	iR_CONST_STRAIGHT_2	= 0x7FFF,
-	iR_CONST_CW 		= 0xFFFF,
-	iR_CONST_CCW 		= 0x1,
-	iR_CONST_GREEN		= 0x0,
-	iR_CONST_YELLOW		= 0x55,
-	iR_CONST_ORANGE		= 0xAA,
-	iR_CONST_RED		= 0xFF,
-	iR_CONST_LED_ON		= 0xFF,
+typedef enum {
+								iR_CONST_STRAIGHT_1 = 0x8000,
+								iR_CONST_STRAIGHT_2 = 0x7FFF,
+								iR_CONST_CW   = 0xFFFF,
+								iR_CONST_CCW   = 0x1,
+								iR_CONST_GREEN  = 0x0,
+								iR_CONST_YELLOW  = 0x55,
+								iR_CONST_ORANGE  = 0xAA,
+								iR_CONST_RED  = 0xFF,
+								iR_CONST_LED_ON  = 0xFF,
 }iR_CONSTANTS;
 
 //Function Prototypes
@@ -110,20 +110,20 @@ void irobot_song_play(UINT8 songNumber);
 ////////////////////////////////////////////////////////////////////////////////
 
 extern UINT16
-	iRDistance,																	//Distance in mm since last call/update
-	iRAngle;																	//Angle in degrees since last call/update
+								iRDistance,          //Distance in mm since last call/update
+								iRAngle;          //Angle in degrees since last call/update
 
-extern UINT8 
-	iRWall,
-	iRCliffL,
-	iRCliffFL,
-	iRCliffFR,
-	iRCliffR,
-	iRVirtualWall;
+extern UINT8
+								iRWall,
+								iRCliffL,
+								iRCliffFL,
+								iRCliffFR,
+								iRCliffR,
+								iRVirtualWall;
 
 extern bool
-	iRBumpRight,
-	iRBumpLeft,
-	iRDropRight,
-	iRDropLeft,
-	iRDropCaster;
+								iRBumpRight,
+								iRBumpLeft,
+								iRDropRight,
+								iRDropLeft,
+								iRDropCaster;
