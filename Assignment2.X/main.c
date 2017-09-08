@@ -1,6 +1,8 @@
-/* 
+
+
+/*
  * File:        main.c
- * 
+ *
  * Author(s):   Chad Aryana
  *              Jamin Early
  *              Matt Woods
