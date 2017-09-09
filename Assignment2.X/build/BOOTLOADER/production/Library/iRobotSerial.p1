@@ -6309,7 +6309,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Types.h: 617: void swap(UINT8Ptr pA, UINT8Ptr pB);
 [; ;Types.h: 618: void reverse(char * input , UINT16 length);
 [; ;Types.h: 619: void itos(UINT16 input, char* destination);
-[; ;iRobotSerial.h: 14: typedef enum{
+[; ;iRobotSerial.h: 14: typedef enum {
 [; ;iRobotSerial.h: 15: iR_START = 128,
 [; ;iRobotSerial.h: 16: iR_FULL_MODE = 132,
 [; ;iRobotSerial.h: 17: iR_DRIVE = 137,
@@ -6327,7 +6327,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.h: 29: iR_WAIT_ANGLE = 157,
 [; ;iRobotSerial.h: 30: iR_WAIT_EVENT = 158,
 [; ;iRobotSerial.h: 31: }iR_OPCODE;
-[; ;iRobotSerial.h: 34: typedef enum{
+[; ;iRobotSerial.h: 34: typedef enum {
 [; ;iRobotSerial.h: 35: iR_PKT_BUMP_DROP = 7,
 [; ;iRobotSerial.h: 36: iR_PKT_WALL = 8,
 [; ;iRobotSerial.h: 37: iR_PKT_CLIFF_L = 9,
@@ -6338,7 +6338,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.h: 42: iR_PKT_DISTANCE = 19,
 [; ;iRobotSerial.h: 43: iR_PKT_ANGLE = 20,
 [; ;iRobotSerial.h: 44: }iR_PACKET;
-[; ;iRobotSerial.h: 47: typedef enum{
+[; ;iRobotSerial.h: 47: typedef enum {
 [; ;iRobotSerial.h: 48: iR_PKT_BUMP_DROP_BN = 1,
 [; ;iRobotSerial.h: 49: iR_PKT_WALL_BN = 1,
 [; ;iRobotSerial.h: 50: iR_PKT_CLIFF_L_BN = 1,
@@ -6349,7 +6349,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.h: 55: iR_PKT_DISTANCE_BN = 2,
 [; ;iRobotSerial.h: 56: iR_PKT_ANGLE_BN = 2,
 [; ;iRobotSerial.h: 57: }iR_PACKET_SIZE;
-[; ;iRobotSerial.h: 60: typedef enum{
+[; ;iRobotSerial.h: 60: typedef enum {
 [; ;iRobotSerial.h: 61: iR_CONST_STRAIGHT_1 = 0x8000,
 [; ;iRobotSerial.h: 62: iR_CONST_STRAIGHT_2 = 0x7FFF,
 [; ;iRobotSerial.h: 63: iR_CONST_CW = 0xFFFF,
@@ -6403,7 +6403,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.h: 127: iRDropRight,
 [; ;iRobotSerial.h: 128: iRDropLeft,
 [; ;iRobotSerial.h: 129: iRDropCaster;
-[; ;iRobotSerial.c: 24: typedef struct{
+[; ;iRobotSerial.c: 24: typedef struct {
 [; ;iRobotSerial.c: 25: UINT16 HB, LB;
 [; ;iRobotSerial.c: 26: } splitShort;
 "28 Library/iRobotSerial.c
@@ -6471,7 +6471,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _get_packet_size ]
 [v _packetID `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 61: switch (packetID){
+[; ;iRobotSerial.c: 61: switch (packetID) {
 "61
 [e $U 643  ]
 {
@@ -6551,7 +6551,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _packetIDValue `uc ~T0 @X0 1 r2 ]
 [v _byteNumber `uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;iRobotSerial.c: 75: switch (packetID){
+[; ;iRobotSerial.c: 75: switch (packetID) {
 "75
 [e $U 655  ]
 {
@@ -6773,7 +6773,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.c: 136: eusart_putch(numberOfPacketRequests);
 "136
 [e ( _eusart_putch (1 _numberOfPacketRequests ]
-[; ;iRobotSerial.c: 137: for (i = 0; i < numberOfPacketRequests; i++){
+[; ;iRobotSerial.c: 137: for (i = 0; i < numberOfPacketRequests; i++) {
 "137
 {
 [e = _i -> -> 0 `i `uc ]
@@ -6803,7 +6803,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;iRobotSerial.c: 142: }
 [; ;iRobotSerial.c: 143: ;
-[; ;iRobotSerial.c: 145: for (i = 0; i < streamSize; i++){RXArray[i] = eusart_getch();}
+[; ;iRobotSerial.c: 145: for (i = 0; i < streamSize; i++) {RXArray[i] = eusart_getch();}
 "145
 {
 [e = _i -> -> 0 `i `uc ]
@@ -6817,14 +6817,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < -> _i `i -> _streamSize `i 680  ]
 [e :U 681 ]
 }
-[; ;iRobotSerial.c: 147: for (i = 0; i < numberOfPacketRequests; i++){
+[; ;iRobotSerial.c: 147: for (i = 0; i < numberOfPacketRequests; i++) {
 "147
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 687  ]
 [e :U 684 ]
 {
-[; ;iRobotSerial.c: 148: for (j = startIndex; j < get_packet_size(TXArray[i]) + startIndex; j++){
+[; ;iRobotSerial.c: 148: for (j = startIndex; j < get_packet_size(TXArray[i]) + startIndex; j++) {
 "148
 {
 [e = _j _startIndex ]
@@ -6868,7 +6868,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _twos_complement_of ]
 [v _complementValue `s ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 168: if (complementValue < 0){
+[; ;iRobotSerial.c: 168: if (complementValue < 0) {
 "168
 [e $ ! < -> _complementValue `i -> 0 `i 693  ]
 {
@@ -6906,7 +6906,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.c: 178: *loadByte = __va_start();
 "178
 [e = *U &U _loadByte ( ___va_start ..  ]
-[; ;iRobotSerial.c: 179: for (UINT8 i = 0; i < bytesToLoad; i++){
+[; ;iRobotSerial.c: 179: for (UINT8 i = 0; i < bytesToLoad; i++) {
 "179
 {
 [v _i `uc ~T0 @X0 1 a ]
@@ -6947,7 +6947,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.c: 191: eusart_putch(iRScriptIndex);
 "191
 [e ( _eusart_putch (1 _iRScriptIndex ]
-[; ;iRobotSerial.c: 192: for (UINT8 i = 0; i < iRScriptIndex; i++){eusart_putch(iRScriptStack[i]);}
+[; ;iRobotSerial.c: 192: for (UINT8 i = 0; i < iRScriptIndex; i++) {eusart_putch(iRScriptStack[i]);}
 "192
 {
 [v _i `uc ~T0 @X0 1 a ]
@@ -7042,7 +7042,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.c: 222: moveTurnRadius = twos_complement_of(moveTurnRadius);
 "222
 [e = _moveTurnRadius -> ( _twos_complement_of (1 _moveTurnRadius `s ]
-[; ;iRobotSerial.c: 224: if (isScript){
+[; ;iRobotSerial.c: 224: if (isScript) {
 "224
 [e $ ! != -> _isScript `i -> -> -> 0 `i `uc `i 708  ]
 {
@@ -7092,7 +7092,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _powerColour `uc ~T0 @X0 1 r3 ]
 [v _powerLuminosity `uc ~T0 @X0 1 r4 ]
 [f ]
-[; ;iRobotSerial.c: 240: if (isScript){
+[; ;iRobotSerial.c: 240: if (isScript) {
 "240
 [e $ ! != -> _isScript `i -> -> -> 0 `i `uc `i 711  ]
 {
@@ -7183,7 +7183,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "281
 [e ? > -> _rotateAngle `i -> 0 `i : -> = _rotateAngle -> . `E6869 3 `s `i -> = _rotateAngle -> . `E6869 2 `s `i ]
 [; ;iRobotSerial.c: 282: (isScript) ?
-[; ;iRobotSerial.c: 283: irobot_move(1, rotateSpeed, rotateAngle):
+[; ;iRobotSerial.c: 283: irobot_move(1, rotateSpeed, rotateAngle) :
 [; ;iRobotSerial.c: 284: irobot_move(0, rotateSpeed, rotateAngle);
 "284
 [e ? != -> _isScript `i -> -> -> 0 `i `uc `i : ( _irobot_move (3 , , -> -> 1 `i `uc _rotateSpeed _rotateAngle ( _irobot_move (3 , , -> -> 0 `i `uc _rotateSpeed _rotateAngle ]
