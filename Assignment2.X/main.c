@@ -32,6 +32,7 @@
 #include "LED.h"
 #include "HMI.h"
 #include "iRobotSerial.h"
+#include "ADC.h"
 
 //Global Variables
 INT16 distanceTotal = 0;
@@ -42,6 +43,13 @@ int selectedMode1;
 int selectedMode2;
 int selectedMode3;
 int selectedMode4;
+int StepRotate = 0;     //logs steps rotated
+int MinDist = 1000;     //logs minimum distance
+int Stepstomin = 0;     //logs steps required to min value
+int IRValue = 0;        //logs current IR Value
+int TimerX = 8;         //while loop delay
+Motor Stepper;
+ADC ADC_AN0;
 
 // Prototype Functions
 void init();
@@ -56,6 +64,9 @@ void init(){
         //Init MXK Pins
         MXK_Init();
 
+        //Enable Interupts
+        ISR_Enable();
+
         //Init HMI
         if (MXK_BlockSwitchTo(eMXK_HMI)) {
                 Console_Init();
@@ -64,6 +75,19 @@ void init(){
                 if (MXK_Release())
                         MXK_Dequeue();
         }
+
+        //Init Stepper Motor
+        if (MXK_BlockSwitchTo(eMXK_Motor)) {
+                Motor_Init(&Stepper, MXK_MOTOR);
+                if (MXK_Release())
+                        MXK_Dequeue();
+        }
+
+        //Init Sensor
+        ADC_Init (&ADC_AN0, eADC_Ch0);
+        float ADC_Voltage(ADCPtr plnput);
+        ADC_Start(&ADC_AN0);
+
         eusart_init(); //Init PIC EUSART comms
         irobot_init(); //Init iRobot settings
 
@@ -72,7 +96,7 @@ void init(){
         delay_ms(20);
 
         //irobot_move_straight(200);
-        irobot_rotate(0, 90, 200); //Rotate the robot at 200mm/s
+        //irobot_rotate(0, 90, 200); //Rotate the robot at 200mm/s
 
         distanceTotal = 0;
         angleTotal = 0;
@@ -106,7 +130,86 @@ void getMode(){
 
 // Mode 1
 void mode1(){
-        //Fill
+        update_bump_and_cliff();                                          //Fetch bump status from iRobot
+        update_distance();                                                       //Fetch distance from iRobot
+        update_angle();                                                          //Fetch angle from iRobot
+        //distanceTotal += iRDistance;
+        //angleTotal += iRAngle;                                                  //Update the local angle count
+
+        if (iRBumpLeft || iRBumpRight) {                                         //Stop robot and play sound when bumper is triggered
+                irobot_song_play(0);
+                irobot_stop_motion(0);
+        }
+        if (angleTotal > 83) {                                                   //Wait until 90degrees has been reached
+                irobot_stop_motion(0);                                           //Stop robot when reached
+        }
+
+        if (MXK_SwitchTo(eMXK_HMI)) {
+                printf("%c", ENDOFTEXT);
+                printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
+                Console_Render();
+                if (MXK_Release())
+                        MXK_Dequeue();
+        }
+        HMI_Poll();
+        StepRotate = 0;  //logs steps rotated
+        MinDist = 1000;     //logs minimum distance
+        Stepstomin = 0;     //logs steps required to min value
+        IRValue = 0;     //logs current IR Value
+        TimerX = 8;     //while loop delay
+        while (StepRotate < 400) {
+                StepRotate++;
+                ADC_Start(&ADC_AN0);
+                IRValue = (59/ADC_Voltage(&ADC_AN0));
+                if (MXK_SwitchTo(eMXK_HMI)) {
+                        HMI_SetNumber(IRValue);
+                        HMI_Render();
+                        if (MXK_Release())
+                                MXK_Dequeue();
+                }
+                if (IRValue < MinDist) {
+                        MinDist = IRValue;
+                        Stepstomin = StepRotate;
+                }
+                if (MXK_SwitchTo(eMXK_Motor)) {
+                        Motor_Speed(&Stepper, HZ(50));
+                        Motor_Move(&Stepper, 1);
+                        if (MXK_Release())
+                                MXK_Dequeue();
+                }
+                TimerX = 10;
+                if (TimerX > 0) {
+                        while (TimerX > 0) {
+                                ADC_Start(&ADC_AN0);
+                                if (MXK_SwitchTo(eMXK_HMI)) {
+                                        HMI_SetNumber(IRValue);
+                                        HMI_Render();
+                                        if (MXK_Release())
+                                                MXK_Dequeue();
+                                }
+                                IRValue = (59/ADC_Voltage(&ADC_AN0));
+                                TimerX = TimerX - 1;
+                        }
+                }
+        }
+        if (MXK_SwitchTo(eMXK_Motor)) {
+                Motor_Speed(&Stepper, HZ(50));
+                int moveto = 400-Stepstomin;
+                //Motor_Move(&Stepper, (400-Stepstomin));
+                Motor_Move(&Stepper, (-moveto));
+                if (MXK_Release())
+                        MXK_Dequeue();
+        }
+        while (Stepper.mDelta > 0) {
+                ADC_Start(&ADC_AN0);
+                if (MXK_SwitchTo(eMXK_HMI)) {
+                        HMI_SetNumber(IRValue);
+                        HMI_Render();
+                        if (MXK_Release())
+                                MXK_Dequeue();
+                }
+                IRValue = (59/ADC_Voltage(&ADC_AN0));
+        }
 }
 
 // Mode 2
@@ -160,6 +263,7 @@ void mode4(){
 void main() {
         init();
         loop() {
+                getMode();
                 switch (mode) {
                 case 1:
                         mode1();
@@ -174,6 +278,5 @@ void main() {
                         mode4();
                         break;
                 }
-
         }
 }

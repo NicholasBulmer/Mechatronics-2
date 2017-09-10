@@ -631,7 +631,14 @@ iR_CONST_ORANGE 170
 iR_CONST_RED 255
 iR_CONST_LED_ON 255
 ]
-"60 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"52 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+[e E7368 . `uc
+eADC_Ch0 0
+eADC_Ch1 1
+eADC_Ch2 2
+eADC_Ch3 3
+]
+"70
 [e E6940 . `uc
 eMXK_Motor 8
 eMXK_IMU 4
@@ -645,6 +652,8 @@ eMXK_None 0
 [v _printf printf `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftdiv.c
@@ -701,6 +710,8 @@ eMXK_None 0
 [v _OutSeg OutSeg `(v  1 e 1 0 ]
 "104
 [v _HMI_Init HMI_Init `(v  1 e 1 0 ]
+"138
+[v _HMI_Render HMI_Render `(v  1 e 1 0 ]
 "162
 [v _HMI_SetLeft HMI_SetLeft `(v  1 e 1 0 ]
 "168
@@ -743,6 +754,8 @@ eMXK_None 0
 [v _ADC_ConversionTime ADC_ConversionTime `(v  1 e 1 0 ]
 "235
 [v _ADC_Sample ADC_Sample `(uc  1 e 1 0 ]
+"259
+[v _ADC_Voltage ADC_Voltage `(f  1 e 4 0 ]
 "271
 [v _rand rand `(uc  1 e 1 0 ]
 "18 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Button.c
@@ -849,7 +862,9 @@ eMXK_None 0
 [v _update_distance update_distance `(v  1 e 1 0 ]
 "320
 [v _update_angle update_angle `(v  1 e 1 0 ]
-"38 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/ISR.c
+"27 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/ISR.c
+[v _ISR_Enable ISR_Enable `(v  1 e 1 0 ]
+"38
 [v _ISR_Function ISR_Function `II(v  1 e 1 0 ]
 "32 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/LCD.c
 [v _Reset_Low Reset_Low `T(v  1 e 1 0 ]
@@ -891,9 +906,15 @@ eMXK_None 0
 [v _LED_Set LED_Set `(v  1 e 1 0 ]
 "50
 [v _LED_Toggle LED_Toggle `(v  1 e 1 0 ]
-"75 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Motor.c
+"26 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Motor.c
+[v _Motor_Init Motor_Init `(v  1 e 1 0 ]
+"51
+[v _Motor_Move Motor_Move `(uc  1 e 1 0 ]
+"75
 [v _Motor_Step Motor_Step `(v  1 e 1 0 ]
 [v i2_Motor_Step Motor_Step `(v  1 e 1 0 ]
+"117
+[v _Motor_Speed Motor_Speed `(uc  1 e 1 0 ]
 "10 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
 [v _MXK_InitTestButton MXK_InitTestButton `(v  1 e 1 0 ]
 "14
@@ -1261,17 +1282,19 @@ eMXK_None 0
 [v _itos itos `(v  1 e 1 0 ]
 "393
 [v _swap swap `(v  1 e 1 0 ]
-"55 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"62 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"108
+"105
+[v _getMode getMode `(v  1 e 1 0 ]
+"131
 [v _mode1 mode1 `(v  1 e 1 0 ]
-"113
+"215
 [v _mode2 mode2 `(v  1 e 1 0 ]
-"150
+"252
 [v _mode3 mode3 `(v  1 e 1 0 ]
-"155
+"257
 [v _mode4 mode4 `(v  1 e 1 0 ]
-"160
+"262
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -1992,10 +2015,8 @@ eMXK_None 0
 [v _val val `us  1 s 2 val ]
 "75
 [v _pShiftVal pShiftVal `us  1 e 2 0 ]
-"26 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Functions.c
+"27 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Functions.c
 [s S11482 ADC 5 `E6742 1 mChannel 1 0 `us 1 mValue 2 1 `*.39S11482 1 mNext 2 3 ]
-[v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
-"27
 [v _ADC_AN1 ADC_AN1 `S11482  1 e 5 0 ]
 "28
 [v _ADC_AN2 ADC_AN2 `S11482  1 e 5 0 ]
@@ -2109,7 +2130,7 @@ eMXK_None 0
 [v _lStepFunction lStepFunction `*.38(v  1 e 3 0 ]
 [s S12593 Motor 6 `s 1 mDelta 2 0 `s 1 mFrequency 2 2 `us 1 mAddress 2 4 ]
 "21
-[v _lMotor lMotor `*.2S12593  1 e 2 0 ]
+[v _lMotor lMotor `*.39S12593  1 e 2 0 ]
 "5 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
 [v _TestButton TestButton `S23  1 e 10 0 ]
 "6
@@ -2210,41 +2231,68 @@ eMXK_None 0
 [v _gISR gISR `*.38(v  1 s 3 gISR ]
 "3 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Types.c
 [v _MASKS MASKS `C[9]uc  1 s 9 MASKS ]
-"37 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"38 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [v _distanceTotal distanceTotal `s  1 e 2 0 ]
-"38
+"39
 [v _angleTotal angleTotal `s  1 e 2 0 ]
-"40
-[v _mode mode `i  1 e 2 0 ]
 "41
-[v _selectedMode1 selectedMode1 `i  1 e 2 0 ]
+[v _mode mode `i  1 e 2 0 ]
 "42
-[v _selectedMode2 selectedMode2 `i  1 e 2 0 ]
+[v _selectedMode1 selectedMode1 `i  1 e 2 0 ]
 "43
-[v _selectedMode3 selectedMode3 `i  1 e 2 0 ]
+[v _selectedMode2 selectedMode2 `i  1 e 2 0 ]
 "44
+[v _selectedMode3 selectedMode3 `i  1 e 2 0 ]
+"45
 [v _selectedMode4 selectedMode4 `i  1 e 2 0 ]
-"160
+"46
+[v _StepRotate StepRotate `i  1 e 2 0 ]
+"47
+[v _MinDist MinDist `i  1 e 2 0 ]
+"48
+[v _Stepstomin Stepstomin `i  1 e 2 0 ]
+"49
+[v _IRValue IRValue `i  1 e 2 0 ]
+"50
+[v _TimerX TimerX `i  1 e 2 0 ]
+"51
+[v _Stepper Stepper `S12593  1 e 6 0 ]
+"52
+[v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
+"262
 [v _main main `(v  1 e 1 0 ]
 {
-"179
+"281
 } 0
-"155
+"257
 [v _mode4 mode4 `(v  1 e 1 0 ]
 {
-"157
+"259
 } 0
-"150
+"252
 [v _mode3 mode3 `(v  1 e 1 0 ]
 {
-"152
+"254
 } 0
-"113
+"215
 [v _mode2 mode2 `(v  1 e 1 0 ]
 {
-"133
+"235
 [v mode2@dist dist `i  1 a 2 44 ]
-"147
+"249
+} 0
+"303 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/iRobotSerial.c
+[v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
+{
+[v irobot_move_straight@straightSpeed straightSpeed `s  1 p 2 25 ]
+"305
+} 0
+"131 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+[v _mode1 mode1 `(v  1 e 1 0 ]
+{
+"196
+[v mode1@moveto moveto `i  1 a 2 55 ]
+"212
 } 0
 "315 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/iRobotSerial.c
 [v _update_distance update_distance `(v  1 e 1 0 ]
@@ -2408,6 +2456,22 @@ eMXK_None 0
 [v irobot_stop_motion@isScript isScript `uc  1 a 1 25 ]
 "290
 } 0
+"220
+[v _irobot_move irobot_move `(v  1 e 1 0 ]
+{
+[v irobot_move@isScript isScript `uc  1 a 1 wreg ]
+[v irobot_move@isScript isScript `uc  1 a 1 wreg ]
+[v irobot_move@moveSpeed moveSpeed `s  1 p 2 16 ]
+[v irobot_move@moveTurnRadius moveTurnRadius `s  1 p 2 18 ]
+[v irobot_move@isScript isScript `uc  1 a 1 24 ]
+"236
+} 0
+"167
+[v _twos_complement_of twos_complement_of `(us  1 e 2 0 ]
+{
+[v twos_complement_of@complementValue complementValue `s  1 p 2 0 ]
+"174
+} 0
 "274
 [v _irobot_song_play irobot_song_play `(v  1 e 1 0 ]
 {
@@ -2416,13 +2480,65 @@ eMXK_None 0
 [v irobot_song_play@songNumber songNumber `uc  1 a 1 1 ]
 "277
 } 0
-"303
-[v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 {
-[v irobot_move_straight@straightSpeed straightSpeed `s  1 p 2 25 ]
-"305
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 52 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 51 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 43 ]
+"70
 } 0
-"252 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\HMI.c
+"117 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Motor.c
+[v _Motor_Speed Motor_Speed `(uc  1 e 1 0 ]
+{
+[s S12593 Motor 6 `s 1 mDelta 2 0 `s 1 mFrequency 2 2 `us 1 mAddress 2 4 ]
+[v Motor_Speed@pMotor pMotor `*.39S12593  1 p 2 27 ]
+[v Motor_Speed@pFrequency pFrequency `us  1 p 2 29 ]
+"122
+} 0
+"51
+[v _Motor_Move Motor_Move `(uc  1 e 1 0 ]
+{
+[s S12593 Motor 6 `s 1 mDelta 2 0 `s 1 mFrequency 2 2 `us 1 mAddress 2 4 ]
+[v Motor_Move@pMotor pMotor `*.39S12593  1 p 2 3 ]
+[v Motor_Move@pDelta pDelta `s  1 p 2 5 ]
+"69
+} 0
+"75 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Timer0.c
+[v _Timer0_Start Timer0_Start `(v  1 e 1 0 ]
+{
+[v Timer0_Start@pFunction pFunction `*.38(v  1 p 3 0 ]
+"82
+} 0
+"138 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\HMI.c
+[v _HMI_Render HMI_Render `(v  1 e 1 0 ]
+{
+"141
+[v HMI_Render@a a `us  1 a 2 8 ]
+"144
+} 0
+"54
+[v _OutSeg OutSeg `(v  1 e 1 0 ]
+{
+[v OutSeg@pInput pInput `uc  1 a 1 wreg ]
+"59
+[v OutSeg@out out `VEuc  1 a 1 7 ]
+"54
+[v OutSeg@pInput pInput `uc  1 a 1 wreg ]
+[v OutSeg@pSegment pSegment `uc  1 p 1 3 ]
+"58
+[v OutSeg@cur cur `uc  1 s 1 cur ]
+"60
+[v OutSeg@segset segset `uc  1 s 1 segset ]
+"61
+[v OutSeg@a a `uc  1 s 1 a ]
+"83
+[v OutSeg@pInput pInput `uc  1 a 1 6 ]
+"101
+} 0
+"252
 [v _HMI_Poll HMI_Poll `(v  1 e 1 0 ]
 {
 "260
@@ -2437,107 +2553,6 @@ eMXK_None 0
 [v Button_Poll@pButton pButton `C*.39S23  1 p 2 27 ]
 [v Button_Poll@pIncrement pIncrement `uc  1 p 1 29 ]
 "88
-} 0
-"24 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
-[v _MXK_DIPSwitch MXK_DIPSwitch `(uc  1 e 1 0 ]
-{
-"27
-} 0
-"47 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\HMI.c
-[v _HMI_DIPSwitch HMI_DIPSwitch `(uc  1 e 1 0 ]
-{
-"50
-} 0
-"42
-[v _HMI_DownSwitch HMI_DownSwitch `(uc  1 e 1 0 ]
-{
-"45
-} 0
-"37
-[v _HMI_UpSwitch HMI_UpSwitch `(uc  1 e 1 0 ]
-{
-"40
-} 0
-"32
-[v _HMI_RightSwitch HMI_RightSwitch `(uc  1 e 1 0 ]
-{
-"35
-} 0
-"27
-[v _HMI_LeftSwitch HMI_LeftSwitch `(uc  1 e 1 0 ]
-{
-"30
-} 0
-"14 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
-[v _MXK_TestButton MXK_TestButton `(uc  1 e 1 0 ]
-{
-"17
-} 0
-"498 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Port.c
-[v _Port_GetQuad Port_GetQuad `(uc  1 e 1 0 ]
-{
-"500
-[v Port_GetQuad@Output Output `uc  1 a 1 5 ]
-[s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
-`uc 1 mBit4_7 1 0 :4:4 
-]
-"498
-[s S65 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 mBit1_4 1 0 :4:1 
-`uc 1 . 1 0 :3:5 
-]
-[s S69 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 mBit2_5 1 0 :4:2 
-`uc 1 . 1 0 :2:6 
-]
-[s S73 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 mBit3_6 1 0 :4:3 
-`uc 1 . 1 0 :1:7 
-]
-[s S77 . 1 `uc 1 mBit0_2 1 0 :3:0 
-`uc 1 mBit3_5 1 0 :3:3 
-`uc 1 mBit6_7 1 0 :2:6 
-]
-[s S81 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 mBit1_3 1 0 :3:1 
-`uc 1 mBit4_6 1 0 :3:4 
-`uc 1 . 1 0 :1:7 
-]
-[s S86 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 mBit2_4 1 0 :3:2 
-`uc 1 mBit5_7 1 0 :3:5 
-]
-[s S90 . 1 `uc 1 mBit0_1 1 0 :2:0 
-`uc 1 mBit2_3 1 0 :2:2 
-`uc 1 mBit4_5 1 0 :2:4 
-`uc 1 . 1 0 :2:6 
-]
-[s S95 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 mBit1_2 1 0 :2:1 
-`uc 1 mBit3_4 1 0 :2:3 
-`uc 1 mBit5_6 1 0 :2:5 
-`uc 1 . 1 0 :1:7 
-]
-[s S101 . 1 `uc 1 mBit0 1 0 :1:0 
-`uc 1 mBit1 1 0 :1:1 
-`uc 1 mBit2 1 0 :1:2 
-`uc 1 mBit3 1 0 :1:3 
-`uc 1 mBit4 1 0 :1:4 
-`uc 1 mBit5 1 0 :1:5 
-`uc 1 mBit6 1 0 :1:6 
-`uc 1 mBit7 1 0 :1:7 
-]
-[u S110 . 1 `uc 1 mBits 1 0 `S62 1 . 1 0 `S65 1 . 1 0 `S69 1 . 1 0 `S73 1 . 1 0 `S77 1 . 1 0 `S81 1 . 1 0 `S86 1 . 1 0 `S90 1 . 1 0 `S95 1 . 1 0 `S101 1 . 1 0 ]
-[s S122 Byte 1 `S110 1 . 1 0 ]
-[s S124 . 2 `S122 1 LS_Byte 1 0 `S122 1 MS_Byte 1 1 ]
-[s S127 . 2 `uc 1 L 1 0 `uc 1 H 1 1 ]
-[u S130 . 2 `us 1 mBits 2 0 `S124 1 . 2 0 `S127 1 . 2 0 ]
-[s S134 Word 2 `S130 1 . 2 0 ]
-[u S136 PortProperty 2 `us 1 mWord 2 0 `S134 1 mType 2 0 ]
-[s S139 Port 10 `*.32S136 1 mProperties 2 0 `*.39S122 1 mDirection 2 2 `*.39S122 1 mOutput 2 4 `*.39S122 1 mInput 2 6 `S134 1 mType 2 8 ]
-[v Port_GetQuad@pInput pInput `C*.39S139  1 p 2 0 ]
-[v Port_GetQuad@pQuad pQuad `E6776  1 p 1 2 ]
-"504
 } 0
 "22 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Events.c
 [v _Event_DIPSwitch Event_DIPSwitch `(v  1 e 1 0 ]
@@ -2852,43 +2867,86 @@ eMXK_None 0
 [v Byte_GetBit@pBit pBit `uc  1 p 1 2 ]
 "45
 } 0
-"108 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
-[v _mode1 mode1 `(v  1 e 1 0 ]
+"259 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/ADC.c
+[v _ADC_Voltage ADC_Voltage `(f  1 e 4 0 ]
 {
-"110
+"263
+[v ADC_Voltage@output output `f  1 a 4 39 ]
+"262
+[v ADC_Voltage@ref ref `Cf  1 a 4 35 ]
+"261
+[v ADC_Voltage@max max `Cf  1 a 4 31 ]
+"259
+[s S11482 ADC 5 `E6742 1 mChannel 1 0 `us 1 mValue 2 1 `*.39S11482 1 mNext 2 3 ]
+[v ADC_Voltage@pInput pInput `*.39S11482  1 p 2 25 ]
+"269
 } 0
-"55
+"10 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S14297 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S14302 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S14305 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14297 1 fAsBytes 4 0 `S14302 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S14305  1 a 4 19 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 14 ]
+[s S14373 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S14376 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14373 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S14376  1 a 2 23 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 18 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 13 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 12 ]
+"8
+[v ___flmul@b b `d  1 p 4 0 ]
+[v ___flmul@a a `d  1 p 4 4 ]
+"205
+} 0
+"11 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 19 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 13 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 17 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 24 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 23 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 12 ]
+"11
+[v ___fldiv@b b `d  1 p 4 0 ]
+[v ___fldiv@a a `d  1 p 4 4 ]
+"184
+} 0
+"62 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
 {
-"79
+"102
 } 0
-"280 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/iRobotSerial.c
-[v _irobot_rotate irobot_rotate `(v  1 e 1 0 ]
-{
-[v irobot_rotate@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_rotate@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_rotate@rotateAngle rotateAngle `s  1 p 2 25 ]
-[v irobot_rotate@rotateSpeed rotateSpeed `s  1 p 2 27 ]
-[v irobot_rotate@isScript isScript `uc  1 a 1 29 ]
-"285
-} 0
-"220
-[v _irobot_move irobot_move `(v  1 e 1 0 ]
-{
-[v irobot_move@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_move@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_move@moveSpeed moveSpeed `s  1 p 2 16 ]
-[v irobot_move@moveTurnRadius moveTurnRadius `s  1 p 2 18 ]
-[v irobot_move@isScript isScript `uc  1 a 1 24 ]
-"236
-} 0
-"167
-[v _twos_complement_of twos_complement_of `(us  1 e 2 0 ]
-{
-[v twos_complement_of@complementValue complementValue `s  1 p 2 0 ]
-"174
-} 0
-"293
+"293 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_led_power_on irobot_led_power_on `(v  1 e 1 0 ]
 {
 [v irobot_led_power_on@powerOnColour powerOnColour `uc  1 a 1 wreg ]
@@ -2944,6 +3002,36 @@ eMXK_None 0
 {
 "118
 } 0
+"26 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Motor.c
+[v _Motor_Init Motor_Init `(v  1 e 1 0 ]
+{
+[s S12593 Motor 6 `s 1 mDelta 2 0 `s 1 mFrequency 2 2 `us 1 mAddress 2 4 ]
+[v Motor_Init@pMotor pMotor `*.39S12593  1 p 2 45 ]
+[v Motor_Init@pAddress pAddress `us  1 p 2 47 ]
+"40
+} 0
+"25 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Timer0.c
+[v _Timer0_Init Timer0_Init `(v  1 e 1 0 ]
+{
+"34
+[v Timer0_Init@DIVIDE DIVIDE `ul  1 a 4 23 ]
+"27
+[v Timer0_Init@pCPUClock pCPUClock `ul  1 a 4 19 ]
+"25
+[v Timer0_Init@pFrequency pFrequency `ul  1 p 4 13 ]
+"29
+[v Timer0_Init@PRESCALE PRESCALE `C[8]us  1 s 16 PRESCALE ]
+"31
+[v Timer0_Init@PRE PRE `uc  1 s 1 PRE ]
+"32
+[v Timer0_Init@DIV DIV `ul  1 s 4 DIV ]
+"72
+} 0
+"20
+[v _Timer0_Clear Timer0_Clear `(v  1 e 1 0 ]
+{
+"24
+} 0
 "33 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
 [v _MXK_Init MXK_Init `(v  1 e 1 0 ]
 {
@@ -2953,7 +3041,7 @@ eMXK_None 0
 [v _Port_Init Port_Init `(v  1 e 1 0 ]
 {
 "166
-[v Port_Init@i i `uc  1 a 1 7 ]
+[v Port_Init@i i `uc  1 a 1 6 ]
 [s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
 `uc 1 mBit4_7 1 0 :4:4 
 ]
@@ -3011,15 +3099,15 @@ eMXK_None 0
 [s S134 Word 2 `S130 1 . 2 0 ]
 [u S136 PortProperty 2 `us 1 mWord 2 0 `S134 1 mType 2 0 ]
 [s S139 Port 10 `*.32S136 1 mProperties 2 0 `*.39S122 1 mDirection 2 2 `*.39S122 1 mOutput 2 4 `*.39S122 1 mInput 2 6 `S134 1 mType 2 8 ]
-[v Port_Init@pInput pInput `C*.39S139  1 p 2 2 ]
-[v Port_Init@pPort pPort `E6786  1 p 1 4 ]
+[v Port_Init@pInput pInput `C*.39S139  1 p 2 1 ]
+[v Port_Init@pPort pPort `E6786  1 p 1 3 ]
 "186
 } 0
 "513
 [v _Port_SetType Port_SetType `(E6475  1 e 1 0 ]
 {
 "515
-[v Port_SetType@Output Output `E6475  1 a 1 61 ]
+[v Port_SetType@Output Output `E6475  1 a 1 0 ]
 [s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
 `uc 1 mBit4_7 1 0 :4:4 
 ]
@@ -4149,71 +4237,10 @@ eMXK_None 0
 [v Port_SetPin@pValue pValue `uc  1 p 1 18 ]
 "270
 } 0
-"271
-[v _Port_GetPin Port_GetPin `(uc  1 e 1 0 ]
+"27 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/ISR.c
+[v _ISR_Enable ISR_Enable `(v  1 e 1 0 ]
 {
-"273
-[v Port_GetPin@Output Output `uc  1 a 1 5 ]
-[s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
-`uc 1 mBit4_7 1 0 :4:4 
-]
-"271
-[s S65 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 mBit1_4 1 0 :4:1 
-`uc 1 . 1 0 :3:5 
-]
-[s S69 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 mBit2_5 1 0 :4:2 
-`uc 1 . 1 0 :2:6 
-]
-[s S73 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 mBit3_6 1 0 :4:3 
-`uc 1 . 1 0 :1:7 
-]
-[s S77 . 1 `uc 1 mBit0_2 1 0 :3:0 
-`uc 1 mBit3_5 1 0 :3:3 
-`uc 1 mBit6_7 1 0 :2:6 
-]
-[s S81 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 mBit1_3 1 0 :3:1 
-`uc 1 mBit4_6 1 0 :3:4 
-`uc 1 . 1 0 :1:7 
-]
-[s S86 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 mBit2_4 1 0 :3:2 
-`uc 1 mBit5_7 1 0 :3:5 
-]
-[s S90 . 1 `uc 1 mBit0_1 1 0 :2:0 
-`uc 1 mBit2_3 1 0 :2:2 
-`uc 1 mBit4_5 1 0 :2:4 
-`uc 1 . 1 0 :2:6 
-]
-[s S95 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 mBit1_2 1 0 :2:1 
-`uc 1 mBit3_4 1 0 :2:3 
-`uc 1 mBit5_6 1 0 :2:5 
-`uc 1 . 1 0 :1:7 
-]
-[s S101 . 1 `uc 1 mBit0 1 0 :1:0 
-`uc 1 mBit1 1 0 :1:1 
-`uc 1 mBit2 1 0 :1:2 
-`uc 1 mBit3 1 0 :1:3 
-`uc 1 mBit4 1 0 :1:4 
-`uc 1 mBit5 1 0 :1:5 
-`uc 1 mBit6 1 0 :1:6 
-`uc 1 mBit7 1 0 :1:7 
-]
-[u S110 . 1 `uc 1 mBits 1 0 `S62 1 . 1 0 `S65 1 . 1 0 `S69 1 . 1 0 `S73 1 . 1 0 `S77 1 . 1 0 `S81 1 . 1 0 `S86 1 . 1 0 `S90 1 . 1 0 `S95 1 . 1 0 `S101 1 . 1 0 ]
-[s S122 Byte 1 `S110 1 . 1 0 ]
-[s S124 . 2 `S122 1 LS_Byte 1 0 `S122 1 MS_Byte 1 1 ]
-[s S127 . 2 `uc 1 L 1 0 `uc 1 H 1 1 ]
-[u S130 . 2 `us 1 mBits 2 0 `S124 1 . 2 0 `S127 1 . 2 0 ]
-[s S134 Word 2 `S130 1 . 2 0 ]
-[u S136 PortProperty 2 `us 1 mWord 2 0 `S134 1 mType 2 0 ]
-[s S139 Port 10 `*.32S136 1 mProperties 2 0 `*.39S122 1 mDirection 2 2 `*.39S122 1 mOutput 2 4 `*.39S122 1 mInput 2 6 `S134 1 mType 2 8 ]
-[v Port_GetPin@pInput pInput `C*.39S139  1 p 2 0 ]
-[v Port_GetPin@pPin pPin `E6750  1 p 1 2 ]
-"277
+"33
 } 0
 "104 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\HMI.c
 [v _HMI_Init HMI_Init `(v  1 e 1 0 ]
@@ -5750,6 +5777,252 @@ eMXK_None 0
 [v Console_Init@y y `uc  1 a 1 3 ]
 [v Console_Init@x x `uc  1 a 1 2 ]
 "173
+} 0
+"114 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/ADC.c
+[v _ADC_Start ADC_Start `(v  1 e 1 0 ]
+{
+[s S11482 ADC 5 `E6742 1 mChannel 1 0 `us 1 mValue 2 1 `*.39S11482 1 mNext 2 3 ]
+[v ADC_Start@pInput pInput `*.39S11482  1 p 2 2 ]
+"149
+} 0
+"19
+[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
+{
+[s S11482 ADC 5 `E6742 1 mChannel 1 0 `us 1 mValue 2 1 `*.39S11482 1 mNext 2 3 ]
+[v ADC_Init@pInput pInput `*.39S11482  1 p 2 4 ]
+[v ADC_Init@pChannel pChannel `E6742  1 p 1 6 ]
+"62
+} 0
+"150
+[v _ADC_SetupIO ADC_SetupIO `(v  1 e 1 0 ]
+{
+[v ADC_SetupIO@pChannel pChannel `E6742  1 a 1 wreg ]
+"152
+[v ADC_SetupIO@MASK MASK `uc  1 a 1 3 ]
+"150
+[v ADC_SetupIO@pChannel pChannel `E6742  1 a 1 wreg ]
+"152
+[v ADC_SetupIO@pChannel pChannel `E6742  1 a 1 2 ]
+"154
+} 0
+"155
+[v _ADC_SetChannel ADC_SetChannel `(v  1 e 1 0 ]
+{
+[v ADC_SetChannel@pChannel pChannel `E6742  1 a 1 wreg ]
+[v ADC_SetChannel@pChannel pChannel `E6742  1 a 1 wreg ]
+"157
+[v ADC_SetChannel@pChannel pChannel `E6742  1 a 1 1 ]
+"158
+} 0
+"199
+[v _ADC_ConversionTime ADC_ConversionTime `(v  1 e 1 0 ]
+{
+[v ADC_ConversionTime@pCount pCount `uc  1 a 1 wreg ]
+[v ADC_ConversionTime@pCount pCount `uc  1 a 1 wreg ]
+"201
+[v ADC_ConversionTime@pCount pCount `uc  1 a 1 1 ]
+"210
+} 0
+"159
+[v _ADC_ClockDivision ADC_ClockDivision `(v  1 e 1 0 ]
+{
+[v ADC_ClockDivision@pDivide pDivide `uc  1 a 1 wreg ]
+"162
+[v ADC_ClockDivision@unfound unfound `uc  1 a 1 2 ]
+"161
+[v ADC_ClockDivision@reg reg `uc  1 a 1 1 ]
+"159
+[v ADC_ClockDivision@pDivide pDivide `uc  1 a 1 wreg ]
+"161
+[v ADC_ClockDivision@pDivide pDivide `uc  1 a 1 0 ]
+"198
+} 0
+"63
+[v _ADC_Calibrate ADC_Calibrate `(v  1 e 1 0 ]
+{
+"74
+} 0
+"85
+[v _ADC_On ADC_On `(v  1 e 1 0 ]
+{
+"93
+} 0
+"94
+[v _ADC_Off ADC_Off `(v  1 e 1 0 ]
+{
+"99
+} 0
+"105 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+[v _getMode getMode `(v  1 e 1 0 ]
+{
+"128
+} 0
+"24 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
+[v _MXK_DIPSwitch MXK_DIPSwitch `(uc  1 e 1 0 ]
+{
+"27
+} 0
+"47 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\HMI.c
+[v _HMI_DIPSwitch HMI_DIPSwitch `(uc  1 e 1 0 ]
+{
+"50
+} 0
+"42
+[v _HMI_DownSwitch HMI_DownSwitch `(uc  1 e 1 0 ]
+{
+"45
+} 0
+"37
+[v _HMI_UpSwitch HMI_UpSwitch `(uc  1 e 1 0 ]
+{
+"40
+} 0
+"32
+[v _HMI_RightSwitch HMI_RightSwitch `(uc  1 e 1 0 ]
+{
+"35
+} 0
+"27
+[v _HMI_LeftSwitch HMI_LeftSwitch `(uc  1 e 1 0 ]
+{
+"30
+} 0
+"14 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
+[v _MXK_TestButton MXK_TestButton `(uc  1 e 1 0 ]
+{
+"17
+} 0
+"271 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Port.c
+[v _Port_GetPin Port_GetPin `(uc  1 e 1 0 ]
+{
+"273
+[v Port_GetPin@Output Output `uc  1 a 1 5 ]
+[s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
+`uc 1 mBit4_7 1 0 :4:4 
+]
+"271
+[s S65 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 mBit1_4 1 0 :4:1 
+`uc 1 . 1 0 :3:5 
+]
+[s S69 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 mBit2_5 1 0 :4:2 
+`uc 1 . 1 0 :2:6 
+]
+[s S73 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 mBit3_6 1 0 :4:3 
+`uc 1 . 1 0 :1:7 
+]
+[s S77 . 1 `uc 1 mBit0_2 1 0 :3:0 
+`uc 1 mBit3_5 1 0 :3:3 
+`uc 1 mBit6_7 1 0 :2:6 
+]
+[s S81 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 mBit1_3 1 0 :3:1 
+`uc 1 mBit4_6 1 0 :3:4 
+`uc 1 . 1 0 :1:7 
+]
+[s S86 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 mBit2_4 1 0 :3:2 
+`uc 1 mBit5_7 1 0 :3:5 
+]
+[s S90 . 1 `uc 1 mBit0_1 1 0 :2:0 
+`uc 1 mBit2_3 1 0 :2:2 
+`uc 1 mBit4_5 1 0 :2:4 
+`uc 1 . 1 0 :2:6 
+]
+[s S95 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 mBit1_2 1 0 :2:1 
+`uc 1 mBit3_4 1 0 :2:3 
+`uc 1 mBit5_6 1 0 :2:5 
+`uc 1 . 1 0 :1:7 
+]
+[s S101 . 1 `uc 1 mBit0 1 0 :1:0 
+`uc 1 mBit1 1 0 :1:1 
+`uc 1 mBit2 1 0 :1:2 
+`uc 1 mBit3 1 0 :1:3 
+`uc 1 mBit4 1 0 :1:4 
+`uc 1 mBit5 1 0 :1:5 
+`uc 1 mBit6 1 0 :1:6 
+`uc 1 mBit7 1 0 :1:7 
+]
+[u S110 . 1 `uc 1 mBits 1 0 `S62 1 . 1 0 `S65 1 . 1 0 `S69 1 . 1 0 `S73 1 . 1 0 `S77 1 . 1 0 `S81 1 . 1 0 `S86 1 . 1 0 `S90 1 . 1 0 `S95 1 . 1 0 `S101 1 . 1 0 ]
+[s S122 Byte 1 `S110 1 . 1 0 ]
+[s S124 . 2 `S122 1 LS_Byte 1 0 `S122 1 MS_Byte 1 1 ]
+[s S127 . 2 `uc 1 L 1 0 `uc 1 H 1 1 ]
+[u S130 . 2 `us 1 mBits 2 0 `S124 1 . 2 0 `S127 1 . 2 0 ]
+[s S134 Word 2 `S130 1 . 2 0 ]
+[u S136 PortProperty 2 `us 1 mWord 2 0 `S134 1 mType 2 0 ]
+[s S139 Port 10 `*.32S136 1 mProperties 2 0 `*.39S122 1 mDirection 2 2 `*.39S122 1 mOutput 2 4 `*.39S122 1 mInput 2 6 `S134 1 mType 2 8 ]
+[v Port_GetPin@pInput pInput `C*.39S139  1 p 2 0 ]
+[v Port_GetPin@pPin pPin `E6750  1 p 1 2 ]
+"277
+} 0
+"498
+[v _Port_GetQuad Port_GetQuad `(uc  1 e 1 0 ]
+{
+"500
+[v Port_GetQuad@Output Output `uc  1 a 1 5 ]
+[s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
+`uc 1 mBit4_7 1 0 :4:4 
+]
+"498
+[s S65 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 mBit1_4 1 0 :4:1 
+`uc 1 . 1 0 :3:5 
+]
+[s S69 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 mBit2_5 1 0 :4:2 
+`uc 1 . 1 0 :2:6 
+]
+[s S73 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 mBit3_6 1 0 :4:3 
+`uc 1 . 1 0 :1:7 
+]
+[s S77 . 1 `uc 1 mBit0_2 1 0 :3:0 
+`uc 1 mBit3_5 1 0 :3:3 
+`uc 1 mBit6_7 1 0 :2:6 
+]
+[s S81 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 mBit1_3 1 0 :3:1 
+`uc 1 mBit4_6 1 0 :3:4 
+`uc 1 . 1 0 :1:7 
+]
+[s S86 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 mBit2_4 1 0 :3:2 
+`uc 1 mBit5_7 1 0 :3:5 
+]
+[s S90 . 1 `uc 1 mBit0_1 1 0 :2:0 
+`uc 1 mBit2_3 1 0 :2:2 
+`uc 1 mBit4_5 1 0 :2:4 
+`uc 1 . 1 0 :2:6 
+]
+[s S95 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 mBit1_2 1 0 :2:1 
+`uc 1 mBit3_4 1 0 :2:3 
+`uc 1 mBit5_6 1 0 :2:5 
+`uc 1 . 1 0 :1:7 
+]
+[s S101 . 1 `uc 1 mBit0 1 0 :1:0 
+`uc 1 mBit1 1 0 :1:1 
+`uc 1 mBit2 1 0 :1:2 
+`uc 1 mBit3 1 0 :1:3 
+`uc 1 mBit4 1 0 :1:4 
+`uc 1 mBit5 1 0 :1:5 
+`uc 1 mBit6 1 0 :1:6 
+`uc 1 mBit7 1 0 :1:7 
+]
+[u S110 . 1 `uc 1 mBits 1 0 `S62 1 . 1 0 `S65 1 . 1 0 `S69 1 . 1 0 `S73 1 . 1 0 `S77 1 . 1 0 `S81 1 . 1 0 `S86 1 . 1 0 `S90 1 . 1 0 `S95 1 . 1 0 `S101 1 . 1 0 ]
+[s S122 Byte 1 `S110 1 . 1 0 ]
+[s S124 . 2 `S122 1 LS_Byte 1 0 `S122 1 MS_Byte 1 1 ]
+[s S127 . 2 `uc 1 L 1 0 `uc 1 H 1 1 ]
+[u S130 . 2 `us 1 mBits 2 0 `S124 1 . 2 0 `S127 1 . 2 0 ]
+[s S134 Word 2 `S130 1 . 2 0 ]
+[u S136 PortProperty 2 `us 1 mWord 2 0 `S134 1 mType 2 0 ]
+[s S139 Port 10 `*.32S136 1 mProperties 2 0 `*.39S122 1 mDirection 2 2 `*.39S122 1 mOutput 2 4 `*.39S122 1 mInput 2 6 `S134 1 mType 2 8 ]
+[v Port_GetQuad@pInput pInput `C*.39S139  1 p 2 0 ]
+[v Port_GetQuad@pQuad pQuad `E6776  1 p 1 2 ]
+"504
 } 0
 "38 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/ISR.c
 [v _ISR_Function ISR_Function `II(v  1 e 1 0 ]
