@@ -631,14 +631,14 @@ iR_CONST_ORANGE 170
 iR_CONST_RED 255
 iR_CONST_LED_ON 255
 ]
-"52 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"53 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [e E7368 . `uc
 eADC_Ch0 0
 eADC_Ch1 1
 eADC_Ch2 2
 eADC_Ch3 3
 ]
-"70
+"72
 [e E6940 . `uc
 eMXK_Motor 8
 eMXK_IMU 4
@@ -1282,19 +1282,19 @@ eMXK_None 0
 [v _itos itos `(v  1 e 1 0 ]
 "393
 [v _swap swap `(v  1 e 1 0 ]
-"62 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"64 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"105
+"104
 [v _getMode getMode `(v  1 e 1 0 ]
-"131
+"130
 [v _mode1 mode1 `(v  1 e 1 0 ]
-"215
+"214
 [v _mode2 mode2 `(v  1 e 1 0 ]
-"252
+"251
 [v _mode3 mode3 `(v  1 e 1 0 ]
-"257
+"256
 [v _mode4 mode4 `(v  1 e 1 0 ]
-"262
+"323
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -2256,30 +2256,32 @@ eMXK_None 0
 "50
 [v _TimerX TimerX `i  1 e 2 0 ]
 "51
-[v _Stepper Stepper `S12593  1 e 6 0 ]
+[v _stepsToMinDegrees stepsToMinDegrees `f  1 e 4 0 ]
 "52
+[v _Stepper Stepper `S12593  1 e 6 0 ]
+"53
 [v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
-"262
+"323
 [v _main main `(v  1 e 1 0 ]
 {
-"281
+"342
 } 0
-"257
+"256
 [v _mode4 mode4 `(v  1 e 1 0 ]
 {
-"259
+"320
 } 0
-"252
+"251
 [v _mode3 mode3 `(v  1 e 1 0 ]
 {
-"254
+"253
 } 0
-"215
+"214
 [v _mode2 mode2 `(v  1 e 1 0 ]
 {
-"235
+"234
 [v mode2@dist dist `i  1 a 2 44 ]
-"249
+"248
 } 0
 "303 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
@@ -2287,12 +2289,12 @@ eMXK_None 0
 [v irobot_move_straight@straightSpeed straightSpeed `s  1 p 2 25 ]
 "305
 } 0
-"131 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"130 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [v _mode1 mode1 `(v  1 e 1 0 ]
 {
-"196
-[v mode1@moveto moveto `i  1 a 2 55 ]
-"212
+"195
+[v mode1@moveto moveto `i  1 a 2 2 ]
+"211
 } 0
 "315 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/iRobotSerial.c
 [v _update_distance update_distance `(v  1 e 1 0 ]
@@ -2361,15 +2363,15 @@ eMXK_None 0
 [v _printf printf `(i  1 e 2 0 ]
 {
 "528
-[v printf@val val `ui  1 a 2 34 ]
+[v printf@val val `ui  1 a 2 40 ]
 "466
-[v printf@ap ap `[1]*.39v  1 a 2 32 ]
+[v printf@ap ap `[1]*.39v  1 a 2 38 ]
 "499
-[v printf@c c `c  1 a 1 36 ]
+[v printf@c c `c  1 a 1 42 ]
 "508
-[v printf@flag flag `uc  1 a 1 31 ]
+[v printf@flag flag `uc  1 a 1 37 ]
 "506
-[v printf@prec prec `c  1 a 1 30 ]
+[v printf@prec prec `c  1 a 1 36 ]
 "464
 [v printf@f f `*.32Cuc  1 p 2 21 ]
 "1541
@@ -2484,10 +2486,10 @@ eMXK_None 0
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 52 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 51 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 87 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 86 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 43 ]
+[v ___fltol@f1 f1 `d  1 p 4 82 ]
 "70
 } 0
 "117 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/Motor.c
@@ -2871,14 +2873,14 @@ eMXK_None 0
 [v _ADC_Voltage ADC_Voltage `(f  1 e 4 0 ]
 {
 "263
-[v ADC_Voltage@output output `f  1 a 4 39 ]
+[v ADC_Voltage@output output `f  1 a 4 78 ]
 "262
-[v ADC_Voltage@ref ref `Cf  1 a 4 35 ]
+[v ADC_Voltage@ref ref `Cf  1 a 4 74 ]
 "261
-[v ADC_Voltage@max max `Cf  1 a 4 31 ]
+[v ADC_Voltage@max max `Cf  1 a 4 70 ]
 "259
 [s S11482 ADC 5 `E6742 1 mChannel 1 0 `us 1 mValue 2 1 `*.39S11482 1 mNext 2 3 ]
-[v ADC_Voltage@pInput pInput `*.39S11482  1 p 2 25 ]
+[v ADC_Voltage@pInput pInput `*.39S11482  1 p 2 64 ]
 "269
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\xxtofl.c
@@ -2899,52 +2901,52 @@ eMXK_None 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S14297 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S14300 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S14302 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S14305 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14297 1 fAsBytes 4 0 `S14302 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S14305  1 a 4 19 ]
+[s S14305 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S14308 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14300 1 fAsBytes 4 0 `S14305 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S14308  1 a 4 58 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 14 ]
-[s S14373 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 53 ]
+[s S14376 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S14376 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14373 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S14376  1 a 2 23 ]
+[u S14379 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14376 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S14379  1 a 2 62 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 18 ]
+[v ___flmul@bexp bexp `uc  1 a 1 57 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 13 ]
+[v ___flmul@aexp aexp `uc  1 a 1 52 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 12 ]
+[v ___flmul@sign sign `uc  1 a 1 51 ]
 "8
-[v ___flmul@b b `d  1 p 4 0 ]
-[v ___flmul@a a `d  1 p 4 4 ]
+[v ___flmul@b b `d  1 p 4 39 ]
+[v ___flmul@a a `d  1 p 4 43 ]
 "205
 } 0
 "11 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 {
 "21
-[v ___fldiv@grs grs `ul  1 a 4 19 ]
+[v ___fldiv@grs grs `ul  1 a 4 33 ]
 "22
-[v ___fldiv@rem rem `ul  1 a 4 13 ]
+[v ___fldiv@rem rem `ul  1 a 4 27 ]
 "20
-[v ___fldiv@new_exp new_exp `i  1 a 2 17 ]
+[v ___fldiv@new_exp new_exp `i  1 a 2 31 ]
 "19
-[v ___fldiv@aexp aexp `uc  1 a 1 24 ]
+[v ___fldiv@aexp aexp `uc  1 a 1 38 ]
 "18
-[v ___fldiv@bexp bexp `uc  1 a 1 23 ]
+[v ___fldiv@bexp bexp `uc  1 a 1 37 ]
 "16
-[v ___fldiv@sign sign `uc  1 a 1 12 ]
+[v ___fldiv@sign sign `uc  1 a 1 26 ]
 "11
-[v ___fldiv@b b `d  1 p 4 0 ]
-[v ___fldiv@a a `d  1 p 4 4 ]
+[v ___fldiv@b b `d  1 p 4 14 ]
+[v ___fldiv@a a `d  1 p 4 18 ]
 "184
 } 0
-"62 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"64 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
 {
-"102
+"101
 } 0
 "293 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_led_power_on irobot_led_power_on `(v  1 e 1 0 ]
@@ -3041,7 +3043,7 @@ eMXK_None 0
 [v _Port_Init Port_Init `(v  1 e 1 0 ]
 {
 "166
-[v Port_Init@i i `uc  1 a 1 6 ]
+[v Port_Init@i i `uc  1 a 1 69 ]
 [s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
 `uc 1 mBit4_7 1 0 :4:4 
 ]
@@ -3099,15 +3101,15 @@ eMXK_None 0
 [s S134 Word 2 `S130 1 . 2 0 ]
 [u S136 PortProperty 2 `us 1 mWord 2 0 `S134 1 mType 2 0 ]
 [s S139 Port 10 `*.32S136 1 mProperties 2 0 `*.39S122 1 mDirection 2 2 `*.39S122 1 mOutput 2 4 `*.39S122 1 mInput 2 6 `S134 1 mType 2 8 ]
-[v Port_Init@pInput pInput `C*.39S139  1 p 2 1 ]
-[v Port_Init@pPort pPort `E6786  1 p 1 3 ]
+[v Port_Init@pInput pInput `C*.39S139  1 p 2 64 ]
+[v Port_Init@pPort pPort `E6786  1 p 1 66 ]
 "186
 } 0
 "513
 [v _Port_SetType Port_SetType `(E6475  1 e 1 0 ]
 {
 "515
-[v Port_SetType@Output Output `E6475  1 a 1 0 ]
+[v Port_SetType@Output Output `E6475  1 a 1 63 ]
 [s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
 `uc 1 mBit4_7 1 0 :4:4 
 ]
@@ -4246,7 +4248,7 @@ eMXK_None 0
 [v _HMI_Init HMI_Init `(v  1 e 1 0 ]
 {
 "127
-[v HMI_Init@in in `us  1 a 2 59 ]
+[v HMI_Init@in in `us  1 a 2 72 ]
 "135
 } 0
 "190 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/SPI.c
@@ -4912,12 +4914,12 @@ eMXK_None 0
 [v _Button_Init Button_Init `(v  1 e 1 0 ]
 {
 [s S23 Button 10 `uc 1 mState 1 0 `uc 1 mCount 1 1 `us 1 mThreshold 2 2 `*.38(v 1 mFunction 3 4 `*.38(uc 1 mGetState 3 7 ]
-[v Button_Init@pInput pInput `C*.39S23  1 p 2 0 ]
-[v Button_Init@pThreshold pThreshold `us  1 p 2 2 ]
+[v Button_Init@pInput pInput `C*.39S23  1 p 2 59 ]
+[v Button_Init@pThreshold pThreshold `us  1 p 2 61 ]
 "19
-[v Button_Init@pInitIO pInitIO `*.38(v  1 p 3 4 ]
-[v Button_Init@pGetState pGetState `*.38(uc  1 p 3 7 ]
-[v Button_Init@pFunction pFunction `*.38(v  1 p 3 10 ]
+[v Button_Init@pInitIO pInitIO `*.38(v  1 p 3 63 ]
+[v Button_Init@pGetState pGetState `*.38(uc  1 p 3 66 ]
+[v Button_Init@pFunction pFunction `*.38(v  1 p 3 69 ]
 "43
 } 0
 "20 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
@@ -5852,10 +5854,10 @@ eMXK_None 0
 {
 "99
 } 0
-"105 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
+"104 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\main.c
 [v _getMode getMode `(v  1 e 1 0 ]
 {
-"128
+"127
 } 0
 "24 C:\Users\jamin\Documents\GitHub\mechatronics-2\Assignment2.X\Library/MXK.c
 [v _MXK_DIPSwitch MXK_DIPSwitch `(uc  1 e 1 0 ]
