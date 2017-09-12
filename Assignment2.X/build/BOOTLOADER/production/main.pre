@@ -9156,7 +9156,7 @@ TimerX--;
 }
 }
 }
-irobot_rotate_to((INT16) stepsToMinDegrees - 90, 5);
+irobot_rotate_to((INT16) stepsToMinDegrees - 90, 200);
 while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
 irobot_move_straight(5);
 }
@@ -9165,8 +9165,10 @@ irobot_stop_motion(0);
 }
 
 
+
 void main() {
 init();
+
 for(;;) {
 getMode();
 switch (mode) {
@@ -9182,7 +9184,11 @@ break;
 case 4:
 mode4();
 break;
+default:
+delay_ms(20);
 }
+
+
 }
 }
 

@@ -221,18 +221,18 @@ void mode2() {
         printf("%c", ENDOFTEXT);
         printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
         Console_Render();
-        
-            int dist = 0;
-            irobot_move_straight(200);
-            while (dist < 5000) {
-                update_distance();
-                dist += iRDistance;
-                printf("%c", ENDOFTEXT);
-                printf("Distance: %d\n", dist);
-                Console_Render();
-            }
-            irobot_stop_motion(0);
-        
+
+        int dist = 0;
+        irobot_move_straight(200);
+        while (dist < 5000) {
+            update_distance();
+            dist += iRDistance;
+            printf("%c", ENDOFTEXT);
+            printf("Distance: %d\n", dist);
+            Console_Render();
+        }
+        irobot_stop_motion(0);
+
         if (MXK_Release())
             MXK_Dequeue();
     }
@@ -310,7 +310,7 @@ void mode4() {
             }
         }
     }
-    irobot_rotate_to((INT16) stepsToMinDegrees - 90, 5); // Rotate perpendicular to the closest wall
+    irobot_rotate_to((INT16) stepsToMinDegrees - 90, 200); // Rotate perpendicular to the closest wall
     while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
         irobot_move_straight(5); //Go straight until a bumper is triggered
     }
@@ -319,33 +319,38 @@ void mode4() {
 }
 
 // Main Loop
- void main() {
-         init();
-         loop() {
-                 getMode();
-                 switch (mode) {
-                 case 1:
-                         mode1();
-                         break;
-                 case 2:
-                         mode2();
-                         break;
-                 case 3:
-                         mode3();
-                         break;
-                 case 4:
-                         mode4();
-                         break;
-                 }
-         }
- }
+
+void main() {
+    init();
+
+    loop() {
+        getMode();
+                switch (mode) {
+                    case 1:
+                        mode1();
+                        break;
+                    case 2:
+                        mode2();
+                        break;
+                    case 3:
+                        mode3();
+                        break;
+                    case 4:
+                        mode4();
+                        break;
+                    default:
+                        delay_ms(20);
+                }
+                
+
+    }
+}
 
 //void main() {
 //    init();
 //
 //    loop() {
 //        if (MXK_SwitchTo(eMXK_HMI)) {
-//            getMode();
 //            printf("%c", ENDOFTEXT);
 //            printf("Mode :%d\n", mode);
 //            Console_Render();

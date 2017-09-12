@@ -7577,9 +7577,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 310: }
 [; ;main.c: 311: }
 [; ;main.c: 312: }
-[; ;main.c: 313: irobot_rotate_to((INT16) stepsToMinDegrees - 90, 5);
+[; ;main.c: 313: irobot_rotate_to((INT16) stepsToMinDegrees - 90, 200);
 "313
-[e ( _irobot_rotate_to (2 , -> - -> -> _stepsToMinDegrees `s `i -> 90 `i `s -> -> 5 `i `s ]
+[e ( _irobot_rotate_to (2 , -> - -> -> _stepsToMinDegrees `s `i -> 90 `i `s -> -> 200 `i `s ]
 [; ;main.c: 314: while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
 "314
 [e $U 717  ]
@@ -7606,84 +7606,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 698 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"322
+"323
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 322: void main() {
+[; ;main.c: 323: void main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 323: init();
-"323
-[e ( _init ..  ]
-[; ;main.c: 324: for(;;) {
+[; ;main.c: 324: init();
 "324
+[e ( _init ..  ]
+[; ;main.c: 326: for(;;) {
+"326
 {
 [e :U 721 ]
 {
-[; ;main.c: 325: getMode();
-"325
+[; ;main.c: 327: getMode();
+"327
 [e ( _getMode ..  ]
-[; ;main.c: 326: switch (mode) {
-"326
+[; ;main.c: 328: switch (mode) {
+"328
 [e $U 725  ]
 {
-[; ;main.c: 327: case 1:
-"327
-[e :U 726 ]
-[; ;main.c: 328: mode1();
-"328
-[e ( _mode1 ..  ]
-[; ;main.c: 329: break;
+[; ;main.c: 329: case 1:
 "329
-[e $U 724  ]
-[; ;main.c: 330: case 2:
+[e :U 726 ]
+[; ;main.c: 330: mode1();
 "330
-[e :U 727 ]
-[; ;main.c: 331: mode2();
+[e ( _mode1 ..  ]
+[; ;main.c: 331: break;
 "331
-[e ( _mode2 ..  ]
-[; ;main.c: 332: break;
+[e $U 724  ]
+[; ;main.c: 332: case 2:
 "332
-[e $U 724  ]
-[; ;main.c: 333: case 3:
+[e :U 727 ]
+[; ;main.c: 333: mode2();
 "333
-[e :U 728 ]
-[; ;main.c: 334: mode3();
+[e ( _mode2 ..  ]
+[; ;main.c: 334: break;
 "334
-[e ( _mode3 ..  ]
-[; ;main.c: 335: break;
+[e $U 724  ]
+[; ;main.c: 335: case 3:
 "335
-[e $U 724  ]
-[; ;main.c: 336: case 4:
+[e :U 728 ]
+[; ;main.c: 336: mode3();
 "336
-[e :U 729 ]
-[; ;main.c: 337: mode4();
+[e ( _mode3 ..  ]
+[; ;main.c: 337: break;
 "337
-[e ( _mode4 ..  ]
-[; ;main.c: 338: break;
+[e $U 724  ]
+[; ;main.c: 338: case 4:
 "338
-[e $U 724  ]
+[e :U 729 ]
+[; ;main.c: 339: mode4();
 "339
-}
-[; ;main.c: 339: }
+[e ( _mode4 ..  ]
+[; ;main.c: 340: break;
+"340
 [e $U 724  ]
-"326
+[; ;main.c: 341: default:
+"341
+[e :U 730 ]
+[; ;main.c: 342: delay_ms(20);
+"342
+[e ( _delay_ms (1 -> -> 20 `i `us ]
+"343
+}
+[; ;main.c: 343: }
+[e $U 724  ]
+"328
 [e :U 725 ]
 [e [\ _mode , $ -> 1 `i 726
  , $ -> 2 `i 727
  , $ -> 3 `i 728
  , $ -> 4 `i 729
- 724 ]
-"339
+ 730 ]
+"343
 [e :U 724 ]
-"340
+"346
 }
-[; ;main.c: 340: }
+[; ;main.c: 346: }
 [e $U 721  ]
 [e :U 722 ]
 }
-[; ;main.c: 341: }
-"341
+[; ;main.c: 347: }
+"347
 [e :UE 720 ]
 }
 [p f _printf 8914048 ]

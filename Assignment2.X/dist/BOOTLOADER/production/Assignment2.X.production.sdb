@@ -1296,7 +1296,7 @@ eMXK_None 0
 [v _mode3 mode3 `(v  1 e 1 0 ]
 "249
 [v _mode4 mode4 `(v  1 e 1 0 ]
-"322
+"323
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -2255,10 +2255,10 @@ eMXK_None 0
 [v _Stepper Stepper `S12593  1 e 6 0 ]
 "49
 [v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
-"322
+"323
 [v _main main `(v  1 e 1 0 ]
 {
-"341
+"347
 } 0
 "249
 [v _mode4 mode4 `(v  1 e 1 0 ]
