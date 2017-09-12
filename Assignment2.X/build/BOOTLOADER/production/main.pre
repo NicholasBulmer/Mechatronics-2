@@ -8833,7 +8833,7 @@ void irobot_song_play(UINT8 songNumber);
 
 
 
-extern UINT16
+extern INT16
 iRDistance,
 iRAngle;
 
@@ -8946,6 +8946,7 @@ delay_ms(20);
 
 
 void getMode() {
+HMI_Poll();
 mode = 0;
 if (HMIBoard.mUp.mGetState()) {
 mode = 1;
@@ -9087,7 +9088,7 @@ MXK_Dequeue();
 
 
 void mode3() {
-
+irobot_rotate_to(30, 200);
 }
 
 
@@ -9185,10 +9186,18 @@ case 4:
 mode4();
 break;
 default:
-delay_ms(20);
+if (MXK_SwitchTo(eMXK_HMI)) {
+printf("%c", (char)35);
+printf("Please select mode.\n");
+printf("                   \n");
+printf("                   \n");
+printf("                   \n");
+printf("                   \n");
+Console_Render();
+HMI_Poll();
+if (MXK_Release())
+MXK_Dequeue();
 }
-
-
 }
 }
-
+}

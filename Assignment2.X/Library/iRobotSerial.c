@@ -27,7 +27,7 @@ typedef struct {
 
 splitShort iRDistanceSS, iRAngleSS;
 
-UINT16
+INT16
 								iRDistance,          //Distance in mm since last call/update
 								iRAngle;          //Angle in degrees since last call/update
 
@@ -277,11 +277,21 @@ void irobot_song_play(UINT8 songNumber){          //Play song number n
 }
 
 //DIRECT INPUT FUNCTION/SCRIPT STACK INTEGRATED
-void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed){  //Rotate on the spot function
-								(rotateAngle > 0) ? (rotateAngle = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
-								(isScript) ?
-								irobot_move(1, rotateSpeed, rotateAngle) :
-								irobot_move(0, rotateSpeed, rotateAngle);
+void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed){		//Rotate on the spot function
+	INT16 angleTotal = 0;
+
+	(rotateAngle > 0) ? (rotateAngle = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
+	if (isScript) {
+		irobot_move(1, rotateSpeed, rotateAngle);
+	}
+	else {
+		irobot_move(0, rotateSpeed, rotateAngle);
+		while (angleTotal < rotateAngle) {
+			update_angle(); 
+			angleTotal += iRAngle;
+		}
+		irobot_stop_motion(0);
+	}	
 }
 
 //DIRECT INPUT FUNCTION/SCRIPT STACK INTEGRATED

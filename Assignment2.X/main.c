@@ -100,6 +100,7 @@ void init() {
 // Read button press and determine mode
 
 void getMode() {
+    HMI_Poll();
     mode = 0;
     if (HMIBoard.mUp.mGetState()) {
         mode = 1;
@@ -241,7 +242,7 @@ void mode2() {
 // Mode 3
 
 void mode3() {
-    //Fill
+    irobot_rotate_to(30, 200);
 }
 
 // Mode 4
@@ -325,38 +326,32 @@ void main() {
 
     loop() {
         getMode();
-                switch (mode) {
-                    case 1:
-                        mode1();
-                        break;
-                    case 2:
-                        mode2();
-                        break;
-                    case 3:
-                        mode3();
-                        break;
-                    case 4:
-                        mode4();
-                        break;
-                    default:
-                        delay_ms(20);
+        switch (mode) {
+            case 1:
+                mode1();
+                break;
+            case 2:
+                mode2();
+                break;
+            case 3:
+                mode3();
+                break;
+            case 4:
+                mode4();
+                break;
+            default:
+                if (MXK_SwitchTo(eMXK_HMI)) {
+                    printf("%c", ENDOFTEXT);
+                    printf("Please select mode.\n");
+                    printf("                   \n");
+                    printf("                   \n");
+                    printf("                   \n");
+                    printf("                   \n");
+                    Console_Render();
+                    HMI_Poll();
+                    if (MXK_Release())
+                        MXK_Dequeue();
                 }
-                
-
+        }
     }
 }
-
-//void main() {
-//    init();
-//
-//    loop() {
-//        if (MXK_SwitchTo(eMXK_HMI)) {
-//            printf("%c", ENDOFTEXT);
-//            printf("Mode :%d\n", mode);
-//            Console_Render();
-//            HMI_Poll();
-//            if (MXK_Release())
-//                MXK_Dequeue();
-//        }
-//    }
-//}
