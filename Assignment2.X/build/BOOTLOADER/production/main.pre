@@ -9088,7 +9088,7 @@ MXK_Dequeue();
 
 
 void mode3() {
-irobot_rotate_to(30, 200);
+irobot_rotate(0, 270, 200);
 }
 
 
@@ -9110,7 +9110,7 @@ irobot_stop_motion(0);
 
 if (MXK_SwitchTo(eMXK_HMI)) {
 printf("%c", (char)35);
-printf("Closest Wall:%u\nClosest Angle:%u\n", MinDist, stepsToMinDegrees);
+printf("Closest Wall:%u\n", MinDist);
 Console_Render();
 if (MXK_Release())
 MXK_Dequeue();
@@ -9156,11 +9156,18 @@ IRValue = (59 / ADC_Voltage(&ADC_AN0));
 TimerX--;
 }
 }
+if (MXK_SwitchTo(eMXK_HMI)) {
+printf("%c", (char)35);
+printf("Closest Wall:%u\n Closest Angle:%u\n", MinDist, Stepstomin);
+Console_Render();
+if (MXK_Release())
+MXK_Dequeue();
 }
-irobot_rotate_to((INT16) stepsToMinDegrees - 90, 200);
-while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
-irobot_move_straight(5);
 }
+
+
+
+
 irobot_song_play(0);
 irobot_stop_motion(0);
 }

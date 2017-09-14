@@ -8610,13 +8610,14 @@ eusart_putch(songNumber);
 
 void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed){
 INT16 angleTotal = 0;
+INT16 rotateDirection;
 
-(rotateAngle > 0) ? (rotateAngle = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
+(rotateAngle > 0) ? (rotateDirection = iR_CONST_CCW) : (rotateDirection = iR_CONST_CW);
 if (isScript) {
-irobot_move(1, rotateSpeed, rotateAngle);
+irobot_move(1, rotateSpeed, rotateDirection);
 }
 else {
-irobot_move(0, rotateSpeed, rotateAngle);
+irobot_move(0, rotateSpeed, rotateDirection);
 while (angleTotal < rotateAngle) {
 update_angle();
 angleTotal += iRAngle;
@@ -8662,7 +8663,7 @@ void update_angle(void){
 irobot_query_and_update(1, iR_PKT_ANGLE);
 }
 
-# 338
+# 339
 void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed){
 irobot_move(1, moveToSpeed, iR_CONST_STRAIGHT_2);
 irobot_distance_wait(moveToDistance);
