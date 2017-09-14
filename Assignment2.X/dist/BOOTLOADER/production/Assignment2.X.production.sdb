@@ -631,14 +631,14 @@ iR_CONST_ORANGE 170
 iR_CONST_RED 255
 iR_CONST_LED_ON 255
 ]
-"49 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"50 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [e E7368 . `uc
 eADC_Ch0 0
 eADC_Ch1 1
 eADC_Ch2 2
 eADC_Ch3 3
 ]
-"69
+"71
 [e E6940 . `uc
 eMXK_Motor 8
 eMXK_IMU 4
@@ -1282,19 +1282,21 @@ eMXK_None 0
 [v _itos itos `(v  1 e 1 0 ]
 "393
 [v _swap swap `(v  1 e 1 0 ]
-"61 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"63 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"102
+"104
 [v _getMode getMode `(v  1 e 1 0 ]
 "121
+[v _move_and_rotate move_and_rotate `(v  1 e 1 0 ]
+"136
 [v _mode1 mode1 `(v  1 e 1 0 ]
-"206
+"221
 [v _mode2 mode2 `(v  1 e 1 0 ]
-"244
+"259
 [v _mode3 mode3 `(v  1 e 1 0 ]
-"250
+"268
 [v _mode4 mode4 `(v  1 e 1 0 ]
-"331
+"345
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -2250,23 +2252,30 @@ eMXK_None 0
 "47
 [v _stepsToMinDegrees stepsToMinDegrees `f  1 e 4 0 ]
 "48
-[v _Stepper Stepper `S12593  1 e 6 0 ]
+[v _dist dist `i  1 e 2 0 ]
 "49
+[v _Stepper Stepper `S12593  1 e 6 0 ]
+"50
 [v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
-"331
+"345
 [v _main main `(v  1 e 1 0 ]
 {
-"364
+"379
 } 0
-"250
+"268
 [v _mode4 mode4 `(v  1 e 1 0 ]
 {
-"327
+"341
 } 0
-"244
+"259
 [v _mode3 mode3 `(v  1 e 1 0 ]
 {
-"246
+"264
+} 0
+"121
+[v _move_and_rotate move_and_rotate `(v  1 e 1 0 ]
+{
+"132
 } 0
 "280 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_rotate irobot_rotate `(v  1 e 1 0 ]
@@ -2283,12 +2292,12 @@ eMXK_None 0
 [v irobot_rotate@isScript isScript `uc  1 a 1 34 ]
 "296
 } 0
-"206 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"221 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _mode2 mode2 `(v  1 e 1 0 ]
 {
-"226
+"239
 [v mode2@dist dist `i  1 a 2 44 ]
-"240
+"255
 } 0
 "314 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
@@ -2296,12 +2305,12 @@ eMXK_None 0
 [v irobot_move_straight@straightSpeed straightSpeed `s  1 p 2 25 ]
 "316
 } 0
-"121 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"136 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _mode1 mode1 `(v  1 e 1 0 ]
 {
-"186
+"201
 [v mode1@moveto moveto `i  1 a 2 2 ]
-"202
+"217
 } 0
 "326 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _update_distance update_distance `(v  1 e 1 0 ]
@@ -2370,15 +2379,15 @@ eMXK_None 0
 [v _printf printf `(i  1 e 2 0 ]
 {
 "528
-[v printf@val val `ui  1 a 2 34 ]
+[v printf@val val `ui  1 a 2 36 ]
 "466
-[v printf@ap ap `[1]*.39v  1 a 2 32 ]
+[v printf@ap ap `[1]*.39v  1 a 2 34 ]
 "499
-[v printf@c c `c  1 a 1 36 ]
+[v printf@c c `c  1 a 1 38 ]
 "508
-[v printf@flag flag `uc  1 a 1 31 ]
+[v printf@flag flag `uc  1 a 1 33 ]
 "506
-[v printf@prec prec `c  1 a 1 30 ]
+[v printf@prec prec `c  1 a 1 32 ]
 "464
 [v printf@f f `*.32Cuc  1 p 2 21 ]
 "1541
@@ -2764,17 +2773,17 @@ eMXK_None 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S14314 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S14317 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S14319 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S14322 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14314 1 fAsBytes 4 0 `S14319 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S14322  1 a 4 58 ]
+[s S14322 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S14325 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14317 1 fAsBytes 4 0 `S14322 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S14325  1 a 4 58 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 53 ]
-[s S14390 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S14393 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S14393 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14390 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S14393  1 a 2 62 ]
+[u S14396 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14393 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S14396  1 a 2 62 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 57 ]
 "11
@@ -2806,10 +2815,10 @@ eMXK_None 0
 [v ___fldiv@a a `d  1 p 4 18 ]
 "184
 } 0
-"61 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"63 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
 {
-"98
+"100
 } 0
 "304 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_led_power_on irobot_led_power_on `(v  1 e 1 0 ]
@@ -5334,10 +5343,10 @@ eMXK_None 0
 {
 "99
 } 0
-"102 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"104 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _getMode getMode `(v  1 e 1 0 ]
 {
-"117
+"119
 } 0
 "252 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\HMI.c
 [v _HMI_Poll HMI_Poll `(v  1 e 1 0 ]

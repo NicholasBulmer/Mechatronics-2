@@ -129,7 +129,6 @@ UINT8 eusart_getch(void){              //Listen to receive a character (unsigned
 
 void irobot_query_and_update(UINT8 numberOfPacketRequests, ...){
 								UINT8 i, j, packetVariable, streamSize = 0, startIndex = 0, RXArray[256], TXArray[256];
-
 								va_list packetIDs;        //Initialise variadic list
 								va_start(packetIDs, numberOfPacketRequests);
 								eusart_putch(iR_QUERY_LIST);
