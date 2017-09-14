@@ -11,6 +11,10 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$C:\Users\Endor\AppData\Local\Temp\s9cg.obj
+init CODE 0 14AA 14AA 4 1
+reset_vec CODE 0 1400 1400 4 1
+config CONFIG 0 1FFF8 1FFF8 6 1
 $dist/BOOTLOADER/production\Assignment2.X.production.obj
 cinit CODE 0 1666E 1666E 8E 1
 text0 CODE 0 152AA 152AA E0 1
@@ -208,10 +212,6 @@ text179 CODE 0 18068 18068 E 1
 bssBIGRAM BIGRAM 1 4F0 4F0 12C 1
 bssCOMRAM COMRAM 1 29 29 1C 1
 mediumconst MEDIUMCONST 0 FBF8 FBF8 408 1
-$C:\Users\Endor\AppData\Local\Temp\s6o8.obj
-init CODE 0 14AA 14AA 4 1
-reset_vec CODE 0 1400 1400 4 1
-config CONFIG 0 1FFF8 1FFF8 6 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -2769,75 +2769,75 @@ $dist/BOOTLOADER/production\Assignment2.X.production.obj
 15354 text0 CODE >367:C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 15358 text0 CODE >369:C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 1535A text0 CODE >343:C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
-1666E cinit CODE >12749:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1666E cinit CODE >12751:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1666E cinit CODE >12754:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1666E cinit CODE >13082:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16670 cinit CODE >13083:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16672 cinit CODE >13084:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16674 cinit CODE >13085:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16676 cinit CODE >13086:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16678 cinit CODE >13087:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1667A cinit CODE >13088:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1667E cinit CODE >13089:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16682 cinit CODE >13090:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16682 cinit CODE >13091:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16684 cinit CODE >13092:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16688 cinit CODE >13093:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1668A cinit CODE >13094:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1668C cinit CODE >13095:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1668E cinit CODE >13099:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16690 cinit CODE >13100:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16692 cinit CODE >13101:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16694 cinit CODE >13102:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16696 cinit CODE >13103:C:\Users\Endor\AppData\Local\Temp\s6o8.
-16698 cinit CODE >13104:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1669A cinit CODE >13105:C:\Users\Endor\AppData\Local\Temp\s6o8.
-1669E cinit CODE >13106:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166A2 cinit CODE >13107:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166A2 cinit CODE >13108:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166A4 cinit CODE >13109:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166A8 cinit CODE >13110:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166AA cinit CODE >13111:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166AC cinit CODE >13112:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166AE cinit CODE >13116:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166B2 cinit CODE >13117:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166B6 cinit CODE >13118:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166B6 cinit CODE >13119:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166B8 cinit CODE >13120:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166BA cinit CODE >13121:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166BC cinit CODE >13122:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166BE cinit CODE >13123:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166C0 cinit CODE >13124:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166C2 cinit CODE >13127:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166C6 cinit CODE >13128:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166C8 cinit CODE >13129:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166C8 cinit CODE >13130:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166CA cinit CODE >13131:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166CC cinit CODE >13132:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166CE cinit CODE >13135:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166D2 cinit CODE >13136:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166D4 cinit CODE >13137:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166D4 cinit CODE >13138:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166D6 cinit CODE >13139:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166D8 cinit CODE >13140:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166DA cinit CODE >13143:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166DE cinit CODE >13144:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166E0 cinit CODE >13145:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166E0 cinit CODE >13146:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166E2 cinit CODE >13147:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166E4 cinit CODE >13148:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166E6 cinit CODE >13151:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166EA cinit CODE >13152:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166EC cinit CODE >13153:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166EC cinit CODE >13154:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166EE cinit CODE >13155:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166F0 cinit CODE >13156:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166F2 cinit CODE >13162:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166F2 cinit CODE >13164:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166F4 cinit CODE >13165:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166F6 cinit CODE >13166:C:\Users\Endor\AppData\Local\Temp\s6o8.
-166F8 cinit CODE >13167:C:\Users\Endor\AppData\Local\Temp\s6o8.
+1666E cinit CODE >12749:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1666E cinit CODE >12751:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1666E cinit CODE >12754:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1666E cinit CODE >13082:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16670 cinit CODE >13083:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16672 cinit CODE >13084:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16674 cinit CODE >13085:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16676 cinit CODE >13086:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16678 cinit CODE >13087:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1667A cinit CODE >13088:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1667E cinit CODE >13089:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16682 cinit CODE >13090:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16682 cinit CODE >13091:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16684 cinit CODE >13092:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16688 cinit CODE >13093:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1668A cinit CODE >13094:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1668C cinit CODE >13095:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1668E cinit CODE >13099:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16690 cinit CODE >13100:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16692 cinit CODE >13101:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16694 cinit CODE >13102:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16696 cinit CODE >13103:C:\Users\Endor\AppData\Local\Temp\s9cg.
+16698 cinit CODE >13104:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1669A cinit CODE >13105:C:\Users\Endor\AppData\Local\Temp\s9cg.
+1669E cinit CODE >13106:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166A2 cinit CODE >13107:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166A2 cinit CODE >13108:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166A4 cinit CODE >13109:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166A8 cinit CODE >13110:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166AA cinit CODE >13111:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166AC cinit CODE >13112:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166AE cinit CODE >13116:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166B2 cinit CODE >13117:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166B6 cinit CODE >13118:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166B6 cinit CODE >13119:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166B8 cinit CODE >13120:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166BA cinit CODE >13121:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166BC cinit CODE >13122:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166BE cinit CODE >13123:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166C0 cinit CODE >13124:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166C2 cinit CODE >13127:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166C6 cinit CODE >13128:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166C8 cinit CODE >13129:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166C8 cinit CODE >13130:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166CA cinit CODE >13131:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166CC cinit CODE >13132:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166CE cinit CODE >13135:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166D2 cinit CODE >13136:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166D4 cinit CODE >13137:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166D4 cinit CODE >13138:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166D6 cinit CODE >13139:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166D8 cinit CODE >13140:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166DA cinit CODE >13143:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166DE cinit CODE >13144:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166E0 cinit CODE >13145:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166E0 cinit CODE >13146:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166E2 cinit CODE >13147:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166E4 cinit CODE >13148:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166E6 cinit CODE >13151:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166EA cinit CODE >13152:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166EC cinit CODE >13153:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166EC cinit CODE >13154:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166EE cinit CODE >13155:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166F0 cinit CODE >13156:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166F2 cinit CODE >13162:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166F2 cinit CODE >13164:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166F4 cinit CODE >13165:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166F6 cinit CODE >13166:C:\Users\Endor\AppData\Local\Temp\s9cg.
+166F8 cinit CODE >13167:C:\Users\Endor\AppData\Local\Temp\s9cg.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -2886,7 +2886,7 @@ irobot_query_and_update@startIndex 7B 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/prod
 _Event_DIPSwitch 17BFE 0 CODE 0 text145 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __end_of_reverse 16FAE 0 CODE 0 text150 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/BOOTLOADER/production\Assignment2.X.production.obj
-__mediumconst FBF8 0 MEDIUMCONST 0 mediumconst C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+__mediumconst FBF8 0 MEDIUMCONST 0 mediumconst C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 __size_of_ADC_Start 0 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
 HMI_SetButton@reindex 62 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __end_of_LCD_DrawField 162CE 0 CODE 0 text49 dist/BOOTLOADER/production\Assignment2.X.production.obj
@@ -2923,7 +2923,7 @@ _PIR3 FA4 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
 _SPI1 379 0 BANK3 1 bssBANK3 dist/BOOTLOADER/production\Assignment2.X.production.obj
 _SPI2 384 0 BANK3 1 bssBANK3 dist/BOOTLOADER/production\Assignment2.X.production.obj
 _TMR0 FD6 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+___sp 0 0 STACK 2 stack C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 _dist 326 0 BANK3 1 bssBANK3 dist/BOOTLOADER/production\Assignment2.X.production.obj
 _gISR 314 0 BANK3 1 bssBANK3 dist/BOOTLOADER/production\Assignment2.X.production.obj
 _init 15F92 0 CODE 0 text57 dist/BOOTLOADER/production\Assignment2.X.production.obj
@@ -2940,7 +2940,7 @@ __end_ofi2_MXK_SwitchTo 17AD4 0 CODE 0 text176 dist/BOOTLOADER/production\Assign
 _ADC_SetChannel 17EAA 0 CODE 0 text128 dist/BOOTLOADER/production\Assignment2.X.production.obj
 Port_SetType@pType 9C 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/BOOTLOADER/production\Assignment2.X.production.obj
-start 14AA 0 CODE 0 init C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+start 14AA 0 CODE 0 init C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 ADC_SetupIO@pChannel 62 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 ___flmul@aexp 94 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 ___flmul@bexp 99 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
@@ -3021,13 +3021,13 @@ __LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/BOOTLOADER/production\Assignment2.X.produc
 __size_ofi2_MXK_Release 0 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
 __end_ofi2_Byte_GetPair 17EE0 0 CODE 0 text173 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __end_ofi2_Byte_GetZone 16C96 0 CODE 0 text174 dist/BOOTLOADER/production\Assignment2.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+__accesstop 60 0 ABS 0 - C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 __end_of_LCD_Fill 17446 0 CODE 0 text90 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __end_of_LCD_Init 14936 0 CODE 0 text88 dist/BOOTLOADER/production\Assignment2.X.production.obj
-intlevel0 0 0 CODE 0 text C:\Users\Endor\AppData\Local\Temp\s6o8.obj
-intlevel1 0 0 CODE 0 text C:\Users\Endor\AppData\Local\Temp\s6o8.obj
-intlevel2 0 0 CODE 0 text C:\Users\Endor\AppData\Local\Temp\s6o8.obj
-intlevel3 0 0 CODE 0 text C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+intlevel0 0 0 CODE 0 text C:\Users\Endor\AppData\Local\Temp\s9cg.obj
+intlevel1 0 0 CODE 0 text C:\Users\Endor\AppData\Local\Temp\s9cg.obj
+intlevel2 0 0 CODE 0 text C:\Users\Endor\AppData\Local\Temp\s9cg.obj
+intlevel3 0 0 CODE 0 text C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 __ptext100 17DDC 0 CODE 0 text100 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __ptext101 17DFA 0 CODE 0 text101 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __ptext102 180A6 0 CODE 0 text102 dist/BOOTLOADER/production\Assignment2.X.production.obj
@@ -3193,8 +3193,8 @@ _ANCON0 FC1 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
 irobot_query_and_update@numberOfPacketRequests 78 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 ___awdiv@dividend 66 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 _Stepper 3CF 0 BANK3 1 bssBANK3 dist/BOOTLOADER/production\Assignment2.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Endor\AppData\Local\Temp\s6o8.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Endor\AppData\Local\Temp\s9cg.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 __size_of_GetPortProperties 0 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
 __end_ofi2_MXK_Release 180F6 0 CODE 0 text178 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/BOOTLOADER/production\Assignment2.X.production.obj
@@ -3576,7 +3576,7 @@ __Hbank15 0 0 ABS 0 bank15 dist/BOOTLOADER/production\Assignment2.X.production.o
 __size_of___xxtofl 0 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/BOOTLOADER/production\Assignment2.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/BOOTLOADER/production\Assignment2.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 _irobot_init 18030 0 CODE 0 text62 dist/BOOTLOADER/production\Assignment2.X.production.obj
 _irobot_leds 17396 0 CODE 0 text59 dist/BOOTLOADER/production\Assignment2.X.production.obj
 _irobot_move 15CE4 0 CODE 0 text39 dist/BOOTLOADER/production\Assignment2.X.production.obj
@@ -4128,8 +4128,8 @@ rx_assign@byteNumber 62 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignm
 __size_of_ISR_Enable 0 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
 Port_CheckQuadType@Pair1 93 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 Port_CheckQuadType@Pair2 94 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
-stackhi F3F 0 ABS 0 - C:\Users\Endor\AppData\Local\Temp\s6o8.obj
-stacklo 61C 0 ABS 0 - C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+stackhi F3F 0 ABS 0 - C:\Users\Endor\AppData\Local\Temp\s9cg.obj
+stacklo 61C 0 ABS 0 - C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 __end_of_update_bump_and_cliff 179F6 0 CODE 0 text9 dist/BOOTLOADER/production\Assignment2.X.production.obj
 i2Byte_GetZone@pChunk 4 0 COMRAM 1 cstackCOMRAM dist/BOOTLOADER/production\Assignment2.X.production.obj
 __CFG_CCP2MX$DEFAULT 0 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
@@ -4394,7 +4394,7 @@ __Ltext99 0 0 ABS 0 text99 dist/BOOTLOADER/production\Assignment2.X.production.o
 _PortC_Property FF53 0 MEDIUMCONST 0 mediumconst dist/BOOTLOADER/production\Assignment2.X.production.obj
 __size_of_get_packet_size 0 0 ABS 0 - dist/BOOTLOADER/production\Assignment2.X.production.obj
 _iRDistance 330 0 BANK3 1 bssBANK3 dist/BOOTLOADER/production\Assignment2.X.production.obj
-__ramtop 1000 0 RAM 0 ramtop C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+__ramtop 1000 0 RAM 0 ramtop C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 _Console_ClearCursor 17886 0 CODE 0 text26 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __end_of_update_angle 17FFE 0 CODE 0 text10 dist/BOOTLOADER/production\Assignment2.X.production.obj
 putch@c 7A 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
@@ -4658,7 +4658,7 @@ Button_Poll@Pin 83 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.
 Port_CheckPortType@pInput 96 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 __end_ofi2_Byte_SetBit 17584 0 CODE 0 text175 dist/BOOTLOADER/production\Assignment2.X.production.obj
 Port_Init@pPort A2 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
-___extmem_base 20000 0 ABS 0 - C:\Users\Endor\AppData\Local\Temp\s6o8.obj
+___extmem_base 20000 0 ABS 0 - C:\Users\Endor\AppData\Local\Temp\s9cg.obj
 __end_of_PortE_Property FF51 0 MEDIUMCONST 0 mediumconst dist/BOOTLOADER/production\Assignment2.X.production.obj
 PortProperty_Valid@Errors 75 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj
 Port_Set@pInput 6F 0 BANK0 1 cstackBANK0 dist/BOOTLOADER/production\Assignment2.X.production.obj

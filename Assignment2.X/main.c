@@ -312,7 +312,7 @@ void mode4() {
                                 TimerX--;
                         }
                 }
-                stepsToMinDegrees = Stepstomin * 0.75;
+                stepsToMinDegrees = Stepstomin * 0.67;
 
                 if (MXK_SwitchTo(eMXK_HMI)) {
                         printf("%c", ENDOFTEXT);

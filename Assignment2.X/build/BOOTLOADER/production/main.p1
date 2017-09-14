@@ -7614,9 +7614,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 713 ]
 [; ;main.c: 313: }
 [; ;main.c: 314: }
-[; ;main.c: 315: stepsToMinDegrees = Stepstomin * 0.75;
+[; ;main.c: 315: stepsToMinDegrees = Stepstomin * 0.67;
 "315
-[e = _stepsToMinDegrees -> * -> _Stepstomin `d .0.75 `f ]
+[e = _stepsToMinDegrees -> * -> _Stepstomin `d .0.67 `f ]
 [; ;main.c: 317: if (MXK_SwitchTo(eMXK_HMI)) {
 "317
 [e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 719  ]

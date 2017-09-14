@@ -9158,7 +9158,7 @@ IRValue = (59 / ADC_Voltage(&ADC_AN0));
 TimerX--;
 }
 }
-stepsToMinDegrees = Stepstomin * 0.75;
+stepsToMinDegrees = Stepstomin * 0.67;
 
 if (MXK_SwitchTo(eMXK_HMI)) {
 printf("%c", (char)35);

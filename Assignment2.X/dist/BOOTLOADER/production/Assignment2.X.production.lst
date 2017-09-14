@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.43 build -156212558 
-                                                                                               Thu Sep 14 17:23:07 2017
+                                                                                               Thu Sep 14 18:44:06 2017
 
 Microchip Technology Omniscient Code Generator v1.43 (Free mode) build 201707250354
      1                           	processor	18F67J50
@@ -3726,7 +3726,7 @@ Microchip Technology Omniscient Code Generator v1.43 (Free mode) build 201707250
   3699                           
   3700                           ;main.c: 313: }
   3701                           ;main.c: 314: }
-  3702                           ;main.c: 315: stepsToMinDegrees = Stepstomin * 0.75;
+  3702                           ;main.c: 315: stepsToMinDegrees = Stepstomin * 0.67;
   3703  011A1A  C0E6  F060         	movff	_Stepstomin,___xxtofl@val
   3704  011A1E  C0E7  F061         	movff	_Stepstomin+1,___xxtofl@val+1
   3705  011A22  0100               	movlb	0	; () banked
@@ -3741,12 +3741,12 @@ Microchip Technology Omniscient Code Generator v1.43 (Free mode) build 201707250
   3714  011A38  C061  F088         	movff	?___xxtofl+1,___flmul@b+1
   3715  011A3C  C062  F089         	movff	?___xxtofl+2,___flmul@b+2
   3716  011A40  C063  F08A         	movff	?___xxtofl+3,___flmul@b+3
-  3717  011A44  0E00               	movlw	0
+  3717  011A44  0E1F               	movlw	31
   3718  011A46  0100               	movlb	0	; () banked
   3719  011A48  6F8B               	movwf	___flmul@a& (0+255),b
-  3720  011A4A  0E00               	movlw	0
+  3720  011A4A  0E85               	movlw	133
   3721  011A4C  6F8C               	movwf	(___flmul@a+1)& (0+255),b
-  3722  011A4E  0E40               	movlw	64
+  3722  011A4E  0E2B               	movlw	43
   3723  011A50  6F8D               	movwf	(___flmul@a+2)& (0+255),b
   3724  011A52  0E3F               	movlw	63
   3725  011A54  6F8E               	movwf	(___flmul@a+3)& (0+255),b
@@ -40030,7 +40030,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.43 build -156212558 
-Symbol Table                                                                                   Thu Sep 14 17:23:07 2017
+Symbol Table                                                                                   Thu Sep 14 18:44:06 2017
 
                                  _update_angle 7FEC                                  i2_Timer0_Stop 80EA  
                              SPI_Init@pChannel 0091                     __size_of_MXK_BlockSwitchTo 003E  
