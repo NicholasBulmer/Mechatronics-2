@@ -59,7 +59,6 @@ void mode4();
 void move_and_rotate();
 
 // Initialisation Function
-
 void init() {
         //Init MXK Pins
         MXK_Init();
@@ -100,7 +99,6 @@ void init() {
 }
 
 // Read button press and determine mode
-
 void getMode() {
         HMI_Poll();
         mode = 0;
@@ -118,6 +116,7 @@ void getMode() {
         }
 }
 
+// Function for mode 3
 void move_and_rotate(){
         dist = 0;
         irobot_move_straight(100);
@@ -132,7 +131,6 @@ void move_and_rotate(){
 }
 
 // Mode 1
-
 void mode1() {
         update_bump_and_cliff(); //Fetch bump status from iRobot
         update_distance(); //Fetch distance from iRobot
@@ -217,7 +215,6 @@ void mode1() {
 }
 
 // Mode 2
-
 void mode2() {
         update_bump_and_cliff(); //Fetch bump status from iRobot
         update_distance(); //Fetch distance from iRobot
@@ -255,7 +252,6 @@ void mode2() {
 }
 
 // Mode 3
-
 void mode3() {
         move_and_rotate();
         move_and_rotate();
@@ -264,14 +260,10 @@ void mode3() {
 }
 
 // Mode 4
-
 void mode4() {
         update_bump_and_cliff(); //Fetch bump status from iRobot
         update_distance();     //Fetch distance from iRobot
         update_angle();     //Fetch angle from iRobot
-        //distanceTotal += iRDistance;
-        //angleTotal += iRAngle;                                                 //Update the local angle count
-
         if (iRBumpLeft || iRBumpRight) { //Stop robot and play sound when bumper is triggered
                 irobot_song_play(0);
                 irobot_stop_motion(0);
@@ -280,14 +272,14 @@ void mode4() {
                 irobot_stop_motion(0); //Stop robot when reached
         }
         HMI_Poll();
-        StepRotate = 0;     //logs steps rotated
+        StepRotate = 401;     //logs steps rotated
         MinDist = 1000;     //logs minimum distance
         Stepstomin = 0;     //logs steps required to min value
         stepsToMinDegrees = ((float) Stepstomin / 400) * 360;     //Convert to a angle out of 360
         IRValue = 0;     //logs current IR Value
         TimerX = 8;     //while loop delay
-        while (StepRotate < 400) {
-                StepRotate++;
+        while (StepRotate > 0) {
+                StepRotate--;
                 ADC_Start(&ADC_AN0);
                 IRValue = (59 / ADC_Voltage(&ADC_AN0));
                 if (MXK_SwitchTo(eMXK_HMI)) {
@@ -320,9 +312,11 @@ void mode4() {
                                 TimerX--;
                         }
                 }
+                stepsToMinDegrees = Stepstomin * 0.75;
+
                 if (MXK_SwitchTo(eMXK_HMI)) {
                         printf("%c", ENDOFTEXT);
-                        printf("Closest Wall:%u\nClosest Angle:%u\nLeft Bump:%u\nRightBump:%u\n", MinDist, Stepstomin, iRBumpLeft, iRBumpRight);
+                        printf("Closest Wall:%u\nClosest Angle:%f\nLeft Bump:%u\nRightBump:%u\n", MinDist, stepsToMinDegrees, iRBumpLeft, iRBumpRight);
                         Console_Render();
                         if (MXK_Release())
                                 MXK_Dequeue();
@@ -330,9 +324,8 @@ void mode4() {
         }
         stepsToMinDegrees = Stepstomin * 0.75;
         Stepstomin = (int) stepsToMinDegrees;
-        irobot_rotate(0, Stepstomin - 90, 200);     // Rotate perpendicular to the closest wall
+        irobot_rotate(0, Stepstomin - 67, 200);     // Rotate perpendicular to the closest wall
         while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
-
                 irobot_move_straight(200); //Go straight until a bumper is triggered
                 update_bump_and_cliff();
         }
@@ -341,7 +334,6 @@ void mode4() {
 }
 
 // Main Loop
-
 void main() {
 
         init();

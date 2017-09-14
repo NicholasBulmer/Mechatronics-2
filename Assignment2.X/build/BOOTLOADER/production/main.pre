@@ -8905,7 +8905,6 @@ void mode4();
 void move_and_rotate();
 
 
-
 void init() {
 
 MXK_Init();
@@ -8946,7 +8945,6 @@ delay_ms(20);
 }
 
 
-
 void getMode() {
 HMI_Poll();
 mode = 0;
@@ -8964,6 +8962,7 @@ mode = 4;
 }
 }
 
+
 void move_and_rotate(){
 dist = 0;
 irobot_move_straight(100);
@@ -8976,7 +8975,6 @@ delay_ms(100);
 irobot_rotate(0, 67, 200);
 delay_ms(100);
 }
-
 
 
 void mode1() {
@@ -9063,7 +9061,6 @@ IRValue = (59 / ADC_Voltage(&ADC_AN0));
 }
 
 
-
 void mode2() {
 update_bump_and_cliff();
 update_distance();
@@ -9101,7 +9098,6 @@ MXK_Dequeue();
 }
 
 
-
 void mode3() {
 move_and_rotate();
 move_and_rotate();
@@ -9110,14 +9106,10 @@ move_and_rotate();
 }
 
 
-
 void mode4() {
 update_bump_and_cliff();
 update_distance();
 update_angle();
-
-
-
 if (iRBumpLeft || iRBumpRight) {
 irobot_song_play(0);
 irobot_stop_motion(0);
@@ -9126,14 +9118,14 @@ if (angleTotal > 83) {
 irobot_stop_motion(0);
 }
 HMI_Poll();
-StepRotate = 0;
+StepRotate = 401;
 MinDist = 1000;
 Stepstomin = 0;
 stepsToMinDegrees = ((float) Stepstomin / 400) * 360;
 IRValue = 0;
 TimerX = 8;
-while (StepRotate < 400) {
-StepRotate++;
+while (StepRotate > 0) {
+StepRotate--;
 ADC_Start(&ADC_AN0);
 IRValue = (59 / ADC_Voltage(&ADC_AN0));
 if (MXK_SwitchTo(eMXK_HMI)) {
@@ -9166,9 +9158,11 @@ IRValue = (59 / ADC_Voltage(&ADC_AN0));
 TimerX--;
 }
 }
+stepsToMinDegrees = Stepstomin * 0.75;
+
 if (MXK_SwitchTo(eMXK_HMI)) {
 printf("%c", (char)35);
-printf("Closest Wall:%u\nClosest Angle:%u\nLeft Bump:%u\nRightBump:%u\n", MinDist, Stepstomin, iRBumpLeft, iRBumpRight);
+printf("Closest Wall:%u\nClosest Angle:%f\nLeft Bump:%u\nRightBump:%u\n", MinDist, stepsToMinDegrees, iRBumpLeft, iRBumpRight);
 Console_Render();
 if (MXK_Release())
 MXK_Dequeue();
@@ -9176,16 +9170,14 @@ MXK_Dequeue();
 }
 stepsToMinDegrees = Stepstomin * 0.75;
 Stepstomin = (int) stepsToMinDegrees;
-irobot_rotate(0, Stepstomin - 90, 200);
+irobot_rotate(0, Stepstomin - 67, 200);
 while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
-
 irobot_move_straight(200);
 update_bump_and_cliff();
 }
 irobot_song_play(0);
 irobot_stop_motion(0);
 }
-
 
 
 void main() {

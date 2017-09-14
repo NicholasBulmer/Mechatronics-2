@@ -8484,7 +8484,6 @@ return RCREG1;
 
 void irobot_query_and_update(UINT8 numberOfPacketRequests, ...){
 UINT8 i, j, packetVariable, streamSize = 0, startIndex = 0, RXArray[256], TXArray[256];
-
 va_list packetIDs;
 *packetIDs = __va_start();
 eusart_putch(iR_QUERY_LIST);
@@ -8507,7 +8506,7 @@ startIndex += get_packet_size(TXArray[i]);
 }
 }
 
-# 167
+# 166
 UINT16 twos_complement_of(INT16 complementValue){
 if (complementValue < 0) {
 complementValue = ((complementValue) > 0 ? (complementValue) : -(complementValue));
@@ -8601,7 +8600,7 @@ eusart_putch(60);
 eusart_putch(4);
 }
 
-# 274
+# 273
 void irobot_song_play(UINT8 songNumber){
 eusart_putch(iR_SONG_PLAY);
 eusart_putch(songNumber);
@@ -8663,7 +8662,7 @@ void update_angle(void){
 irobot_query_and_update(1, iR_PKT_ANGLE);
 }
 
-# 339
+# 338
 void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed){
 irobot_move(1, moveToSpeed, iR_CONST_STRAIGHT_2);
 irobot_distance_wait(moveToDistance);
