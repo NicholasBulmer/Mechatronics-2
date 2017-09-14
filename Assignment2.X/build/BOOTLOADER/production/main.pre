@@ -8890,7 +8890,7 @@ int MinDist = 1000;
 int Stepstomin = 0;
 int IRValue = 0;
 int TimerX = 8;
-float stepsToMinDegrees = 0;
+int angleToClosestWall = 0;
 int dist = 0;
 Motor Stepper;
 ADC ADC_AN0;
@@ -8903,6 +8903,8 @@ void mode2();
 void mode3();
 void mode4();
 void move_and_rotate();
+void findClosestWall();
+void safeToGo();
 
 
 void init() {
@@ -8962,6 +8964,20 @@ mode = 4;
 }
 }
 
+void safeToGo(){
+update_bump_and_cliff();
+update_distance();
+update_angle();
+if (iRBumpLeft || iRBumpRight) {
+irobot_song_play(0);
+irobot_stop_motion(0);
+}
+if (angleTotal > 83) {
+irobot_stop_motion(0);
+}
+HMI_Poll();
+}
+
 
 void move_and_rotate(){
 dist = 0;
@@ -8977,21 +8993,53 @@ delay_ms(100);
 }
 
 
+void findClosestWall(){
+StepRotate--;
+ADC_Start(&ADC_AN0);
+IRValue = (59 / ADC_Voltage(&ADC_AN0));
+if (MXK_SwitchTo(eMXK_HMI)) {
+HMI_SetNumber(IRValue);
+HMI_Render();
+if (MXK_Release())
+MXK_Dequeue();
+}
+if (IRValue < MinDist) {
+MinDist = IRValue;
+Stepstomin = StepRotate;
+}
+if (MXK_SwitchTo(eMXK_Motor)) {
+Motor_Speed(&Stepper, (50));
+Motor_Move(&Stepper, -1);
+if (MXK_Release())
+MXK_Dequeue();
+}
+TimerX = 10;
+if (TimerX > 0) {
+while (TimerX > 0) {
+ADC_Start(&ADC_AN0);
+if (MXK_SwitchTo(eMXK_HMI)) {
+HMI_SetNumber(IRValue);
+HMI_Render();
+if (MXK_Release())
+MXK_Dequeue();
+}
+IRValue = (59 / ADC_Voltage(&ADC_AN0));
+TimerX--;
+}
+}
+angleToClosestWall = Stepstomin * 0.67;
+if (MXK_SwitchTo(eMXK_HMI)) {
+printf("%c", (char)35);
+printf("Closest Wall:%u\nClosest Angle:%c\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
+Console_Render();
+if (MXK_Release())
+MXK_Dequeue();
+}
+}
+
+
 void mode1() {
-update_bump_and_cliff();
-update_distance();
-update_angle();
-
-
-
-if (iRBumpLeft || iRBumpRight) {
-irobot_song_play(0);
-irobot_stop_motion(0);
-}
-if (angleTotal > 83) {
-irobot_stop_motion(0);
-}
-
+safeToGo();
 if (MXK_SwitchTo(eMXK_HMI)) {
 printf("%c", (char)35);
 printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
@@ -8999,7 +9047,6 @@ Console_Render();
 if (MXK_Release())
 MXK_Dequeue();
 }
-HMI_Poll();
 StepRotate = 0;
 MinDist = 1000;
 Stepstomin = 0;
@@ -9062,20 +9109,7 @@ IRValue = (59 / ADC_Voltage(&ADC_AN0));
 
 
 void mode2() {
-update_bump_and_cliff();
-update_distance();
-update_angle();
-
-angleTotal += iRAngle;
-
-if (iRBumpLeft || iRBumpRight) {
-irobot_song_play(0);
-irobot_stop_motion(0);
-}
-if (angleTotal > 90) {
-irobot_stop_motion(0);
-}
-HMI_Poll();
+safeToGo();
 if (MXK_SwitchTo(eMXK_HMI)) {
 printf("%c", (char)35);
 printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
@@ -9099,6 +9133,7 @@ MXK_Dequeue();
 
 
 void mode3() {
+safeToGo();
 move_and_rotate();
 move_and_rotate();
 move_and_rotate();
@@ -9107,70 +9142,17 @@ move_and_rotate();
 
 
 void mode4() {
-update_bump_and_cliff();
-update_distance();
-update_angle();
-if (iRBumpLeft || iRBumpRight) {
-irobot_song_play(0);
-irobot_stop_motion(0);
-}
-if (angleTotal > 83) {
-irobot_stop_motion(0);
-}
-HMI_Poll();
+safeToGo();
 StepRotate = 401;
 MinDist = 1000;
 Stepstomin = 0;
-stepsToMinDegrees = ((float) Stepstomin / 400) * 360;
+angleToClosestWall = 1000;
 IRValue = 0;
 TimerX = 8;
 while (StepRotate > 0) {
-StepRotate--;
-ADC_Start(&ADC_AN0);
-IRValue = (59 / ADC_Voltage(&ADC_AN0));
-if (MXK_SwitchTo(eMXK_HMI)) {
-HMI_SetNumber(IRValue);
-HMI_Render();
-if (MXK_Release())
-MXK_Dequeue();
+findClosestWall();
 }
-if (IRValue < MinDist) {
-MinDist = IRValue;
-Stepstomin = StepRotate;
-}
-if (MXK_SwitchTo(eMXK_Motor)) {
-Motor_Speed(&Stepper, (50));
-Motor_Move(&Stepper, -1);
-if (MXK_Release())
-MXK_Dequeue();
-}
-TimerX = 10;
-if (TimerX > 0) {
-while (TimerX > 0) {
-ADC_Start(&ADC_AN0);
-if (MXK_SwitchTo(eMXK_HMI)) {
-HMI_SetNumber(IRValue);
-HMI_Render();
-if (MXK_Release())
-MXK_Dequeue();
-}
-IRValue = (59 / ADC_Voltage(&ADC_AN0));
-TimerX--;
-}
-}
-stepsToMinDegrees = Stepstomin * 0.67;
-
-if (MXK_SwitchTo(eMXK_HMI)) {
-printf("%c", (char)35);
-printf("Closest Wall:%u\nClosest Angle:%f\nLeft Bump:%u\nRightBump:%u\n", MinDist, stepsToMinDegrees, iRBumpLeft, iRBumpRight);
-Console_Render();
-if (MXK_Release())
-MXK_Dequeue();
-}
-}
-stepsToMinDegrees = Stepstomin * 0.75;
-Stepstomin = (int) stepsToMinDegrees;
-irobot_rotate(0, Stepstomin - 67, 200);
+irobot_rotate(0, angleToClosestWall - 67, 200);
 while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
 irobot_move_straight(200);
 update_bump_and_cliff();

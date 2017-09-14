@@ -638,7 +638,7 @@ eADC_Ch1 1
 eADC_Ch2 2
 eADC_Ch3 3
 ]
-"70
+"72
 [e E6940 . `uc
 eMXK_Motor 8
 eMXK_IMU 4
@@ -648,20 +648,8 @@ eMXK_None 0
 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-"409 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\doprnt.c
-[v _fround fround `(d  1 s 4 fround ]
-"425
-[v _scale scale `(d  1 s 4 scale ]
-"464
+"464 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
-"60 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\fldivl.c
-[v __div_to_l_ _div_to_l_ `(ul  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\flneg.c
-[v ___flneg __flneg `(d  1 e 4 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
 "43 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\fltol.c
@@ -670,8 +658,6 @@ eMXK_None 0
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 4 0 ]
-"60 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftdivl.c
-[v __tdiv_to_l_ _tdiv_to_l_ `(ul  1 e 4 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "20 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftsub.c
@@ -1296,21 +1282,25 @@ eMXK_None 0
 [v _itos itos `(v  1 e 1 0 ]
 "393
 [v _swap swap `(v  1 e 1 0 ]
-"62 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"64 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"102
+"104
 [v _getMode getMode `(v  1 e 1 0 ]
-"120
+"121
+[v _safeToGo safeToGo `(v  1 e 1 0 ]
+"136
 [v _move_and_rotate move_and_rotate `(v  1 e 1 0 ]
-"134
+"150
+[v _findClosestWall findClosestWall `(v  1 e 1 0 ]
+"195
 [v _mode1 mode1 `(v  1 e 1 0 ]
-"218
+"265
 [v _mode2 mode2 `(v  1 e 1 0 ]
-"255
+"289
 [v _mode3 mode3 `(v  1 e 1 0 ]
-"263
+"298
 [v _mode4 mode4 `(v  1 e 1 0 ]
-"337
+"319
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -2026,11 +2016,7 @@ eMXK_None 0
 [u S12537 . 1 `S12515 1 . 1 0 `S12524 1 . 1 0 `S12533 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES12537  1 e 1 @4082 ]
 "354 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\doprnt.c
-[v _dpowers dpowers `C[10]ul  1 s 40 dpowers ]
-"7 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\powers.c
-[v __powers_ _powers_ `C[13]d  1 e 52 0 ]
-"39
-[v __npowers_ _npowers_ `C[13]d  1 e 52 0 ]
+[v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
 "51 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Events.c
 [v _val val `us  1 s 2 val ]
 "75
@@ -2268,32 +2254,37 @@ eMXK_None 0
 "46
 [v _TimerX TimerX `i  1 e 2 0 ]
 "47
-[v _stepsToMinDegrees stepsToMinDegrees `f  1 e 4 0 ]
+[v _angleToClosestWall angleToClosestWall `i  1 e 2 0 ]
 "48
 [v _dist dist `i  1 e 2 0 ]
 "49
 [v _Stepper Stepper `S12593  1 e 6 0 ]
 "50
 [v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
-"337
+"319
 [v _main main `(v  1 e 1 0 ]
 {
-"371
+"353
 } 0
-"263
+"298
 [v _mode4 mode4 `(v  1 e 1 0 ]
 {
-"334
+"316
 } 0
-"255
+"150
+[v _findClosestWall findClosestWall `(v  1 e 1 0 ]
+{
+"192
+} 0
+"289
 [v _mode3 mode3 `(v  1 e 1 0 ]
 {
-"260
+"295
 } 0
-"120
+"136
 [v _move_and_rotate move_and_rotate `(v  1 e 1 0 ]
 {
-"131
+"147
 } 0
 "279 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_rotate irobot_rotate `(v  1 e 1 0 ]
@@ -2310,12 +2301,12 @@ eMXK_None 0
 [v irobot_rotate@isScript isScript `uc  1 a 1 34 ]
 "295
 } 0
-"218 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"265 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _mode2 mode2 `(v  1 e 1 0 ]
 {
-"236
-[v mode2@dist dist `i  1 a 2 119 ]
-"252
+"270
+[v mode2@dist dist `i  1 a 2 44 ]
+"286
 } 0
 "313 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
@@ -2323,12 +2314,17 @@ eMXK_None 0
 [v irobot_move_straight@straightSpeed straightSpeed `s  1 p 2 25 ]
 "315
 } 0
-"134 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"195 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _mode1 mode1 `(v  1 e 1 0 ]
 {
-"199
-[v mode1@moveto moveto `i  1 a 2 121 ]
-"215
+"246
+[v mode1@moveto moveto `i  1 a 2 2 ]
+"262
+} 0
+"121
+[v _safeToGo safeToGo `(v  1 e 1 0 ]
+{
+"133
 } 0
 "325 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _update_distance update_distance `(v  1 e 1 0 ]
@@ -2393,38 +2389,54 @@ eMXK_None 0
 {
 "128
 } 0
+"298
+[v _irobot_stop_motion irobot_stop_motion `(v  1 e 1 0 ]
+{
+[v irobot_stop_motion@isScript isScript `uc  1 a 1 wreg ]
+[v irobot_stop_motion@isScript isScript `uc  1 a 1 wreg ]
+[v irobot_stop_motion@isScript isScript `uc  1 a 1 25 ]
+"300
+} 0
+"219
+[v _irobot_move irobot_move `(v  1 e 1 0 ]
+{
+[v irobot_move@isScript isScript `uc  1 a 1 wreg ]
+[v irobot_move@isScript isScript `uc  1 a 1 wreg ]
+[v irobot_move@moveSpeed moveSpeed `s  1 p 2 16 ]
+[v irobot_move@moveTurnRadius moveTurnRadius `s  1 p 2 18 ]
+[v irobot_move@isScript isScript `uc  1 a 1 24 ]
+"235
+} 0
+"166
+[v _twos_complement_of twos_complement_of `(us  1 e 2 0 ]
+{
+[v twos_complement_of@complementValue complementValue `s  1 p 2 0 ]
+"173
+} 0
+"273
+[v _irobot_song_play irobot_song_play `(v  1 e 1 0 ]
+{
+[v irobot_song_play@songNumber songNumber `uc  1 a 1 wreg ]
+[v irobot_song_play@songNumber songNumber `uc  1 a 1 wreg ]
+[v irobot_song_play@songNumber songNumber `uc  1 a 1 1 ]
+"276
+} 0
 "464 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
 {
-"516
-[v printf@fval fval `d  1 a 4 20 ]
-[u S14063 . 4 `ul 1 vd 4 0 `d 1 integ 4 0 ]
-"526
-[v printf@tmpval tmpval `S14063  1 a 4 16 ]
 "528
-[v printf@val val `ul  1 a 4 10 ]
-"516
-[v printf@exp exp `i  1 a 2 14 ]
-"504
-[v printf@prec prec `i  1 a 2 8 ]
-"508
-[v printf@flag flag `us  1 a 2 6 ]
+[v printf@val val `ui  1 a 2 36 ]
 "466
-[v printf@ap ap `[1]*.39v  1 a 2 4 ]
+[v printf@ap ap `[1]*.39v  1 a 2 34 ]
 "499
-[v printf@c c `c  1 a 1 24 ]
+[v printf@c c `c  1 a 1 38 ]
+"508
+[v printf@flag flag `uc  1 a 1 33 ]
+"506
+[v printf@prec prec `c  1 a 1 32 ]
 "464
-[v printf@f f `*.32Cuc  1 p 2 105 ]
+[v printf@f f `*.32Cuc  1 p 2 21 ]
 "1541
-} 0
-"425
-[v _scale scale `(d  1 s 4 scale ]
-{
-[v scale@scl scl `c  1 a 1 wreg ]
-[v scale@scl scl `c  1 a 1 wreg ]
-"428
-[v scale@scl scl `c  1 a 1 72 ]
-"441
 } 0
 "454 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/Console.c
 [v _putch putch `(v  1 e 1 0 ]
@@ -2432,7 +2444,7 @@ eMXK_None 0
 [v putch@c c `uc  1 a 1 wreg ]
 [v putch@c c `uc  1 a 1 wreg ]
 "456
-[v putch@c c `uc  1 a 1 26 ]
+[v putch@c c `uc  1 a 1 20 ]
 "457
 } 0
 "322
@@ -2440,21 +2452,34 @@ eMXK_None 0
 {
 [v Console_PrintChar@pInput pInput `uc  1 a 1 wreg ]
 [v Console_PrintChar@pInput pInput `uc  1 a 1 wreg ]
-[v Console_PrintChar@pInput pInput `uc  1 a 1 25 ]
+[v Console_PrintChar@pInput pInput `uc  1 a 1 19 ]
 "373
 } 0
 "260
 [v _Console_Tab Console_Tab `(v  1 e 1 0 ]
 {
 "263
-[v Console_Tab@c c `uc  1 a 1 21 ]
+[v Console_Tab@c c `uc  1 a 1 15 ]
 "262
-[v Console_Tab@i i `uc  1 a 1 20 ]
+[v Console_Tab@i i `uc  1 a 1 14 ]
 "264
-[v Console_Tab@t t `uc  1 a 1 19 ]
+[v Console_Tab@t t `uc  1 a 1 13 ]
 "270
 } 0
-"243
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"8
+[v ___awdiv@dividend dividend `i  1 p 2 0 ]
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+"42
+} 0
+"243 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/Console.c
 [v _Console_IncrementCursor Console_IncrementCursor `(uc  1 e 1 0 ]
 {
 "258
@@ -2487,152 +2512,15 @@ eMXK_None 0
 {
 "315
 } 0
-"409 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\doprnt.c
-[v _fround fround `(d  1 s 4 fround ]
-{
-[v fround@prec prec `uc  1 a 1 wreg ]
-[v fround@prec prec `uc  1 a 1 wreg ]
-"413
-[v fround@prec prec `uc  1 a 1 76 ]
-"418
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-{
-"11
-[v ___awmod@sign sign `uc  1 a 1 5 ]
-[v ___awmod@counter counter `uc  1 a 1 4 ]
-"8
-[v ___awmod@dividend dividend `i  1 p 2 0 ]
-[v ___awmod@divisor divisor `i  1 p 2 2 ]
-"35
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"11
-[v ___awdiv@quotient quotient `i  1 a 2 12 ]
-"12
-[v ___awdiv@sign sign `uc  1 a 1 11 ]
-[v ___awdiv@counter counter `uc  1 a 1 10 ]
-"8
-[v ___awdiv@dividend dividend `i  1 p 2 6 ]
-[v ___awdiv@divisor divisor `i  1 p 2 8 ]
-"42
-} 0
-"60 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftdivl.c
-[v __tdiv_to_l_ _tdiv_to_l_ `(ul  1 e 4 0 ]
-{
-"63
-[v __tdiv_to_l_@quot quot `ul  1 a 4 11 ]
-"62
-[v __tdiv_to_l_@exp1 exp1 `uc  1 a 1 16 ]
-[v __tdiv_to_l_@cntr cntr `uc  1 a 1 15 ]
-"60
-[v __tdiv_to_l_@f1 f1 `f  1 p 4 0 ]
-[v __tdiv_to_l_@f2 f2 `f  1 p 4 4 ]
-"101
-} 0
-"60 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\fldivl.c
-[v __div_to_l_ _div_to_l_ `(ul  1 e 4 0 ]
-{
-"63
-[v __div_to_l_@quot quot `ul  1 a 4 8 ]
-"62
-[v __div_to_l_@exp1 exp1 `uc  1 a 1 13 ]
-[v __div_to_l_@cntr cntr `uc  1 a 1 12 ]
-"60
-[v __div_to_l_@f1 f1 `d  1 p 4 0 ]
-[v __div_to_l_@f2 f2 `d  1 p 4 4 ]
-"101
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\llmod.c
-[v ___llmod __llmod `(ul  1 e 4 0 ]
-{
-"11
-[v ___llmod@counter counter `uc  1 a 1 21 ]
-"8
-[v ___llmod@dividend dividend `ul  1 p 4 13 ]
-[v ___llmod@divisor divisor `ul  1 p 4 17 ]
-"26
-} 0
 "43 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 91 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 90 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 62 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 61 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 82 ]
+[v ___fltol@f1 f1 `d  1 p 4 57 ]
 "70
-} 0
-"245 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcadd.c
-[v ___flsub __flsub `(d  1 e 4 0 ]
-{
-[v ___flsub@b b `d  1 p 4 97 ]
-[v ___flsub@a a `d  1 p 4 101 ]
-"250
-} 0
-"10
-[v ___fladd __fladd `(d  1 e 4 0 ]
-{
-"17
-[v ___fladd@grs grs `uc  1 a 1 96 ]
-"15
-[v ___fladd@bexp bexp `uc  1 a 1 95 ]
-"16
-[v ___fladd@aexp aexp `uc  1 a 1 94 ]
-"13
-[v ___fladd@signs signs `uc  1 a 1 93 ]
-"10
-[v ___fladd@b b `d  1 p 4 77 ]
-[v ___fladd@a a `d  1 p 4 81 ]
-"237
-} 0
-"15 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\flneg.c
-[v ___flneg __flneg `(d  1 e 4 0 ]
-{
-[v ___flneg@f1 f1 `d  1 p 4 0 ]
-"20
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-{
-[v ___flge@ff1 ff1 `d  1 p 4 0 ]
-[v ___flge@ff2 ff2 `d  1 p 4 4 ]
-"19
-} 0
-"298 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
-[v _irobot_stop_motion irobot_stop_motion `(v  1 e 1 0 ]
-{
-[v irobot_stop_motion@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_stop_motion@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_stop_motion@isScript isScript `uc  1 a 1 25 ]
-"300
-} 0
-"219
-[v _irobot_move irobot_move `(v  1 e 1 0 ]
-{
-[v irobot_move@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_move@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_move@moveSpeed moveSpeed `s  1 p 2 16 ]
-[v irobot_move@moveTurnRadius moveTurnRadius `s  1 p 2 18 ]
-[v irobot_move@isScript isScript `uc  1 a 1 24 ]
-"235
-} 0
-"166
-[v _twos_complement_of twos_complement_of `(us  1 e 2 0 ]
-{
-[v twos_complement_of@complementValue complementValue `s  1 p 2 0 ]
-"173
-} 0
-"273
-[v _irobot_song_play irobot_song_play `(v  1 e 1 0 ]
-{
-[v irobot_song_play@songNumber songNumber `uc  1 a 1 wreg ]
-[v irobot_song_play@songNumber songNumber `uc  1 a 1 wreg ]
-[v irobot_song_play@songNumber songNumber `uc  1 a 1 1 ]
-"276
 } 0
 "117 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/Motor.c
 [v _Motor_Speed Motor_Speed `(uc  1 e 1 0 ]
@@ -2871,14 +2759,14 @@ eMXK_None 0
 [v _ADC_Voltage ADC_Voltage `(f  1 e 4 0 ]
 {
 "263
-[v ADC_Voltage@output output `f  1 a 4 78 ]
+[v ADC_Voltage@output output `f  1 a 4 53 ]
 "262
-[v ADC_Voltage@ref ref `Cf  1 a 4 74 ]
+[v ADC_Voltage@ref ref `Cf  1 a 4 49 ]
 "261
-[v ADC_Voltage@max max `Cf  1 a 4 70 ]
+[v ADC_Voltage@max max `Cf  1 a 4 45 ]
 "259
 [s S11482 ADC 5 `E6742 1 mChannel 1 0 `us 1 mValue 2 1 `*.39S11482 1 mNext 2 3 ]
-[v ADC_Voltage@pInput pInput `*.39S11482  1 p 2 64 ]
+[v ADC_Voltage@pInput pInput `*.39S11482  1 p 2 39 ]
 "269
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\xxtofl.c
@@ -2899,52 +2787,52 @@ eMXK_None 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S14355 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S14320 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S14360 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S14363 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14355 1 fAsBytes 4 0 `S14360 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S14363  1 a 4 58 ]
+[s S14325 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S14328 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14320 1 fAsBytes 4 0 `S14325 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S14328  1 a 4 33 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 53 ]
-[s S14431 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[v ___flmul@grs grs `ul  1 a 4 28 ]
+[s S14396 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S14434 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14431 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S14434  1 a 2 62 ]
+[u S14399 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14396 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S14399  1 a 2 37 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 57 ]
+[v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 52 ]
+[v ___flmul@aexp aexp `uc  1 a 1 27 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 51 ]
+[v ___flmul@sign sign `uc  1 a 1 26 ]
 "8
-[v ___flmul@b b `d  1 p 4 39 ]
-[v ___flmul@a a `d  1 p 4 43 ]
+[v ___flmul@b b `d  1 p 4 14 ]
+[v ___flmul@a a `d  1 p 4 18 ]
 "205
 } 0
 "11 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 {
 "21
-[v ___fldiv@grs grs `ul  1 a 4 33 ]
+[v ___fldiv@grs grs `ul  1 a 4 19 ]
 "22
-[v ___fldiv@rem rem `ul  1 a 4 27 ]
+[v ___fldiv@rem rem `ul  1 a 4 13 ]
 "20
-[v ___fldiv@new_exp new_exp `i  1 a 2 31 ]
+[v ___fldiv@new_exp new_exp `i  1 a 2 17 ]
 "19
-[v ___fldiv@aexp aexp `uc  1 a 1 38 ]
+[v ___fldiv@aexp aexp `uc  1 a 1 24 ]
 "18
-[v ___fldiv@bexp bexp `uc  1 a 1 37 ]
+[v ___fldiv@bexp bexp `uc  1 a 1 23 ]
 "16
-[v ___fldiv@sign sign `uc  1 a 1 26 ]
+[v ___fldiv@sign sign `uc  1 a 1 12 ]
 "11
-[v ___fldiv@b b `d  1 p 4 14 ]
-[v ___fldiv@a a `d  1 p 4 18 ]
+[v ___fldiv@b b `d  1 p 4 0 ]
+[v ___fldiv@a a `d  1 p 4 4 ]
 "184
 } 0
-"62 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"64 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
 {
-"99
+"101
 } 0
 "303 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_led_power_on irobot_led_power_on `(v  1 e 1 0 ]
@@ -3041,7 +2929,7 @@ eMXK_None 0
 [v _Port_Init Port_Init `(v  1 e 1 0 ]
 {
 "166
-[v Port_Init@i i `uc  1 a 1 69 ]
+[v Port_Init@i i `uc  1 a 1 6 ]
 [s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
 `uc 1 mBit4_7 1 0 :4:4 
 ]
@@ -3099,15 +2987,15 @@ eMXK_None 0
 [s S134 Word 2 `S130 1 . 2 0 ]
 [u S136 PortProperty 2 `us 1 mWord 2 0 `S134 1 mType 2 0 ]
 [s S139 Port 10 `*.32S136 1 mProperties 2 0 `*.39S122 1 mDirection 2 2 `*.39S122 1 mOutput 2 4 `*.39S122 1 mInput 2 6 `S134 1 mType 2 8 ]
-[v Port_Init@pInput pInput `C*.39S139  1 p 2 64 ]
-[v Port_Init@pPort pPort `E6786  1 p 1 66 ]
+[v Port_Init@pInput pInput `C*.39S139  1 p 2 1 ]
+[v Port_Init@pPort pPort `E6786  1 p 1 3 ]
 "186
 } 0
 "513
 [v _Port_SetType Port_SetType `(E6475  1 e 1 0 ]
 {
 "515
-[v Port_SetType@Output Output `E6475  1 a 1 63 ]
+[v Port_SetType@Output Output `E6475  1 a 1 0 ]
 [s S62 . 1 `uc 1 mBit0_3 1 0 :4:0 
 `uc 1 mBit4_7 1 0 :4:4 
 ]
@@ -4105,7 +3993,7 @@ eMXK_None 0
 [v _HMI_Init HMI_Init `(v  1 e 1 0 ]
 {
 "127
-[v HMI_Init@in in `us  1 a 2 72 ]
+[v HMI_Init@in in `us  1 a 2 59 ]
 "135
 } 0
 "190 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/SPI.c
@@ -4771,12 +4659,12 @@ eMXK_None 0
 [v _Button_Init Button_Init `(v  1 e 1 0 ]
 {
 [s S23 Button 10 `uc 1 mState 1 0 `uc 1 mCount 1 1 `us 1 mThreshold 2 2 `*.38(v 1 mFunction 3 4 `*.38(uc 1 mGetState 3 7 ]
-[v Button_Init@pInput pInput `C*.39S23  1 p 2 59 ]
-[v Button_Init@pThreshold pThreshold `us  1 p 2 61 ]
+[v Button_Init@pInput pInput `C*.39S23  1 p 2 0 ]
+[v Button_Init@pThreshold pThreshold `us  1 p 2 2 ]
 "19
-[v Button_Init@pInitIO pInitIO `*.38(v  1 p 3 63 ]
-[v Button_Init@pGetState pGetState `*.38(uc  1 p 3 66 ]
-[v Button_Init@pFunction pFunction `*.38(v  1 p 3 69 ]
+[v Button_Init@pInitIO pInitIO `*.38(v  1 p 3 4 ]
+[v Button_Init@pGetState pGetState `*.38(uc  1 p 3 7 ]
+[v Button_Init@pFunction pFunction `*.38(v  1 p 3 10 ]
 "43
 } 0
 "20 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/MXK.c
@@ -5469,10 +5357,10 @@ eMXK_None 0
 {
 "99
 } 0
-"102 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"104 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _getMode getMode `(v  1 e 1 0 ]
 {
-"117
+"119
 } 0
 "252 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\HMI.c
 [v _HMI_Poll HMI_Poll `(v  1 e 1 0 ]
@@ -5622,21 +5510,21 @@ eMXK_None 0
 "221 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\HMI.c
 [v _HMI_SetNumber HMI_SetNumber `(v  1 e 1 0 ]
 {
-[v HMI_SetNumber@pInput pInput `i  1 p 2 17 ]
+[v HMI_SetNumber@pInput pInput `i  1 p 2 22 ]
 "225
 } 0
 "369 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/Types.c
 [v _itos itos `(v  1 e 1 0 ]
 {
 "371
-[v itos@Out Out `us  1 a 2 15 ]
+[v itos@Out Out `us  1 a 2 20 ]
 "372
-[v itos@Length Length `us  1 a 2 13 ]
+[v itos@Length Length `us  1 a 2 18 ]
 "373
-[v itos@Data Data `*.39uc  1 a 2 11 ]
+[v itos@Data Data `*.39uc  1 a 2 16 ]
 "369
-[v itos@input input `us  1 p 2 7 ]
-[v itos@destination destination `*.39uc  1 p 2 9 ]
+[v itos@input input `us  1 p 2 12 ]
+[v itos@destination destination `*.39uc  1 p 2 14 ]
 "391
 } 0
 "357
@@ -5655,10 +5543,10 @@ eMXK_None 0
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "11
-[v ___lwmod@counter counter `uc  1 a 1 4 ]
+[v ___lwmod@counter counter `uc  1 a 1 11 ]
 "8
-[v ___lwmod@dividend dividend `ui  1 p 2 0 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 2 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 7 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 9 ]
 "26
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\lwdiv.c
