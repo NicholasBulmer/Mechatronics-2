@@ -8321,7 +8321,7 @@ ADC_On();
 ADCON1bits.ADCAL = 1;
 
 (ADCON0bits.GO) = 1;
-while((ADCON0bits.GODONE));
+while((ADCON0bits.GODONE)) ;
 ADCON1bits.ADCAL = 0;
 
 ADC_Off();
@@ -8378,7 +8378,7 @@ ADC_On();
 
 
 (ADCON0bits.GO) = 1;
-while((ADCON0bits.GODONE));
+while((ADCON0bits.GODONE)) ;
 
 
 pInput->mValue = (ADRESH << 8) | ADRESL;
@@ -8435,7 +8435,7 @@ unfound = 0;
 break;
 default:
 if (pDivide > 2)
-pDivide --;
+pDivide--;
 else
 pDivide = 2;
 };
@@ -8489,7 +8489,7 @@ ADC_On();
 
 
 (ADCON0bits.GO) = 1;
-while((ADCON0bits.GODONE));
+while((ADCON0bits.GODONE)) ;
 
 
 out = ADRESL;

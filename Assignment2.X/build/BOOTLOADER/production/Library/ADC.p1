@@ -6405,7 +6405,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ADC.c: 69: (ADCON0bits.GO) = 1;
 "69
 [e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;ADC.c: 70: while((ADCON0bits.GODONE));
+[; ;ADC.c: 70: while((ADCON0bits.GODONE)) ;
 "70
 [e $U 644  ]
 [e :U 645 ]
@@ -6570,7 +6570,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ADC.c: 134: (ADCON0bits.GO) = 1;
 "134
 [e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;ADC.c: 135: while((ADCON0bits.GODONE));
+[; ;ADC.c: 135: while((ADCON0bits.GODONE)) ;
 "135
 [e $U 659  ]
 [e :U 660 ]
@@ -6750,7 +6750,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ADC.c: 191: if (pDivide > 2)
 "191
 [e $ ! > -> _pDivide `i -> 2 `i 678  ]
-[; ;ADC.c: 192: pDivide --;
+[; ;ADC.c: 192: pDivide--;
 "192
 [e -- _pDivide -> -> 1 `i `uc ]
 [e $U 679  ]
@@ -6913,7 +6913,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ADC.c: 247: (ADCON0bits.GO) = 1;
 "247
 [e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-[; ;ADC.c: 248: while((ADCON0bits.GODONE));
+[; ;ADC.c: 248: while((ADCON0bits.GODONE)) ;
 "248
 [e $U 690  ]
 [e :U 691 ]

@@ -2,7 +2,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "22 Library\Motor.h
 [s S643 `s 1 `s 1 `us 1 ]
 [n S643 Motor mDelta mFrequency mAddress ]
-"50 main.c
+"51 main.c
 [c E7368 0 1 2 3 .. ]
 [n E7368 . eADC_Ch0 eADC_Ch1 eADC_Ch2 eADC_Ch3  ]
 "29 Library\ADC.h
@@ -12,7 +12,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _MXK_Init `(v ~T0 @X0 0 ef ]
 "19 Library\ISR.h
 [v _ISR_Enable `(v ~T0 @X0 0 ef ]
-"72 main.c
+"73 main.c
 [c E6940 8 4 1 2 0 .. ]
 [n E6940 . eMXK_Motor eMXK_IMU eMXK_HMI eMXK_FPGA eMXK_None  ]
 "50 Library\MXK.h
@@ -6752,1051 +6752,1134 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ADC.h: 40: float ADC_Voltage(ADCPtr pInput);
 [; ;ADC.h: 42: UINT8 rand();
 [; ;ADC.h: 43: UINT8 rand_between(UINT8 pValA, UINT8 pValB);
-"38 main.c
+"39 main.c
 [v _distanceTotal `s ~T0 @X0 1 e ]
 [i _distanceTotal
 -> -> 0 `i `s
 ]
-[; ;main.c: 38: INT16 distanceTotal = 0;
-"39
+[; ;main.c: 39: INT16 distanceTotal = 0;
+"40
 [v _angleTotal `s ~T0 @X0 1 e ]
 [i _angleTotal
 -> -> 0 `i `s
 ]
-[; ;main.c: 39: INT16 angleTotal = 0;
-"40
-[v _dip `i ~T0 @X0 1 e ]
-[; ;main.c: 40: int dip;
+[; ;main.c: 40: INT16 angleTotal = 0;
 "41
+[v _dip `i ~T0 @X0 1 e ]
+[; ;main.c: 41: int dip;
+"42
 [v _mode `i ~T0 @X0 1 e ]
 [i _mode
 -> 0 `i
 ]
-[; ;main.c: 41: int mode = 0;
-"42
+[; ;main.c: 42: int mode = 0;
+"43
 [v _StepRotate `i ~T0 @X0 1 e ]
 [i _StepRotate
 -> 0 `i
 ]
-[; ;main.c: 42: int StepRotate = 0;
-"43
+[; ;main.c: 43: int StepRotate = 0;
+"44
 [v _MinDist `i ~T0 @X0 1 e ]
 [i _MinDist
 -> 1000 `i
 ]
-[; ;main.c: 43: int MinDist = 1000;
-"44
+[; ;main.c: 44: int MinDist = 1000;
+"45
 [v _Stepstomin `i ~T0 @X0 1 e ]
 [i _Stepstomin
 -> 0 `i
 ]
-[; ;main.c: 44: int Stepstomin = 0;
-"45
+[; ;main.c: 45: int Stepstomin = 0;
+"46
 [v _IRValue `i ~T0 @X0 1 e ]
 [i _IRValue
 -> 0 `i
 ]
-[; ;main.c: 45: int IRValue = 0;
-"46
+[; ;main.c: 46: int IRValue = 0;
+"47
 [v _TimerX `i ~T0 @X0 1 e ]
 [i _TimerX
 -> 8 `i
 ]
-[; ;main.c: 46: int TimerX = 8;
-"47
+[; ;main.c: 47: int TimerX = 8;
+"48
 [v _angleToClosestWall `i ~T0 @X0 1 e ]
 [i _angleToClosestWall
 -> 0 `i
 ]
-[; ;main.c: 47: int angleToClosestWall = 0;
-"48
+[; ;main.c: 48: int angleToClosestWall = 0;
+"49
 [v _dist `i ~T0 @X0 1 e ]
 [i _dist
 -> 0 `i
 ]
-[; ;main.c: 48: int dist = 0;
-"49
-[v _Stepper `S643 ~T0 @X0 1 e ]
-[; ;main.c: 49: Motor Stepper;
+[; ;main.c: 49: int dist = 0;
 "50
+[v _Stepper `S643 ~T0 @X0 1 e ]
+[; ;main.c: 50: Motor Stepper;
+"51
 [v _ADC_AN0 `S652 ~T0 @X0 1 e ]
-[; ;main.c: 50: ADC ADC_AN0;
-[; ;main.c: 53: void init();
-[; ;main.c: 54: void getMode();
-[; ;main.c: 55: void mode1();
-[; ;main.c: 56: void mode2();
-[; ;main.c: 57: void mode3();
-[; ;main.c: 58: void mode4();
-[; ;main.c: 59: void move_and_rotate();
-[; ;main.c: 60: void findClosestWall();
-[; ;main.c: 61: void safeToGo();
-"64
+[; ;main.c: 51: ADC ADC_AN0;
+[; ;main.c: 54: void init();
+[; ;main.c: 55: void getMode();
+[; ;main.c: 56: void mode1();
+[; ;main.c: 57: void mode2();
+[; ;main.c: 58: void mode3();
+[; ;main.c: 59: void mode4();
+[; ;main.c: 60: void move_and_rotate();
+[; ;main.c: 61: void findClosestWall();
+[; ;main.c: 62: void safeToGo();
+"65
 [v _init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 64: void init() {
+[; ;main.c: 65: void init() {
 [e :U _init ]
 [f ]
-[; ;main.c: 66: MXK_Init();
-"66
+[; ;main.c: 67: MXK_Init();
+"67
 [e ( _MXK_Init ..  ]
-[; ;main.c: 69: ISR_Enable();
-"69
+[; ;main.c: 70: ISR_Enable();
+"70
 [e ( _ISR_Enable ..  ]
-[; ;main.c: 72: if (MXK_BlockSwitchTo(eMXK_HMI)) {
-"72
+[; ;main.c: 73: if (MXK_BlockSwitchTo(eMXK_HMI)) {
+"73
 [e $ ! != -> ( _MXK_BlockSwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 654  ]
 {
-[; ;main.c: 73: Console_Init();
-"73
-[e ( _Console_Init ..  ]
-[; ;main.c: 74: HMI_Init();
+[; ;main.c: 74: Console_Init();
 "74
-[e ( _HMI_Init ..  ]
-[; ;main.c: 75: LCD_Init();
+[e ( _Console_Init ..  ]
+[; ;main.c: 75: HMI_Init();
 "75
-[e ( _LCD_Init ..  ]
-[; ;main.c: 76: if (MXK_Release())
+[e ( _HMI_Init ..  ]
+[; ;main.c: 76: LCD_Init();
 "76
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 655  ]
-[; ;main.c: 77: MXK_Dequeue();
+[e ( _LCD_Init ..  ]
+[; ;main.c: 77: if (MXK_Release())
 "77
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 655  ]
+[; ;main.c: 78: MXK_Dequeue();
+"78
 [e ( _MXK_Dequeue ..  ]
 [e :U 655 ]
-"78
+"79
 }
 [e :U 654 ]
-[; ;main.c: 78: }
-[; ;main.c: 81: if (MXK_BlockSwitchTo(eMXK_Motor)) {
-"81
+[; ;main.c: 79: }
+[; ;main.c: 82: if (MXK_BlockSwitchTo(eMXK_Motor)) {
+"82
 [e $ ! != -> ( _MXK_BlockSwitchTo (1 . `E6940 0 `i -> -> -> 0 `i `uc `i 656  ]
 {
-[; ;main.c: 82: Motor_Init(&Stepper, 0b1000);
-"82
-[e ( _Motor_Init (2 , &U _Stepper -> -> 8 `i `us ]
-[; ;main.c: 83: if (MXK_Release())
+[; ;main.c: 83: Motor_Init(&Stepper, 0b1000);
 "83
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 657  ]
-[; ;main.c: 84: MXK_Dequeue();
+[e ( _Motor_Init (2 , &U _Stepper -> -> 8 `i `us ]
+[; ;main.c: 84: if (MXK_Release())
 "84
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 657  ]
+[; ;main.c: 85: MXK_Dequeue();
+"85
 [e ( _MXK_Dequeue ..  ]
 [e :U 657 ]
-"85
+"86
 }
 [e :U 656 ]
-[; ;main.c: 85: }
-[; ;main.c: 88: ADC_Init(&ADC_AN0, eADC_Ch0);
-"88
+[; ;main.c: 86: }
+[; ;main.c: 89: ADC_Init(&ADC_AN0, eADC_Ch0);
+"89
 [e ( _ADC_Init (2 , &U _ADC_AN0 . `E7368 0 ]
 [v _ADC_Voltage `(f ~T0 @X0 0 ef1`*S652 ]
-[; ;main.c: 89: float ADC_Voltage(ADCPtr plnput);
-[; ;main.c: 90: ADC_Start(&ADC_AN0);
-"90
+[; ;main.c: 90: float ADC_Voltage(ADCPtr plnput);
+[; ;main.c: 91: ADC_Start(&ADC_AN0);
+"91
 [e ( _ADC_Start (1 &U _ADC_AN0 ]
-[; ;main.c: 92: eusart_init();
-"92
-[e ( _eusart_init ..  ]
-[; ;main.c: 93: irobot_init();
+[; ;main.c: 93: eusart_init();
 "93
+[e ( _eusart_init ..  ]
+[; ;main.c: 94: irobot_init();
+"94
 [e ( _irobot_init ..  ]
-[; ;main.c: 95: irobot_led_power_on(0xA);
-"95
-[e ( _irobot_led_power_on (1 -> -> 10 `i `uc ]
-[; ;main.c: 96: irobot_init_song_0();
+[; ;main.c: 96: irobot_led_power_on(0xA);
 "96
-[e ( _irobot_init_song_0 ..  ]
-[; ;main.c: 97: delay_ms(20);
+[e ( _irobot_led_power_on (1 -> -> 10 `i `uc ]
+[; ;main.c: 97: irobot_init_song_0();
 "97
+[e ( _irobot_init_song_0 ..  ]
+[; ;main.c: 98: delay_ms(20);
+"98
 [e ( _delay_ms (1 -> -> 20 `i `us ]
-[; ;main.c: 101: }
-"101
+[; ;main.c: 102: }
+"102
 [e :UE 653 ]
 }
-"104
+"105
 [v _getMode `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 104: void getMode() {
+[; ;main.c: 105: void getMode() {
 [e :U _getMode ]
 [f ]
-[; ;main.c: 105: HMI_Poll();
-"105
-[e ( _HMI_Poll ..  ]
-[; ;main.c: 106: mode = 0;
+[; ;main.c: 106: HMI_Poll();
 "106
-[e = _mode -> 0 `i ]
-[; ;main.c: 107: if (HMIBoard.mUp.mGetState()) {
+[e ( _HMI_Poll ..  ]
+[; ;main.c: 107: mode = 0;
 "107
+[e = _mode -> 0 `i ]
+[; ;main.c: 108: if (HMIBoard.mUp.mGetState()) {
+"108
 [e $ ! != -> ( *U . . _HMIBoard 3 4 ..  `i -> -> -> 0 `i `uc `i 659  ]
 {
-[; ;main.c: 108: mode = 1;
-"108
-[e = _mode -> 1 `i ]
+[; ;main.c: 109: mode = 1;
 "109
+[e = _mode -> 1 `i ]
+"110
 }
 [e :U 659 ]
-[; ;main.c: 109: }
-[; ;main.c: 110: if (HMIBoard.mRight.mGetState()) {
-"110
+[; ;main.c: 110: }
+[; ;main.c: 111: if (HMIBoard.mRight.mGetState()) {
+"111
 [e $ ! != -> ( *U . . _HMIBoard 1 4 ..  `i -> -> -> 0 `i `uc `i 660  ]
 {
-[; ;main.c: 111: mode = 2;
-"111
-[e = _mode -> 2 `i ]
+[; ;main.c: 112: mode = 2;
 "112
+[e = _mode -> 2 `i ]
+"113
 }
 [e :U 660 ]
-[; ;main.c: 112: }
-[; ;main.c: 113: if (HMIBoard.mDown.mGetState()) {
-"113
+[; ;main.c: 113: }
+[; ;main.c: 114: if (HMIBoard.mDown.mGetState()) {
+"114
 [e $ ! != -> ( *U . . _HMIBoard 4 4 ..  `i -> -> -> 0 `i `uc `i 661  ]
 {
-[; ;main.c: 114: mode = 3;
-"114
-[e = _mode -> 3 `i ]
+[; ;main.c: 115: mode = 3;
 "115
+[e = _mode -> 3 `i ]
+"116
 }
 [e :U 661 ]
-[; ;main.c: 115: }
-[; ;main.c: 116: if (HMIBoard.mLeft.mGetState()) {
-"116
+[; ;main.c: 116: }
+[; ;main.c: 117: if (HMIBoard.mLeft.mGetState()) {
+"117
 [e $ ! != -> ( *U . . _HMIBoard 2 4 ..  `i -> -> -> 0 `i `uc `i 662  ]
 {
-[; ;main.c: 117: mode = 4;
-"117
-[e = _mode -> 4 `i ]
+[; ;main.c: 118: mode = 4;
 "118
+[e = _mode -> 4 `i ]
+"119
 }
 [e :U 662 ]
-[; ;main.c: 118: }
 [; ;main.c: 119: }
-"119
+[; ;main.c: 120: }
+"120
 [e :UE 658 ]
 }
-"121
+"122
 [v _safeToGo `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 121: void safeToGo(){
+[; ;main.c: 122: void safeToGo(){
 [e :U _safeToGo ]
 [f ]
-[; ;main.c: 122: update_bump_and_cliff();
-"122
-[e ( _update_bump_and_cliff ..  ]
-[; ;main.c: 123: update_distance();
+[; ;main.c: 123: update_bump_and_cliff();
 "123
-[e ( _update_distance ..  ]
-[; ;main.c: 124: update_angle();
+[e ( _update_bump_and_cliff ..  ]
+[; ;main.c: 124: update_distance();
 "124
-[e ( _update_angle ..  ]
-[; ;main.c: 125: if (iRBumpLeft || iRBumpRight) {
+[e ( _update_distance ..  ]
+[; ;main.c: 125: update_angle();
 "125
+[e ( _update_angle ..  ]
+[; ;main.c: 126: if (iRBumpLeft || iRBumpRight) {
+"126
 [e $ ! || != -> _iRBumpLeft `i -> -> -> 0 `i `uc `i != -> _iRBumpRight `i -> -> -> 0 `i `uc `i 664  ]
 {
-[; ;main.c: 126: irobot_song_play(0);
-"126
-[e ( _irobot_song_play (1 -> -> 0 `i `uc ]
-[; ;main.c: 127: irobot_stop_motion(0);
+[; ;main.c: 127: irobot_song_play(0);
 "127
-[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+[e ( _irobot_song_play (1 -> -> 0 `i `uc ]
+[; ;main.c: 128: irobot_stop_motion(0);
 "128
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+"129
 }
 [e :U 664 ]
-[; ;main.c: 128: }
-[; ;main.c: 129: if (angleTotal > 83) {
-"129
+[; ;main.c: 129: }
+[; ;main.c: 130: if (angleTotal > 83) {
+"130
 [e $ ! > -> _angleTotal `i -> 83 `i 665  ]
 {
-[; ;main.c: 130: irobot_stop_motion(0);
-"130
-[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+[; ;main.c: 131: irobot_stop_motion(0);
 "131
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+"132
 }
 [e :U 665 ]
-[; ;main.c: 131: }
-[; ;main.c: 132: HMI_Poll();
-"132
-[e ( _HMI_Poll ..  ]
-[; ;main.c: 133: }
+[; ;main.c: 132: }
+[; ;main.c: 133: HMI_Poll();
 "133
+[e ( _HMI_Poll ..  ]
+[; ;main.c: 134: }
+"134
 [e :UE 663 ]
 }
-"136
+"137
 [v _move_and_rotate `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 136: void move_and_rotate(){
+[; ;main.c: 137: void move_and_rotate(){
 [e :U _move_and_rotate ]
 [f ]
-[; ;main.c: 137: dist = 0;
-"137
-[e = _dist -> 0 `i ]
-[; ;main.c: 138: irobot_move_straight(100);
+[; ;main.c: 138: dist = 0;
 "138
-[e ( _irobot_move_straight (1 -> -> 100 `i `s ]
-[; ;main.c: 139: while (dist < 1000) {
+[e = _dist -> 0 `i ]
+[; ;main.c: 139: irobot_move_straight(100);
 "139
+[e ( _irobot_move_straight (1 -> -> 100 `i `s ]
+[; ;main.c: 140: while (dist < 1000) {
+"140
 [e $U 667  ]
 [e :U 668 ]
 {
-[; ;main.c: 140: update_distance();
-"140
-[e ( _update_distance ..  ]
-[; ;main.c: 141: dist += iRDistance;
+[; ;main.c: 141: update_distance();
 "141
-[e =+ _dist -> _iRDistance `i ]
+[e ( _update_distance ..  ]
+[; ;main.c: 142: dist += iRDistance;
 "142
+[e =+ _dist -> _iRDistance `i ]
+"143
 }
 [e :U 667 ]
-"139
+"140
 [e $ < _dist -> 1000 `i 668  ]
 [e :U 669 ]
-[; ;main.c: 142: }
-[; ;main.c: 143: irobot_stop_motion(0);
-"143
-[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
-[; ;main.c: 144: delay_ms(100);
+[; ;main.c: 143: }
+[; ;main.c: 144: irobot_stop_motion(0);
 "144
-[e ( _delay_ms (1 -> -> 100 `i `us ]
-[; ;main.c: 145: irobot_rotate(0, 67, 200);
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+[; ;main.c: 145: delay_ms(100);
 "145
-[e ( _irobot_rotate (3 , , -> -> 0 `i `uc -> -> 67 `i `s -> -> 200 `i `s ]
-[; ;main.c: 146: delay_ms(100);
-"146
 [e ( _delay_ms (1 -> -> 100 `i `us ]
-[; ;main.c: 147: }
+[; ;main.c: 146: irobot_rotate(0, 67, 200);
+"146
+[e ( _irobot_rotate (3 , , -> -> 0 `i `uc -> -> 67 `i `s -> -> 200 `i `s ]
+[; ;main.c: 147: delay_ms(100);
 "147
+[e ( _delay_ms (1 -> -> 100 `i `us ]
+[; ;main.c: 148: }
+"148
 [e :UE 666 ]
 }
-"150
+"151
 [v _findClosestWall `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 150: void findClosestWall(){
+[; ;main.c: 151: void findClosestWall(){
 [e :U _findClosestWall ]
 [f ]
-[; ;main.c: 151: StepRotate--;
-"151
-[e -- _StepRotate -> 1 `i ]
-[; ;main.c: 152: ADC_Start(&ADC_AN0);
+[; ;main.c: 152: StepRotate = 401;
 "152
-[e ( _ADC_Start (1 &U _ADC_AN0 ]
-[; ;main.c: 153: IRValue = (59 / ADC_Voltage(&ADC_AN0));
+[e = _StepRotate -> 401 `i ]
+[; ;main.c: 153: MinDist = 1000;
 "153
-[e = _IRValue -> / -> -> 59 `i `f ( _ADC_Voltage (1 &U _ADC_AN0 `i ]
-[; ;main.c: 154: if (MXK_SwitchTo(eMXK_HMI)) {
+[e = _MinDist -> 1000 `i ]
+[; ;main.c: 154: Stepstomin = 0;
 "154
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 671  ]
-{
-[; ;main.c: 155: HMI_SetNumber(IRValue);
+[e = _Stepstomin -> 0 `i ]
+[; ;main.c: 155: angleToClosestWall = 1000;
 "155
-[e ( _HMI_SetNumber (1 _IRValue ]
-[; ;main.c: 156: HMI_Render();
+[e = _angleToClosestWall -> 1000 `i ]
+[; ;main.c: 156: IRValue = 0;
 "156
-[e ( _HMI_Render ..  ]
-[; ;main.c: 157: if (MXK_Release())
+[e = _IRValue -> 0 `i ]
+[; ;main.c: 157: TimerX = 8;
 "157
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 672  ]
-[; ;main.c: 158: MXK_Dequeue();
+[e = _TimerX -> 8 `i ]
+[; ;main.c: 158: while (StepRotate > 0) {
 "158
-[e ( _MXK_Dequeue ..  ]
+[e $U 671  ]
 [e :U 672 ]
+{
+[; ;main.c: 159: StepRotate--;
 "159
-}
-[e :U 671 ]
-[; ;main.c: 159: }
-[; ;main.c: 160: if (IRValue < MinDist) {
+[e -- _StepRotate -> 1 `i ]
+[; ;main.c: 160: ADC_Start(&ADC_AN0);
 "160
-[e $ ! < _IRValue _MinDist 673  ]
-{
-[; ;main.c: 161: MinDist = IRValue;
+[e ( _ADC_Start (1 &U _ADC_AN0 ]
+[; ;main.c: 161: IRValue = (59 / ADC_Voltage(&ADC_AN0));
 "161
-[e = _MinDist _IRValue ]
-[; ;main.c: 162: Stepstomin = StepRotate;
+[e = _IRValue -> / -> -> 59 `i `f ( _ADC_Voltage (1 &U _ADC_AN0 `i ]
+[; ;main.c: 162: if (MXK_SwitchTo(eMXK_HMI)) {
 "162
-[e = _Stepstomin _StepRotate ]
-"163
-}
-[e :U 673 ]
-[; ;main.c: 163: }
-[; ;main.c: 164: if (MXK_SwitchTo(eMXK_Motor)) {
-"164
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 0 `i -> -> -> 0 `i `uc `i 674  ]
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 674  ]
 {
-[; ;main.c: 165: Motor_Speed(&Stepper, (50));
+[; ;main.c: 163: HMI_SetNumber(IRValue);
+"163
+[e ( _HMI_SetNumber (1 _IRValue ]
+[; ;main.c: 164: HMI_Render();
+"164
+[e ( _HMI_Render ..  ]
+[; ;main.c: 165: if (MXK_Release())
 "165
-[e ( _Motor_Speed (2 , &U _Stepper -> -> 50 `i `us ]
-[; ;main.c: 166: Motor_Move(&Stepper, -1);
-"166
-[e ( _Motor_Move (2 , &U _Stepper -> -U -> 1 `i `s ]
-[; ;main.c: 167: if (MXK_Release())
-"167
 [e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 675  ]
-[; ;main.c: 168: MXK_Dequeue();
-"168
+[; ;main.c: 166: MXK_Dequeue();
+"166
 [e ( _MXK_Dequeue ..  ]
 [e :U 675 ]
-"169
+"167
 }
 [e :U 674 ]
-[; ;main.c: 169: }
-[; ;main.c: 170: TimerX = 10;
+[; ;main.c: 167: }
+[; ;main.c: 168: if (IRValue < MinDist) {
+"168
+[e $ ! < _IRValue _MinDist 676  ]
+{
+[; ;main.c: 169: MinDist = IRValue;
+"169
+[e = _MinDist _IRValue ]
+[; ;main.c: 170: Stepstomin = StepRotate;
 "170
-[e = _TimerX -> 10 `i ]
-[; ;main.c: 171: if (TimerX > 0) {
+[e = _Stepstomin _StepRotate ]
 "171
-[e $ ! > _TimerX -> 0 `i 676  ]
-{
-[; ;main.c: 172: while (TimerX > 0) {
-"172
-[e $U 677  ]
-[e :U 678 ]
-{
-[; ;main.c: 173: ADC_Start(&ADC_AN0);
-"173
-[e ( _ADC_Start (1 &U _ADC_AN0 ]
-[; ;main.c: 174: if (MXK_SwitchTo(eMXK_HMI)) {
-"174
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 680  ]
-{
-[; ;main.c: 175: HMI_SetNumber(IRValue);
-"175
-[e ( _HMI_SetNumber (1 _IRValue ]
-[; ;main.c: 176: HMI_Render();
-"176
-[e ( _HMI_Render ..  ]
-[; ;main.c: 177: if (MXK_Release())
-"177
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 681  ]
-[; ;main.c: 178: MXK_Dequeue();
-"178
-[e ( _MXK_Dequeue ..  ]
-[e :U 681 ]
-"179
-}
-[e :U 680 ]
-[; ;main.c: 179: }
-[; ;main.c: 180: IRValue = (59 / ADC_Voltage(&ADC_AN0));
-"180
-[e = _IRValue -> / -> -> 59 `i `f ( _ADC_Voltage (1 &U _ADC_AN0 `i ]
-[; ;main.c: 181: TimerX--;
-"181
-[e -- _TimerX -> 1 `i ]
-"182
-}
-[e :U 677 ]
-"172
-[e $ > _TimerX -> 0 `i 678  ]
-[e :U 679 ]
-"183
 }
 [e :U 676 ]
-[; ;main.c: 182: }
-[; ;main.c: 183: }
-[; ;main.c: 184: angleToClosestWall = Stepstomin * 0.67;
-"184
-[e = _angleToClosestWall -> * -> _Stepstomin `d .0.67 `i ]
-[; ;main.c: 185: if (MXK_SwitchTo(eMXK_HMI)) {
-"185
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 682  ]
+[; ;main.c: 171: }
+[; ;main.c: 172: if (MXK_SwitchTo(eMXK_Motor)) {
+"172
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 0 `i -> -> -> 0 `i `uc `i 677  ]
 {
-[; ;main.c: 186: printf("%c", (char)35);
-"186
-[e ( _printf , (. :s 1C -> -> -> 35 `i `uc `i ]
-[; ;main.c: 187: printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
-"187
-[e ( _printf , , , , (. :s 2C _MinDist _angleToClosestWall -> _iRBumpLeft `i -> _iRBumpRight `i ]
-[; ;main.c: 188: Console_Render();
-"188
-[e ( _Console_Render ..  ]
-[; ;main.c: 189: if (MXK_Release())
-"189
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 683  ]
-[; ;main.c: 190: MXK_Dequeue();
-"190
+[; ;main.c: 173: Motor_Speed(&Stepper, (100));
+"173
+[e ( _Motor_Speed (2 , &U _Stepper -> -> 100 `i `us ]
+[; ;main.c: 174: Motor_Move(&Stepper, -1);
+"174
+[e ( _Motor_Move (2 , &U _Stepper -> -U -> 1 `i `s ]
+[; ;main.c: 175: if (MXK_Release())
+"175
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 678  ]
+[; ;main.c: 176: MXK_Dequeue();
+"176
 [e ( _MXK_Dequeue ..  ]
+[e :U 678 ]
+"177
+}
+[e :U 677 ]
+[; ;main.c: 177: }
+[; ;main.c: 178: TimerX = 10;
+"178
+[e = _TimerX -> 10 `i ]
+[; ;main.c: 179: if (TimerX > 0) {
+"179
+[e $ ! > _TimerX -> 0 `i 679  ]
+{
+[; ;main.c: 180: while (TimerX > 0) {
+"180
+[e $U 680  ]
+[e :U 681 ]
+{
+[; ;main.c: 181: ADC_Start(&ADC_AN0);
+"181
+[e ( _ADC_Start (1 &U _ADC_AN0 ]
+[; ;main.c: 182: if (MXK_SwitchTo(eMXK_HMI)) {
+"182
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 683  ]
+{
+[; ;main.c: 183: HMI_SetNumber(IRValue);
+"183
+[e ( _HMI_SetNumber (1 _IRValue ]
+[; ;main.c: 184: HMI_Render();
+"184
+[e ( _HMI_Render ..  ]
+[; ;main.c: 185: if (MXK_Release())
+"185
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 684  ]
+[; ;main.c: 186: MXK_Dequeue();
+"186
+[e ( _MXK_Dequeue ..  ]
+[e :U 684 ]
+"187
+}
 [e :U 683 ]
+[; ;main.c: 187: }
+[; ;main.c: 188: IRValue = (59 / ADC_Voltage(&ADC_AN0));
+"188
+[e = _IRValue -> / -> -> 59 `i `f ( _ADC_Voltage (1 &U _ADC_AN0 `i ]
+[; ;main.c: 189: TimerX--;
+"189
+[e -- _TimerX -> 1 `i ]
+"190
+}
+[e :U 680 ]
+"180
+[e $ > _TimerX -> 0 `i 681  ]
+[e :U 682 ]
 "191
 }
-[e :U 682 ]
+[e :U 679 ]
+[; ;main.c: 190: }
 [; ;main.c: 191: }
-[; ;main.c: 192: }
+[; ;main.c: 192: angleToClosestWall = Stepstomin * 0.67;
 "192
-[e :UE 670 ]
-}
-"195
-[v _mode1 `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 195: void mode1() {
-[e :U _mode1 ]
-[f ]
-[; ;main.c: 196: safeToGo();
-"196
-[e ( _safeToGo ..  ]
-[; ;main.c: 197: if (MXK_SwitchTo(eMXK_HMI)) {
-"197
+[e = _angleToClosestWall -> * -> _Stepstomin `d .0.67 `i ]
+[; ;main.c: 193: if (MXK_SwitchTo(eMXK_HMI)) {
+"193
 [e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 685  ]
 {
-[; ;main.c: 198: printf("%c", (char)35);
-"198
-[e ( _printf , (. :s 3C -> -> -> 35 `i `uc `i ]
-[; ;main.c: 199: printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
-"199
-[e ( _printf , , , (. :s 4C -> _distanceTotal `i -> _iRBumpLeft `i -> _iRBumpRight `i ]
-[; ;main.c: 200: Console_Render();
-"200
+[; ;main.c: 194: printf("%c", (char)35);
+"194
+[e ( _printf , (. :s 1C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 195: printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
+"195
+[e ( _printf , , , , (. :s 2C _MinDist _angleToClosestWall -> _iRBumpLeft `i -> _iRBumpRight `i ]
+[; ;main.c: 196: Console_Render();
+"196
 [e ( _Console_Render ..  ]
-[; ;main.c: 201: if (MXK_Release())
-"201
+[; ;main.c: 197: if (MXK_Release())
+"197
 [e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 686  ]
-[; ;main.c: 202: MXK_Dequeue();
-"202
+[; ;main.c: 198: MXK_Dequeue();
+"198
 [e ( _MXK_Dequeue ..  ]
 [e :U 686 ]
-"203
+"199
 }
 [e :U 685 ]
-[; ;main.c: 203: }
-[; ;main.c: 204: StepRotate = 0;
+"200
+}
+[e :U 671 ]
+"158
+[e $ > _StepRotate -> 0 `i 672  ]
+[e :U 673 ]
+[; ;main.c: 199: }
+[; ;main.c: 200: }
+[; ;main.c: 201: Motor_Speed(&Stepper, (200));
+"201
+[e ( _Motor_Speed (2 , &U _Stepper -> -> 200 `i `us ]
+[; ;main.c: 202: Motor_Move(&Stepper, 400);
+"202
+[e ( _Motor_Move (2 , &U _Stepper -> -> 400 `i `s ]
+[; ;main.c: 203: angleToClosestWall = angleToClosestWall - 67;
+"203
+[e = _angleToClosestWall - _angleToClosestWall -> 67 `i ]
+[; ;main.c: 204: if(angleToClosestWall < 0) {
 "204
-[e = _StepRotate -> 0 `i ]
-[; ;main.c: 205: MinDist = 1000;
+[e $ ! < _angleToClosestWall -> 0 `i 687  ]
+{
+[; ;main.c: 205: angleToClosestWall = angleToClosestWall + (2*angleToClosestWall);
 "205
-[e = _MinDist -> 1000 `i ]
-[; ;main.c: 206: Stepstomin = 0;
+[e = _angleToClosestWall + _angleToClosestWall * -> 2 `i _angleToClosestWall ]
+[; ;main.c: 206: angleToClosestWall = 270 - angleToClosestWall;
 "206
-[e = _Stepstomin -> 0 `i ]
-[; ;main.c: 207: IRValue = 0;
+[e = _angleToClosestWall - -> 270 `i _angleToClosestWall ]
 "207
-[e = _IRValue -> 0 `i ]
-[; ;main.c: 208: TimerX = 8;
+}
+[e :U 687 ]
+[; ;main.c: 207: }
+[; ;main.c: 208: if (MXK_SwitchTo(eMXK_HMI)) {
 "208
-[e = _TimerX -> 8 `i ]
-[; ;main.c: 209: while (StepRotate < 400) {
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 688  ]
+{
+[; ;main.c: 209: printf("%c", (char)35);
 "209
-[e $U 687  ]
-[e :U 688 ]
-{
-[; ;main.c: 210: StepRotate++;
+[e ( _printf , (. :s 3C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 210: printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
 "210
-[e ++ _StepRotate -> 1 `i ]
-[; ;main.c: 211: ADC_Start(&ADC_AN0);
+[e ( _printf , , , , (. :s 4C _MinDist _angleToClosestWall -> _iRBumpLeft `i -> _iRBumpRight `i ]
+[; ;main.c: 211: Console_Render();
 "211
-[e ( _ADC_Start (1 &U _ADC_AN0 ]
-[; ;main.c: 212: IRValue = (59 / ADC_Voltage(&ADC_AN0));
+[e ( _Console_Render ..  ]
+[; ;main.c: 212: if (MXK_Release())
 "212
-[e = _IRValue -> / -> -> 59 `i `f ( _ADC_Voltage (1 &U _ADC_AN0 `i ]
-[; ;main.c: 213: if (MXK_SwitchTo(eMXK_HMI)) {
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 689  ]
+[; ;main.c: 213: MXK_Dequeue();
 "213
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 690  ]
-{
-[; ;main.c: 214: HMI_SetNumber(IRValue);
-"214
-[e ( _HMI_SetNumber (1 _IRValue ]
-[; ;main.c: 215: HMI_Render();
-"215
-[e ( _HMI_Render ..  ]
-[; ;main.c: 216: if (MXK_Release())
-"216
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 691  ]
-[; ;main.c: 217: MXK_Dequeue();
-"217
 [e ( _MXK_Dequeue ..  ]
-[e :U 691 ]
+[e :U 689 ]
+"214
+}
+[e :U 688 ]
+[; ;main.c: 214: }
+[; ;main.c: 215: delay_ms(1000);
+"215
+[e ( _delay_ms (1 -> -> 1000 `i `us ]
+[; ;main.c: 216: if(!(angleToClosestWall > 63 && angleToClosestWall < 72)){
+"216
+[e $ ! ! && > _angleToClosestWall -> 63 `i < _angleToClosestWall -> 72 `i 690  ]
+{
+[; ;main.c: 217: irobot_rotate(0, 270 - angleToClosestWall, 200);
+"217
+[e ( _irobot_rotate (3 , , -> -> 0 `i `uc -> - -> 270 `i _angleToClosestWall `s -> -> 200 `i `s ]
 "218
 }
 [e :U 690 ]
 [; ;main.c: 218: }
-[; ;main.c: 219: if (IRValue < MinDist) {
+[; ;main.c: 219: }
 "219
-[e $ ! < _IRValue _MinDist 692  ]
-{
-[; ;main.c: 220: MinDist = IRValue;
-"220
-[e = _MinDist _IRValue ]
-[; ;main.c: 221: Stepstomin = StepRotate;
-"221
-[e = _Stepstomin _StepRotate ]
+[e :UE 670 ]
+}
 "222
+[v _mode1 `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 222: void mode1() {
+[e :U _mode1 ]
+[f ]
+[; ;main.c: 223: safeToGo();
+"223
+[e ( _safeToGo ..  ]
+[; ;main.c: 224: if (MXK_SwitchTo(eMXK_HMI)) {
+"224
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 692  ]
+{
+[; ;main.c: 225: printf("%c", (char)35);
+"225
+[e ( _printf , (. :s 5C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 226: printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
+"226
+[e ( _printf , , , (. :s 6C -> _distanceTotal `i -> _iRBumpLeft `i -> _iRBumpRight `i ]
+[; ;main.c: 227: Console_Render();
+"227
+[e ( _Console_Render ..  ]
+[; ;main.c: 228: if (MXK_Release())
+"228
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 693  ]
+[; ;main.c: 229: MXK_Dequeue();
+"229
+[e ( _MXK_Dequeue ..  ]
+[e :U 693 ]
+"230
 }
 [e :U 692 ]
-[; ;main.c: 222: }
-[; ;main.c: 223: if (MXK_SwitchTo(eMXK_Motor)) {
-"223
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 0 `i -> -> -> 0 `i `uc `i 693  ]
-{
-[; ;main.c: 224: Motor_Speed(&Stepper, (50));
-"224
-[e ( _Motor_Speed (2 , &U _Stepper -> -> 50 `i `us ]
-[; ;main.c: 225: Motor_Move(&Stepper, 1);
-"225
-[e ( _Motor_Move (2 , &U _Stepper -> -> 1 `i `s ]
-[; ;main.c: 226: if (MXK_Release())
-"226
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 694  ]
-[; ;main.c: 227: MXK_Dequeue();
-"227
-[e ( _MXK_Dequeue ..  ]
-[e :U 694 ]
-"228
-}
-[e :U 693 ]
-[; ;main.c: 228: }
-[; ;main.c: 229: TimerX = 10;
-"229
-[e = _TimerX -> 10 `i ]
-[; ;main.c: 230: if (TimerX > 0) {
-"230
-[e $ ! > _TimerX -> 0 `i 695  ]
-{
-[; ;main.c: 231: while (TimerX > 0) {
+[; ;main.c: 230: }
+[; ;main.c: 231: StepRotate = 0;
 "231
-[e $U 696  ]
-[e :U 697 ]
-{
-[; ;main.c: 232: ADC_Start(&ADC_AN0);
+[e = _StepRotate -> 0 `i ]
+[; ;main.c: 232: MinDist = 1000;
 "232
-[e ( _ADC_Start (1 &U _ADC_AN0 ]
-[; ;main.c: 233: if (MXK_SwitchTo(eMXK_HMI)) {
+[e = _MinDist -> 1000 `i ]
+[; ;main.c: 233: Stepstomin = 0;
 "233
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 699  ]
-{
-[; ;main.c: 234: HMI_SetNumber(IRValue);
+[e = _Stepstomin -> 0 `i ]
+[; ;main.c: 234: IRValue = 0;
 "234
-[e ( _HMI_SetNumber (1 _IRValue ]
-[; ;main.c: 235: HMI_Render();
+[e = _IRValue -> 0 `i ]
+[; ;main.c: 235: TimerX = 8;
 "235
-[e ( _HMI_Render ..  ]
-[; ;main.c: 236: if (MXK_Release())
+[e = _TimerX -> 8 `i ]
+[; ;main.c: 236: while (StepRotate < 400) {
 "236
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 700  ]
-[; ;main.c: 237: MXK_Dequeue();
+[e $U 694  ]
+[e :U 695 ]
+{
+[; ;main.c: 237: StepRotate++;
 "237
-[e ( _MXK_Dequeue ..  ]
-[e :U 700 ]
+[e ++ _StepRotate -> 1 `i ]
+[; ;main.c: 238: ADC_Start(&ADC_AN0);
 "238
-}
-[e :U 699 ]
-[; ;main.c: 238: }
+[e ( _ADC_Start (1 &U _ADC_AN0 ]
 [; ;main.c: 239: IRValue = (59 / ADC_Voltage(&ADC_AN0));
 "239
 [e = _IRValue -> / -> -> 59 `i `f ( _ADC_Voltage (1 &U _ADC_AN0 `i ]
-[; ;main.c: 240: TimerX--;
+[; ;main.c: 240: if (MXK_SwitchTo(eMXK_HMI)) {
 "240
-[e -- _TimerX -> 1 `i ]
-"241
-}
-[e :U 696 ]
-"231
-[e $ > _TimerX -> 0 `i 697  ]
-[e :U 698 ]
-"242
-}
-[e :U 695 ]
-"243
-}
-[e :U 687 ]
-"209
-[e $ < _StepRotate -> 400 `i 688  ]
-[e :U 689 ]
-[; ;main.c: 241: }
-[; ;main.c: 242: }
-[; ;main.c: 243: }
-[; ;main.c: 244: if (MXK_SwitchTo(eMXK_Motor)) {
-"244
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 0 `i -> -> -> 0 `i `uc `i 701  ]
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 697  ]
 {
-[; ;main.c: 245: Motor_Speed(&Stepper, (50));
-"245
-[e ( _Motor_Speed (2 , &U _Stepper -> -> 50 `i `us ]
-"246
-[v _moveto `i ~T0 @X0 1 a ]
-[; ;main.c: 246: int moveto = 400 - Stepstomin;
-[e = _moveto - -> 400 `i _Stepstomin ]
-[; ;main.c: 248: Motor_Move(&Stepper, (-moveto));
-"248
-[e ( _Motor_Move (2 , &U _Stepper -> -U _moveto `s ]
-[; ;main.c: 249: if (MXK_Release())
-"249
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 702  ]
-[; ;main.c: 250: MXK_Dequeue();
-"250
+[; ;main.c: 241: HMI_SetNumber(IRValue);
+"241
+[e ( _HMI_SetNumber (1 _IRValue ]
+[; ;main.c: 242: HMI_Render();
+"242
+[e ( _HMI_Render ..  ]
+[; ;main.c: 243: if (MXK_Release())
+"243
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 698  ]
+[; ;main.c: 244: MXK_Dequeue();
+"244
 [e ( _MXK_Dequeue ..  ]
-[e :U 702 ]
-"251
+[e :U 698 ]
+"245
 }
-[e :U 701 ]
-[; ;main.c: 251: }
-[; ;main.c: 252: while (Stepper.mDelta > 0) {
+[e :U 697 ]
+[; ;main.c: 245: }
+[; ;main.c: 246: if (IRValue < MinDist) {
+"246
+[e $ ! < _IRValue _MinDist 699  ]
+{
+[; ;main.c: 247: MinDist = IRValue;
+"247
+[e = _MinDist _IRValue ]
+[; ;main.c: 248: Stepstomin = StepRotate;
+"248
+[e = _Stepstomin _StepRotate ]
+"249
+}
+[e :U 699 ]
+[; ;main.c: 249: }
+[; ;main.c: 250: if (MXK_SwitchTo(eMXK_Motor)) {
+"250
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 0 `i -> -> -> 0 `i `uc `i 700  ]
+{
+[; ;main.c: 251: Motor_Speed(&Stepper, (50));
+"251
+[e ( _Motor_Speed (2 , &U _Stepper -> -> 50 `i `us ]
+[; ;main.c: 252: Motor_Move(&Stepper, 1);
 "252
+[e ( _Motor_Move (2 , &U _Stepper -> -> 1 `i `s ]
+[; ;main.c: 253: if (MXK_Release())
+"253
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 701  ]
+[; ;main.c: 254: MXK_Dequeue();
+"254
+[e ( _MXK_Dequeue ..  ]
+[e :U 701 ]
+"255
+}
+[e :U 700 ]
+[; ;main.c: 255: }
+[; ;main.c: 256: TimerX = 10;
+"256
+[e = _TimerX -> 10 `i ]
+[; ;main.c: 257: if (TimerX > 0) {
+"257
+[e $ ! > _TimerX -> 0 `i 702  ]
+{
+[; ;main.c: 258: while (TimerX > 0) {
+"258
 [e $U 703  ]
 [e :U 704 ]
 {
-[; ;main.c: 253: ADC_Start(&ADC_AN0);
-"253
+[; ;main.c: 259: ADC_Start(&ADC_AN0);
+"259
 [e ( _ADC_Start (1 &U _ADC_AN0 ]
-[; ;main.c: 254: if (MXK_SwitchTo(eMXK_HMI)) {
-"254
+[; ;main.c: 260: if (MXK_SwitchTo(eMXK_HMI)) {
+"260
 [e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 706  ]
 {
-[; ;main.c: 255: HMI_SetNumber(IRValue);
-"255
+[; ;main.c: 261: HMI_SetNumber(IRValue);
+"261
 [e ( _HMI_SetNumber (1 _IRValue ]
-[; ;main.c: 256: HMI_Render();
-"256
+[; ;main.c: 262: HMI_Render();
+"262
 [e ( _HMI_Render ..  ]
-[; ;main.c: 257: if (MXK_Release())
-"257
+[; ;main.c: 263: if (MXK_Release())
+"263
 [e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 707  ]
-[; ;main.c: 258: MXK_Dequeue();
-"258
+[; ;main.c: 264: MXK_Dequeue();
+"264
 [e ( _MXK_Dequeue ..  ]
 [e :U 707 ]
-"259
+"265
 }
 [e :U 706 ]
-[; ;main.c: 259: }
-[; ;main.c: 260: IRValue = (59 / ADC_Voltage(&ADC_AN0));
-"260
+[; ;main.c: 265: }
+[; ;main.c: 266: IRValue = (59 / ADC_Voltage(&ADC_AN0));
+"266
 [e = _IRValue -> / -> -> 59 `i `f ( _ADC_Voltage (1 &U _ADC_AN0 `i ]
-"261
+[; ;main.c: 267: TimerX--;
+"267
+[e -- _TimerX -> 1 `i ]
+"268
 }
 [e :U 703 ]
-"252
-[e $ > -> . _Stepper 0 `i -> 0 `i 704  ]
+"258
+[e $ > _TimerX -> 0 `i 704  ]
 [e :U 705 ]
-[; ;main.c: 261: }
-[; ;main.c: 262: }
-"262
-[e :UE 684 ]
-}
-"265
-[v _mode2 `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 265: void mode2() {
-[e :U _mode2 ]
-[f ]
-[; ;main.c: 266: safeToGo();
-"266
-[e ( _safeToGo ..  ]
-[; ;main.c: 267: if (MXK_SwitchTo(eMXK_HMI)) {
-"267
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 709  ]
-{
-[; ;main.c: 268: printf("%c", (char)35);
-"268
-[e ( _printf , (. :s 5C -> -> -> 35 `i `uc `i ]
-[; ;main.c: 269: printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
 "269
-[e ( _printf , , , (. :s 6C -> _distanceTotal `i -> _iRBumpLeft `i -> _iRBumpRight `i ]
-[; ;main.c: 270: Console_Render();
+}
+[e :U 702 ]
 "270
-[e ( _Console_Render ..  ]
-[v _dist `i ~T0 @X0 1 a ]
-[; ;main.c: 272: int dist = 0;
+}
+[e :U 694 ]
+"236
+[e $ < _StepRotate -> 400 `i 695  ]
+[e :U 696 ]
+[; ;main.c: 268: }
+[; ;main.c: 269: }
+[; ;main.c: 270: }
+[; ;main.c: 271: if (MXK_SwitchTo(eMXK_Motor)) {
+"271
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 0 `i -> -> -> 0 `i `uc `i 708  ]
+{
+[; ;main.c: 272: Motor_Speed(&Stepper, (50));
 "272
-[e = _dist -> 0 `i ]
-[; ;main.c: 273: irobot_move_straight(200);
+[e ( _Motor_Speed (2 , &U _Stepper -> -> 50 `i `us ]
 "273
-[e ( _irobot_move_straight (1 -> -> 200 `i `s ]
-[; ;main.c: 274: while (dist < 5000) {
-"274
+[v _moveto `i ~T0 @X0 1 a ]
+[; ;main.c: 273: int moveto = 400 - Stepstomin;
+[e = _moveto - -> 400 `i _Stepstomin ]
+[; ;main.c: 275: Motor_Move(&Stepper, (-moveto));
+"275
+[e ( _Motor_Move (2 , &U _Stepper -> -U _moveto `s ]
+[; ;main.c: 276: if (MXK_Release())
+"276
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 709  ]
+[; ;main.c: 277: MXK_Dequeue();
+"277
+[e ( _MXK_Dequeue ..  ]
+[e :U 709 ]
+"278
+}
+[e :U 708 ]
+[; ;main.c: 278: }
+[; ;main.c: 279: while (Stepper.mDelta > 0) {
+"279
 [e $U 710  ]
 [e :U 711 ]
 {
-[; ;main.c: 275: update_distance();
-"275
-[e ( _update_distance ..  ]
-[; ;main.c: 276: dist += iRDistance;
-"276
-[e =+ _dist -> _iRDistance `i ]
-[; ;main.c: 277: printf("%c", (char)35);
-"277
-[e ( _printf , (. :s 7C -> -> -> 35 `i `uc `i ]
-[; ;main.c: 278: printf("Distance: %d\n", dist);
-"278
-[e ( _printf , (. :s 8C _dist ]
-[; ;main.c: 279: Console_Render();
-"279
-[e ( _Console_Render ..  ]
+[; ;main.c: 280: ADC_Start(&ADC_AN0);
 "280
+[e ( _ADC_Start (1 &U _ADC_AN0 ]
+[; ;main.c: 281: if (MXK_SwitchTo(eMXK_HMI)) {
+"281
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 713  ]
+{
+[; ;main.c: 282: HMI_SetNumber(IRValue);
+"282
+[e ( _HMI_SetNumber (1 _IRValue ]
+[; ;main.c: 283: HMI_Render();
+"283
+[e ( _HMI_Render ..  ]
+[; ;main.c: 284: if (MXK_Release())
+"284
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 714  ]
+[; ;main.c: 285: MXK_Dequeue();
+"285
+[e ( _MXK_Dequeue ..  ]
+[e :U 714 ]
+"286
+}
+[e :U 713 ]
+[; ;main.c: 286: }
+[; ;main.c: 287: IRValue = (59 / ADC_Voltage(&ADC_AN0));
+"287
+[e = _IRValue -> / -> -> 59 `i `f ( _ADC_Voltage (1 &U _ADC_AN0 `i ]
+"288
 }
 [e :U 710 ]
-"274
-[e $ < _dist -> 5000 `i 711  ]
+"279
+[e $ > -> . _Stepper 0 `i -> 0 `i 711  ]
 [e :U 712 ]
-[; ;main.c: 280: }
-[; ;main.c: 281: irobot_stop_motion(0);
-"281
-[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
-[; ;main.c: 283: if (MXK_Release())
-"283
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 713  ]
-[; ;main.c: 284: MXK_Dequeue();
-"284
-[e ( _MXK_Dequeue ..  ]
-[e :U 713 ]
-"285
-}
-[e :U 709 ]
-[; ;main.c: 285: }
-[; ;main.c: 286: }
-"286
-[e :UE 708 ]
-}
+[; ;main.c: 288: }
+[; ;main.c: 289: }
 "289
-[v _mode3 `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 289: void mode3() {
-[e :U _mode3 ]
-[f ]
-[; ;main.c: 290: safeToGo();
-"290
-[e ( _safeToGo ..  ]
-[; ;main.c: 291: move_and_rotate();
-"291
-[e ( _move_and_rotate ..  ]
-[; ;main.c: 292: move_and_rotate();
-"292
-[e ( _move_and_rotate ..  ]
-[; ;main.c: 293: move_and_rotate();
-"293
-[e ( _move_and_rotate ..  ]
-[; ;main.c: 294: move_and_rotate();
-"294
-[e ( _move_and_rotate ..  ]
-[; ;main.c: 295: }
-"295
-[e :UE 714 ]
+[e :UE 691 ]
 }
-"298
-[v _mode4 `(v ~T0 @X0 1 ef ]
+"292
+[v _mode2 `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 298: void mode4() {
-[e :U _mode4 ]
+[; ;main.c: 292: void mode2() {
+[e :U _mode2 ]
 [f ]
-[; ;main.c: 299: safeToGo();
-"299
+[; ;main.c: 293: safeToGo();
+"293
 [e ( _safeToGo ..  ]
-[; ;main.c: 300: StepRotate = 401;
-"300
-[e = _StepRotate -> 401 `i ]
-[; ;main.c: 301: MinDist = 1000;
-"301
-[e = _MinDist -> 1000 `i ]
-[; ;main.c: 302: Stepstomin = 0;
-"302
-[e = _Stepstomin -> 0 `i ]
-[; ;main.c: 303: angleToClosestWall = 1000;
-"303
-[e = _angleToClosestWall -> 1000 `i ]
-[; ;main.c: 304: IRValue = 0;
-"304
-[e = _IRValue -> 0 `i ]
-[; ;main.c: 305: TimerX = 8;
-"305
-[e = _TimerX -> 8 `i ]
-[; ;main.c: 306: while (StepRotate > 0) {
-"306
-[e $U 716  ]
-[e :U 717 ]
+[; ;main.c: 294: if (MXK_SwitchTo(eMXK_HMI)) {
+"294
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 716  ]
 {
-[; ;main.c: 307: findClosestWall();
+[; ;main.c: 295: printf("%c", (char)35);
+"295
+[e ( _printf , (. :s 7C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 296: printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
+"296
+[e ( _printf , , , (. :s 8C -> _distanceTotal `i -> _iRBumpLeft `i -> _iRBumpRight `i ]
+[; ;main.c: 297: Console_Render();
+"297
+[e ( _Console_Render ..  ]
+[v _dist `i ~T0 @X0 1 a ]
+[; ;main.c: 299: int dist = 0;
+"299
+[e = _dist -> 0 `i ]
+[; ;main.c: 300: irobot_move_straight(200);
+"300
+[e ( _irobot_move_straight (1 -> -> 200 `i `s ]
+[; ;main.c: 301: while (dist < 5000) {
+"301
+[e $U 717  ]
+[e :U 718 ]
+{
+[; ;main.c: 302: update_distance();
+"302
+[e ( _update_distance ..  ]
+[; ;main.c: 303: dist += iRDistance;
+"303
+[e =+ _dist -> _iRDistance `i ]
+[; ;main.c: 304: printf("%c", (char)35);
+"304
+[e ( _printf , (. :s 9C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 305: printf("Distance: %d\n", dist);
+"305
+[e ( _printf , (. :s 10C _dist ]
+[; ;main.c: 306: Console_Render();
+"306
+[e ( _Console_Render ..  ]
 "307
-[e ( _findClosestWall ..  ]
+}
+[e :U 717 ]
+"301
+[e $ < _dist -> 5000 `i 718  ]
+[e :U 719 ]
+[; ;main.c: 307: }
+[; ;main.c: 308: irobot_stop_motion(0);
 "308
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+[; ;main.c: 310: if (MXK_Release())
+"310
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 720  ]
+[; ;main.c: 311: MXK_Dequeue();
+"311
+[e ( _MXK_Dequeue ..  ]
+[e :U 720 ]
+"312
 }
 [e :U 716 ]
-"306
-[e $ > _StepRotate -> 0 `i 717  ]
-[e :U 718 ]
-[; ;main.c: 308: }
-[; ;main.c: 309: angleToClosestWall = angleToClosestWall - 67;
-"309
-[e = _angleToClosestWall - _angleToClosestWall -> 67 `i ]
-[; ;main.c: 310: if(angleToClosestWall < 0){
-"310
-[e $ ! < _angleToClosestWall -> 0 `i 719  ]
-{
-[; ;main.c: 311: angleToClosestWall = angleToClosestWall + (2*angleToClosestWall);
-"311
-[e = _angleToClosestWall + _angleToClosestWall * -> 2 `i _angleToClosestWall ]
-[; ;main.c: 312: angleToClosestWall = 270 - angleToClosestWall;
-"312
-[e = _angleToClosestWall - -> 270 `i _angleToClosestWall ]
-"313
-}
-[e :U 719 ]
+[; ;main.c: 312: }
 [; ;main.c: 313: }
-[; ;main.c: 314: irobot_rotate(0, 270 - angleToClosestWall, 200);
-"314
-[e ( _irobot_rotate (3 , , -> -> 0 `i `uc -> - -> 270 `i _angleToClosestWall `s -> -> 200 `i `s ]
-[; ;main.c: 315: while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
-"315
-[e $U 720  ]
-[e :U 721 ]
-{
-[; ;main.c: 317: if (MXK_SwitchTo(eMXK_HMI)) {
-"317
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 723  ]
-{
-[; ;main.c: 318: printf("%c", (char)35);
-"318
-[e ( _printf , (. :s 9C -> -> -> 35 `i `uc `i ]
-[; ;main.c: 319: printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\nAngleToTurn: %d\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight, angleToClosestWall -67);
-"319
-[e ( _printf , , , , , (. :s 10C _MinDist _angleToClosestWall -> _iRBumpLeft `i -> _iRBumpRight `i - _angleToClosestWall -> 67 `i ]
-[; ;main.c: 320: Console_Render();
-"320
-[e ( _Console_Render ..  ]
-[; ;main.c: 321: if (MXK_Release())
-"321
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 724  ]
-[; ;main.c: 322: MXK_Dequeue();
-"322
-[e ( _MXK_Dequeue ..  ]
-[e :U 724 ]
-"323
-}
-[e :U 723 ]
-[; ;main.c: 323: }
-[; ;main.c: 324: update_bump_and_cliff();
-"324
-[e ( _update_bump_and_cliff ..  ]
-"325
-}
-[e :U 720 ]
-"315
-[e $ && && && ! != -> _iRBumpLeft `i -> -> -> 0 `i `uc `i ! != -> _iRBumpRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropLeft `i -> -> -> 0 `i `uc `i 721  ]
-[e :U 722 ]
-[; ;main.c: 325: }
-[; ;main.c: 326: irobot_song_play(0);
-"326
-[e ( _irobot_song_play (1 -> -> 0 `i `uc ]
-[; ;main.c: 327: irobot_stop_motion(0);
-"327
-[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
-[; ;main.c: 328: }
-"328
+"313
 [e :UE 715 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"331
-[v _main `(v ~T0 @X0 1 ef ]
+"316
+[v _mode3 `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 331: void main() {
-[e :U _main ]
+[; ;main.c: 316: void mode3() {
+[e :U _mode3 ]
 [f ]
-[; ;main.c: 333: init();
-"333
-[e ( _init ..  ]
-[; ;main.c: 335: for(;;) {
-"335
-{
-[e :U 726 ]
-{
-[; ;main.c: 336: getMode();
-"336
-[e ( _getMode ..  ]
-[; ;main.c: 337: switch (mode) {
-"337
-[e $U 730  ]
-{
-[; ;main.c: 338: case 1:
-"338
-[e :U 731 ]
-[; ;main.c: 339: mode1();
-"339
-[e ( _mode1 ..  ]
-[; ;main.c: 340: break;
-"340
-[e $U 729  ]
-[; ;main.c: 341: case 2:
-"341
-[e :U 732 ]
-[; ;main.c: 342: mode2();
-"342
-[e ( _mode2 ..  ]
-[; ;main.c: 343: break;
-"343
-[e $U 729  ]
-[; ;main.c: 344: case 3:
-"344
-[e :U 733 ]
-[; ;main.c: 345: mode3();
-"345
-[e ( _mode3 ..  ]
-[; ;main.c: 346: break;
-"346
-[e $U 729  ]
-[; ;main.c: 347: case 4:
-"347
-[e :U 734 ]
-[; ;main.c: 348: mode4();
-"348
-[e ( _mode4 ..  ]
-[; ;main.c: 349: break;
-"349
-[e $U 729  ]
-[; ;main.c: 350: default:
-"350
-[e :U 735 ]
-[; ;main.c: 351: if (MXK_SwitchTo(eMXK_HMI)) {
-"351
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 736  ]
-{
-[; ;main.c: 352: printf("%c", (char)35);
-"352
-[e ( _printf , (. :s 11C -> -> -> 35 `i `uc `i ]
-[; ;main.c: 353: printf("Please select mode.\n");
-"353
-[e ( _printf :s 12C ]
-[; ;main.c: 354: printf("                   \n");
-"354
-[e ( _printf :s 13C ]
-[; ;main.c: 355: printf("                   \n");
-"355
-[e ( _printf :s 14C ]
-[; ;main.c: 356: printf("                   \n");
-"356
-[e ( _printf :s 15C ]
-[; ;main.c: 357: printf("                   \n");
-"357
-[e ( _printf :s 16C ]
-[; ;main.c: 358: Console_Render();
-"358
-[e ( _Console_Render ..  ]
-[; ;main.c: 359: HMI_Poll();
-"359
-[e ( _HMI_Poll ..  ]
-[; ;main.c: 360: if (MXK_Release())
-"360
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 737  ]
-[; ;main.c: 361: MXK_Dequeue();
-"361
-[e ( _MXK_Dequeue ..  ]
-[e :U 737 ]
-"362
+[; ;main.c: 317: safeToGo();
+"317
+[e ( _safeToGo ..  ]
+[; ;main.c: 318: move_and_rotate();
+"318
+[e ( _move_and_rotate ..  ]
+[; ;main.c: 319: move_and_rotate();
+"319
+[e ( _move_and_rotate ..  ]
+[; ;main.c: 320: move_and_rotate();
+"320
+[e ( _move_and_rotate ..  ]
+[; ;main.c: 321: move_and_rotate();
+"321
+[e ( _move_and_rotate ..  ]
+[; ;main.c: 322: }
+"322
+[e :UE 721 ]
 }
-[e :U 736 ]
-"363
-}
-[; ;main.c: 362: }
-[; ;main.c: 363: }
-[e $U 729  ]
-"337
-[e :U 730 ]
-[e [\ _mode , $ -> 1 `i 731
- , $ -> 2 `i 732
- , $ -> 3 `i 733
- , $ -> 4 `i 734
- 735 ]
-"363
-[e :U 729 ]
-"364
-}
-[; ;main.c: 364: }
+"325
+[v _mode4 `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 325: void mode4() {
+[e :U _mode4 ]
+[f ]
+[; ;main.c: 326: safeToGo();
+"326
+[e ( _safeToGo ..  ]
+[; ;main.c: 327: while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
+"327
+[e $U 723  ]
+[e :U 724 ]
+{
+[; ;main.c: 328: findClosestWall();
+"328
+[e ( _findClosestWall ..  ]
+[; ;main.c: 329: delay_ms(80);
+"329
+[e ( _delay_ms (1 -> -> 80 `i `us ]
+[; ;main.c: 330: irobot_move_straight(200);
+"330
+[e ( _irobot_move_straight (1 -> -> 200 `i `s ]
+[; ;main.c: 331: dist = 0;
+"331
+[e = _dist -> 0 `i ]
+[; ;main.c: 332: while (dist < 300 && !iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
+"332
 [e $U 726  ]
 [e :U 727 ]
+{
+[; ;main.c: 333: update_distance();
+"333
+[e ( _update_distance ..  ]
+[; ;main.c: 334: dist += iRDistance;
+"334
+[e =+ _dist -> _iRDistance `i ]
+[; ;main.c: 335: update_bump_and_cliff();
+"335
+[e ( _update_bump_and_cliff ..  ]
+"336
 }
-[; ;main.c: 365: }
+[e :U 726 ]
+"332
+[e $ && && && && < _dist -> 300 `i ! != -> _iRBumpLeft `i -> -> -> 0 `i `uc `i ! != -> _iRBumpRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropLeft `i -> -> -> 0 `i `uc `i 727  ]
+[e :U 728 ]
+[; ;main.c: 336: }
+[; ;main.c: 338: irobot_stop_motion(0);
+"338
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+[; ;main.c: 339: if (MXK_SwitchTo(eMXK_HMI)) {
+"339
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 729  ]
+{
+[; ;main.c: 340: printf("%c", (char)35);
+"340
+[e ( _printf , (. :s 11C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 341: printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\nAngleToTurn: %d\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight, angleToClosestWall -67);
+"341
+[e ( _printf , , , , , (. :s 12C _MinDist _angleToClosestWall -> _iRBumpLeft `i -> _iRBumpRight `i - _angleToClosestWall -> 67 `i ]
+[; ;main.c: 342: Console_Render();
+"342
+[e ( _Console_Render ..  ]
+[; ;main.c: 343: if (MXK_Release())
+"343
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 730  ]
+[; ;main.c: 344: MXK_Dequeue();
+"344
+[e ( _MXK_Dequeue ..  ]
+[e :U 730 ]
+"345
+}
+[e :U 729 ]
+"346
+}
+[e :U 723 ]
+"327
+[e $ && && && ! != -> _iRBumpLeft `i -> -> -> 0 `i `uc `i ! != -> _iRBumpRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropLeft `i -> -> -> 0 `i `uc `i 724  ]
+[e :U 725 ]
+[; ;main.c: 345: }
+[; ;main.c: 346: }
+[; ;main.c: 347: irobot_song_play(0);
+"347
+[e ( _irobot_song_play (1 -> -> 0 `i `uc ]
+[; ;main.c: 348: irobot_stop_motion(0);
+"348
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+[; ;main.c: 349: while(Stepper.mDelta != 0){
+"349
+[e $U 731  ]
+[e :U 732 ]
+{
+"351
+}
+[e :U 731 ]
+"349
+[e $ != -> . _Stepper 0 `i -> 0 `i 732  ]
+[e :U 733 ]
+[; ;main.c: 351: }
+[; ;main.c: 352: }
+"352
+[e :UE 722 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"355
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 355: void main() {
+[e :U _main ]
+[f ]
+[; ;main.c: 356: init();
+"356
+[e ( _init ..  ]
+[; ;main.c: 357: for(;;) {
+"357
+{
+[e :U 735 ]
+{
+[; ;main.c: 358: getMode();
+"358
+[e ( _getMode ..  ]
+[; ;main.c: 359: switch (mode) {
+"359
+[e $U 739  ]
+{
+[; ;main.c: 360: case 1:
+"360
+[e :U 740 ]
+[; ;main.c: 361: mode1();
+"361
+[e ( _mode1 ..  ]
+[; ;main.c: 362: break;
+"362
+[e $U 738  ]
+[; ;main.c: 363: case 2:
+"363
+[e :U 741 ]
+[; ;main.c: 364: mode2();
+"364
+[e ( _mode2 ..  ]
+[; ;main.c: 365: break;
 "365
-[e :UE 725 ]
+[e $U 738  ]
+[; ;main.c: 366: case 3:
+"366
+[e :U 742 ]
+[; ;main.c: 367: mode3();
+"367
+[e ( _mode3 ..  ]
+[; ;main.c: 368: break;
+"368
+[e $U 738  ]
+[; ;main.c: 369: case 4:
+"369
+[e :U 743 ]
+[; ;main.c: 370: mode4();
+"370
+[e ( _mode4 ..  ]
+[; ;main.c: 371: break;
+"371
+[e $U 738  ]
+[; ;main.c: 372: default:
+"372
+[e :U 744 ]
+[; ;main.c: 373: if (MXK_SwitchTo(eMXK_HMI)) {
+"373
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 745  ]
+{
+[; ;main.c: 374: printf("%c", (char)35);
+"374
+[e ( _printf , (. :s 13C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 375: printf("Please select mode.\n");
+"375
+[e ( _printf :s 14C ]
+[; ;main.c: 376: printf("                   \n");
+"376
+[e ( _printf :s 15C ]
+[; ;main.c: 377: printf("                   \n");
+"377
+[e ( _printf :s 16C ]
+[; ;main.c: 378: printf("                   \n");
+"378
+[e ( _printf :s 17C ]
+[; ;main.c: 379: printf("                   \n");
+"379
+[e ( _printf :s 18C ]
+[; ;main.c: 380: Console_Render();
+"380
+[e ( _Console_Render ..  ]
+[; ;main.c: 381: HMI_Poll();
+"381
+[e ( _HMI_Poll ..  ]
+[; ;main.c: 382: if (MXK_Release())
+"382
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 746  ]
+[; ;main.c: 383: MXK_Dequeue();
+"383
+[e ( _MXK_Dequeue ..  ]
+[e :U 746 ]
+"384
+}
+[e :U 745 ]
+"385
+}
+[; ;main.c: 384: }
+[; ;main.c: 385: }
+[e $U 738  ]
+"359
+[e :U 739 ]
+[e [\ _mode , $ -> 1 `i 740
+ , $ -> 2 `i 741
+ , $ -> 3 `i 742
+ , $ -> 4 `i 743
+ 744 ]
+"385
+[e :U 738 ]
+"386
+}
+[; ;main.c: 386: }
+[e $U 735  ]
+[e :U 736 ]
+}
+[; ;main.c: 387: }
+"387
+[e :UE 734 ]
 }
 [p f _printf 8914048 ]
 [a 1C 37 99 0 ]
@@ -7805,13 +7888,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 7C 37 99 0 ]
 [a 9C 37 99 0 ]
 [a 11C 37 99 0 ]
+[a 13C 37 99 0 ]
 [a 2C 67 108 111 115 101 115 116 32 87 97 108 108 58 37 117 10 67 108 111 115 101 115 116 32 65 110 103 108 101 58 37 100 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 66 117 109 112 58 37 117 10 0 ]
-[a 4C 84 111 116 97 108 32 68 105 115 116 97 110 99 101 58 37 117 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 32 66 117 109 112 58 37 117 10 0 ]
+[a 4C 67 108 111 115 101 115 116 32 87 97 108 108 58 37 117 10 67 108 111 115 101 115 116 32 65 110 103 108 101 58 37 100 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 66 117 109 112 58 37 117 10 0 ]
 [a 6C 84 111 116 97 108 32 68 105 115 116 97 110 99 101 58 37 117 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 32 66 117 109 112 58 37 117 10 0 ]
-[a 10C 67 108 111 115 101 115 116 32 87 97 108 108 58 37 117 10 67 108 111 115 101 115 116 32 65 110 103 108 101 58 37 100 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 66 117 109 112 58 37 117 10 65 110 103 108 101 84 111 84 117 114 110 58 32 37 100 10 0 ]
-[a 8C 68 105 115 116 97 110 99 101 58 32 37 100 10 0 ]
-[a 12C 80 108 101 97 115 101 32 115 101 108 101 99 116 32 109 111 100 101 46 10 0 ]
-[a 13C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
-[a 14C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
+[a 8C 84 111 116 97 108 32 68 105 115 116 97 110 99 101 58 37 117 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 32 66 117 109 112 58 37 117 10 0 ]
+[a 12C 67 108 111 115 101 115 116 32 87 97 108 108 58 37 117 10 67 108 111 115 101 115 116 32 65 110 103 108 101 58 37 100 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 66 117 109 112 58 37 117 10 65 110 103 108 101 84 111 84 117 114 110 58 32 37 100 10 0 ]
+[a 10C 68 105 115 116 97 110 99 101 58 32 37 100 10 0 ]
+[a 14C 80 108 101 97 115 101 32 115 101 108 101 99 116 32 109 111 100 101 46 10 0 ]
 [a 15C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
 [a 16C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
+[a 17C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
+[a 18C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
