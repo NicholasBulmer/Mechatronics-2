@@ -7198,7 +7198,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 186: printf("%c", (char)35);
 "186
 [e ( _printf , (. :s 1C -> -> -> 35 `i `uc `i ]
-[; ;main.c: 187: printf("Closest Wall:%u\nClosest Angle:%c\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
+[; ;main.c: 187: printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
 "187
 [e ( _printf , , , , (. :s 2C _MinDist _angleToClosestWall -> _iRBumpLeft `i -> _iRBumpRight `i ]
 [; ;main.c: 188: Console_Render();
@@ -7606,159 +7606,197 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ > _StepRotate -> 0 `i 717  ]
 [e :U 718 ]
 [; ;main.c: 308: }
-[; ;main.c: 309: irobot_rotate(0, angleToClosestWall - 67, 200);
+[; ;main.c: 309: angleToClosestWall = angleToClosestWall - 67;
 "309
-[e ( _irobot_rotate (3 , , -> -> 0 `i `uc -> - _angleToClosestWall -> 67 `i `s -> -> 200 `i `s ]
-[; ;main.c: 310: while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
+[e = _angleToClosestWall - _angleToClosestWall -> 67 `i ]
+[; ;main.c: 310: if(angleToClosestWall < 0){
 "310
-[e $U 719  ]
-[e :U 720 ]
+[e $ ! < _angleToClosestWall -> 0 `i 719  ]
 {
-[; ;main.c: 311: irobot_move_straight(200);
+[; ;main.c: 311: angleToClosestWall = angleToClosestWall + (2*angleToClosestWall);
 "311
-[e ( _irobot_move_straight (1 -> -> 200 `i `s ]
-[; ;main.c: 312: update_bump_and_cliff();
+[e = _angleToClosestWall + _angleToClosestWall * -> 2 `i _angleToClosestWall ]
+[; ;main.c: 312: angleToClosestWall = 270 - angleToClosestWall;
 "312
-[e ( _update_bump_and_cliff ..  ]
+[e = _angleToClosestWall - -> 270 `i _angleToClosestWall ]
 "313
 }
 [e :U 719 ]
-"310
-[e $ && && && ! != -> _iRBumpLeft `i -> -> -> 0 `i `uc `i ! != -> _iRBumpRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropLeft `i -> -> -> 0 `i `uc `i 720  ]
-[e :U 721 ]
 [; ;main.c: 313: }
-[; ;main.c: 314: irobot_song_play(0);
+[; ;main.c: 314: irobot_rotate(0, 270 - angleToClosestWall, 200);
 "314
-[e ( _irobot_song_play (1 -> -> 0 `i `uc ]
-[; ;main.c: 315: irobot_stop_motion(0);
+[e ( _irobot_rotate (3 , , -> -> 0 `i `uc -> - -> 270 `i _angleToClosestWall `s -> -> 200 `i `s ]
+[; ;main.c: 315: while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
 "315
+[e $U 720  ]
+[e :U 721 ]
+{
+[; ;main.c: 317: if (MXK_SwitchTo(eMXK_HMI)) {
+"317
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 723  ]
+{
+[; ;main.c: 318: printf("%c", (char)35);
+"318
+[e ( _printf , (. :s 9C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 319: printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\nAngleToTurn: %d\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight, angleToClosestWall -67);
+"319
+[e ( _printf , , , , , (. :s 10C _MinDist _angleToClosestWall -> _iRBumpLeft `i -> _iRBumpRight `i - _angleToClosestWall -> 67 `i ]
+[; ;main.c: 320: Console_Render();
+"320
+[e ( _Console_Render ..  ]
+[; ;main.c: 321: if (MXK_Release())
+"321
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 724  ]
+[; ;main.c: 322: MXK_Dequeue();
+"322
+[e ( _MXK_Dequeue ..  ]
+[e :U 724 ]
+"323
+}
+[e :U 723 ]
+[; ;main.c: 323: }
+[; ;main.c: 324: update_bump_and_cliff();
+"324
+[e ( _update_bump_and_cliff ..  ]
+"325
+}
+[e :U 720 ]
+"315
+[e $ && && && ! != -> _iRBumpLeft `i -> -> -> 0 `i `uc `i ! != -> _iRBumpRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropRight `i -> -> -> 0 `i `uc `i ! != -> _iRDropLeft `i -> -> -> 0 `i `uc `i 721  ]
+[e :U 722 ]
+[; ;main.c: 325: }
+[; ;main.c: 326: irobot_song_play(0);
+"326
+[e ( _irobot_song_play (1 -> -> 0 `i `uc ]
+[; ;main.c: 327: irobot_stop_motion(0);
+"327
 [e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
-[; ;main.c: 316: }
-"316
+[; ;main.c: 328: }
+"328
 [e :UE 715 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"319
+"331
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 319: void main() {
+[; ;main.c: 331: void main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 321: init();
-"321
-[e ( _init ..  ]
-[; ;main.c: 323: for(;;) {
-"323
-{
-[e :U 723 ]
-{
-[; ;main.c: 324: getMode();
-"324
-[e ( _getMode ..  ]
-[; ;main.c: 325: switch (mode) {
-"325
-[e $U 727  ]
-{
-[; ;main.c: 326: case 1:
-"326
-[e :U 728 ]
-[; ;main.c: 327: mode1();
-"327
-[e ( _mode1 ..  ]
-[; ;main.c: 328: break;
-"328
-[e $U 726  ]
-[; ;main.c: 329: case 2:
-"329
-[e :U 729 ]
-[; ;main.c: 330: mode2();
-"330
-[e ( _mode2 ..  ]
-[; ;main.c: 331: break;
-"331
-[e $U 726  ]
-[; ;main.c: 332: case 3:
-"332
-[e :U 730 ]
-[; ;main.c: 333: mode3();
+[; ;main.c: 333: init();
 "333
-[e ( _mode3 ..  ]
-[; ;main.c: 334: break;
-"334
-[e $U 726  ]
-[; ;main.c: 335: case 4:
+[e ( _init ..  ]
+[; ;main.c: 335: for(;;) {
 "335
-[e :U 731 ]
-[; ;main.c: 336: mode4();
-"336
-[e ( _mode4 ..  ]
-[; ;main.c: 337: break;
-"337
-[e $U 726  ]
-[; ;main.c: 338: default:
-"338
-[e :U 732 ]
-[; ;main.c: 339: if (MXK_SwitchTo(eMXK_HMI)) {
-"339
-[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 733  ]
 {
-[; ;main.c: 340: printf("%c", (char)35);
-"340
-[e ( _printf , (. :s 9C -> -> -> 35 `i `uc `i ]
-[; ;main.c: 341: printf("Please select mode.\n");
-"341
-[e ( _printf :s 10C ]
-[; ;main.c: 342: printf("                   \n");
-"342
-[e ( _printf :s 11C ]
-[; ;main.c: 343: printf("                   \n");
-"343
-[e ( _printf :s 12C ]
-[; ;main.c: 344: printf("                   \n");
-"344
-[e ( _printf :s 13C ]
-[; ;main.c: 345: printf("                   \n");
-"345
-[e ( _printf :s 14C ]
-[; ;main.c: 346: Console_Render();
-"346
-[e ( _Console_Render ..  ]
-[; ;main.c: 347: HMI_Poll();
-"347
-[e ( _HMI_Poll ..  ]
-[; ;main.c: 348: if (MXK_Release())
-"348
-[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 734  ]
-[; ;main.c: 349: MXK_Dequeue();
-"349
-[e ( _MXK_Dequeue ..  ]
-[e :U 734 ]
-"350
-}
-[e :U 733 ]
-"351
-}
-[; ;main.c: 350: }
-[; ;main.c: 351: }
-[e $U 726  ]
-"325
-[e :U 727 ]
-[e [\ _mode , $ -> 1 `i 728
- , $ -> 2 `i 729
- , $ -> 3 `i 730
- , $ -> 4 `i 731
- 732 ]
-"351
 [e :U 726 ]
+{
+[; ;main.c: 336: getMode();
+"336
+[e ( _getMode ..  ]
+[; ;main.c: 337: switch (mode) {
+"337
+[e $U 730  ]
+{
+[; ;main.c: 338: case 1:
+"338
+[e :U 731 ]
+[; ;main.c: 339: mode1();
+"339
+[e ( _mode1 ..  ]
+[; ;main.c: 340: break;
+"340
+[e $U 729  ]
+[; ;main.c: 341: case 2:
+"341
+[e :U 732 ]
+[; ;main.c: 342: mode2();
+"342
+[e ( _mode2 ..  ]
+[; ;main.c: 343: break;
+"343
+[e $U 729  ]
+[; ;main.c: 344: case 3:
+"344
+[e :U 733 ]
+[; ;main.c: 345: mode3();
+"345
+[e ( _mode3 ..  ]
+[; ;main.c: 346: break;
+"346
+[e $U 729  ]
+[; ;main.c: 347: case 4:
+"347
+[e :U 734 ]
+[; ;main.c: 348: mode4();
+"348
+[e ( _mode4 ..  ]
+[; ;main.c: 349: break;
+"349
+[e $U 729  ]
+[; ;main.c: 350: default:
+"350
+[e :U 735 ]
+[; ;main.c: 351: if (MXK_SwitchTo(eMXK_HMI)) {
+"351
+[e $ ! != -> ( _MXK_SwitchTo (1 . `E6940 2 `i -> -> -> 0 `i `uc `i 736  ]
+{
+[; ;main.c: 352: printf("%c", (char)35);
 "352
-}
-[; ;main.c: 352: }
-[e $U 723  ]
-[e :U 724 ]
-}
-[; ;main.c: 353: }
+[e ( _printf , (. :s 11C -> -> -> 35 `i `uc `i ]
+[; ;main.c: 353: printf("Please select mode.\n");
 "353
-[e :UE 722 ]
+[e ( _printf :s 12C ]
+[; ;main.c: 354: printf("                   \n");
+"354
+[e ( _printf :s 13C ]
+[; ;main.c: 355: printf("                   \n");
+"355
+[e ( _printf :s 14C ]
+[; ;main.c: 356: printf("                   \n");
+"356
+[e ( _printf :s 15C ]
+[; ;main.c: 357: printf("                   \n");
+"357
+[e ( _printf :s 16C ]
+[; ;main.c: 358: Console_Render();
+"358
+[e ( _Console_Render ..  ]
+[; ;main.c: 359: HMI_Poll();
+"359
+[e ( _HMI_Poll ..  ]
+[; ;main.c: 360: if (MXK_Release())
+"360
+[e $ ! != -> ( _MXK_Release ..  `i -> -> -> 0 `i `uc `i 737  ]
+[; ;main.c: 361: MXK_Dequeue();
+"361
+[e ( _MXK_Dequeue ..  ]
+[e :U 737 ]
+"362
+}
+[e :U 736 ]
+"363
+}
+[; ;main.c: 362: }
+[; ;main.c: 363: }
+[e $U 729  ]
+"337
+[e :U 730 ]
+[e [\ _mode , $ -> 1 `i 731
+ , $ -> 2 `i 732
+ , $ -> 3 `i 733
+ , $ -> 4 `i 734
+ 735 ]
+"363
+[e :U 729 ]
+"364
+}
+[; ;main.c: 364: }
+[e $U 726  ]
+[e :U 727 ]
+}
+[; ;main.c: 365: }
+"365
+[e :UE 725 ]
 }
 [p f _printf 8914048 ]
 [a 1C 37 99 0 ]
@@ -7766,12 +7804,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 5C 37 99 0 ]
 [a 7C 37 99 0 ]
 [a 9C 37 99 0 ]
-[a 2C 67 108 111 115 101 115 116 32 87 97 108 108 58 37 117 10 67 108 111 115 101 115 116 32 65 110 103 108 101 58 37 99 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 66 117 109 112 58 37 117 10 0 ]
+[a 11C 37 99 0 ]
+[a 2C 67 108 111 115 101 115 116 32 87 97 108 108 58 37 117 10 67 108 111 115 101 115 116 32 65 110 103 108 101 58 37 100 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 66 117 109 112 58 37 117 10 0 ]
 [a 4C 84 111 116 97 108 32 68 105 115 116 97 110 99 101 58 37 117 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 32 66 117 109 112 58 37 117 10 0 ]
 [a 6C 84 111 116 97 108 32 68 105 115 116 97 110 99 101 58 37 117 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 32 66 117 109 112 58 37 117 10 0 ]
+[a 10C 67 108 111 115 101 115 116 32 87 97 108 108 58 37 117 10 67 108 111 115 101 115 116 32 65 110 103 108 101 58 37 100 10 76 101 102 116 32 66 117 109 112 58 37 117 10 82 105 103 104 116 66 117 109 112 58 37 117 10 65 110 103 108 101 84 111 84 117 114 110 58 32 37 100 10 0 ]
 [a 8C 68 105 115 116 97 110 99 101 58 32 37 100 10 0 ]
-[a 10C 80 108 101 97 115 101 32 115 101 108 101 99 116 32 109 111 100 101 46 10 0 ]
-[a 11C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
-[a 12C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
+[a 12C 80 108 101 97 115 101 32 115 101 108 101 99 116 32 109 111 100 101 46 10 0 ]
 [a 13C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
 [a 14C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
+[a 15C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]
+[a 16C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 10 0 ]

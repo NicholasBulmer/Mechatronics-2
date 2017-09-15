@@ -1300,7 +1300,7 @@ eMXK_None 0
 [v _mode3 mode3 `(v  1 e 1 0 ]
 "298
 [v _mode4 mode4 `(v  1 e 1 0 ]
-"319
+"331
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -2261,15 +2261,15 @@ eMXK_None 0
 [v _Stepper Stepper `S12593  1 e 6 0 ]
 "50
 [v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
-"319
+"331
 [v _main main `(v  1 e 1 0 ]
 {
-"353
+"365
 } 0
 "298
 [v _mode4 mode4 `(v  1 e 1 0 ]
 {
-"316
+"328
 } 0
 "150
 [v _findClosestWall findClosestWall `(v  1 e 1 0 ]
@@ -2425,15 +2425,15 @@ eMXK_None 0
 [v _printf printf `(i  1 e 2 0 ]
 {
 "528
-[v printf@val val `ui  1 a 2 36 ]
+[v printf@val val `ui  1 a 2 38 ]
 "466
-[v printf@ap ap `[1]*.39v  1 a 2 34 ]
+[v printf@ap ap `[1]*.39v  1 a 2 36 ]
 "499
-[v printf@c c `c  1 a 1 38 ]
+[v printf@c c `c  1 a 1 40 ]
 "508
-[v printf@flag flag `uc  1 a 1 33 ]
+[v printf@flag flag `uc  1 a 1 35 ]
 "506
-[v printf@prec prec `c  1 a 1 32 ]
+[v printf@prec prec `c  1 a 1 34 ]
 "464
 [v printf@f f `*.32Cuc  1 p 2 21 ]
 "1541
@@ -2787,17 +2787,17 @@ eMXK_None 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S14320 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S14322 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S14325 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S14328 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14320 1 fAsBytes 4 0 `S14325 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S14328  1 a 4 33 ]
+[s S14327 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S14330 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14322 1 fAsBytes 4 0 `S14327 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S14330  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 28 ]
-[s S14396 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S14398 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S14399 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14396 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S14399  1 a 2 37 ]
+[u S14401 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14398 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S14401  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11

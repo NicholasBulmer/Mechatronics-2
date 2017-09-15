@@ -184,7 +184,7 @@ void findClosestWall(){
         angleToClosestWall = Stepstomin * 0.67;
         if (MXK_SwitchTo(eMXK_HMI)) {
                 printf("%c", ENDOFTEXT);
-                printf("Closest Wall:%u\nClosest Angle:%c\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
+                printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
                 Console_Render();
                 if (MXK_Release())
                         MXK_Dequeue();
@@ -306,9 +306,21 @@ void mode4() {
         while (StepRotate > 0) {
                 findClosestWall();
         }
-        irobot_rotate(0, angleToClosestWall - 67, 200);     // Rotate perpendicular to the closest wall
+        angleToClosestWall = angleToClosestWall - 67;
+        if(angleToClosestWall < 0){
+          angleToClosestWall = angleToClosestWall + (2*angleToClosestWall);
+          angleToClosestWall = 270 - angleToClosestWall;
+        }
+        irobot_rotate(0, 270 - angleToClosestWall, 200);     // Rotate perpendicular to the closest wall
         while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
                 irobot_move_straight(200); //Go straight until a bumper is triggered
+                if (MXK_SwitchTo(eMXK_HMI)) {
+                        printf("%c", ENDOFTEXT);
+                        printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\nAngleToTurn: %d\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight, angleToClosestWall -67);
+                        Console_Render();
+                        if (MXK_Release())
+                                MXK_Dequeue();
+                }
                 update_bump_and_cliff();
         }
         irobot_song_play(0); //Play a song
