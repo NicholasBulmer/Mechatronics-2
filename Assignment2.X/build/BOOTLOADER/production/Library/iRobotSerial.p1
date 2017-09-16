@@ -102,9 +102,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i ___va_arg ]
 "16 C:\Program Files (x86)\Microchip\xc8\v1.43\include\string.h
 [v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"281 Library/iRobotSerial.c
+"284 Library/iRobotSerial.c
 [c E6869 32768 32767 65535 1 0 85 170 255 255 .. ]
 [n E6869 . iR_CONST_STRAIGHT_1 iR_CONST_STRAIGHT_2 iR_CONST_CW iR_CONST_CCW iR_CONST_GREEN iR_CONST_YELLOW iR_CONST_ORANGE iR_CONST_RED iR_CONST_LED_ON  ]
+"105 Library\iRobotSerial.h
+[v _update_angle `(v ~T0 @X0 0 ef ]
+"101
+[v _irobot_stop_motion `(v ~T0 @X0 0 ef1`uc ]
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -6387,7 +6391,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.h: 105: void update_angle(void);
 [; ;iRobotSerial.h: 106: void irobot_init_song_0(void);
 [; ;iRobotSerial.h: 107: void irobot_song_play(UINT8 songNumber);
-[; ;iRobotSerial.h: 112: extern UINT16
+[; ;iRobotSerial.h: 112: extern INT16
 [; ;iRobotSerial.h: 113: iRDistance,
 [; ;iRobotSerial.h: 114: iRAngle;
 [; ;iRobotSerial.h: 116: extern UINT8
@@ -6411,10 +6415,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _iRAngleSS `S640 ~T0 @X0 1 e ]
 [; ;iRobotSerial.c: 28: splitShort iRDistanceSS, iRAngleSS;
 "31
-[v _iRDistance `us ~T0 @X0 1 e ]
+[v _iRDistance `s ~T0 @X0 1 e ]
 "32
-[v _iRAngle `us ~T0 @X0 1 e ]
-[; ;iRobotSerial.c: 30: UINT16
+[v _iRAngle `s ~T0 @X0 1 e ]
+[; ;iRobotSerial.c: 30: INT16
 [; ;iRobotSerial.c: 31: iRDistance,
 [; ;iRobotSerial.c: 32: iRAngle;
 "40
@@ -6597,7 +6601,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.c: 84: (byteNumber == 0) ? (iRDistanceSS.HB = packetIDValue) : (iRDistanceSS.LB = packetIDValue,
 [; ;iRobotSerial.c: 85: iRDistance = ((iRDistanceSS.HB)<<8) + iRDistanceSS.LB); break;
 "85
-[e ? == -> _byteNumber `i -> 0 `i : -> = . _iRDistanceSS 0 -> _packetIDValue `us `ui -> ; = . _iRDistanceSS 1 -> _packetIDValue `us = _iRDistance -> + << -> . _iRDistanceSS 0 `ui -> 8 `i -> . _iRDistanceSS 1 `ui `us `ui ]
+[e ? == -> _byteNumber `i -> 0 `i : -> = . _iRDistanceSS 0 -> _packetIDValue `us `ui -> ; = . _iRDistanceSS 1 -> _packetIDValue `us = _iRDistance -> + << -> . _iRDistanceSS 0 `ui -> 8 `i -> . _iRDistanceSS 1 `ui `s `ui ]
 [e $U 654  ]
 [; ;iRobotSerial.c: 86: case iR_PKT_ANGLE:
 "86
@@ -6605,7 +6609,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.c: 87: (byteNumber == 0) ? (iRAngleSS.HB = packetIDValue) : (iRAngleSS.LB = packetIDValue,
 [; ;iRobotSerial.c: 88: iRAngle = ((iRAngleSS.HB)<<8) + iRAngleSS.LB); break;
 "88
-[e ? == -> _byteNumber `i -> 0 `i : -> = . _iRAngleSS 0 -> _packetIDValue `us `ui -> ; = . _iRAngleSS 1 -> _packetIDValue `us = _iRAngle -> + << -> . _iRAngleSS 0 `ui -> 8 `i -> . _iRAngleSS 1 `ui `us `ui ]
+[e ? == -> _byteNumber `i -> 0 `i : -> = . _iRAngleSS 0 -> _packetIDValue `us `ui -> ; = . _iRAngleSS 1 -> _packetIDValue `us = _iRAngle -> + << -> . _iRAngleSS 0 `ui -> 8 `i -> . _iRAngleSS 1 `ui `s `ui ]
 [e $U 654  ]
 "89
 }
@@ -7179,153 +7183,198 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _rotateAngle `s ~T0 @X0 1 r2 ]
 [v _rotateSpeed `s ~T0 @X0 1 r3 ]
 [f ]
-[; ;iRobotSerial.c: 281: (rotateAngle > 0) ? (rotateAngle = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
 "281
-[e ? > -> _rotateAngle `i -> 0 `i : -> = _rotateAngle -> . `E6869 3 `s `i -> = _rotateAngle -> . `E6869 2 `s `i ]
-[; ;iRobotSerial.c: 282: (isScript) ?
-[; ;iRobotSerial.c: 283: irobot_move(1, rotateSpeed, rotateAngle):
-[; ;iRobotSerial.c: 284: irobot_move(0, rotateSpeed, rotateAngle);
+[v _angleTotal `s ~T0 @X0 1 a ]
+[; ;iRobotSerial.c: 281: INT16 angleTotal = 0;
+[e = _angleTotal -> -> 0 `i `s ]
+"282
+[v _rotateDirection `s ~T0 @X0 1 a ]
+[; ;iRobotSerial.c: 282: INT16 rotateDirection;
+[; ;iRobotSerial.c: 284: (rotateAngle > 0) ? (rotateDirection = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
 "284
-[e ? != -> _isScript `i -> -> -> 0 `i `uc `i : ( _irobot_move (3 , , -> -> 1 `i `uc _rotateSpeed _rotateAngle ( _irobot_move (3 , , -> -> 0 `i `uc _rotateSpeed _rotateAngle ]
-[; ;iRobotSerial.c: 285: }
+[e ? > -> _rotateAngle `i -> 0 `i : -> = _rotateDirection -> . `E6869 3 `s `i -> = _rotateAngle -> . `E6869 2 `s `i ]
+[; ;iRobotSerial.c: 285: if (isScript) {
 "285
+[e $ ! != -> _isScript `i -> -> -> 0 `i `uc `i 716  ]
+{
+[; ;iRobotSerial.c: 286: irobot_move(1, rotateSpeed, rotateDirection);
+"286
+[e ( _irobot_move (3 , , -> -> 1 `i `uc _rotateSpeed _rotateDirection ]
+"287
+}
+[; ;iRobotSerial.c: 287: }
+[e $U 717  ]
+"288
+[e :U 716 ]
+[; ;iRobotSerial.c: 288: else {
+{
+[; ;iRobotSerial.c: 289: irobot_move(0, rotateSpeed, rotateDirection);
+"289
+[e ( _irobot_move (3 , , -> -> 0 `i `uc _rotateSpeed _rotateDirection ]
+[; ;iRobotSerial.c: 290: while (angleTotal < rotateAngle) {
+"290
+[e $U 718  ]
+[e :U 719 ]
+{
+[; ;iRobotSerial.c: 291: update_angle();
+"291
+[e ( _update_angle ..  ]
+[; ;iRobotSerial.c: 292: angleTotal += iRAngle;
+"292
+[e =+ _angleTotal _iRAngle ]
+"293
+}
+[e :U 718 ]
+"290
+[e $ < -> _angleTotal `i -> _rotateAngle `i 719  ]
+[e :U 720 ]
+[; ;iRobotSerial.c: 293: }
+[; ;iRobotSerial.c: 294: irobot_stop_motion(0);
+"294
+[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
+"295
+}
+[e :U 717 ]
+[; ;iRobotSerial.c: 295: }
+[; ;iRobotSerial.c: 296: }
+"296
 [e :UE 715 ]
 }
-"288
+"299
 [v _irobot_stop_motion `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;iRobotSerial.c: 288: void irobot_stop_motion(bool isScript){
+[; ;iRobotSerial.c: 299: void irobot_stop_motion(bool isScript){
 [e :U _irobot_stop_motion ]
 [v _isScript `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 289: (isScript) ? irobot_move(1,0,0) : irobot_move(0,0,0);
-"289
+[; ;iRobotSerial.c: 300: (isScript) ? irobot_move(1,0,0) : irobot_move(0,0,0);
+"300
 [e ? != -> _isScript `i -> -> -> 0 `i `uc `i : ( _irobot_move (3 , , -> -> 1 `i `uc -> -> 0 `i `s -> -> 0 `i `s ( _irobot_move (3 , , -> -> 0 `i `uc -> -> 0 `i `s -> -> 0 `i `s ]
-[; ;iRobotSerial.c: 290: }
-"290
-[e :UE 716 ]
+[; ;iRobotSerial.c: 301: }
+"301
+[e :UE 721 ]
 }
-"293
+"304
 [v _irobot_led_power_on `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;iRobotSerial.c: 293: void irobot_led_power_on(UINT8 powerOnColour){
+[; ;iRobotSerial.c: 304: void irobot_led_power_on(UINT8 powerOnColour){
 [e :U _irobot_led_power_on ]
 [v _powerOnColour `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 294: irobot_leds(0, 0, powerOnColour, iR_CONST_LED_ON);
-"294
+[; ;iRobotSerial.c: 305: irobot_leds(0, 0, powerOnColour, iR_CONST_LED_ON);
+"305
 [e ( _irobot_leds (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc _powerOnColour -> . `E6869 8 `uc ]
-[; ;iRobotSerial.c: 295: }
-"295
-[e :UE 717 ]
+[; ;iRobotSerial.c: 306: }
+"306
+[e :UE 722 ]
 }
-"298
+"309
 [v _irobot_led_power_off `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 298: void irobot_led_power_off(void){
+[; ;iRobotSerial.c: 309: void irobot_led_power_off(void){
 [e :U _irobot_led_power_off ]
 [f ]
-[; ;iRobotSerial.c: 299: irobot_leds(0, 0, 0, 0);
-"299
+[; ;iRobotSerial.c: 310: irobot_leds(0, 0, 0, 0);
+"310
 [e ( _irobot_leds (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 300: }
-"300
-[e :UE 718 ]
+[; ;iRobotSerial.c: 311: }
+"311
+[e :UE 723 ]
 }
-"303
+"314
 [v _irobot_move_straight `(v ~T0 @X0 1 ef1`s ]
 {
-[; ;iRobotSerial.c: 303: void irobot_move_straight(INT16 straightSpeed){
+[; ;iRobotSerial.c: 314: void irobot_move_straight(INT16 straightSpeed){
 [e :U _irobot_move_straight ]
 [v _straightSpeed `s ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 304: irobot_move(0, straightSpeed, iR_CONST_STRAIGHT_2);
-"304
+[; ;iRobotSerial.c: 315: irobot_move(0, straightSpeed, iR_CONST_STRAIGHT_2);
+"315
 [e ( _irobot_move (3 , , -> -> 0 `i `uc _straightSpeed -> . `E6869 1 `s ]
-[; ;iRobotSerial.c: 305: }
-"305
-[e :UE 719 ]
+[; ;iRobotSerial.c: 316: }
+"316
+[e :UE 724 ]
 }
-"308
+"319
 [v _update_bump_and_cliff `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 308: void update_bump_and_cliff(){
+[; ;iRobotSerial.c: 319: void update_bump_and_cliff(){
 [e :U _update_bump_and_cliff ]
 [f ]
-[; ;iRobotSerial.c: 309: irobot_query_and_update(5, iR_PKT_BUMP_DROP,
-[; ;iRobotSerial.c: 310: iR_PKT_CLIFF_L, iR_PKT_CLIFF_FL,
-[; ;iRobotSerial.c: 311: iR_PKT_CLIFF_FR, iR_PKT_CLIFF_R);
-"311
+[; ;iRobotSerial.c: 320: irobot_query_and_update(5, iR_PKT_BUMP_DROP,
+[; ;iRobotSerial.c: 321: iR_PKT_CLIFF_L, iR_PKT_CLIFF_FL,
+[; ;iRobotSerial.c: 322: iR_PKT_CLIFF_FR, iR_PKT_CLIFF_R);
+"322
 [e ( _irobot_query_and_update , , , , , (. -> -> 5 `i `uc -> . `E6847 0 `i -> . `E6847 2 `i -> . `E6847 3 `i -> . `E6847 4 `i -> . `E6847 5 `i ]
-[; ;iRobotSerial.c: 312: }
-"312
-[e :UE 720 ]
+[; ;iRobotSerial.c: 323: }
+"323
+[e :UE 725 ]
 }
-"315
+"326
 [v _update_distance `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 315: void update_distance(void){
+[; ;iRobotSerial.c: 326: void update_distance(void){
 [e :U _update_distance ]
 [f ]
-[; ;iRobotSerial.c: 316: irobot_query_and_update(1, iR_PKT_DISTANCE);
-"316
+[; ;iRobotSerial.c: 327: irobot_query_and_update(1, iR_PKT_DISTANCE);
+"327
 [e ( _irobot_query_and_update , (. -> -> 1 `i `uc -> . `E6847 7 `i ]
-[; ;iRobotSerial.c: 317: }
-"317
-[e :UE 721 ]
+[; ;iRobotSerial.c: 328: }
+"328
+[e :UE 726 ]
 }
-"320
+"331
 [v _update_angle `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 320: void update_angle(void){
+[; ;iRobotSerial.c: 331: void update_angle(void){
 [e :U _update_angle ]
 [f ]
-[; ;iRobotSerial.c: 321: irobot_query_and_update(1, iR_PKT_ANGLE);
-"321
+[; ;iRobotSerial.c: 332: irobot_query_and_update(1, iR_PKT_ANGLE);
+"332
 [e ( _irobot_query_and_update , (. -> -> 1 `i `uc -> . `E6847 8 `i ]
-[; ;iRobotSerial.c: 322: }
-"322
-[e :UE 722 ]
+[; ;iRobotSerial.c: 333: }
+"333
+[e :UE 727 ]
 }
-"328
+"339
 [v _irobot_move_to_simple `(v ~T0 @X0 1 ef2`s`s ]
 {
-[; ;iRobotSerial.c: 328: void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed){
+[; ;iRobotSerial.c: 339: void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed){
 [e :U _irobot_move_to_simple ]
 [v _moveToDistance `s ~T0 @X0 1 r1 ]
 [v _moveToSpeed `s ~T0 @X0 1 r2 ]
 [f ]
-[; ;iRobotSerial.c: 329: irobot_move(1, moveToSpeed, iR_CONST_STRAIGHT_2);
-"329
+[; ;iRobotSerial.c: 340: irobot_move(1, moveToSpeed, iR_CONST_STRAIGHT_2);
+"340
 [e ( _irobot_move (3 , , -> -> 1 `i `uc _moveToSpeed -> . `E6869 1 `s ]
-[; ;iRobotSerial.c: 330: irobot_distance_wait(moveToDistance);
-"330
+[; ;iRobotSerial.c: 341: irobot_distance_wait(moveToDistance);
+"341
 [e ( _irobot_distance_wait (1 _moveToDistance ]
-[; ;iRobotSerial.c: 331: irobot_stop_motion(1);
-"331
+[; ;iRobotSerial.c: 342: irobot_stop_motion(1);
+"342
 [e ( _irobot_stop_motion (1 -> -> 1 `i `uc ]
-[; ;iRobotSerial.c: 332: }
-"332
-[e :UE 723 ]
+[; ;iRobotSerial.c: 343: }
+"343
+[e :UE 728 ]
 }
-"335
+"346
 [v _irobot_rotate_to `(v ~T0 @X0 1 ef2`s`s ]
 {
-[; ;iRobotSerial.c: 335: void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed){
+[; ;iRobotSerial.c: 346: void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed){
 [e :U _irobot_rotate_to ]
 [v _rotateToAngle `s ~T0 @X0 1 r1 ]
 [v _rotateSpeed `s ~T0 @X0 1 r2 ]
 [f ]
-[; ;iRobotSerial.c: 336: irobot_rotate(1, rotateToAngle, rotateSpeed);
-"336
+[; ;iRobotSerial.c: 347: irobot_rotate(1, rotateToAngle, rotateSpeed);
+"347
 [e ( _irobot_rotate (3 , , -> -> 1 `i `uc _rotateToAngle _rotateSpeed ]
-[; ;iRobotSerial.c: 337: irobot_angle_wait(rotateToAngle);
-"337
+[; ;iRobotSerial.c: 348: irobot_angle_wait(rotateToAngle);
+"348
 [e ( _irobot_angle_wait (1 _rotateToAngle ]
-[; ;iRobotSerial.c: 338: irobot_stop_motion(1);
-"338
+[; ;iRobotSerial.c: 349: irobot_stop_motion(1);
+"349
 [e ( _irobot_stop_motion (1 -> -> 1 `i `uc ]
-[; ;iRobotSerial.c: 339: }
-"339
-[e :UE 724 ]
+[; ;iRobotSerial.c: 350: }
+"350
+[e :UE 729 ]
 }

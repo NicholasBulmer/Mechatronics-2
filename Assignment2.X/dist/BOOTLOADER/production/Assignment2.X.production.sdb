@@ -619,7 +619,7 @@ iR_WAIT_DISTANCE 156
 iR_WAIT_ANGLE 157
 iR_WAIT_EVENT 158
 ]
-"281
+"284
 [e E6869 . `ui
 iR_CONST_STRAIGHT_1 -32768
 iR_CONST_STRAIGHT_2 32767
@@ -631,14 +631,14 @@ iR_CONST_ORANGE 170
 iR_CONST_RED 255
 iR_CONST_LED_ON 255
 ]
-"51 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"52 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [e E7368 . `uc
 eADC_Ch0 0
 eADC_Ch1 1
 eADC_Ch2 2
 eADC_Ch3 3
 ]
-"73
+"74
 [e E6940 . `uc
 eMXK_Motor 8
 eMXK_IMU 4
@@ -850,17 +850,17 @@ eMXK_None 0
 [v _irobot_song_play irobot_song_play `(v  1 e 1 0 ]
 "280
 [v _irobot_rotate irobot_rotate `(v  1 e 1 0 ]
-"288
+"299
 [v _irobot_stop_motion irobot_stop_motion `(v  1 e 1 0 ]
-"293
+"304
 [v _irobot_led_power_on irobot_led_power_on `(v  1 e 1 0 ]
-"303
+"314
 [v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
-"308
+"319
 [v _update_bump_and_cliff update_bump_and_cliff `(v  1 e 1 0 ]
-"315
+"326
 [v _update_distance update_distance `(v  1 e 1 0 ]
-"320
+"331
 [v _update_angle update_angle `(v  1 e 1 0 ]
 "27 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/ISR.c
 [v _ISR_Enable ISR_Enable `(v  1 e 1 0 ]
@@ -1282,25 +1282,25 @@ eMXK_None 0
 [v _itos itos `(v  1 e 1 0 ]
 "393
 [v _swap swap `(v  1 e 1 0 ]
-"65 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"66 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
-"105
+"106
 [v _getMode getMode `(v  1 e 1 0 ]
-"122
+"123
 [v _safeToGo safeToGo `(v  1 e 1 0 ]
-"137
+"138
 [v _move_and_rotate move_and_rotate `(v  1 e 1 0 ]
-"151
+"152
 [v _findClosestWall findClosestWall `(v  1 e 1 0 ]
-"214
+"215
 [v _mode1 mode1 `(v  1 e 1 0 ]
-"284
+"285
 [v _mode2 mode2 `(v  1 e 1 0 ]
-"308
+"309
 [v _mode3 mode3 `(v  1 e 1 0 ]
-"317
+"318
 [v _mode4 mode4 `(v  1 e 1 0 ]
-"347
+"344
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -2095,9 +2095,9 @@ eMXK_None 0
 [v _iRDistanceSS iRDistanceSS `S13420  1 e 4 0 ]
 [v _iRAngleSS iRAngleSS `S13420  1 e 4 0 ]
 "31
-[v _iRDistance iRDistance `us  1 e 2 0 ]
+[v _iRDistance iRDistance `s  1 e 2 0 ]
 "32
-[v _iRAngle iRAngle `us  1 e 2 0 ]
+[v _iRAngle iRAngle `s  1 e 2 0 ]
 "40
 [v _iRScriptStack iRScriptStack `[100]uc  1 e 100 0 ]
 "41
@@ -2258,83 +2258,90 @@ eMXK_None 0
 "49
 [v _dist dist `i  1 e 2 0 ]
 "50
-[v _Stepper Stepper `S12593  1 e 6 0 ]
+[v _angle angle `i  1 e 2 0 ]
 "51
+[v _Stepper Stepper `S12593  1 e 6 0 ]
+"52
 [v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
-"347
+"344
 [v _main main `(v  1 e 1 0 ]
 {
-"379
+"376
 } 0
-"317
+"318
 [v _mode4 mode4 `(v  1 e 1 0 ]
 {
-"344
+"341
 } 0
-"151
+"152
 [v _findClosestWall findClosestWall `(v  1 e 1 0 ]
 {
-"211
+"212
 } 0
-"308
+"309
 [v _mode3 mode3 `(v  1 e 1 0 ]
 {
-"314
+"315
 } 0
-"137
+"138
 [v _move_and_rotate move_and_rotate `(v  1 e 1 0 ]
 {
-"148
+"149
 } 0
 "280 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_rotate irobot_rotate `(v  1 e 1 0 ]
 {
 [v irobot_rotate@isScript isScript `uc  1 a 1 wreg ]
+"282
+[v irobot_rotate@rotateDirection rotateDirection `s  1 a 2 37 ]
+"281
+[v irobot_rotate@angleTotal angleTotal `s  1 a 2 35 ]
+"280
 [v irobot_rotate@isScript isScript `uc  1 a 1 wreg ]
-[v irobot_rotate@rotateAngle rotateAngle `s  1 p 2 25 ]
-[v irobot_rotate@rotateSpeed rotateSpeed `s  1 p 2 27 ]
-[v irobot_rotate@isScript isScript `uc  1 a 1 29 ]
-"285
+[v irobot_rotate@rotateAngle rotateAngle `s  1 p 2 29 ]
+[v irobot_rotate@rotateSpeed rotateSpeed `s  1 p 2 31 ]
+[v irobot_rotate@isScript isScript `uc  1 a 1 34 ]
+"296
 } 0
-"284 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"285 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _mode2 mode2 `(v  1 e 1 0 ]
 {
-"289
+"290
 [v mode2@dist dist `i  1 a 2 44 ]
-"305
+"306
 } 0
-"303 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
+"314 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
 {
 [v irobot_move_straight@straightSpeed straightSpeed `s  1 p 2 25 ]
-"305
+"316
 } 0
-"214 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"215 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _mode1 mode1 `(v  1 e 1 0 ]
 {
-"265
+"266
 [v mode1@moveto moveto `i  1 a 2 2 ]
-"281
+"282
 } 0
-"122
+"123
 [v _safeToGo safeToGo `(v  1 e 1 0 ]
 {
-"134
+"135
 } 0
-"315 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
+"326 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _update_distance update_distance `(v  1 e 1 0 ]
 {
-"317
+"328
 } 0
-"308
+"319
 [v _update_bump_and_cliff update_bump_and_cliff `(v  1 e 1 0 ]
 {
-"312
+"323
 } 0
-"320
+"331
 [v _update_angle update_angle `(v  1 e 1 0 ]
 {
-"322
+"333
 } 0
 "130
 [v _irobot_query_and_update irobot_query_and_update `(v  1 e 1 0 ]
@@ -2384,13 +2391,13 @@ eMXK_None 0
 {
 "128
 } 0
-"288
+"299
 [v _irobot_stop_motion irobot_stop_motion `(v  1 e 1 0 ]
 {
 [v irobot_stop_motion@isScript isScript `uc  1 a 1 wreg ]
 [v irobot_stop_motion@isScript isScript `uc  1 a 1 wreg ]
 [v irobot_stop_motion@isScript isScript `uc  1 a 1 25 ]
-"290
+"301
 } 0
 "220
 [v _irobot_move irobot_move `(v  1 e 1 0 ]
@@ -2782,17 +2789,17 @@ eMXK_None 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S14313 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S14323 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S14318 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S14321 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14313 1 fAsBytes 4 0 `S14318 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S14321  1 a 4 33 ]
+[s S14328 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S14331 . 4 `l 1 i 4 0 `d 1 f 4 0 `S14323 1 fAsBytes 4 0 `S14328 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S14331  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 28 ]
-[s S14389 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S14399 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S14392 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14389 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S14392  1 a 2 37 ]
+[u S14402 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S14399 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S14402  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11
@@ -2824,18 +2831,18 @@ eMXK_None 0
 [v ___fldiv@a a `d  1 p 4 4 ]
 "184
 } 0
-"65 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"66 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _init init `(v  1 e 1 0 ]
 {
-"102
+"103
 } 0
-"293 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
+"304 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_led_power_on irobot_led_power_on `(v  1 e 1 0 ]
 {
 [v irobot_led_power_on@powerOnColour powerOnColour `uc  1 a 1 wreg ]
 [v irobot_led_power_on@powerOnColour powerOnColour `uc  1 a 1 wreg ]
 [v irobot_led_power_on@powerOnColour powerOnColour `uc  1 a 1 20 ]
-"295
+"306
 } 0
 "239
 [v _irobot_leds irobot_leds `(v  1 e 1 0 ]
@@ -5352,10 +5359,10 @@ eMXK_None 0
 {
 "99
 } 0
-"105 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"106 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _getMode getMode `(v  1 e 1 0 ]
 {
-"120
+"121
 } 0
 "252 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\HMI.c
 [v _HMI_Poll HMI_Poll `(v  1 e 1 0 ]
