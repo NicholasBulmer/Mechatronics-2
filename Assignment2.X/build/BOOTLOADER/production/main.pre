@@ -8735,7 +8735,7 @@ void HMI_SetSegments (str pString);
 void HMI_Poll ();
 
 # 14 "Library\iRobotSerial.h"
-typedef enum {
+typedef enum{
 iR_START = 128,
 iR_FULL_MODE = 132,
 iR_DRIVE = 137,
@@ -8755,7 +8755,7 @@ iR_WAIT_EVENT = 158,
 }iR_OPCODE;
 
 
-typedef enum {
+typedef enum{
 iR_PKT_BUMP_DROP = 7,
 iR_PKT_WALL = 8,
 iR_PKT_CLIFF_L = 9,
@@ -8768,7 +8768,7 @@ iR_PKT_ANGLE = 20,
 }iR_PACKET;
 
 
-typedef enum {
+typedef enum{
 iR_PKT_BUMP_DROP_BN = 1,
 iR_PKT_WALL_BN = 1,
 iR_PKT_CLIFF_L_BN = 1,
@@ -8781,7 +8781,7 @@ iR_PKT_ANGLE_BN = 2,
 }iR_PACKET_SIZE;
 
 
-typedef enum {
+typedef enum{
 iR_CONST_STRAIGHT_1 = 0x8000,
 iR_CONST_STRAIGHT_2 = 0x7FFF,
 iR_CONST_CW = 0xFFFF,
@@ -8833,7 +8833,7 @@ void irobot_song_play(UINT8 songNumber);
 
 
 
-extern INT16
+extern UINT16
 iRDistance,
 iRAngle;
 
@@ -9050,15 +9050,7 @@ if(angleToClosestWall < 0) {
 angleToClosestWall = angleToClosestWall + (2*angleToClosestWall);
 angleToClosestWall = 270 - angleToClosestWall;
 }
-if (MXK_SwitchTo(eMXK_HMI)) {
-printf("%c", (char)35);
-printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
-Console_Render();
-if (MXK_Release())
-MXK_Dequeue();
-}
-delay_ms(1000);
-if(!(angleToClosestWall > 63 && angleToClosestWall < 72)){
+if(!(angleToClosestWall > 65 && angleToClosestWall < 70)) {
 irobot_rotate(0, 270 - angleToClosestWall, 200);
 }
 }
@@ -9191,7 +9183,7 @@ MXK_Dequeue();
 }
 irobot_song_play(0);
 irobot_stop_motion(0);
-while(Stepper.mDelta != 0){
+while(Stepper.mDelta != 0) {
 
 }
 }
