@@ -51,6 +51,7 @@ int angle = 0;
 int corner = 1;
 Motor Stepper;
 ADC ADC_AN0;
+bool correctOrientation = false;
 
 // Prototype Functions
 void init();
@@ -155,6 +156,7 @@ void move_and_rotate(){
 
 // Finds the closest wall for Mode 4
 void findClosestWall(){
+        correctOrientation = false;
         StepRotate = 400; //logs steps rotated
         MinDist = 1000; //logs minimum distance
         Stepstomin = 0; //logs steps required to min value
@@ -206,7 +208,7 @@ void findClosestWall(){
                 }
         }
         Motor_Speed(&Stepper, HZ(400));
-        Motor_Move(&Stepper, 300);
+        Motor_Move(&Stepper, 400);
         angleToClosestWall = angleToClosestWall + 67;
         if(angleToClosestWall > 270) {
                 angleToClosestWall = angleToClosestWall - 270;
@@ -218,6 +220,80 @@ void findClosestWall(){
         else{
                 irobot_rotate(0, 270 - angleToClosestWall, -200);
         }
+        delay_ms(200);
+        while (!correctOrientation) {
+                StepRotate = 400; //logs steps rotated
+                MinDist = 1000; //logs minimum distance
+                Stepstomin = 0; //logs steps required to min value
+                angleToClosestWall = 1000; //Convert to a angle out of 360
+                IRValue = 0; //logs current IR Value
+                TimerX = 8; //while loop delay
+                angle = 0;
+                while (StepRotate > 0) {
+                        StepRotate--;
+                        ADC_Start(&ADC_AN0);
+                        IRValue = (59 / ADC_Voltage(&ADC_AN0));
+                        if (MXK_SwitchTo(eMXK_HMI)) {
+                                HMI_SetNumber(IRValue);
+                                HMI_Render();
+                                if (MXK_Release())
+                                        MXK_Dequeue();
+                        }
+                        if (IRValue < MinDist) {
+                                MinDist = IRValue;
+                                Stepstomin = StepRotate;
+                                angleToClosestWall = Stepstomin * 0.675;
+                        }
+                        if (MXK_SwitchTo(eMXK_Motor)) {
+                                Motor_Speed(&Stepper, HZ(100));
+                                Motor_Move(&Stepper, -1);
+                                if (MXK_Release())
+                                        MXK_Dequeue();
+                        }
+                        TimerX = 10;
+                        if (TimerX > 0) {
+                                while (TimerX > 0) {
+                                        ADC_Start(&ADC_AN0);
+                                        if (MXK_SwitchTo(eMXK_HMI)) {
+                                                HMI_SetNumber(IRValue);
+                                                HMI_Render();
+                                                if (MXK_Release())
+                                                        MXK_Dequeue();
+                                        }
+                                        IRValue = (59 / ADC_Voltage(&ADC_AN0));
+                                        TimerX--;
+                                }
+                        }
+                        if (MXK_SwitchTo(eMXK_HMI)) {
+                                printf("%c", ENDOFTEXT);
+                                printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
+                                Console_Render();
+                                if (MXK_Release())
+                                        MXK_Dequeue();
+                        }
+                }
+                Motor_Speed(&Stepper, HZ(400));
+                Motor_Move(&Stepper, 400);
+                if(angleToClosestWall > 193 && angleToClosestWall < 212) {
+                        correctOrientation = true;
+                }
+                else{
+                        angleToClosestWall = angleToClosestWall + 67;
+                        if(angleToClosestWall > 270) {
+                                angleToClosestWall = angleToClosestWall - 270;
+                        }
+                        angleToClosestWall = 270 - angleToClosestWall;
+                        if(angleToClosestWall < 135) {
+                                irobot_rotate(0, angleToClosestWall, 200); // Rotate perpendicular to the closest wall
+                        }
+                        else{
+                                irobot_rotate(0, 270 - angleToClosestWall, -200);
+                        }
+                }
+                delay_ms(200);
+        }
+        Motor_Speed(&Stepper, HZ(400));
+        Motor_Move(&Stepper, -100);
 }
 
 // Reads IR distance sensor value, converts to distance and displays on SSD

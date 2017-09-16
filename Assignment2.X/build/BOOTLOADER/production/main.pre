@@ -8896,6 +8896,7 @@ int angle = 0;
 int corner = 1;
 Motor Stepper;
 ADC ADC_AN0;
+bool correctOrientation = 0;
 
 
 void init();
@@ -9000,6 +9001,7 @@ delay_ms(100);
 
 
 void findClosestWall(){
+correctOrientation = 0;
 StepRotate = 400;
 MinDist = 1000;
 Stepstomin = 0;
@@ -9051,7 +9053,7 @@ MXK_Dequeue();
 }
 }
 Motor_Speed(&Stepper, (400));
-Motor_Move(&Stepper, 300);
+Motor_Move(&Stepper, 400);
 angleToClosestWall = angleToClosestWall + 67;
 if(angleToClosestWall > 270) {
 angleToClosestWall = angleToClosestWall - 270;
@@ -9063,6 +9065,80 @@ irobot_rotate(0, angleToClosestWall, 200);
 else{
 irobot_rotate(0, 270 - angleToClosestWall, -200);
 }
+delay_ms(200);
+while (!correctOrientation) {
+StepRotate = 400;
+MinDist = 1000;
+Stepstomin = 0;
+angleToClosestWall = 1000;
+IRValue = 0;
+TimerX = 8;
+angle = 0;
+while (StepRotate > 0) {
+StepRotate--;
+ADC_Start(&ADC_AN0);
+IRValue = (59 / ADC_Voltage(&ADC_AN0));
+if (MXK_SwitchTo(eMXK_HMI)) {
+HMI_SetNumber(IRValue);
+HMI_Render();
+if (MXK_Release())
+MXK_Dequeue();
+}
+if (IRValue < MinDist) {
+MinDist = IRValue;
+Stepstomin = StepRotate;
+angleToClosestWall = Stepstomin * 0.675;
+}
+if (MXK_SwitchTo(eMXK_Motor)) {
+Motor_Speed(&Stepper, (100));
+Motor_Move(&Stepper, -1);
+if (MXK_Release())
+MXK_Dequeue();
+}
+TimerX = 10;
+if (TimerX > 0) {
+while (TimerX > 0) {
+ADC_Start(&ADC_AN0);
+if (MXK_SwitchTo(eMXK_HMI)) {
+HMI_SetNumber(IRValue);
+HMI_Render();
+if (MXK_Release())
+MXK_Dequeue();
+}
+IRValue = (59 / ADC_Voltage(&ADC_AN0));
+TimerX--;
+}
+}
+if (MXK_SwitchTo(eMXK_HMI)) {
+printf("%c", (char)35);
+printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
+Console_Render();
+if (MXK_Release())
+MXK_Dequeue();
+}
+}
+Motor_Speed(&Stepper, (400));
+Motor_Move(&Stepper, 400);
+if(angleToClosestWall > 195 && angleToClosestWall < 210) {
+correctOrientation = 1;
+}
+else{
+angleToClosestWall = angleToClosestWall + 67;
+if(angleToClosestWall > 270) {
+angleToClosestWall = angleToClosestWall - 270;
+}
+angleToClosestWall = 270 - angleToClosestWall;
+if(angleToClosestWall < 135) {
+irobot_rotate(0, angleToClosestWall, 200);
+}
+else{
+irobot_rotate(0, 270 - angleToClosestWall, -200);
+}
+}
+delay_ms(200);
+}
+Motor_Speed(&Stepper, (400));
+Motor_Move(&Stepper, -100);
 }
 
 
