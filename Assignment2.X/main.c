@@ -48,6 +48,7 @@ int TimerX = 8; //while loop delay
 int angleToClosestWall = 0;
 int dist = 0;
 int angle = 0;
+int corner = 1;
 Motor Stepper;
 ADC ADC_AN0;
 
@@ -61,6 +62,7 @@ void mode4();
 void move_and_rotate();
 void findClosestWall();
 void safeToGo();
+void measureAndDisplayDistance();
 
 // Initialisation Function
 void init() {
@@ -136,11 +138,14 @@ void safeToGo(){
 
 // Function for mode 3
 void move_and_rotate(){
-        dist = 0;
         irobot_move_straight(100);
-        while (dist < 1000) {
+        while (dist < (corner * 1000)) {
                 update_distance();
                 dist += iRDistance;
+                printf("%c", ENDOFTEXT);
+                printf("Distance: %d\n", dist);
+                Console_Render();
+                measureAndDisplayDistance();
         }
         irobot_stop_motion(0);
         delay_ms(100);
@@ -207,11 +212,23 @@ void findClosestWall(){
                 angleToClosestWall = angleToClosestWall - 270;
         }
         angleToClosestWall = 270 - angleToClosestWall;
-        if(angleToClosestWall < 135){
-        irobot_rotate(0, angleToClosestWall, 200);         // Rotate perpendicular to the closest wall
+        if(angleToClosestWall < 135) {
+                irobot_rotate(0, angleToClosestWall, 200); // Rotate perpendicular to the closest wall
         }
         else{
-            irobot_rotate(0, 270 - angleToClosestWall, -200);
+                irobot_rotate(0, 270 - angleToClosestWall, -200);
+        }
+}
+
+// Reads IR distance sensor value, converts to distance and displays on SSD
+void measureAndDisplayDistance(){
+        ADC_Start(&ADC_AN0);
+        IRValue = (59 / ADC_Voltage(&ADC_AN0));
+        if (MXK_SwitchTo(eMXK_HMI)) {
+                HMI_SetNumber(IRValue);
+                HMI_Render();
+                if (MXK_Release())
+                        MXK_Dequeue();
         }
 }
 
@@ -293,7 +310,7 @@ void mode2() {
                 printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
                 Console_Render();
 
-                int dist = 0;
+                dist = 0;
                 irobot_move_straight(200);
                 while (dist < 5000) {
                         update_distance();
@@ -301,6 +318,7 @@ void mode2() {
                         printf("%c", ENDOFTEXT);
                         printf("Distance: %d\n", dist);
                         Console_Render();
+                        measureAndDisplayDistance();
                 }
                 irobot_stop_motion(0);
 
@@ -312,9 +330,14 @@ void mode2() {
 // Mode 3
 void mode3() {
         safeToGo();
+        dist = 0;
+        corner = 1;
         move_and_rotate();
+        corner++;
         move_and_rotate();
+        corner++;
         move_and_rotate();
+        corner++;
         move_and_rotate();
 }
 
@@ -376,5 +399,6 @@ void main() {
                                         MXK_Dequeue();
                         }
                 }
+                measureAndDisplayDistance();
         }
 }
