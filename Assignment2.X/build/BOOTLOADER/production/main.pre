@@ -8989,7 +8989,7 @@ dist += iRDistance;
 }
 irobot_stop_motion(0);
 delay_ms(100);
-irobot_rotate(0, 67, -200);
+irobot_rotate(0, 67, 200);
 delay_ms(100);
 }
 
@@ -9052,8 +9052,12 @@ if(angleToClosestWall > 270) {
 angleToClosestWall = angleToClosestWall - 270;
 }
 angleToClosestWall = 270 - angleToClosestWall;
+if(angleToClosestWall < 135){
 irobot_rotate(0, angleToClosestWall, 200);
-
+}
+else{
+irobot_rotate(0, 270 - angleToClosestWall, -200);
+}
 }
 
 

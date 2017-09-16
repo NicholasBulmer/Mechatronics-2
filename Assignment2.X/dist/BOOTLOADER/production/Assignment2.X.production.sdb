@@ -600,7 +600,7 @@ iR_PKT_V_WALL 13
 iR_PKT_DISTANCE 19
 iR_PKT_ANGLE 20
 ]
-"135
+"147
 [e E6829 . `uc
 iR_START 128
 iR_FULL_MODE 132
@@ -619,7 +619,7 @@ iR_WAIT_DISTANCE 156
 iR_WAIT_ANGLE 157
 iR_WAIT_EVENT 158
 ]
-"284
+"305
 [e E6869 . `ui
 iR_CONST_STRAIGHT_1 -32768
 iR_CONST_STRAIGHT_2 32767
@@ -820,47 +820,47 @@ eMXK_None 0
 [v _get_packet_size get_packet_size `(uc  1 e 1 0 ]
 "74
 [v _rx_assign rx_assign `(v  1 e 1 0 ]
-"92
+"102
 [v _sort_iRBumpDrop sort_iRBumpDrop `(v  1 e 1 0 ]
-"103
+"113
 [v _eusart_init eusart_init `(v  1 e 1 0 ]
-"120
-[v _eusart_putch eusart_putch `(v  1 e 1 0 ]
-"125
-[v _eusart_getch eusart_getch `(uc  1 e 1 0 ]
 "130
+[v _eusart_putch eusart_putch `(v  1 e 1 0 ]
+"136
+[v _eusart_getch eusart_getch `(uc  1 e 1 0 ]
+"142
 [v _irobot_query_and_update irobot_query_and_update `(v  1 e 1 0 ]
-"167
+"181
 [v _twos_complement_of twos_complement_of `(us  1 e 2 0 ]
-"176
+"190
 [v _load_iRScriptStack load_iRScriptStack `(v  1 e 1 0 ]
-"198
+"215
 [v _irobot_init irobot_init `(v  1 e 1 0 ]
-"204
+"222
 [v _irobot_angle_wait irobot_angle_wait `(v  1 e 1 0 ]
-"212
+"231
 [v _irobot_distance_wait irobot_distance_wait `(v  1 e 1 0 ]
-"220
+"240
 [v _irobot_move irobot_move `(v  1 e 1 0 ]
-"239
+"259
 [v _irobot_leds irobot_leds `(v  1 e 1 0 ]
-"252
+"271
 [v _irobot_init_song_0 irobot_init_song_0 `(v  1 e 1 0 ]
-"274
+"294
 [v _irobot_song_play irobot_song_play `(v  1 e 1 0 ]
-"280
+"301
 [v _irobot_rotate irobot_rotate `(v  1 e 1 0 ]
-"299
+"328
 [v _irobot_stop_motion irobot_stop_motion `(v  1 e 1 0 ]
-"304
+"334
 [v _irobot_led_power_on irobot_led_power_on `(v  1 e 1 0 ]
-"314
+"346
 [v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
-"319
+"352
 [v _update_bump_and_cliff update_bump_and_cliff `(v  1 e 1 0 ]
-"326
+"360
 [v _update_distance update_distance `(v  1 e 1 0 ]
-"331
+"366
 [v _update_angle update_angle `(v  1 e 1 0 ]
 "27 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/ISR.c
 [v _ISR_Enable ISR_Enable `(v  1 e 1 0 ]
@@ -1292,15 +1292,15 @@ eMXK_None 0
 [v _move_and_rotate move_and_rotate `(v  1 e 1 0 ]
 "152
 [v _findClosestWall findClosestWall `(v  1 e 1 0 ]
-"215
+"219
 [v _mode1 mode1 `(v  1 e 1 0 ]
-"285
+"289
 [v _mode2 mode2 `(v  1 e 1 0 ]
-"309
+"313
 [v _mode3 mode3 `(v  1 e 1 0 ]
-"318
+"322
 [v _mode4 mode4 `(v  1 e 1 0 ]
-"344
+"348
 [v _main main `(v  1 e 1 0 ]
 "2847 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18f67j50.h
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
@@ -2263,105 +2263,105 @@ eMXK_None 0
 [v _Stepper Stepper `S12593  1 e 6 0 ]
 "52
 [v _ADC_AN0 ADC_AN0 `S11482  1 e 5 0 ]
-"344
+"348
 [v _main main `(v  1 e 1 0 ]
 {
-"376
+"380
 } 0
-"318
+"322
 [v _mode4 mode4 `(v  1 e 1 0 ]
 {
-"341
+"345
 } 0
 "152
 [v _findClosestWall findClosestWall `(v  1 e 1 0 ]
 {
-"212
+"216
 } 0
-"309
+"313
 [v _mode3 mode3 `(v  1 e 1 0 ]
 {
-"315
+"319
 } 0
 "138
 [v _move_and_rotate move_and_rotate `(v  1 e 1 0 ]
 {
 "149
 } 0
-"280 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
+"301 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_rotate irobot_rotate `(v  1 e 1 0 ]
 {
 [v irobot_rotate@isScript isScript `uc  1 a 1 wreg ]
-"282
-[v irobot_rotate@rotateDirection rotateDirection `s  1 a 2 37 ]
-"281
-[v irobot_rotate@angleTotal angleTotal `s  1 a 2 35 ]
-"280
+"302
+[v irobot_rotate@angleTotal angleTotal `s  1 a 2 38 ]
+"303
+[v irobot_rotate@rotateDirection rotateDirection `s  1 a 2 36 ]
+"301
 [v irobot_rotate@isScript isScript `uc  1 a 1 wreg ]
 [v irobot_rotate@rotateAngle rotateAngle `s  1 p 2 29 ]
 [v irobot_rotate@rotateSpeed rotateSpeed `s  1 p 2 31 ]
-[v irobot_rotate@isScript isScript `uc  1 a 1 34 ]
-"296
+[v irobot_rotate@isScript isScript `uc  1 a 1 35 ]
+"324
 } 0
-"285 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"289 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _mode2 mode2 `(v  1 e 1 0 ]
 {
-"290
+"294
 [v mode2@dist dist `i  1 a 2 44 ]
-"306
+"310
 } 0
-"314 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
+"346 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_move_straight irobot_move_straight `(v  1 e 1 0 ]
 {
 [v irobot_move_straight@straightSpeed straightSpeed `s  1 p 2 25 ]
-"316
+"348
 } 0
-"215 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
+"219 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\main.c
 [v _mode1 mode1 `(v  1 e 1 0 ]
 {
-"266
+"270
 [v mode1@moveto moveto `i  1 a 2 2 ]
-"282
+"286
 } 0
 "123
 [v _safeToGo safeToGo `(v  1 e 1 0 ]
 {
 "135
 } 0
-"326 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
+"360 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _update_distance update_distance `(v  1 e 1 0 ]
 {
-"328
+"362
 } 0
-"319
+"352
 [v _update_bump_and_cliff update_bump_and_cliff `(v  1 e 1 0 ]
 {
-"323
+"356
 } 0
-"331
+"366
 [v _update_angle update_angle `(v  1 e 1 0 ]
 {
-"333
+"368
 } 0
-"130
+"142
 [v _irobot_query_and_update irobot_query_and_update `(v  1 e 1 0 ]
 {
 [v irobot_query_and_update@numberOfPacketRequests numberOfPacketRequests `uc  1 a 1 wreg ]
-"131
+"143
 [v irobot_query_and_update@TXArray TXArray `[256]uc  1 a 256 0 ]
 [v irobot_query_and_update@RXArray RXArray `[256]uc  1 a 256 0 ]
-"133
+"145
 [v irobot_query_and_update@packetIDs packetIDs `[1]*.39v  1 a 2 21 ]
-"131
+"143
 [v irobot_query_and_update@i i `uc  1 a 1 28 ]
 [v irobot_query_and_update@startIndex startIndex `uc  1 a 1 27 ]
 [v irobot_query_and_update@j j `uc  1 a 1 26 ]
 [v irobot_query_and_update@packetVariable packetVariable `uc  1 a 1 25 ]
 [v irobot_query_and_update@streamSize streamSize `uc  1 a 1 23 ]
-"130
+"142
 [v irobot_query_and_update@numberOfPacketRequests numberOfPacketRequests `uc  1 a 1 wreg ]
 [v irobot_query_and_update@numberOfPacketRequests numberOfPacketRequests `uc  1 a 1 24 ]
-"153
+"167
 } 0
 "74
 [v _rx_assign rx_assign `(v  1 e 1 0 ]
@@ -2371,12 +2371,12 @@ eMXK_None 0
 [v rx_assign@packetIDValue packetIDValue `uc  1 p 1 1 ]
 [v rx_assign@byteNumber byteNumber `uc  1 p 1 2 ]
 [v rx_assign@packetID packetID `uc  1 a 1 5 ]
-"90
+"100
 } 0
-"92
+"102
 [v _sort_iRBumpDrop sort_iRBumpDrop `(v  1 e 1 0 ]
 {
-"98
+"108
 } 0
 "60
 [v _get_packet_size get_packet_size `(uc  1 e 1 0 ]
@@ -2386,20 +2386,20 @@ eMXK_None 0
 [v get_packet_size@packetID packetID `uc  1 a 1 0 ]
 "72
 } 0
-"125
+"136
 [v _eusart_getch eusart_getch `(uc  1 e 1 0 ]
 {
-"128
+"140
 } 0
-"299
+"328
 [v _irobot_stop_motion irobot_stop_motion `(v  1 e 1 0 ]
 {
 [v irobot_stop_motion@isScript isScript `uc  1 a 1 wreg ]
 [v irobot_stop_motion@isScript isScript `uc  1 a 1 wreg ]
 [v irobot_stop_motion@isScript isScript `uc  1 a 1 25 ]
-"301
+"330
 } 0
-"220
+"240
 [v _irobot_move irobot_move `(v  1 e 1 0 ]
 {
 [v irobot_move@isScript isScript `uc  1 a 1 wreg ]
@@ -2407,21 +2407,21 @@ eMXK_None 0
 [v irobot_move@moveSpeed moveSpeed `s  1 p 2 16 ]
 [v irobot_move@moveTurnRadius moveTurnRadius `s  1 p 2 18 ]
 [v irobot_move@isScript isScript `uc  1 a 1 24 ]
-"236
+"255
 } 0
-"167
+"181
 [v _twos_complement_of twos_complement_of `(us  1 e 2 0 ]
 {
 [v twos_complement_of@complementValue complementValue `s  1 p 2 0 ]
-"174
+"188
 } 0
-"274
+"294
 [v _irobot_song_play irobot_song_play `(v  1 e 1 0 ]
 {
 [v irobot_song_play@songNumber songNumber `uc  1 a 1 wreg ]
 [v irobot_song_play@songNumber songNumber `uc  1 a 1 wreg ]
 [v irobot_song_play@songNumber songNumber `uc  1 a 1 1 ]
-"277
+"297
 } 0
 "464 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -2836,15 +2836,15 @@ eMXK_None 0
 {
 "103
 } 0
-"304 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
+"334 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/iRobotSerial.c
 [v _irobot_led_power_on irobot_led_power_on `(v  1 e 1 0 ]
 {
 [v irobot_led_power_on@powerOnColour powerOnColour `uc  1 a 1 wreg ]
 [v irobot_led_power_on@powerOnColour powerOnColour `uc  1 a 1 wreg ]
 [v irobot_led_power_on@powerOnColour powerOnColour `uc  1 a 1 20 ]
-"306
+"336
 } 0
-"239
+"259
 [v _irobot_leds irobot_leds `(v  1 e 1 0 ]
 {
 [v irobot_leds@isScript isScript `uc  1 a 1 wreg ]
@@ -2853,44 +2853,44 @@ eMXK_None 0
 [v irobot_leds@powerColour powerColour `uc  1 p 1 17 ]
 [v irobot_leds@powerLuminosity powerLuminosity `uc  1 p 1 18 ]
 [v irobot_leds@isScript isScript `uc  1 a 1 19 ]
-"250
+"269
 } 0
-"176
+"190
 [v _load_iRScriptStack load_iRScriptStack `(v  1 e 1 0 ]
 {
 [v load_iRScriptStack@bytesToLoad bytesToLoad `uc  1 a 1 wreg ]
-"179
+"193
 [v load_iRScriptStack@i i `uc  1 a 1 15 ]
-"177
+"191
 [v load_iRScriptStack@loadByte loadByte `[1]*.39v  1 a 2 12 ]
-"176
+"190
 [v load_iRScriptStack@bytesToLoad bytesToLoad `uc  1 a 1 wreg ]
-"178
+"192
 [v load_iRScriptStack@bytesToLoad bytesToLoad `uc  1 a 1 14 ]
-"184
+"198
 } 0
-"252
+"271
 [v _irobot_init_song_0 irobot_init_song_0 `(v  1 e 1 0 ]
 {
-"258
+"277
 } 0
-"198
+"215
 [v _irobot_init irobot_init `(v  1 e 1 0 ]
 {
-"201
+"218
 } 0
-"120
+"130
 [v _eusart_putch eusart_putch `(v  1 e 1 0 ]
 {
 [v eusart_putch@eusartSendChar eusartSendChar `uc  1 a 1 wreg ]
 [v eusart_putch@eusartSendChar eusartSendChar `uc  1 a 1 wreg ]
 [v eusart_putch@eusartSendChar eusartSendChar `uc  1 a 1 0 ]
-"123
+"134
 } 0
-"103
+"113
 [v _eusart_init eusart_init `(v  1 e 1 0 ]
 {
-"118
+"128
 } 0
 "26 C:\Users\Endor\Desktop\mx2-project\Assignment2.X\Library/Motor.c
 [v _Motor_Init Motor_Init `(v  1 e 1 0 ]

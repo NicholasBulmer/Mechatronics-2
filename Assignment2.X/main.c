@@ -144,7 +144,7 @@ void move_and_rotate(){
         }
         irobot_stop_motion(0);
         delay_ms(100);
-        irobot_rotate(0, 67, -200);
+        irobot_rotate(0, 67, 200);
         delay_ms(100);
 }
 
@@ -207,8 +207,12 @@ void findClosestWall(){
                 angleToClosestWall = angleToClosestWall - 270;
         }
         angleToClosestWall = 270 - angleToClosestWall;
+        if(angleToClosestWall < 135){
         irobot_rotate(0, angleToClosestWall, 200);         // Rotate perpendicular to the closest wall
-
+        }
+        else{
+            irobot_rotate(0, 270 - angleToClosestWall, -200);
+        }
 }
 
 // Mode 1
