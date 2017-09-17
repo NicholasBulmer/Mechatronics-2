@@ -1,0 +1,519 @@
+#include "SPI.h"
+
+#include <xc.h>
+#include <stdbool.h>
+#include "Timer2.h"
+#include "Types.h"
+#include "Port.h"
+#include "FIFO16.h"
+#include "FIFOBIT.h"
+
+#define SELECT 0
+#define DESELECT 1
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+#ifdef SPI_ISR
+static UINT8		SPI_IBUF[2][SPI_BUFFERSIZE];
+static UINT8		SPI_OBUF[2][SPI_BUFFERSIZE];
+static FIFO		SPI_IFIFO[2],			SPI_OFIFO[2];
+#ifdef BITFIFOMODE
+UINT8			SPI_IBBUF[2][SPI_BUFFERSIZE/8],	SPI_OBBUF[2][SPI_BUFFERSIZE/8];
+static FIFOBIT		SPI_IBFIFO[2],			SPI_OBFIFO[2];
+#else
+static FIFO16		SPI_O16FIFO;
+UINT16			SPI_O16BUF[SPI_BUFFERSIZE];
+#endif
+
+#define SPI1_IBUF   SPI_IBUF[0]
+#define SPI2_IBUF   SPI_IBUF[1]
+#define SPI1_OBUF   SPI_OBUF[0]
+#define SPI2_OBUF   SPI_OBUF[1]
+#define SPI1_IFIFO  SPI_IFIFO[0]
+#define SPI2_IFIFO  SPI_IFIFO[1]
+#define SPI1_OFIFO  SPI_OFIFO[0]
+#define SPI2_OFIFO  SPI_OFIFO[1]
+
+#define SPI1_IBBUF   SPI_IBBUF[0]
+#define SPI2_IBBUF   SPI_IBBUF[1]
+#define SPI1_OBBUF   SPI_OBBUF[0]
+#define SPI2_OBBUF   SPI_OBBUF[1]
+#define SPI1_IBFIFO  SPI_IBFIFO[0]
+#define SPI2_IBFIFO  SPI_IBFIFO[1]
+#define SPI1_OBFIFO  SPI_OBFIFO[0]
+#define SPI2_OBFIFO  SPI_OBFIFO[1]
+#endif
+
+inline void SPI_EnableISR(eSPI_Channel pChannel);
+inline void SPI_DisableISR(eSPI_Channel pChannel);
+inline void SPI_ISR_GENERAL(eSPI_Channel pChannel);
+inline void SPI_ISR_GENERAL16(eSPI_Channel pChannel);
+inline UINT8Ptr SPI_BUF(eSPI_Channel pChannel);
+inline void SPI2_9BITX(UINT16 pInput);
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void SPI_Init(UINT32 pCPUClock, UINT32 pClock, eSPI_Channel pChannel, eSPI_Mode pMode)
+{
+    static BytePtr SSPSTATT, SSPCON1T;
+    ////////////////////////////////////////////////////////////////////////////
+    
+#ifdef SPI_ISR
+    #ifdef BITFIFOMODE
+    FIFOBIT_Init(&SPI_IBFIFO[pChannel], SPI1_IBBUF, SPI_BUFFERSIZE/8);
+    FIFOBIT_Init(&SPI_OBFIFO[pChannel], SPI1_OBBUF, SPI_BUFFERSIZE/8);
+    #else
+    if (pChannel == eSPI2)
+	FIFO16_Init(&SPI_O16FIFO,   SPI_O16BUF,		SPI_BUFFERSIZE);
+    #endif
+
+    FIFO_Init(&SPI_IFIFO[pChannel], SPI_IBUF[pChannel],	SPI_BUFFERSIZE);
+    FIFO_Init(&SPI_OFIFO[pChannel], SPI_OBUF[pChannel],	SPI_BUFFERSIZE);
+#endif
+    
+    //Initialize GPIO and registers
+    switch (pChannel)
+    {
+        case eSPI1:
+	    ////////////////////////////////////////////////////////////////////
+	    Port_SetPinType(&PortC, SPI1_CS,	eTypeOutput);
+            Port_SetPinType(&PortC, SPI1_SCK,	eTypeOutput);
+            Port_SetPinType(&PortC, SPI1_SIMO,	eTypeOutput);
+            Port_SetPinType(&PortC, SPI1_SOMI,	eTypeInput);
+            ////////////////////////////////////////////////////////////////////
+            SSPSTATT = (BytePtr)&SSP1STAT;
+            SSPCON1T = (BytePtr)&SSP1CON1;
+            break;
+        case eSPI2:
+	    ////////////////////////////////////////////////////////////////////
+            Port_SetPinType(&PortD, SPI2_CS,	eTypeOutput);
+            Port_SetPinType(&PortD, SPI2_SCK,	eTypeOutput);
+            Port_SetPinType(&PortD, SPI2_SIMO,	eTypeOutput);
+            Port_SetPinType(&PortD, SPI2_SOMI,	eTypeInput);
+            ////////////////////////////////////////////////////////////////////
+            SSPSTATT = (BytePtr)&SSP2STAT;
+            SSPCON1T = (BytePtr)&SSP2CON1;
+            break;
+        default:
+            return;
+    };   
+    ////////////////////////////////////////////////////////////////////////////
+    //Disable Serial Port
+    Byte_SetBit(SSPCON1T, SSPCON1_SSPEN, SSPCON1_SSPEN_OFF);
+    ////////////////////////////////////////////////////////////////////////////
+    //Setup SPI Modes
+    switch(pMode)
+    {
+        case eSPI_Mode0:
+            Byte_SetBit(SSPCON1T, SSPCON1_CKP, SSPCON1_CKP_IDLEL);   //MSB CKP
+            Byte_SetBit(SSPSTATT, SSPSTAT_CKE, SSPSTAT_CKE_ATI);     //LSB CKE
+            break;
+        case eSPI_Mode1:
+            Byte_SetBit(SSPCON1T, SSPCON1_CKP, SSPCON1_CKP_IDLEL);   //MSB CKP
+            Byte_SetBit(SSPSTATT, SSPSTAT_CKE, SSPSTAT_CKE_ITA);     //LSB CKE
+            break;
+        case eSPI_Mode2:
+            Byte_SetBit(SSPCON1T, SSPCON1_CKP, SSPCON1_CKP_IDLEH);   //MSB CKP
+            Byte_SetBit(SSPSTATT, SSPSTAT_CKE, SSPSTAT_CKE_ATI);     //LSB CKE
+            break;
+        case eSPI_Mode3:
+            Byte_SetBit(SSPCON1T, SSPCON1_CKP, SSPCON1_CKP_IDLEH);   //MSB CKP
+            Byte_SetBit(SSPSTATT, SSPSTAT_CKE, SSPSTAT_CKE_ITA);     //LSB CKE
+            break;
+        default:
+            return;
+    };
+    ////////////////////////////////////////////////////////////////////////////
+    //Clear Flags
+    Byte_SetBit(SSPCON1T, SSPCON1_WCOL,  SSPCON1_WCOL_NO_COL);  
+    Byte_SetBit(SSPCON1T, SSPCON1_SSPOV, SSPCON1_SSPOV_NO_OVFLW);    
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    //Clear flags
+    Timer2_Init(pClock);
+    #ifdef SPI_ISR
+	SPI_ClearFlags(pChannel);
+	SPI_EnableISR(pChannel);
+    #else	
+	SPI_DisableISR(pChannel);
+    #endif
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    switch (pChannel)
+    {
+        case eSPI1:	IPR1bits.SSP1IP = 1;	break;
+        case eSPI2:	IPR3bits.SSP2IP = 1;	break;
+        default:				return;
+    };  
+    ////////////////////////////////////////////////////////////////////////////
+    //CS is an output and deselect line
+    SPI_DCS(pChannel);
+    ////////////////////////////////////////////////////////////////////////////
+    //Enable Serial Port
+    Byte_SetQuad(SSPCON1T, SSPCON1_SSPM, SSPCON1_SSPM_F_TMR2);
+    Byte_SetBit	(SSPCON1T, SSPCON1_SSPEN, SSPCON1_SSPEN_ON);
+    ////////////////////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+inline void SPI_ClearFlags(eSPI_Channel pChannel)
+{
+    static UINT8 data;
+    switch (pChannel)
+    {
+        case eSPI1:   PIR1bits.SSP1IF	=   0;	data = SSP1BUF; return;
+        case eSPI2:   PIR3bits.SSP2IF	=   0;	data = SSP2BUF; return;
+        default:				return;
+    };  
+}
+inline void SPI_SetFlags(eSPI_Channel pChannel)
+{
+    switch (pChannel)
+    {
+        case eSPI1:   PIR1bits.SSP1IF	=   1;	return;
+        case eSPI2:   PIR3bits.SSP2IF	=   1;	return;
+        default:				return;
+    };  
+}
+inline void SPI_EnableISR(eSPI_Channel pChannel)
+{
+    switch (pChannel)
+    {
+	case eSPI1:    PIE1bits.SSP1IE = 1;    return;
+	case eSPI2:    PIE3bits.SSP2IE = 1;    return;
+	default:			       return;
+    };  
+}
+inline void SPI_DisableISR(eSPI_Channel pChannel)
+{
+    switch (pChannel)
+    {
+	case eSPI1:    PIE1bits.SSP1IE = 0;    return;
+	case eSPI2:    PIE3bits.SSP2IE = 0;    return;
+	default:			       return;
+    };  
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void SPI_MinSpeed(eSPI_Channel pChannel)
+{
+    UINT8 Temp;
+    BytePtr SSPSTATT, SSPCON1T;
+    Temp = SSP1BUF;
+
+    ////////////////////////////////////////////////////////////////////////////
+    //Initialize GPIO and registers
+    switch (pChannel)
+    {
+        case eSPI1:
+            ////////////////////////////////////////////////////////////////////
+            SSPSTATT = (BytePtr)&SSP1STAT;
+            SSPCON1T = (BytePtr)&SSP1CON1;
+            break;
+        case eSPI2:
+            ////////////////////////////////////////////////////////////////////
+            SSPSTATT = (BytePtr)&SSP2STAT;
+            SSPCON1T = (BytePtr)&SSP2CON1;
+            break;
+        default:
+            return;
+    }; 
+    
+        ////////////////////////////////////////////////////////////////////////////
+    //Disable Serial Port
+    Byte_SetBit(SSPCON1T,   SSPCON1_SSPEN, SSPCON1_SSPEN_OFF);
+    ////////////////////////////////////////////////////////////////////////////
+    //Enable Serial Port
+    Byte_SetQuad(SSPCON1T,  SSPCON1_SSPM, SSPCON1_SSPM_F_64);
+    Byte_SetBit(SSPCON1T,   SSPCON1_SSPEN, SSPCON1_SSPEN_ON);
+    ////////////////////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void SPI_MaxSpeed(eSPI_Channel pChannel)
+{
+    UINT8 Temp;
+    BytePtr SSPSTATT, SSPCON1T;
+    Temp = SSP1BUF;
+
+    ////////////////////////////////////////////////////////////////////////////
+    //Initialize GPIO and registers
+    switch (pChannel)
+    {
+        case eSPI1:
+            ////////////////////////////////////////////////////////////////////
+            SSPSTATT = (BytePtr)&SSP1STAT;
+            SSPCON1T = (BytePtr)&SSP1CON1;
+            break;
+        case eSPI2:
+            ////////////////////////////////////////////////////////////////////
+            SSPSTATT = (BytePtr)&SSP2STAT;
+            SSPCON1T = (BytePtr)&SSP2CON1;
+            break;
+        default:
+            return;
+    }; 
+    
+        ////////////////////////////////////////////////////////////////////////////
+    //Disable Serial Port
+    Byte_SetBit(SSPCON1T,   SSPCON1_SSPEN, SSPCON1_SSPEN_OFF);
+    ////////////////////////////////////////////////////////////////////////////
+    //Enable Serial Port
+    Byte_SetQuad(SSPCON1T,  SSPCON1_SSPM, SSPCON1_SSPM_F_4);
+    Byte_SetBit(SSPCON1T,   SSPCON1_SSPEN, SSPCON1_SSPEN_ON);
+    ////////////////////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+inline void SPI_CS(eSPI_Channel pChannel)
+{
+    ////////////////////////////////////////////////////////////////////////////
+    switch(pChannel)
+    {
+    case eSPI1:	Port_SetPin(&PortC, SPI1_CS,SELECT);	return;
+    case eSPI2:	Port_SetPin(&PortD, SPI2_CS,SELECT);	return;
+    }
+    ////////////////////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+inline void SPI_DCS(eSPI_Channel pChannel)
+{
+    ////////////////////////////////////////////////////////////////////////////
+    switch(pChannel)
+    {
+    case eSPI1:	Port_SetPin(&PortC, SPI1_CS, DESELECT);	return;
+    case eSPI2:	Port_SetPin(&PortD, SPI2_CS, DESELECT);	return;
+    }
+    ////////////////////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+#ifdef SPI_ISR
+
+void	SPI_Send(eSPI_Channel pChannel, CUINT8 pInput)
+#else
+UINT8	SPI_Swap(eSPI_Channel pChannel, CUINT8 pInput)
+#endif
+{
+#ifdef SPI_ISR
+    bool Kickstart = false;
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //Conduct a SPI transaction
+    ////////////////////////////////////////////////////////////////////
+    if (FIFO_Empty(&SPI_OFIFO[pChannel]))
+	Kickstart = true;
+    
+    //Add the byte to the FIFO
+    while(!FIFO_Put(&SPI_OFIFO[pChannel], pInput));
+    
+    if (Kickstart)
+    {
+	if (pChannel == eSPI1)
+	    SPI1_ISR();
+	else
+	    SPI2_ISR();
+    }
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////   
+#else
+    ////////////////////////////////////////////////////////////////////////////
+    //Conduct a SPI transaction
+    ////////////////////////////////////////////////////////////////////////////
+    switch(pChannel)
+    {
+	case eSPI1:
+	    ////////////////////////////////////////////////////////////////////
+	    SPI_CS(pChannel);
+	    ////////////////////////////////////////////////////////////////////
+	    SSP1BUF = pInput;
+	    while(!SSP1STATbits.BF);
+	    ////////////////////////////////////////////////////////////////////
+	    SPI_DCS(pChannel);
+	    ////////////////////////////////////////////////////////////////////
+	    return SSP1BUF;
+	case eSPI2:
+	    ////////////////////////////////////////////////////////////////////
+	    SPI_CS(pChannel);
+	    ////////////////////////////////////////////////////////////////////
+	    SSP2BUF = pInput;
+	    while(!SSP2STATbits.BF);
+	    ////////////////////////////////////////////////////////////////////
+	    SPI_DCS(pChannel);
+	    ////////////////////////////////////////////////////////////////////
+	    return SSP2BUF;
+    };
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////   
+    return 0;
+#endif
+}
+
+inline void SPI2_9BIT(CUINT16 pBits)
+{
+    static Word dat;
+    dat.mBits   = pBits;
+#ifndef SPI_ISR
+
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    //Chip Select 
+    SPI2_CSP = 0;
+
+    ///////////////////////////////////////////////////////////////////////////
+    //Disable Serial Port
+    SPI2_ENAP	= 0;
+
+    ///////////////////////////////////////////////////////////////////////////
+    SPI2_CLKP	= 0;
+    SPI2_DATP	= dat.H;
+    SPI2_CLKP	= 1;
+
+    ////////////////////////////////////////////////////////////////////////////
+    //Enable Serial Port
+    SPI2_ENAP	= 1;
+    SSP2BUF	= dat.L;
+    
+    SPI2_CSP = 1;
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+#else
+#ifdef BITFIFOMODE
+    while(!FIFOBIT_Put(&SPI_OBFIFO[eSPI2], dat.H));
+    SPI_Send(eSPI2, dat.L);
+#else
+    if (FIFO16_Empty(&SPI_O16FIFO))
+    {
+	//Kick-start the transaction process
+	SPI2_9BITX(pBits);
+    }
+    else while(!FIFO16_Put(&SPI_O16FIFO, pBits));
+#endif
+#endif 
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+inline bool SPI_BF(eSPI_Channel pChannel)
+{
+    switch(pChannel)
+    {
+	case eSPI1:
+	    return (bool)SSP1STATbits.BF;
+	case eSPI2:
+	    return (bool)SSP2STATbits.BF;
+    };
+    return false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+inline UINT8Ptr SPI_BUF(eSPI_Channel pChannel)
+{
+    switch(pChannel)
+    {
+	case eSPI1: return (UINT8Ptr)&SSP1BUF;
+	case eSPI2: return (UINT8Ptr)&SSP2BUF;
+    };
+    return 0;
+}
+
+#ifdef SPI_ISR
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+inline void SPI_ISR_GENERAL(eSPI_Channel pChannel)
+{
+    static UINT8 dat;
+    ////////////////////////////////////////////////////////////////////////////
+    //If the FIFO is full then it will continuously retry until it can.
+    if (SPI_BF(pChannel))
+    {
+	SPI_DCS(pChannel);
+    	FIFO_Put(&SPI_IFIFO[pChannel], *SPI_BUF(pChannel));
+	SPI_ClearFlags(pChannel);
+
+	////////////////////////////////////////////////////////////////////////
+	if (FIFO_Get(&SPI_OFIFO[pChannel], &dat))
+	{
+	    SPI_CS(pChannel);
+	    *SPI_BUF(pChannel) = dat;
+	}
+	////////////////////////////////////////////////////////////////////////
+    }
+}
+
+inline void SPI2_9BITX(UINT16 pInput)
+{
+    static Word dat;
+    dat.mBits = pInput;
+    ///////////////////////////////////////////////////////////////////////////
+    //Chip Select 
+    SPI2_CSP = 0;
+
+    ///////////////////////////////////////////////////////////////////////////
+    //Disable Serial Port
+    SPI2_ENAP	= 0;
+
+    ///////////////////////////////////////////////////////////////////////////
+    SPI2_CLKP	= 0;
+    SPI2_DATP	= dat.H;
+    SPI2_CLKP	= 1;
+
+    ////////////////////////////////////////////////////////////////////////////
+    //Enable Serial Port
+    SPI2_ENAP	= 1;
+    SSP2BUF	= dat.L;
+}
+
+#ifndef BITFIFOMODE
+////////////////////////////////////////////////////////////////////////////////
+inline void SPI_ISR_GENERAL16(eSPI_Channel pChannel)
+{
+    static UINT16 temp;
+    ////////////////////////////////////////////////////////////////////////////
+    //If the FIFO is full then it will continuously retry until it can.
+    if (SSP2STATbits.BF)
+    {
+	//De-chip Select 
+	SPI2_CSP = 1;
+    	temp = SSP2BUF;
+	
+	////////////////////////////////////////////////////////////////////////
+	if(FIFO16_Get(&SPI_O16FIFO, (UINT16Ptr)&temp))
+	    SPI2_9BITX(temp);
+	////////////////////////////////////////////////////////////////////////
+    }
+}
+#endif
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void SPI1_ISR()
+{
+    PIR1bits.SSP1IF = 0;
+    SPI_ISR_GENERAL(eSPI1);
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void SPI2_ISR()
+{
+    PIR3bits.SSP2IF = 0;
+#ifdef BITFIFOMODE 
+    Word dat;
+    const eSPI_Channel pChannel = eSPI2;
+    FIFOBIT_Get(&SPI_OBFIFO[pChannel], &dat.H);
+    FIFO_Get(&SPI_OFIFO[pChannel], &dat.L);
+    
+    SPI2_9BITX(dat.mBits);
+    ////////////////////////////////////////////////////////////////////////////
+#else
+    SPI_ISR_GENERAL16(eSPI2);
+#endif
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+#endif
