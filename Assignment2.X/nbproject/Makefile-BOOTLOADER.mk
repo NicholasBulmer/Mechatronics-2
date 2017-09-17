@@ -44,6 +44,12 @@ else
 COMPARISON_BUILD=
 endif
 
+ifdef SUB_IMAGE_ADDRESS
+
+else
+SUB_IMAGE_ADDRESS_COMMAND=
+endif
+
 # Object Directory
 OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 
@@ -462,7 +468,7 @@ dist/${CND_CONF}/${IMAGE_TYPE}/Assignment2.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${O
 	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/Assignment2.X.${IMAGE_TYPE}.map  --double=32 --float=32 --emi=wordwrite --rom=default,-0-13FF,-1406-1407,-1416-1417 --opt=+asm,-asmfile,+speed,-space,-debug,-local --addrqual=ignore --mode=free -P -N255 -I"Library" -I"../" -I"./" -I"Library/USB/inc" -I"Library/USB/src" --warn=-3 --asmlist -DXPRJ_BOOTLOADER=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x1400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/Assignment2.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	
 	@echo "Creating unified hex file"
-	@"C:/Program Files (x86)/Microchip/MPLABX/v3.55/mplab_ide/platform/../mplab_ide/modules/../../bin/hexmate" --edf="C:/Program Files (x86)/Microchip/MPLABX/v3.55/mplab_ide/platform/../mplab_ide/modules/../../dat/en_msgs.txt" -break=1FFF8  dist/${CND_CONF}/${IMAGE_TYPE}/Assignment2.X.${IMAGE_TYPE}.hex pic18f67j50_pim.x.production.hex -odist/${CND_CONF}/production/Assignment2.X.production.unified.hex
+	@"C:/Program Files (x86)/Microchip/MPLABX/v4.00/mplab_ide/platform/../mplab_ide/modules/../../bin/hexmate" --edf="C:/Program Files (x86)/Microchip/MPLABX/v4.00/mplab_ide/platform/../mplab_ide/modules/../../dat/en_msgs.txt" -break=1FFF8  dist/${CND_CONF}/${IMAGE_TYPE}/Assignment2.X.${IMAGE_TYPE}.hex pic18f67j50_pim.x.production.hex -odist/${CND_CONF}/production/Assignment2.X.production.unified.hex
 
 endif
 

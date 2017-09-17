@@ -109,7 +109,7 @@ void irobot_song_play(UINT8 songNumber);
 //Global Variables Declarations
 ////////////////////////////////////////////////////////////////////////////////
 
-extern UINT16
+extern INT16
 	iRDistance,																	//Distance in mm since last call/update
 	iRAngle;																	//Angle in degrees since last call/update
 

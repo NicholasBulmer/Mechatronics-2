@@ -8360,7 +8360,7 @@ void irobot_song_play(UINT8 songNumber);
 
 
 
-extern UINT16
+extern INT16
 iRDistance,
 iRAngle;
 
@@ -8380,13 +8380,13 @@ iRDropLeft,
 iRDropCaster;
 
 # 24 "Library/iRobotSerial.c"
-typedef struct{
+typedef struct {
 UINT16 HB, LB;
 } splitShort;
 
 splitShort iRDistanceSS, iRAngleSS;
 
-UINT16
+INT16
 iRDistance,
 iRAngle;
 
@@ -8412,8 +8412,8 @@ iRDropCaster;
 
 
 
-UINT8 get_packet_size(UINT8 packetID){
-switch (packetID){
+UINT8 get_packet_size(UINT8 packetID) {
+switch (packetID) {
 case iR_PKT_BUMP_DROP: return iR_PKT_BUMP_DROP_BN;
 case iR_PKT_WALL: return iR_PKT_WALL_BN;
 case iR_PKT_CLIFF_L: return iR_PKT_CLIFF_L_BN;
@@ -8426,25 +8426,35 @@ case iR_PKT_ANGLE: return iR_PKT_ANGLE_BN;
 }
 }
 
-void rx_assign(UINT8 packetID, UINT8 packetIDValue, UINT8 byteNumber){
-switch (packetID){
-case iR_PKT_BUMP_DROP: iRBumpDrop = packetIDValue; sort_iRBumpDrop(); break;
-case iR_PKT_WALL: iRWall = packetIDValue; break;
-case iR_PKT_CLIFF_L: iRCliffL = packetIDValue; break;
-case iR_PKT_CLIFF_FL: iRCliffFL = packetIDValue; break;
-case iR_PKT_CLIFF_FR: iRCliffFR = packetIDValue; break;
-case iR_PKT_CLIFF_R: iRCliffR = packetIDValue; break;
-case iR_PKT_V_WALL: iRVirtualWall = packetIDValue; break;
+void rx_assign(UINT8 packetID, UINT8 packetIDValue, UINT8 byteNumber) {
+switch (packetID) {
+case iR_PKT_BUMP_DROP: iRBumpDrop = packetIDValue;
+sort_iRBumpDrop();
+break;
+case iR_PKT_WALL: iRWall = packetIDValue;
+break;
+case iR_PKT_CLIFF_L: iRCliffL = packetIDValue;
+break;
+case iR_PKT_CLIFF_FL: iRCliffFL = packetIDValue;
+break;
+case iR_PKT_CLIFF_FR: iRCliffFR = packetIDValue;
+break;
+case iR_PKT_CLIFF_R: iRCliffR = packetIDValue;
+break;
+case iR_PKT_V_WALL: iRVirtualWall = packetIDValue;
+break;
 case iR_PKT_DISTANCE:
 (byteNumber == 0) ? (iRDistanceSS.HB = packetIDValue) : (iRDistanceSS.LB = packetIDValue,
-iRDistance = ((iRDistanceSS.HB)<<8) + iRDistanceSS.LB); break;
+iRDistance = ((iRDistanceSS.HB)<<8) + iRDistanceSS.LB);
+break;
 case iR_PKT_ANGLE:
 (byteNumber == 0) ? (iRAngleSS.HB = packetIDValue) : (iRAngleSS.LB = packetIDValue,
-iRAngle = ((iRAngleSS.HB)<<8) + iRAngleSS.LB); break;
+iRAngle = ((iRAngleSS.HB)<<8) + iRAngleSS.LB);
+break;
 }
 }
 
-void sort_iRBumpDrop(void){
+void sort_iRBumpDrop(void) {
 (iRBumpDrop & 0x1) ? (iRBumpRight = 1) : (iRBumpRight = 0);
 ((iRBumpDrop >> 0x1) & (0x1)) ? (iRBumpLeft = 1) : (iRBumpLeft = 0);
 ((iRBumpDrop >> 0x2) & (0x1)) ? (iRDropRight = 1) : (iRDropRight = 0);
@@ -8455,7 +8465,7 @@ void sort_iRBumpDrop(void){
 
 
 
-void eusart_init(void){
+void eusart_init(void) {
 TRISCbits.TRISC6 = 0;
 TRISCbits.TRISC7 = 1;
 
@@ -8472,24 +8482,26 @@ BAUDCON1bits.BRG16 = 0;
 SPBRG1 = 51;
 }
 
-void eusart_putch(UINT8 eusartSendChar){
-while (!TXSTA1bits.TRMT) {};
+void eusart_putch(UINT8 eusartSendChar) {
+while (!TXSTA1bits.TRMT) {
+};
 TXREG1 = eusartSendChar;
 }
 
-UINT8 eusart_getch(void){
-while (!PIR1bits.RC1IF) {};
+UINT8 eusart_getch(void) {
+while (!PIR1bits.RC1IF) {
+};
 return RCREG1;
 }
 
-void irobot_query_and_update(UINT8 numberOfPacketRequests, ...){
+void irobot_query_and_update(UINT8 numberOfPacketRequests, ...) {
 UINT8 i, j, packetVariable, streamSize = 0, startIndex = 0, RXArray[256], TXArray[256];
 
 va_list packetIDs;
 *packetIDs = __va_start();
 eusart_putch(iR_QUERY_LIST);
 eusart_putch(numberOfPacketRequests);
-for (i = 0; i < numberOfPacketRequests; i++){
+for (i = 0; i < numberOfPacketRequests; i++) {
 packetVariable = (*(int *)__va_arg((*(int **)packetIDs), (int)0));
 streamSize += get_packet_size(packetVariable);
 TXArray[i] = packetVariable;
@@ -8497,19 +8509,21 @@ eusart_putch(packetVariable);
 }
 ;
 
-for (i = 0; i < streamSize; i++){RXArray[i] = eusart_getch();}
+for (i = 0; i < streamSize; i++) {
+RXArray[i] = eusart_getch();
+}
 
-for (i = 0; i < numberOfPacketRequests; i++){
-for (j = startIndex; j < get_packet_size(TXArray[i]) + startIndex; j++){
+for (i = 0; i < numberOfPacketRequests; i++) {
+for (j = startIndex; j < get_packet_size(TXArray[i]) + startIndex; j++) {
 rx_assign(TXArray[i], RXArray[j], j - startIndex);
 }
 startIndex += get_packet_size(TXArray[i]);
 }
 }
 
-# 167
-UINT16 twos_complement_of(INT16 complementValue){
-if (complementValue < 0){
+# 181
+UINT16 twos_complement_of(INT16 complementValue) {
+if (complementValue < 0) {
 complementValue = ((complementValue) > 0 ? (complementValue) : -(complementValue));
 complementValue = ~complementValue;
 complementValue += 1;
@@ -8517,35 +8531,36 @@ complementValue += 1;
 return complementValue;
 }
 
-void load_iRScriptStack(UINT8 bytesToLoad, ...){
+void load_iRScriptStack(UINT8 bytesToLoad, ...) {
 va_list loadByte;
 *loadByte = __va_start();
-for (UINT8 i = 0; i < bytesToLoad; i++){
+for (UINT8 i = 0; i < bytesToLoad; i++) {
 iRScriptStack[iRScriptIndex + i] = (*(int *)__va_arg((*(int **)loadByte), (int)0));
 }
 ;
 iRScriptIndex += bytesToLoad;
 }
 
-
-
-
-void irobot_script_play(void){
+# 204
+void irobot_script_play(void) {
 eusart_putch(iR_SCRIPT);
 eusart_putch(iRScriptIndex);
-for (UINT8 i = 0; i < iRScriptIndex; i++){eusart_putch(iRScriptStack[i]);}
+for (UINT8 i = 0; i < iRScriptIndex; i++) {
+eusart_putch(iRScriptStack[i]);
+}
 eusart_putch(iR_SCRIPT_PLAY);
-memset(iRScriptStack, 0x00, sizeof(iRScriptStack));
+memset(iRScriptStack, 0x00, sizeof (iRScriptStack));
 iRScriptIndex = 0;
 }
 
-void irobot_init(void){
+void irobot_init(void) {
 eusart_putch(iR_START);
 eusart_putch(iR_FULL_MODE);
 }
 
 
-void irobot_angle_wait(INT16 angleWait){
+
+void irobot_angle_wait(INT16 angleWait) {
 angleWait = twos_complement_of(angleWait);
 
 load_iRScriptStack(3, iR_WAIT_ANGLE,
@@ -8553,7 +8568,8 @@ load_iRScriptStack(3, iR_WAIT_ANGLE,
 }
 
 
-void irobot_distance_wait(INT16 distanceWait){
+
+void irobot_distance_wait(INT16 distanceWait) {
 distanceWait = twos_complement_of(distanceWait);
 
 load_iRScriptStack(3, iR_WAIT_DISTANCE,
@@ -8561,16 +8577,16 @@ load_iRScriptStack(3, iR_WAIT_DISTANCE,
 }
 
 
-void irobot_move(bool isScript, INT16 moveSpeed, INT16 moveTurnRadius){
+
+void irobot_move(bool isScript, INT16 moveSpeed, INT16 moveTurnRadius) {
 moveSpeed = twos_complement_of(moveSpeed);
 moveTurnRadius = twos_complement_of(moveTurnRadius);
 
-if (isScript){
+if (isScript) {
 load_iRScriptStack(5, iR_DRIVE,
 (((moveSpeed)>>8) & 0xFF), ((moveSpeed) & 0xFF),
 (((moveTurnRadius)>>8) & 0xFF), ((moveTurnRadius) & 0xFF));
-}
-else{
+} else {
 eusart_putch(iR_DRIVE);
 eusart_putch((((moveSpeed)>>8) & 0xFF));
 eusart_putch(((moveSpeed) & 0xFF));
@@ -8580,12 +8596,12 @@ eusart_putch(((moveTurnRadius) & 0xFF));
 }
 
 
-void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLuminosity){
-if (isScript){
+
+void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLuminosity) {
+if (isScript) {
 load_iRScriptStack(4, iR_LEDS,
 LEDBit, powerColour, powerLuminosity);
-}
-else{
+} else {
 eusart_putch(iR_LEDS);
 eusart_putch(LEDBit);
 eusart_putch(powerColour);
@@ -8593,7 +8609,7 @@ eusart_putch(powerLuminosity);
 }
 }
 
-void irobot_init_song_0(void){
+void irobot_init_song_0(void) {
 eusart_putch(iR_SONG_INIT);
 eusart_putch(0);
 eusart_putch(1);
@@ -8601,66 +8617,93 @@ eusart_putch(60);
 eusart_putch(4);
 }
 
-# 274
-void irobot_song_play(UINT8 songNumber){
+# 294
+void irobot_song_play(UINT8 songNumber) {
 eusart_putch(iR_SONG_PLAY);
 eusart_putch(songNumber);
 }
 
 
-void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed){
-(rotateAngle > 0) ? (rotateAngle = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
-(isScript) ?
-irobot_move(1, rotateSpeed, rotateAngle):
-irobot_move(0, rotateSpeed, rotateAngle);
+
+void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed) {
+INT16 angleTotal = 0;
+INT16 rotateDirection;
+
+(rotateAngle > 0) ? (rotateDirection = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
+if (isScript) {
+irobot_move(1, rotateSpeed, rotateDirection);
+} else {
+irobot_move(0, rotateSpeed, rotateDirection);
+if (rotateSpeed > 0) {
+while (angleTotal < rotateAngle) {
+update_angle();
+angleTotal += iRAngle;
+}
+}
+if (rotateSpeed < 0) {
+while (angleTotal < rotateAngle) {
+update_angle();
+angleTotal += -iRAngle;
+}
+}
+irobot_stop_motion(0);
+}
 }
 
 
-void irobot_stop_motion(bool isScript){
-(isScript) ? irobot_move(1,0,0) : irobot_move(0,0,0);
+
+void irobot_stop_motion(bool isScript) {
+(isScript) ? irobot_move(1, 0, 0) : irobot_move(0, 0, 0);
 }
 
 
-void irobot_led_power_on(UINT8 powerOnColour){
+
+void irobot_led_power_on(UINT8 powerOnColour) {
 irobot_leds(0, 0, powerOnColour, iR_CONST_LED_ON);
 }
 
 
-void irobot_led_power_off(void){
+
+void irobot_led_power_off(void) {
 irobot_leds(0, 0, 0, 0);
 }
 
 
-void irobot_move_straight(INT16 straightSpeed){
+
+void irobot_move_straight(INT16 straightSpeed) {
 irobot_move(0, straightSpeed, iR_CONST_STRAIGHT_2);
 }
 
 
-void update_bump_and_cliff(){
+
+void update_bump_and_cliff() {
 irobot_query_and_update(5, iR_PKT_BUMP_DROP,
 iR_PKT_CLIFF_L, iR_PKT_CLIFF_FL,
 iR_PKT_CLIFF_FR, iR_PKT_CLIFF_R);
 }
 
 
-void update_distance(void){
+
+void update_distance(void) {
 irobot_query_and_update(1, iR_PKT_DISTANCE);
 }
 
 
-void update_angle(void){
+
+void update_angle(void) {
 irobot_query_and_update(1, iR_PKT_ANGLE);
 }
 
-# 328
-void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed){
+# 375
+void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed) {
 irobot_move(1, moveToSpeed, iR_CONST_STRAIGHT_2);
 irobot_distance_wait(moveToDistance);
 irobot_stop_motion(1);
 }
 
 
-void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed){
+
+void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed) {
 irobot_rotate(1, rotateToAngle, rotateSpeed);
 irobot_angle_wait(rotateToAngle);
 irobot_stop_motion(1);

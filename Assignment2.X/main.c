@@ -11,7 +11,7 @@
  *              Jamin Early
  *              Matt Woods
  *              Nick Bulmer
- *              Tanya Nassir
+ *              Tania Nassir
  *
  * MX2:         Assignment 2
  */
@@ -47,8 +47,13 @@ int IRValue = 0; //logs current IR Value
 int TimerX = 8; //while loop delay
 int angleToClosestWall = 0;
 int dist = 0;
+int angle = 0;
+int corner = 1;
+INT16 iRValue = 0;
+int dummy1;
 Motor Stepper;
 ADC ADC_AN0;
+bool correctOrientation = false;
 
 // Prototype Functions
 void init();
@@ -60,6 +65,7 @@ void mode4();
 void move_and_rotate();
 void findClosestWall();
 void safeToGo();
+void measureAndDisplayDistance();
 
 // Initialisation Function
 void init() {
@@ -135,26 +141,31 @@ void safeToGo(){
 
 // Function for mode 3
 void move_and_rotate(){
-        dist = 0;
         irobot_move_straight(100);
-        while (dist < 1000) {
+        while (dist < (corner * 1000)) {
                 update_distance();
                 dist += iRDistance;
+                printf("%c", ENDOFTEXT);
+                printf("Distance: %d\n", dist);
+                Console_Render();
+                measureAndDisplayDistance();
         }
         irobot_stop_motion(0);
         delay_ms(100);
-        irobot_rotate(0, 67, 200);
+        irobot_rotate(0, 68, 200);
         delay_ms(100);
 }
 
 // Finds the closest wall for Mode 4
 void findClosestWall(){
-        StepRotate = 401; //logs steps rotated
+        correctOrientation = false;
+        StepRotate = 400; //logs steps rotated
         MinDist = 1000; //logs minimum distance
         Stepstomin = 0; //logs steps required to min value
         angleToClosestWall = 1000; //Convert to a angle out of 360
         IRValue = 0; //logs current IR Value
         TimerX = 8; //while loop delay
+        angle = 0;
         while (StepRotate > 0) {
                 StepRotate--;
                 ADC_Start(&ADC_AN0);
@@ -168,6 +179,7 @@ void findClosestWall(){
                 if (IRValue < MinDist) {
                         MinDist = IRValue;
                         Stepstomin = StepRotate;
+                        angleToClosestWall = Stepstomin * 0.675;
                 }
                 if (MXK_SwitchTo(eMXK_Motor)) {
                         Motor_Speed(&Stepper, HZ(100));
@@ -189,7 +201,6 @@ void findClosestWall(){
                                 TimerX--;
                         }
                 }
-                angleToClosestWall = Stepstomin * 0.67;
                 if (MXK_SwitchTo(eMXK_HMI)) {
                         printf("%c", ENDOFTEXT);
                         printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
@@ -198,17 +209,124 @@ void findClosestWall(){
                                 MXK_Dequeue();
                 }
         }
-        Motor_Speed(&Stepper, HZ(200));
+        Motor_Speed(&Stepper, HZ(400));
         Motor_Move(&Stepper, 400);
-        angleToClosestWall = angleToClosestWall - 67;
-        if(angleToClosestWall < 0) {
-                angleToClosestWall = angleToClosestWall + (2*angleToClosestWall);
-                angleToClosestWall = 270 - angleToClosestWall;
+        angleToClosestWall = angleToClosestWall + 67;
+        if(angleToClosestWall > 270) {
+                angleToClosestWall = angleToClosestWall - 270;
         }
-        if(!(angleToClosestWall > 65 && angleToClosestWall < 70)) {
-                irobot_rotate(0, 270 - angleToClosestWall, 200); // Rotate perpendicular to the closest wall
+        angleToClosestWall = 270 - angleToClosestWall;
+        if(angleToClosestWall < 135) {
+                irobot_rotate(0, angleToClosestWall, 200); // Rotate perpendicular to the closest wall
+        }
+        else{
+                irobot_rotate(0, 270 - angleToClosestWall, -200);
+        }
+        delay_ms(200);
+        while (!correctOrientation) {
+                StepRotate = 400; //logs steps rotated
+                MinDist = 1000; //logs minimum distance
+                Stepstomin = 0; //logs steps required to min value
+                angleToClosestWall = 1000; //Convert to a angle out of 360
+                IRValue = 0; //logs current IR Value
+                TimerX = 8; //while loop delay
+                angle = 0;
+                while (StepRotate > 0) {
+                        StepRotate--;
+                        ADC_Start(&ADC_AN0);
+                        IRValue = (59 / ADC_Voltage(&ADC_AN0));
+                        if (MXK_SwitchTo(eMXK_HMI)) {
+                                HMI_SetNumber(IRValue);
+                                HMI_Render();
+                                if (MXK_Release())
+                                        MXK_Dequeue();
+                        }
+                        if (IRValue < MinDist) {
+                                MinDist = IRValue;
+                                Stepstomin = StepRotate;
+                                angleToClosestWall = Stepstomin * 0.675;
+                        }
+                        if (MXK_SwitchTo(eMXK_Motor)) {
+                                Motor_Speed(&Stepper, HZ(100));
+                                Motor_Move(&Stepper, -1);
+                                if (MXK_Release())
+                                        MXK_Dequeue();
+                        }
+                        TimerX = 10;
+                        if (TimerX > 0) {
+                                while (TimerX > 0) {
+                                        ADC_Start(&ADC_AN0);
+                                        if (MXK_SwitchTo(eMXK_HMI)) {
+                                                HMI_SetNumber(IRValue);
+                                                HMI_Render();
+                                                if (MXK_Release())
+                                                        MXK_Dequeue();
+                                        }
+                                        IRValue = (59 / ADC_Voltage(&ADC_AN0));
+                                        TimerX--;
+                                }
+                        }
+                        if (MXK_SwitchTo(eMXK_HMI)) {
+                                printf("%c", ENDOFTEXT);
+                                printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight);
+                                Console_Render();
+                                if (MXK_Release())
+                                        MXK_Dequeue();
+                        }
+                }
+                Motor_Speed(&Stepper, HZ(400));
+                Motor_Move(&Stepper, 400);
+                if(angleToClosestWall > 193 && angleToClosestWall < 212) {
+                        correctOrientation = true;
+                }
+                else{
+                        angleToClosestWall = angleToClosestWall + 67;
+                        if(angleToClosestWall > 270) {
+                                angleToClosestWall = angleToClosestWall - 270;
+                        }
+                        angleToClosestWall = 270 - angleToClosestWall;
+                        if(angleToClosestWall < 135) {
+                                irobot_rotate(0, angleToClosestWall, 200); // Rotate perpendicular to the closest wall
+                        }
+                        else{
+                                irobot_rotate(0, 270 - angleToClosestWall, -200);
+                        }
+                }
+                delay_ms(200);
+        }
+        Motor_Speed(&Stepper, HZ(400));
+        Motor_Move(&Stepper, -100);
+}
+
+// Reads IR distance sensor value, converts to distance and displays on SSD
+void measureAndDisplayDistance(){
+        ADC_Start(&ADC_AN0);
+        IRValue = (59 / ADC_Voltage(&ADC_AN0));
+        if (MXK_SwitchTo(eMXK_HMI)) {
+                HMI_SetNumber(IRValue);
+                HMI_Render();
+                if (MXK_Release())
+                        MXK_Dequeue();
         }
 }
+
+void correct_distance(){
+    UINT16 _d1 = dummy1 -8, _d2=dummy1-3, _d3=dummy1+3;
+    measureAndDisplayDistance();
+    if(IRValue < _d1){
+        irobot_move(0,200,-500);
+    }
+    else if(IRValue < _d2){
+        irobot_move(0,200,-1000);
+    }
+    else if(IRValue > _d3){
+        irobot_move(0,200,750);
+    }
+    else{
+        irobot_move(0,200,1000);
+    }
+}
+    
 
 // Mode 1
 void mode1() {
@@ -278,6 +396,7 @@ void mode1() {
                 }
                 IRValue = (59 / ADC_Voltage(&ADC_AN0));
         }
+        irobot_song_play(0);
 }
 
 // Mode 2
@@ -288,7 +407,7 @@ void mode2() {
                 printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
                 Console_Render();
 
-                int dist = 0;
+                dist = 0;
                 irobot_move_straight(200);
                 while (dist < 5000) {
                         update_distance();
@@ -296,51 +415,69 @@ void mode2() {
                         printf("%c", ENDOFTEXT);
                         printf("Distance: %d\n", dist);
                         Console_Render();
+                        measureAndDisplayDistance();
                 }
                 irobot_stop_motion(0);
 
                 if (MXK_Release())
                         MXK_Dequeue();
         }
+        irobot_song_play(0);
 }
 
 // Mode 3
 void mode3() {
         safeToGo();
+        dist = 0;
+        corner = 1;
         move_and_rotate();
+        corner++;
         move_and_rotate();
+        corner++;
         move_and_rotate();
+        corner++;
         move_and_rotate();
+        irobot_song_play(0);
 }
 
 // Mode 4
 void mode4() {
         safeToGo();
-        while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
-                findClosestWall();
-                delay_ms(80);
-                irobot_move_straight(200);
-                dist = 0;
-                while (dist < 300 && !iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
-                        update_distance();
-                        dist += iRDistance;
-                        update_bump_and_cliff();
-                }
-
-                irobot_stop_motion(0);
-                if (MXK_SwitchTo(eMXK_HMI)) {
-                        printf("%c", ENDOFTEXT);
-                        printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\nAngleToTurn: %d\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight, angleToClosestWall -67);
-                        Console_Render();
-                        if (MXK_Release())
-                                MXK_Dequeue();
-                }
+        findClosestWall();
+        delay_ms(100);
+        
+        if (MXK_SwitchTo(eMXK_Motor)) {
+                Motor_Speed(&Stepper, HZ(100));
+                Motor_Move(&Stepper, -50);
+            if (MXK_Release())
+            MXK_Dequeue();
         }
+        delay_ms(100);
+        measureAndDisplayDistance();
+        dummy1 = IRValue;
+        
+        while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
+            correct_distance();
+            update_bump_and_cliff();
+        }
+
+        irobot_stop_motion(0);
+        if (MXK_SwitchTo(eMXK_Motor)) {
+                Motor_Speed(&Stepper, HZ(100));
+                Motor_Move(&Stepper, 50);
+            if (MXK_Release())
+            MXK_Dequeue();
+        }
+        if (MXK_SwitchTo(eMXK_HMI)) {
+                printf("%c", ENDOFTEXT);
+                printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\nAngleToTurn: %d\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight, angleToClosestWall -67);
+                Console_Render();
+                if (MXK_Release())
+                        MXK_Dequeue();
+        }
+
         irobot_song_play(0); //Play a song
         irobot_stop_motion(0);     //Stop
-        while(Stepper.mDelta != 0) {
-
-        }
 }
 
 // Main Loop
@@ -375,5 +512,6 @@ void main() {
                                         MXK_Dequeue();
                         }
                 }
+                measureAndDisplayDistance();
         }
 }
