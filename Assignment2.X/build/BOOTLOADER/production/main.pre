@@ -8880,10 +8880,9 @@ float ADC_Voltage(ADCPtr pInput);
 UINT8 rand();
 UINT8 rand_between(UINT8 pValA, UINT8 pValB);
 
-# 39 "main.c"
+# 32 "main.c"
 INT16 distanceTotal = 0;
 INT16 angleTotal = 0;
-int dip;
 int mode = 0;
 int StepRotate = 0;
 int MinDist = 1000;
@@ -8947,9 +8946,6 @@ irobot_init();
 irobot_led_power_on(0xA);
 irobot_init_song_0();
 delay_ms(20);
-
-
-
 }
 
 
@@ -8970,6 +8966,7 @@ mode = 4;
 }
 }
 
+
 void safeToGo(){
 update_bump_and_cliff();
 update_distance();
@@ -8986,7 +8983,10 @@ HMI_Poll();
 
 
 void move_and_rotate(){
+
 irobot_move_straight(100);
+
+
 while (dist < (corner * 1000)) {
 update_distance();
 dist += iRDistance;
@@ -8995,6 +8995,8 @@ printf("Distance: %d\n", dist);
 Console_Render();
 measureAndDisplayDistance();
 }
+
+
 irobot_stop_motion(0);
 delay_ms(100);
 irobot_rotate(0, 68, 200);
@@ -9145,8 +9147,11 @@ Motor_Move(&Stepper, -100);
 
 
 void measureAndDisplayDistance(){
+
 ADC_Start(&ADC_AN0);
+
 IRValue = (59 / ADC_Voltage(&ADC_AN0));
+
 if (MXK_SwitchTo(eMXK_HMI)) {
 HMI_SetNumber(IRValue);
 HMI_Render();
@@ -9155,23 +9160,23 @@ MXK_Dequeue();
 }
 }
 
+
 void correct_distance(){
 UINT16 _d1 = dummy1 -8, _d2=dummy1-3, _d3=dummy1+3;
 measureAndDisplayDistance();
-if(IRValue < _d1){
+if(IRValue < _d1) {
 irobot_move(0,200,-500);
 }
-else if(IRValue < _d2){
+else if(IRValue < _d2) {
 irobot_move(0,200,-1000);
 }
-else if(IRValue > _d3){
+else if(IRValue > _d3) {
 irobot_move(0,200,750);
 }
 else{
 irobot_move(0,200,1000);
 }
 }
-
 
 
 void mode1() {
@@ -9188,16 +9193,11 @@ MinDist = 1000;
 Stepstomin = 0;
 IRValue = 0;
 TimerX = 8;
+
+
 while (StepRotate < 400) {
 StepRotate++;
-ADC_Start(&ADC_AN0);
-IRValue = (59 / ADC_Voltage(&ADC_AN0));
-if (MXK_SwitchTo(eMXK_HMI)) {
-HMI_SetNumber(IRValue);
-HMI_Render();
-if (MXK_Release())
-MXK_Dequeue();
-}
+measureAndDisplayDistance();
 if (IRValue < MinDist) {
 MinDist = IRValue;
 Stepstomin = StepRotate;
@@ -9223,6 +9223,8 @@ TimerX--;
 }
 }
 }
+
+
 if (MXK_SwitchTo(eMXK_Motor)) {
 Motor_Speed(&Stepper, (50));
 int moveto = 400 - Stepstomin;
@@ -9232,15 +9234,9 @@ if (MXK_Release())
 MXK_Dequeue();
 }
 while (Stepper.mDelta > 0) {
-ADC_Start(&ADC_AN0);
-if (MXK_SwitchTo(eMXK_HMI)) {
-HMI_SetNumber(IRValue);
-HMI_Render();
-if (MXK_Release())
-MXK_Dequeue();
+measureAndDisplayDistance();
 }
-IRValue = (59 / ADC_Voltage(&ADC_AN0));
-}
+
 irobot_song_play(0);
 }
 
@@ -9252,21 +9248,25 @@ printf("%c", (char)35);
 printf("Total Distance:%u\nLeft Bump:%u\nRight Bump:%u\n", distanceTotal, iRBumpLeft, iRBumpRight);
 Console_Render();
 
+
 dist = 0;
 irobot_move_straight(200);
+
 while (dist < 5000) {
 update_distance();
 dist += iRDistance;
 printf("%c", (char)35);
+
 printf("Distance: %d\n", dist);
 Console_Render();
 measureAndDisplayDistance();
 }
-irobot_stop_motion(0);
 
+irobot_stop_motion(0);
 if (MXK_Release())
 MXK_Dequeue();
 }
+
 irobot_song_play(0);
 }
 
@@ -9274,6 +9274,7 @@ irobot_song_play(0);
 void mode3() {
 safeToGo();
 dist = 0;
+
 corner = 1;
 move_and_rotate();
 corner++;
@@ -9282,14 +9283,17 @@ corner++;
 move_and_rotate();
 corner++;
 move_and_rotate();
+
 irobot_song_play(0);
 }
 
 
 void mode4() {
 safeToGo();
+
 findClosestWall();
 delay_ms(100);
+
 
 if (MXK_SwitchTo(eMXK_Motor)) {
 Motor_Speed(&Stepper, (100));
@@ -9301,35 +9305,34 @@ delay_ms(100);
 measureAndDisplayDistance();
 dummy1 = IRValue;
 
+
 while (!iRBumpLeft && !iRBumpRight && !iRDropRight && !iRDropLeft) {
 correct_distance();
 update_bump_and_cliff();
 }
 
+
 irobot_stop_motion(0);
+
+
 if (MXK_SwitchTo(eMXK_Motor)) {
 Motor_Speed(&Stepper, (100));
 Motor_Move(&Stepper, 50);
 if (MXK_Release())
 MXK_Dequeue();
 }
-if (MXK_SwitchTo(eMXK_HMI)) {
-printf("%c", (char)35);
-printf("Closest Wall:%u\nClosest Angle:%d\nLeft Bump:%u\nRightBump:%u\nAngleToTurn: %d\n", MinDist, angleToClosestWall, iRBumpLeft, iRBumpRight, angleToClosestWall -67);
-Console_Render();
-if (MXK_Release())
-MXK_Dequeue();
-}
-
 irobot_song_play(0);
-irobot_stop_motion(0);
 }
 
 
 void main() {
+
 init();
 for(;;) {
+
 getMode();
+
+
 switch (mode) {
 case 1:
 mode1();
