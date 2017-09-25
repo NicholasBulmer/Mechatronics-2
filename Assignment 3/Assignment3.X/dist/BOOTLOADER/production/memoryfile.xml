@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/BOOTLOADER/production\Assignment2.X.production.hex">
+  <executable name="dist/BOOTLOADER/production\Assignment3.X.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>125944</length>
-      <used>29059</used>
-      <free>96885</free>
+      <used>2013</used>
+      <free>123931</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>3904</length>
-      <used>1489</used>
-      <free>2415</free>
+      <used>888</used>
+      <free>3016</free>
     </memory>
   </executable>
 </project>
