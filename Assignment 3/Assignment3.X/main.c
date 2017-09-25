@@ -52,7 +52,7 @@ int maze[9][11] = {
 };
 
 // Global vars
-int bearing = 2;
+int bearing = 2; // value of 1 to 4. 1 is North, 2 is East, 3 is South, 4 is West.
 int xPos = 9;
 int yPos = 2;
 int gridSize = 100;
@@ -89,7 +89,7 @@ void rotateCCW(){
 
 void moveStraight(){
         // move forward
-        irobot_move_straight(100);
+        irobot_move_straight(gridSize);
         irobot_stop_motion(0);
 
         // update array and current positioning
