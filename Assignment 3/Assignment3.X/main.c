@@ -13,7 +13,7 @@
  *              Nick Bulmer
  *              Tania Nassir
  *
- * MX2:         Assignment 2
+ * MX2:         Assignment 3
  */
 
 #include <xc.h>
