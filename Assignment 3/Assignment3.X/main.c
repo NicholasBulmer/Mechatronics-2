@@ -61,6 +61,8 @@ int yPosNext;
 int gridSize = 100;
 int currentPos;
 char currentPosChar;
+ADC ADC_AN0;
+Motor Stepper;
 
 // Prototype functions
 void rotateCW();
@@ -242,8 +244,8 @@ void printToConsole(){
         printf("%c", ENDOFTEXT);
         // Prints maze to console
         for (int i = 1; i < 10; i++) {
-                for (int j = 1,  j < 12, j++) {
-                        currentPos = map[i][j];
+                for (int j = 1;  j < 12; j++) {
+                        currentPos = maze[i][j];
                         if (i == xPos && j == yPos) {
                                 currentPosChar = '*';
                         }
