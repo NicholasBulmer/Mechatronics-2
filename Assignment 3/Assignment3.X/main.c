@@ -34,7 +34,6 @@
 #include "ADC.h"
 
 /* A 2D array is used to store information regarding the maze.
- * 0 - Current Position
  * 155 - Wall
  * 154 - Unexplored
  * 1 to 153 - Steps from home
@@ -51,6 +50,8 @@ int maze[9][11] = {
         {155,155,155,155,155,155,155,155,155,155,155},
 };
 
+char mazeConsole[9][11];
+
 // Global vars
 int bearing = 2; // value of 1 to 4. 1 is North, 2 is East, 3 is South, 4 is West.
 int xPos = 9;
@@ -58,6 +59,8 @@ int yPos = 2;
 int xPosNext;
 int yPosNext;
 int gridSize = 100;
+int currentPos;
+char currentPosChar;
 
 // Prototype functions
 void rotateCW();
@@ -68,6 +71,7 @@ void rotateSouth();
 void rotateWest();
 void rotateEast();
 bool safeToMove();
+void printToConsole();
 
 // Basic movement functions for turning and going straight.
 void rotateCW(){
@@ -224,6 +228,43 @@ bool safeToMove(){
         }
         return true;
 }
+
+// Prints the current map to the LCD
+void printToConsole(){
+        printf("%c", ENDOFTEXT);
+        // Prints maze to console
+        for (int i = 1; i < 10; i++) {
+                for (int j = 1,  j < 12, j++) {
+                        currentPos = map[i][j];
+                        if (i == xPos && j == yPos) {
+                                currentPosChar = '*';
+                        }
+                        else {
+                                switch (currentPos) {
+                                case 155:
+                                        currentPosChar = 'X';
+                                        break;
+                                case 154:
+                                        currentPosChar = ' ';
+                                        break;
+                                default:
+                                        break;
+                                }
+                                if (currentPos >= 0 && currentPos < 154 ) {
+                                        currentPosChar = currentPos + '0';
+                                }
+                        }
+                        printf("%c", currentPosChar);
+                }
+                printf("\n");
+        }
+        if (MXK_SwitchTo(eMXK_HMI)) {
+                Console_Render();
+                if (MXK_Release())
+                        MXK_Dequeue();
+        }
+}
+
 
 void main(){
 
