@@ -72,6 +72,8 @@ void rotateWest();
 void rotateEast();
 bool safeToMove();
 void printToConsole();
+void addVirtualWall(int i, int j);
+void init();
 
 // Basic movement functions for turning and going straight.
 void rotateCW(){
@@ -86,6 +88,7 @@ void rotateCW(){
                 bearing = 1;
         }
 }
+
 void rotateCCW(){
         // Rotate 90 degrees counter-clockwise
         irobot_rotate(0, 68, 200);
@@ -98,6 +101,7 @@ void rotateCCW(){
                 bearing = 4;
         }
 }
+
 void moveStraight(){
         // move forward
         irobot_move_straight(gridSize);
@@ -123,6 +127,7 @@ void moveStraight(){
                 maze[xPos][yPos] = posValue++;
         }
 }
+
 void rotateNorth(){
         switch (bearing) {
         case 1:
@@ -139,6 +144,7 @@ void rotateNorth(){
                 break;
         }
 }
+
 void rotateSouth(){
         switch (bearing) {
         case 1:
@@ -155,6 +161,7 @@ void rotateSouth(){
                 break;
         }
 }
+
 void rotateWest(){
         switch (bearing) {
         case 1:
@@ -171,6 +178,7 @@ void rotateWest(){
                 break;
         }
 }
+
 void rotateEast(){
         switch (bearing) {
         case 1:
@@ -265,7 +273,52 @@ void printToConsole(){
         }
 }
 
+// Adds a wall to the maze when a virtual wall is found.
+void addVirtualWall(int i, int j){
+        maze[i][j] = 155;
+}
 
+// Init function
+void init(){
+        //Init MXK Pins
+        MXK_Init();
+
+        //Enable Interupts
+        ISR_Enable();
+
+        //Init HMI
+        if (MXK_BlockSwitchTo(eMXK_HMI)) {
+                Console_Init();
+                HMI_Init();
+                LCD_Init();
+                if (MXK_Release())
+                        MXK_Dequeue();
+        }
+
+        //Init Stepper Motor
+        if (MXK_BlockSwitchTo(eMXK_Motor)) {
+                Motor_Init(&Stepper, MXK_MOTOR);
+                if (MXK_Release())
+                        MXK_Dequeue();
+        }
+
+        //Init Sensor
+        ADC_Init(&ADC_AN0, eADC_Ch0);
+        float ADC_Voltage(ADCPtr plnput);
+        ADC_Start(&ADC_AN0);
+
+        //Init iRobot
+        eusart_init(); //Init PIC EUSART comms
+        irobot_init(); //Init iRobot settings
+        irobot_led_power_on(0xA); //Power LED to orange
+        irobot_init_song_0(); //Init the song
+        delay_ms(20);
+}
+
+// Main loop
 void main(){
-
+        init();
+        loop(){
+                // do shit
+        }
 }
