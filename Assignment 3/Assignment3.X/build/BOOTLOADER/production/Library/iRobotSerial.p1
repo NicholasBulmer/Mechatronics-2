@@ -2,10 +2,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "24 Library/iRobotSerial.c
 [s S640 `us 1 `us 1 ]
 [n S640 . HB LB ]
-"62
+"64
 [c E6858 1 1 1 1 1 1 1 2 2 .. ]
 [n E6858 . iR_PKT_BUMP_DROP_BN iR_PKT_WALL_BN iR_PKT_CLIFF_L_BN iR_PKT_CLIFF_FL_BN iR_PKT_CLIFF_FR_BN iR_PKT_CLIFF_R_BN iR_PKT_V_WALL_BN iR_PKT_DISTANCE_BN iR_PKT_ANGLE_BN  ]
-"61
+"63
 [c E6847 7 8 9 10 11 12 13 19 20 .. ]
 [n E6847 . iR_PKT_BUMP_DROP iR_PKT_WALL iR_PKT_CLIFF_L iR_PKT_CLIFF_FL iR_PKT_CLIFF_FR iR_PKT_CLIFF_R iR_PKT_V_WALL iR_PKT_DISTANCE iR_PKT_ANGLE  ]
 "77 Library\iRobotSerial.h
@@ -94,7 +94,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "10 C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdarg.h
 [v ___va_start `(*v ~T0 @X0 0 ef ]
 [p i ___va_start ]
-"147 Library/iRobotSerial.c
+"137 Library/iRobotSerial.c
 [c E6829 128 132 137 139 140 141 142 145 148 149 152 153 155 156 157 158 .. ]
 [n E6829 . iR_START iR_FULL_MODE iR_DRIVE iR_LEDS iR_SONG_INIT iR_SONG_PLAY iR_SENSORS iR_DIRECT_DRIVE iR_STREAM iR_QUERY_LIST iR_SCRIPT iR_SCRIPT_PLAY iR_WAIT_TIME iR_WAIT_DISTANCE iR_WAIT_ANGLE iR_WAIT_EVENT  ]
 "13 C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdarg.h
@@ -102,13 +102,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i ___va_arg ]
 "16 C:\Program Files (x86)\Microchip\xc8\v1.43\include\string.h
 [v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"305 Library/iRobotSerial.c
+"264 Library/iRobotSerial.c
 [c E6869 32768 32767 65535 1 0 85 170 255 255 .. ]
 [n E6869 . iR_CONST_STRAIGHT_1 iR_CONST_STRAIGHT_2 iR_CONST_CW iR_CONST_CCW iR_CONST_GREEN iR_CONST_YELLOW iR_CONST_ORANGE iR_CONST_RED iR_CONST_LED_ON  ]
-"105 Library\iRobotSerial.h
-[v _update_angle `(v ~T0 @X0 0 ef ]
-"101
-[v _irobot_stop_motion `(v ~T0 @X0 0 ef1`uc ]
+"606 Library\Types.h
+[v _delay_ms `(v ~T0 @X0 0 ef1`us ]
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -6382,32 +6380,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iRobotSerial.h: 92: void irobot_led_power_on(UINT8 powerOnColour);
 [; ;iRobotSerial.h: 93: void irobot_led_power_off(void);
 [; ;iRobotSerial.h: 94: void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed);
-[; ;iRobotSerial.h: 95: void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed);
-[; ;iRobotSerial.h: 100: void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed);
+[; ;iRobotSerial.h: 99: void irobot_move_straight(INT16 straightSpeed);
+[; ;iRobotSerial.h: 100: void irobot_rotate_continuous(INT16 rotateAngle, INT16 rotateSpeed);
 [; ;iRobotSerial.h: 101: void irobot_stop_motion(bool isScript);
-[; ;iRobotSerial.h: 102: void irobot_move_straight(INT16 straightSpeed);
-[; ;iRobotSerial.h: 103: void update_bump_and_cliff(void);
-[; ;iRobotSerial.h: 104: void update_distance(void);
-[; ;iRobotSerial.h: 105: void update_angle(void);
-[; ;iRobotSerial.h: 106: void irobot_init_song_0(void);
-[; ;iRobotSerial.h: 107: void irobot_song_play(UINT8 songNumber);
-[; ;iRobotSerial.h: 112: extern INT16
-[; ;iRobotSerial.h: 113: iRDistance,
-[; ;iRobotSerial.h: 114: iRAngle;
-[; ;iRobotSerial.h: 116: extern UINT8
-[; ;iRobotSerial.h: 117: iRWall,
-[; ;iRobotSerial.h: 118: iRCliffL,
-[; ;iRobotSerial.h: 119: iRCliffFL,
-[; ;iRobotSerial.h: 120: iRCliffFR,
-[; ;iRobotSerial.h: 121: iRCliffR,
-[; ;iRobotSerial.h: 122: iRVirtualWall;
-[; ;iRobotSerial.h: 124: extern bool
-[; ;iRobotSerial.h: 125: iRBumpRight,
-[; ;iRobotSerial.h: 126: iRBumpLeft,
-[; ;iRobotSerial.h: 127: iRDropRight,
-[; ;iRobotSerial.h: 128: iRDropLeft,
-[; ;iRobotSerial.h: 129: iRDropCaster;
-[; ;iRobotSerial.c: 24: typedef struct {
+[; ;iRobotSerial.h: 102: void update_bump_and_cliff(void);
+[; ;iRobotSerial.h: 103: void update_distance(void);
+[; ;iRobotSerial.h: 104: void update_angle(void);
+[; ;iRobotSerial.h: 105: void update_bump(void);
+[; ;iRobotSerial.h: 106: void update_virtual_wall(void);
+[; ;iRobotSerial.h: 108: void irobot_init_song_0(void);
+[; ;iRobotSerial.h: 109: void irobot_song_play(UINT8 songNumber);
+[; ;iRobotSerial.h: 114: extern INT16
+[; ;iRobotSerial.h: 115: iRDistance,
+[; ;iRobotSerial.h: 116: distanceTotal,
+[; ;iRobotSerial.h: 117: iRAngle,
+[; ;iRobotSerial.h: 118: angleTotal;
+[; ;iRobotSerial.h: 120: extern UINT8
+[; ;iRobotSerial.h: 121: iRBumpDrop,
+[; ;iRobotSerial.h: 122: iRWall,
+[; ;iRobotSerial.h: 123: iRCliffL,
+[; ;iRobotSerial.h: 124: iRCliffFL,
+[; ;iRobotSerial.h: 125: iRCliffFR,
+[; ;iRobotSerial.h: 126: iRCliffR,
+[; ;iRobotSerial.h: 127: iRVirtualWall;
+[; ;iRobotSerial.h: 129: extern bool
+[; ;iRobotSerial.h: 130: iRBumpRight,
+[; ;iRobotSerial.h: 131: iRBumpLeft,
+[; ;iRobotSerial.h: 132: iRDropRight,
+[; ;iRobotSerial.h: 133: iRDropLeft,
+[; ;iRobotSerial.h: 134: iRDropCaster;
+[; ;iRobotSerial.c: 24: typedef struct{
 [; ;iRobotSerial.c: 25: UINT16 HB, LB;
 [; ;iRobotSerial.c: 26: } splitShort;
 "28 Library/iRobotSerial.c
@@ -6417,118 +6419,130 @@ Version 3.2 HI-TECH Software Intermediate Code
 "31
 [v _iRDistance `s ~T0 @X0 1 e ]
 "32
+[v _distanceTotal `s ~T0 @X0 1 e ]
+[i _distanceTotal
+-> -> 0 `i `s
+]
+"33
 [v _iRAngle `s ~T0 @X0 1 e ]
+"34
+[v _angleTotal `s ~T0 @X0 1 e ]
+[i _angleTotal
+-> -> 0 `i `s
+]
 [; ;iRobotSerial.c: 30: INT16
 [; ;iRobotSerial.c: 31: iRDistance,
-[; ;iRobotSerial.c: 32: iRAngle;
-"40
+[; ;iRobotSerial.c: 32: distanceTotal = 0,
+[; ;iRobotSerial.c: 33: iRAngle,
+[; ;iRobotSerial.c: 34: angleTotal = 0;
+"42
 [v _iRScriptStack `uc ~T0 @X0 -> 100 `i e ]
-"41
+"43
 [v _iRScriptIndex `uc ~T0 @X0 1 e ]
 [i _iRScriptIndex
 -> -> 0 `i `uc
 ]
-"42
-[v _iRBumpDrop `uc ~T0 @X0 1 e ]
-"43
-[v _iRWall `uc ~T0 @X0 1 e ]
 "44
-[v _iRCliffL `uc ~T0 @X0 1 e ]
+[v _iRBumpDrop `uc ~T0 @X0 1 e ]
 "45
-[v _iRCliffFL `uc ~T0 @X0 1 e ]
+[v _iRWall `uc ~T0 @X0 1 e ]
 "46
-[v _iRCliffFR `uc ~T0 @X0 1 e ]
+[v _iRCliffL `uc ~T0 @X0 1 e ]
 "47
-[v _iRCliffR `uc ~T0 @X0 1 e ]
+[v _iRCliffFL `uc ~T0 @X0 1 e ]
 "48
+[v _iRCliffFR `uc ~T0 @X0 1 e ]
+"49
+[v _iRCliffR `uc ~T0 @X0 1 e ]
+"50
 [v _iRVirtualWall `uc ~T0 @X0 1 e ]
-[; ;iRobotSerial.c: 39: UINT8
-[; ;iRobotSerial.c: 40: iRScriptStack [100],
-[; ;iRobotSerial.c: 41: iRScriptIndex = 0,
-[; ;iRobotSerial.c: 42: iRBumpDrop,
-[; ;iRobotSerial.c: 43: iRWall,
-[; ;iRobotSerial.c: 44: iRCliffL,
-[; ;iRobotSerial.c: 45: iRCliffFL,
-[; ;iRobotSerial.c: 46: iRCliffFR,
-[; ;iRobotSerial.c: 47: iRCliffR,
-[; ;iRobotSerial.c: 48: iRVirtualWall;
-"51
-[v _iRBumpRight `uc ~T0 @X0 1 e ]
-"52
-[v _iRBumpLeft `uc ~T0 @X0 1 e ]
+[; ;iRobotSerial.c: 41: UINT8
+[; ;iRobotSerial.c: 42: iRScriptStack [100],
+[; ;iRobotSerial.c: 43: iRScriptIndex = 0,
+[; ;iRobotSerial.c: 44: iRBumpDrop,
+[; ;iRobotSerial.c: 45: iRWall,
+[; ;iRobotSerial.c: 46: iRCliffL,
+[; ;iRobotSerial.c: 47: iRCliffFL,
+[; ;iRobotSerial.c: 48: iRCliffFR,
+[; ;iRobotSerial.c: 49: iRCliffR,
+[; ;iRobotSerial.c: 50: iRVirtualWall;
 "53
-[v _iRDropRight `uc ~T0 @X0 1 e ]
+[v _iRBumpRight `uc ~T0 @X0 1 e ]
 "54
-[v _iRDropLeft `uc ~T0 @X0 1 e ]
+[v _iRBumpLeft `uc ~T0 @X0 1 e ]
 "55
+[v _iRDropRight `uc ~T0 @X0 1 e ]
+"56
+[v _iRDropLeft `uc ~T0 @X0 1 e ]
+"57
 [v _iRDropCaster `uc ~T0 @X0 1 e ]
-[; ;iRobotSerial.c: 50: bool
-[; ;iRobotSerial.c: 51: iRBumpRight,
-[; ;iRobotSerial.c: 52: iRBumpLeft,
-[; ;iRobotSerial.c: 53: iRDropRight,
-[; ;iRobotSerial.c: 54: iRDropLeft,
-[; ;iRobotSerial.c: 55: iRDropCaster;
-"60
+[; ;iRobotSerial.c: 52: bool
+[; ;iRobotSerial.c: 53: iRBumpRight,
+[; ;iRobotSerial.c: 54: iRBumpLeft,
+[; ;iRobotSerial.c: 55: iRDropRight,
+[; ;iRobotSerial.c: 56: iRDropLeft,
+[; ;iRobotSerial.c: 57: iRDropCaster;
+"62
 [v _get_packet_size `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;iRobotSerial.c: 60: UINT8 get_packet_size(UINT8 packetID) {
+[; ;iRobotSerial.c: 62: UINT8 get_packet_size(UINT8 packetID){
 [e :U _get_packet_size ]
 [v _packetID `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 61: switch (packetID) {
-"61
+[; ;iRobotSerial.c: 63: switch (packetID){
+"63
 [e $U 643  ]
 {
-[; ;iRobotSerial.c: 62: case iR_PKT_BUMP_DROP: return iR_PKT_BUMP_DROP_BN;
-"62
+[; ;iRobotSerial.c: 64: case iR_PKT_BUMP_DROP: return iR_PKT_BUMP_DROP_BN;
+"64
 [e :U 644 ]
 [e ) -> . `E6858 0 `uc ]
 [e $UE 641  ]
-[; ;iRobotSerial.c: 63: case iR_PKT_WALL: return iR_PKT_WALL_BN;
-"63
+[; ;iRobotSerial.c: 65: case iR_PKT_WALL: return iR_PKT_WALL_BN;
+"65
 [e :U 645 ]
 [e ) -> . `E6858 1 `uc ]
 [e $UE 641  ]
-[; ;iRobotSerial.c: 64: case iR_PKT_CLIFF_L: return iR_PKT_CLIFF_L_BN;
-"64
+[; ;iRobotSerial.c: 66: case iR_PKT_CLIFF_L: return iR_PKT_CLIFF_L_BN;
+"66
 [e :U 646 ]
 [e ) -> . `E6858 2 `uc ]
 [e $UE 641  ]
-[; ;iRobotSerial.c: 65: case iR_PKT_CLIFF_FL: return iR_PKT_CLIFF_FL_BN;
-"65
+[; ;iRobotSerial.c: 67: case iR_PKT_CLIFF_FL: return iR_PKT_CLIFF_FL_BN;
+"67
 [e :U 647 ]
 [e ) -> . `E6858 3 `uc ]
 [e $UE 641  ]
-[; ;iRobotSerial.c: 66: case iR_PKT_CLIFF_FR: return iR_PKT_CLIFF_FR_BN;
-"66
+[; ;iRobotSerial.c: 68: case iR_PKT_CLIFF_FR: return iR_PKT_CLIFF_FR_BN;
+"68
 [e :U 648 ]
 [e ) -> . `E6858 4 `uc ]
 [e $UE 641  ]
-[; ;iRobotSerial.c: 67: case iR_PKT_CLIFF_R: return iR_PKT_CLIFF_R_BN;
-"67
+[; ;iRobotSerial.c: 69: case iR_PKT_CLIFF_R: return iR_PKT_CLIFF_R_BN;
+"69
 [e :U 649 ]
 [e ) -> . `E6858 5 `uc ]
 [e $UE 641  ]
-[; ;iRobotSerial.c: 68: case iR_PKT_V_WALL: return iR_PKT_V_WALL_BN;
-"68
+[; ;iRobotSerial.c: 70: case iR_PKT_V_WALL: return iR_PKT_V_WALL_BN;
+"70
 [e :U 650 ]
 [e ) -> . `E6858 6 `uc ]
 [e $UE 641  ]
-[; ;iRobotSerial.c: 69: case iR_PKT_DISTANCE: return iR_PKT_DISTANCE_BN;
-"69
+[; ;iRobotSerial.c: 71: case iR_PKT_DISTANCE: return iR_PKT_DISTANCE_BN;
+"71
 [e :U 651 ]
 [e ) -> . `E6858 7 `uc ]
 [e $UE 641  ]
-[; ;iRobotSerial.c: 70: case iR_PKT_ANGLE: return iR_PKT_ANGLE_BN;
-"70
+[; ;iRobotSerial.c: 72: case iR_PKT_ANGLE: return iR_PKT_ANGLE_BN;
+"72
 [e :U 652 ]
 [e ) -> . `E6858 8 `uc ]
 [e $UE 641  ]
-"71
+"73
 }
-[; ;iRobotSerial.c: 71: }
+[; ;iRobotSerial.c: 73: }
 [e $U 642  ]
-"61
+"63
 [e :U 643 ]
 [e [\ _packetID , $ -> . `E6847 0 `uc 644
  , $ -> . `E6847 1 `uc 645
@@ -6540,102 +6554,82 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> . `E6847 7 `uc 651
  , $ -> . `E6847 8 `uc 652
  642 ]
-"71
+"73
 [e :U 642 ]
-[; ;iRobotSerial.c: 72: }
-"72
+[; ;iRobotSerial.c: 74: }
+"74
 [e :UE 641 ]
 }
-"74
+"76
 [v _rx_assign `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
-[; ;iRobotSerial.c: 74: void rx_assign(UINT8 packetID, UINT8 packetIDValue, UINT8 byteNumber) {
+[; ;iRobotSerial.c: 76: void rx_assign(UINT8 packetID, UINT8 packetIDValue, UINT8 byteNumber){
 [e :U _rx_assign ]
 [v _packetID `uc ~T0 @X0 1 r1 ]
 [v _packetIDValue `uc ~T0 @X0 1 r2 ]
 [v _byteNumber `uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;iRobotSerial.c: 75: switch (packetID) {
-"75
+[; ;iRobotSerial.c: 77: switch (packetID){
+"77
 [e $U 655  ]
 {
-[; ;iRobotSerial.c: 76: case iR_PKT_BUMP_DROP: iRBumpDrop = packetIDValue;
-"76
+[; ;iRobotSerial.c: 78: case iR_PKT_BUMP_DROP: iRBumpDrop = packetIDValue; sort_iRBumpDrop(); break;
+"78
 [e :U 656 ]
 [e = _iRBumpDrop _packetIDValue ]
-[; ;iRobotSerial.c: 77: sort_iRBumpDrop();
-"77
 [e ( _sort_iRBumpDrop ..  ]
-[; ;iRobotSerial.c: 78: break;
-"78
 [e $U 654  ]
-[; ;iRobotSerial.c: 79: case iR_PKT_WALL: iRWall = packetIDValue;
+[; ;iRobotSerial.c: 79: case iR_PKT_WALL: iRWall = packetIDValue; break;
 "79
 [e :U 657 ]
 [e = _iRWall _packetIDValue ]
-[; ;iRobotSerial.c: 80: break;
-"80
 [e $U 654  ]
-[; ;iRobotSerial.c: 81: case iR_PKT_CLIFF_L: iRCliffL = packetIDValue;
-"81
+[; ;iRobotSerial.c: 80: case iR_PKT_CLIFF_L: iRCliffL = packetIDValue; break;
+"80
 [e :U 658 ]
 [e = _iRCliffL _packetIDValue ]
-[; ;iRobotSerial.c: 82: break;
-"82
 [e $U 654  ]
-[; ;iRobotSerial.c: 83: case iR_PKT_CLIFF_FL: iRCliffFL = packetIDValue;
-"83
+[; ;iRobotSerial.c: 81: case iR_PKT_CLIFF_FL: iRCliffFL = packetIDValue; break;
+"81
 [e :U 659 ]
 [e = _iRCliffFL _packetIDValue ]
-[; ;iRobotSerial.c: 84: break;
-"84
 [e $U 654  ]
-[; ;iRobotSerial.c: 85: case iR_PKT_CLIFF_FR: iRCliffFR = packetIDValue;
-"85
+[; ;iRobotSerial.c: 82: case iR_PKT_CLIFF_FR: iRCliffFR = packetIDValue; break;
+"82
 [e :U 660 ]
 [e = _iRCliffFR _packetIDValue ]
-[; ;iRobotSerial.c: 86: break;
-"86
 [e $U 654  ]
-[; ;iRobotSerial.c: 87: case iR_PKT_CLIFF_R: iRCliffR = packetIDValue;
-"87
+[; ;iRobotSerial.c: 83: case iR_PKT_CLIFF_R: iRCliffR = packetIDValue; break;
+"83
 [e :U 661 ]
 [e = _iRCliffR _packetIDValue ]
-[; ;iRobotSerial.c: 88: break;
-"88
 [e $U 654  ]
-[; ;iRobotSerial.c: 89: case iR_PKT_V_WALL: iRVirtualWall = packetIDValue;
-"89
+[; ;iRobotSerial.c: 84: case iR_PKT_V_WALL: iRVirtualWall = packetIDValue; break;
+"84
 [e :U 662 ]
 [e = _iRVirtualWall _packetIDValue ]
-[; ;iRobotSerial.c: 90: break;
-"90
 [e $U 654  ]
-[; ;iRobotSerial.c: 91: case iR_PKT_DISTANCE:
-"91
+[; ;iRobotSerial.c: 85: case iR_PKT_DISTANCE:
+"85
 [e :U 663 ]
-[; ;iRobotSerial.c: 92: (byteNumber == 0) ? (iRDistanceSS.HB = packetIDValue) : (iRDistanceSS.LB = packetIDValue,
-[; ;iRobotSerial.c: 93: iRDistance = ((iRDistanceSS.HB)<<8) + iRDistanceSS.LB);
-"93
+[; ;iRobotSerial.c: 86: (byteNumber == 0) ? (iRDistanceSS.HB = packetIDValue) : (iRDistanceSS.LB = packetIDValue,
+[; ;iRobotSerial.c: 87: iRDistance = ((iRDistanceSS.HB)<<8) + iRDistanceSS.LB); break;
+"87
 [e ? == -> _byteNumber `i -> 0 `i : -> = . _iRDistanceSS 0 -> _packetIDValue `us `ui -> ; = . _iRDistanceSS 1 -> _packetIDValue `us = _iRDistance -> + << -> . _iRDistanceSS 0 `ui -> 8 `i -> . _iRDistanceSS 1 `ui `s `ui ]
-[; ;iRobotSerial.c: 94: break;
-"94
 [e $U 654  ]
-[; ;iRobotSerial.c: 95: case iR_PKT_ANGLE:
-"95
+[; ;iRobotSerial.c: 88: case iR_PKT_ANGLE:
+"88
 [e :U 664 ]
-[; ;iRobotSerial.c: 96: (byteNumber == 0) ? (iRAngleSS.HB = packetIDValue) : (iRAngleSS.LB = packetIDValue,
-[; ;iRobotSerial.c: 97: iRAngle = ((iRAngleSS.HB)<<8) + iRAngleSS.LB);
-"97
+[; ;iRobotSerial.c: 89: (byteNumber == 0) ? (iRAngleSS.HB = packetIDValue) : (iRAngleSS.LB = packetIDValue,
+[; ;iRobotSerial.c: 90: iRAngle = ((iRAngleSS.HB)<<8) + iRAngleSS.LB); break;
+"90
 [e ? == -> _byteNumber `i -> 0 `i : -> = . _iRAngleSS 0 -> _packetIDValue `us `ui -> ; = . _iRAngleSS 1 -> _packetIDValue `us = _iRAngle -> + << -> . _iRAngleSS 0 `ui -> 8 `i -> . _iRAngleSS 1 `ui `s `ui ]
-[; ;iRobotSerial.c: 98: break;
-"98
 [e $U 654  ]
-"99
+"91
 }
-[; ;iRobotSerial.c: 99: }
+[; ;iRobotSerial.c: 91: }
 [e $U 654  ]
-"75
+"77
 [e :U 655 ]
 [e [\ _packetID , $ -> . `E6847 0 `uc 656
  , $ -> . `E6847 1 `uc 657
@@ -6647,800 +6641,696 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> . `E6847 7 `uc 663
  , $ -> . `E6847 8 `uc 664
  654 ]
-"99
+"91
 [e :U 654 ]
-[; ;iRobotSerial.c: 100: }
-"100
+[; ;iRobotSerial.c: 92: }
+"92
 [e :UE 653 ]
 }
-"102
+"94
 [v _sort_iRBumpDrop `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 102: void sort_iRBumpDrop(void) {
+[; ;iRobotSerial.c: 94: void sort_iRBumpDrop(void){
 [e :U _sort_iRBumpDrop ]
 [f ]
-[; ;iRobotSerial.c: 103: (iRBumpDrop & 0x1) ? (iRBumpRight = 1) : (iRBumpRight = 0);
-"103
+[; ;iRobotSerial.c: 95: (iRBumpDrop & 0x1) ? (iRBumpRight = 1) : (iRBumpRight = 0);
+"95
 [e ? != & -> _iRBumpDrop `i -> 1 `i -> 0 `i : -> = _iRBumpRight -> -> 1 `i `uc `i -> = _iRBumpRight -> -> 0 `i `uc `i ]
-[; ;iRobotSerial.c: 104: ((iRBumpDrop >> 0x1) & (0x1)) ? (iRBumpLeft = 1) : (iRBumpLeft = 0);
-"104
+[; ;iRobotSerial.c: 96: ((iRBumpDrop >> 0x1) & (0x1)) ? (iRBumpLeft = 1) : (iRBumpLeft = 0);
+"96
 [e ? != & >> -> _iRBumpDrop `i -> 1 `i -> 1 `i -> 0 `i : -> = _iRBumpLeft -> -> 1 `i `uc `i -> = _iRBumpLeft -> -> 0 `i `uc `i ]
-[; ;iRobotSerial.c: 105: ((iRBumpDrop >> 0x2) & (0x1)) ? (iRDropRight = 1) : (iRDropRight = 0);
-"105
+[; ;iRobotSerial.c: 97: ((iRBumpDrop >> 0x2) & (0x1)) ? (iRDropRight = 1) : (iRDropRight = 0);
+"97
 [e ? != & >> -> _iRBumpDrop `i -> 2 `i -> 1 `i -> 0 `i : -> = _iRDropRight -> -> 1 `i `uc `i -> = _iRDropRight -> -> 0 `i `uc `i ]
-[; ;iRobotSerial.c: 106: ((iRBumpDrop >> 0x3) & (0x1)) ? (iRDropLeft = 1) : (iRDropLeft = 0);
-"106
+[; ;iRobotSerial.c: 98: ((iRBumpDrop >> 0x3) & (0x1)) ? (iRDropLeft = 1) : (iRDropLeft = 0);
+"98
 [e ? != & >> -> _iRBumpDrop `i -> 3 `i -> 1 `i -> 0 `i : -> = _iRDropLeft -> -> 1 `i `uc `i -> = _iRDropLeft -> -> 0 `i `uc `i ]
-[; ;iRobotSerial.c: 107: ((iRBumpDrop >> 0x4) & (0x1)) ? (iRDropCaster = 1) : (iRDropCaster = 0);
-"107
+[; ;iRobotSerial.c: 99: ((iRBumpDrop >> 0x4) & (0x1)) ? (iRDropCaster = 1) : (iRDropCaster = 0);
+"99
 [e ? != & >> -> _iRBumpDrop `i -> 4 `i -> 1 `i -> 0 `i : -> = _iRDropCaster -> -> 1 `i `uc `i -> = _iRDropCaster -> -> 0 `i `uc `i ]
-[; ;iRobotSerial.c: 108: }
-"108
+[; ;iRobotSerial.c: 100: }
+"100
 [e :UE 665 ]
 }
-"113
+"105
 [v _eusart_init `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 113: void eusart_init(void) {
+[; ;iRobotSerial.c: 105: void eusart_init(void){
 [e :U _eusart_init ]
 [f ]
-[; ;iRobotSerial.c: 114: TRISCbits.TRISC6 = 0;
-"114
+[; ;iRobotSerial.c: 106: TRISCbits.TRISC6 = 0;
+"106
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 115: TRISCbits.TRISC7 = 1;
-"115
+[; ;iRobotSerial.c: 107: TRISCbits.TRISC7 = 1;
+"107
 [e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-[; ;iRobotSerial.c: 117: TXSTA1 = 0b00100100;
-"117
+[; ;iRobotSerial.c: 109: TXSTA1 = 0b00100100;
+"109
 [e = _TXSTA1 -> -> 36 `i `uc ]
-[; ;iRobotSerial.c: 118: RCSTA1 = 0b10011000;
-"118
+[; ;iRobotSerial.c: 110: RCSTA1 = 0b10011000;
+"110
 [e = _RCSTA1 -> -> 152 `i `uc ]
-[; ;iRobotSerial.c: 120: BAUDCON1bits.DTRXP = 0;
-"120
+[; ;iRobotSerial.c: 112: BAUDCON1bits.DTRXP = 0;
+"112
 [e = . . _BAUDCON1bits 1 2 -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 121: BAUDCON1bits.SCKP = 0;
-"121
+[; ;iRobotSerial.c: 113: BAUDCON1bits.SCKP = 0;
+"113
 [e = . . _BAUDCON1bits 1 1 -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 122: BAUDCON1bits.WUE = 0;
-"122
+[; ;iRobotSerial.c: 114: BAUDCON1bits.WUE = 0;
+"114
 [e = . . _BAUDCON1bits 0 1 -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 123: BAUDCON1bits.ABDEN = 0;
-"123
+[; ;iRobotSerial.c: 115: BAUDCON1bits.ABDEN = 0;
+"115
 [e = . . _BAUDCON1bits 0 0 -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 125: TXSTA1bits.BRGH = 1;
-"125
+[; ;iRobotSerial.c: 117: TXSTA1bits.BRGH = 1;
+"117
 [e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
-[; ;iRobotSerial.c: 126: BAUDCON1bits.BRG16 = 0;
-"126
+[; ;iRobotSerial.c: 118: BAUDCON1bits.BRG16 = 0;
+"118
 [e = . . _BAUDCON1bits 0 3 -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 127: SPBRG1 = 51;
-"127
+[; ;iRobotSerial.c: 119: SPBRG1 = 51;
+"119
 [e = _SPBRG1 -> -> 51 `i `uc ]
-[; ;iRobotSerial.c: 128: }
-"128
+[; ;iRobotSerial.c: 120: }
+"120
 [e :UE 666 ]
 }
-"130
+"122
 [v _eusart_putch `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;iRobotSerial.c: 130: void eusart_putch(UINT8 eusartSendChar) {
+[; ;iRobotSerial.c: 122: void eusart_putch(UINT8 eusartSendChar){
 [e :U _eusart_putch ]
 [v _eusartSendChar `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 131: while (!TXSTA1bits.TRMT) {
-"131
+[; ;iRobotSerial.c: 123: while (!TXSTA1bits.TRMT) {};
+"123
 [e $U 668  ]
 [e :U 669 ]
 {
-"132
 }
 [e :U 668 ]
-"131
 [e $ ! != -> . . _TXSTA1bits 0 1 `i -> -> -> 0 `i `Vuc `i 669  ]
 [e :U 670 ]
-[; ;iRobotSerial.c: 132: };
-[; ;iRobotSerial.c: 133: TXREG1 = eusartSendChar;
-"133
+[; ;iRobotSerial.c: 124: TXREG1 = eusartSendChar;
+"124
 [e = _TXREG1 _eusartSendChar ]
-[; ;iRobotSerial.c: 134: }
-"134
+[; ;iRobotSerial.c: 125: }
+"125
 [e :UE 667 ]
 }
-"136
+"127
 [v _eusart_getch `(uc ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 136: UINT8 eusart_getch(void) {
+[; ;iRobotSerial.c: 127: UINT8 eusart_getch(void){
 [e :U _eusart_getch ]
 [f ]
-[; ;iRobotSerial.c: 137: while (!PIR1bits.RC1IF) {
-"137
+[; ;iRobotSerial.c: 128: while (!PIR1bits.RC1IF) {};
+"128
 [e $U 672  ]
 [e :U 673 ]
 {
-"138
 }
 [e :U 672 ]
-"137
 [e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 673  ]
 [e :U 674 ]
-[; ;iRobotSerial.c: 138: };
-[; ;iRobotSerial.c: 139: return RCREG1;
-"139
+[; ;iRobotSerial.c: 129: return RCREG1;
+"129
 [e ) _RCREG1 ]
 [e $UE 671  ]
-[; ;iRobotSerial.c: 140: }
-"140
+[; ;iRobotSerial.c: 130: }
+"130
 [e :UE 671 ]
 }
-"142
+"132
 [v _irobot_query_and_update `(v ~T0 @X0 1 ev`uc ]
 {
-[; ;iRobotSerial.c: 142: void irobot_query_and_update(UINT8 numberOfPacketRequests, ...) {
+[; ;iRobotSerial.c: 132: void irobot_query_and_update(UINT8 numberOfPacketRequests, ...){
 [e :U _irobot_query_and_update ]
 [v _numberOfPacketRequests `uc ~T0 @X0 1 r0 ]
 [f ]
-"143
+"133
 [v _i `uc ~T0 @X0 1 a ]
 [v _j `uc ~T0 @X0 1 a ]
 [v _packetVariable `uc ~T0 @X0 1 a ]
 [v _streamSize `uc ~T0 @X0 1 a ]
-[; ;iRobotSerial.c: 143: UINT8 i, j, packetVariable, streamSize = 0, startIndex = 0, RXArray[256], TXArray[256];
+[; ;iRobotSerial.c: 133: UINT8 i, j, packetVariable, streamSize = 0, startIndex = 0, RXArray[256], TXArray[256];
 [e = _streamSize -> -> 0 `i `uc ]
 [v _startIndex `uc ~T0 @X0 1 a ]
 [e = _startIndex -> -> 0 `i `uc ]
 [v _RXArray `uc ~T0 @X0 -> 256 `i a ]
 [v _TXArray `uc ~T0 @X0 -> 256 `i a ]
-"145
+"135
 [v _packetIDs `*v ~T0 @X0 -> -> 1 `i `ux a ]
-[; ;iRobotSerial.c: 145: va_list packetIDs;
-[; ;iRobotSerial.c: 146: *packetIDs = __va_start();
-"146
+[; ;iRobotSerial.c: 135: va_list packetIDs;
+[; ;iRobotSerial.c: 136: *packetIDs = __va_start();
+"136
 [e = *U &U _packetIDs ( ___va_start ..  ]
-[; ;iRobotSerial.c: 147: eusart_putch(iR_QUERY_LIST);
-"147
+[; ;iRobotSerial.c: 137: eusart_putch(iR_QUERY_LIST);
+"137
 [e ( _eusart_putch (1 -> . `E6829 9 `uc ]
-[; ;iRobotSerial.c: 148: eusart_putch(numberOfPacketRequests);
-"148
+[; ;iRobotSerial.c: 138: eusart_putch(numberOfPacketRequests);
+"138
 [e ( _eusart_putch (1 _numberOfPacketRequests ]
-[; ;iRobotSerial.c: 149: for (i = 0; i < numberOfPacketRequests; i++) {
-"149
+[; ;iRobotSerial.c: 139: for (i = 0; i < numberOfPacketRequests; i++){
+"139
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 679  ]
 [e :U 676 ]
 {
-[; ;iRobotSerial.c: 150: packetVariable = (*(int *)__va_arg((*(int **)packetIDs), (int)0));
-"150
+[; ;iRobotSerial.c: 140: packetVariable = (*(int *)__va_arg((*(int **)packetIDs), (int)0));
+"140
 [e = _packetVariable -> *U -> ( ___va_arg , (. -> *U -> &U _packetIDs `**i `*v -> 0 `i `*i `uc ]
-[; ;iRobotSerial.c: 151: streamSize += get_packet_size(packetVariable);
-"151
+[; ;iRobotSerial.c: 141: streamSize += get_packet_size(packetVariable);
+"141
 [e =+ _streamSize ( _get_packet_size (1 _packetVariable ]
-[; ;iRobotSerial.c: 152: TXArray[i] = packetVariable;
-"152
+[; ;iRobotSerial.c: 142: TXArray[i] = packetVariable;
+"142
 [e = *U + &U _TXArray * -> _i `ux -> -> # *U &U _TXArray `ui `ux _packetVariable ]
-[; ;iRobotSerial.c: 153: eusart_putch(packetVariable);
-"153
+[; ;iRobotSerial.c: 143: eusart_putch(packetVariable);
+"143
 [e ( _eusart_putch (1 _packetVariable ]
-"154
+"144
 }
-"149
+"139
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 679 ]
 [e $ < -> _i `i -> _numberOfPacketRequests `i 676  ]
 [e :U 677 ]
-"154
+"144
 }
-[; ;iRobotSerial.c: 154: }
-[; ;iRobotSerial.c: 155: ;
-[; ;iRobotSerial.c: 157: for (i = 0; i < streamSize; i++) {
-"157
+[; ;iRobotSerial.c: 144: }
+[; ;iRobotSerial.c: 145: ;
+[; ;iRobotSerial.c: 147: for (i = 0; i < streamSize; i++){RXArray[i] = eusart_getch();}
+"147
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 683  ]
 [e :U 680 ]
 {
-[; ;iRobotSerial.c: 158: RXArray[i] = eusart_getch();
-"158
 [e = *U + &U _RXArray * -> _i `ux -> -> # *U &U _RXArray `ui `ux ( _eusart_getch ..  ]
-"159
 }
-"157
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 683 ]
 [e $ < -> _i `i -> _streamSize `i 680  ]
 [e :U 681 ]
-"159
 }
-[; ;iRobotSerial.c: 159: }
-[; ;iRobotSerial.c: 161: for (i = 0; i < numberOfPacketRequests; i++) {
-"161
+[; ;iRobotSerial.c: 149: for (i = 0; i < numberOfPacketRequests; i++){
+"149
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 687  ]
 [e :U 684 ]
 {
-[; ;iRobotSerial.c: 162: for (j = startIndex; j < get_packet_size(TXArray[i]) + startIndex; j++) {
-"162
+[; ;iRobotSerial.c: 150: for (j = startIndex; j < get_packet_size(TXArray[i]) + startIndex; j++){
+"150
 {
 [e = _j _startIndex ]
 [e $U 691  ]
 [e :U 688 ]
 {
-[; ;iRobotSerial.c: 163: rx_assign(TXArray[i], RXArray[j], j - startIndex);
-"163
+[; ;iRobotSerial.c: 151: rx_assign(TXArray[i], RXArray[j], j - startIndex);
+"151
 [e ( _rx_assign (3 , , *U + &U _TXArray * -> _i `ux -> -> # *U &U _TXArray `ui `ux *U + &U _RXArray * -> _j `ux -> -> # *U &U _RXArray `ui `ux -> - -> _j `i -> _startIndex `i `uc ]
-"164
+"152
 }
-"162
+"150
 [e ++ _j -> -> 1 `i `uc ]
 [e :U 691 ]
 [e $ < -> _j `i + -> ( _get_packet_size (1 *U + &U _TXArray * -> _i `ux -> -> # *U &U _TXArray `ui `ux `i -> _startIndex `i 688  ]
 [e :U 689 ]
-"164
+"152
 }
-[; ;iRobotSerial.c: 164: }
-[; ;iRobotSerial.c: 165: startIndex += get_packet_size(TXArray[i]);
-"165
+[; ;iRobotSerial.c: 152: }
+[; ;iRobotSerial.c: 153: startIndex += get_packet_size(TXArray[i]);
+"153
 [e =+ _startIndex ( _get_packet_size (1 *U + &U _TXArray * -> _i `ux -> -> # *U &U _TXArray `ui `ux ]
-"166
+"154
 }
-"161
+"149
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 687 ]
 [e $ < -> _i `i -> _numberOfPacketRequests `i 684  ]
 [e :U 685 ]
-"166
+"154
 }
-[; ;iRobotSerial.c: 166: }
-[; ;iRobotSerial.c: 167: }
-"167
+[; ;iRobotSerial.c: 154: }
+[; ;iRobotSerial.c: 155: }
+"155
 [e :UE 675 ]
 }
-"181
+"169
 [v _twos_complement_of `(us ~T0 @X0 1 ef1`s ]
 {
-[; ;iRobotSerial.c: 181: UINT16 twos_complement_of(INT16 complementValue) {
+[; ;iRobotSerial.c: 169: UINT16 twos_complement_of(INT16 complementValue){
 [e :U _twos_complement_of ]
 [v _complementValue `s ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 182: if (complementValue < 0) {
-"182
+[; ;iRobotSerial.c: 170: if (complementValue < 0){
+"170
 [e $ ! < -> _complementValue `i -> 0 `i 693  ]
 {
-[; ;iRobotSerial.c: 183: complementValue = ((complementValue) > 0 ? (complementValue) : -(complementValue));
-"183
+[; ;iRobotSerial.c: 171: complementValue = ((complementValue) > 0 ? (complementValue) : -(complementValue));
+"171
 [e = _complementValue -> ? > -> _complementValue `i -> 0 `i : -> _complementValue `i -U -> _complementValue `i `s ]
-[; ;iRobotSerial.c: 184: complementValue = ~complementValue;
-"184
+[; ;iRobotSerial.c: 172: complementValue = ~complementValue;
+"172
 [e = _complementValue -> ~ -> _complementValue `i `s ]
-[; ;iRobotSerial.c: 185: complementValue += 1;
-"185
+[; ;iRobotSerial.c: 173: complementValue += 1;
+"173
 [e =+ _complementValue -> -> 1 `i `s ]
-"186
+"174
 }
 [e :U 693 ]
-[; ;iRobotSerial.c: 186: }
-[; ;iRobotSerial.c: 187: return complementValue;
-"187
+[; ;iRobotSerial.c: 174: }
+[; ;iRobotSerial.c: 175: return complementValue;
+"175
 [e ) -> _complementValue `us ]
 [e $UE 692  ]
-[; ;iRobotSerial.c: 188: }
-"188
+[; ;iRobotSerial.c: 176: }
+"176
 [e :UE 692 ]
 }
-"190
+"178
 [v _load_iRScriptStack `(v ~T0 @X0 1 ev`uc ]
 {
-[; ;iRobotSerial.c: 190: void load_iRScriptStack(UINT8 bytesToLoad, ...) {
+[; ;iRobotSerial.c: 178: void load_iRScriptStack(UINT8 bytesToLoad, ...){
 [e :U _load_iRScriptStack ]
 [v _bytesToLoad `uc ~T0 @X0 1 r0 ]
 [f ]
-"191
+"179
 [v _loadByte `*v ~T0 @X0 -> -> 1 `i `ux a ]
-[; ;iRobotSerial.c: 191: va_list loadByte;
-[; ;iRobotSerial.c: 192: *loadByte = __va_start();
-"192
+[; ;iRobotSerial.c: 179: va_list loadByte;
+[; ;iRobotSerial.c: 180: *loadByte = __va_start();
+"180
 [e = *U &U _loadByte ( ___va_start ..  ]
-[; ;iRobotSerial.c: 193: for (UINT8 i = 0; i < bytesToLoad; i++) {
-"193
+[; ;iRobotSerial.c: 181: for (UINT8 i = 0; i < bytesToLoad; i++){
+"181
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 698  ]
 [e :U 695 ]
 {
-[; ;iRobotSerial.c: 194: iRScriptStack[iRScriptIndex + i] = (*(int *)__va_arg((*(int **)loadByte), (int)0));
-"194
+[; ;iRobotSerial.c: 182: iRScriptStack[iRScriptIndex + i] = (*(int *)__va_arg((*(int **)loadByte), (int)0));
+"182
 [e = *U + &U _iRScriptStack * -> -> + -> _iRScriptIndex `i -> _i `i `ui `ux -> -> # *U &U _iRScriptStack `ui `ux -> *U -> ( ___va_arg , (. -> *U -> &U _loadByte `**i `*v -> 0 `i `*i `uc ]
-"195
+"183
 }
-"193
+"181
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 698 ]
 [e $ < -> _i `i -> _bytesToLoad `i 695  ]
 [e :U 696 ]
-"195
+"183
 }
-[; ;iRobotSerial.c: 195: }
-[; ;iRobotSerial.c: 196: ;
-[; ;iRobotSerial.c: 197: iRScriptIndex += bytesToLoad;
-"197
+[; ;iRobotSerial.c: 183: }
+[; ;iRobotSerial.c: 184: ;
+[; ;iRobotSerial.c: 185: iRScriptIndex += bytesToLoad;
+"185
 [e =+ _iRScriptIndex _bytesToLoad ]
-[; ;iRobotSerial.c: 198: }
-"198
+[; ;iRobotSerial.c: 186: }
+"186
 [e :UE 694 ]
 }
-"204
+"191
 [v _irobot_script_play `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 204: void irobot_script_play(void) {
+[; ;iRobotSerial.c: 191: void irobot_script_play(void){
 [e :U _irobot_script_play ]
 [f ]
-[; ;iRobotSerial.c: 205: eusart_putch(iR_SCRIPT);
-"205
+[; ;iRobotSerial.c: 192: eusart_putch(iR_SCRIPT);
+"192
 [e ( _eusart_putch (1 -> . `E6829 10 `uc ]
-[; ;iRobotSerial.c: 206: eusart_putch(iRScriptIndex);
-"206
+[; ;iRobotSerial.c: 193: eusart_putch(iRScriptIndex);
+"193
 [e ( _eusart_putch (1 _iRScriptIndex ]
-[; ;iRobotSerial.c: 207: for (UINT8 i = 0; i < iRScriptIndex; i++) {
-"207
+[; ;iRobotSerial.c: 194: for (UINT8 i = 0; i < iRScriptIndex; i++){eusart_putch(iRScriptStack[i]);}
+"194
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 703  ]
 [e :U 700 ]
 {
-[; ;iRobotSerial.c: 208: eusart_putch(iRScriptStack[i]);
-"208
 [e ( _eusart_putch (1 *U + &U _iRScriptStack * -> _i `ux -> -> # *U &U _iRScriptStack `ui `ux ]
-"209
 }
-"207
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 703 ]
 [e $ < -> _i `i -> _iRScriptIndex `i 700  ]
 [e :U 701 ]
-"209
 }
-[; ;iRobotSerial.c: 209: }
-[; ;iRobotSerial.c: 210: eusart_putch(iR_SCRIPT_PLAY);
-"210
+[; ;iRobotSerial.c: 195: eusart_putch(iR_SCRIPT_PLAY);
+"195
 [e ( _eusart_putch (1 -> . `E6829 11 `uc ]
-[; ;iRobotSerial.c: 211: memset(iRScriptStack, 0x00, sizeof (iRScriptStack));
-"211
+[; ;iRobotSerial.c: 196: memset(iRScriptStack, 0x00, sizeof(iRScriptStack));
+"196
 [e ( _memset (3 , , -> &U _iRScriptStack `*v -> 0 `i -> # _iRScriptStack `ui ]
-[; ;iRobotSerial.c: 212: iRScriptIndex = 0;
-"212
+[; ;iRobotSerial.c: 197: iRScriptIndex = 0;
+"197
 [e = _iRScriptIndex -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 213: }
-"213
+[; ;iRobotSerial.c: 198: }
+"198
 [e :UE 699 ]
 }
-"215
+"200
 [v _irobot_init `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 215: void irobot_init(void) {
+[; ;iRobotSerial.c: 200: void irobot_init(void){
 [e :U _irobot_init ]
 [f ]
-[; ;iRobotSerial.c: 216: eusart_putch(iR_START);
-"216
+[; ;iRobotSerial.c: 201: eusart_putch(iR_START);
+"201
 [e ( _eusart_putch (1 -> . `E6829 0 `uc ]
-[; ;iRobotSerial.c: 217: eusart_putch(iR_FULL_MODE);
-"217
+[; ;iRobotSerial.c: 202: eusart_putch(iR_FULL_MODE);
+"202
 [e ( _eusart_putch (1 -> . `E6829 1 `uc ]
-[; ;iRobotSerial.c: 218: }
-"218
+[; ;iRobotSerial.c: 203: }
+"203
 [e :UE 704 ]
 }
-"222
+"206
 [v _irobot_angle_wait `(v ~T0 @X0 1 ef1`s ]
 {
-[; ;iRobotSerial.c: 222: void irobot_angle_wait(INT16 angleWait) {
+[; ;iRobotSerial.c: 206: void irobot_angle_wait(INT16 angleWait){
 [e :U _irobot_angle_wait ]
 [v _angleWait `s ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 223: angleWait = twos_complement_of(angleWait);
-"223
+[; ;iRobotSerial.c: 207: angleWait = twos_complement_of(angleWait);
+"207
 [e = _angleWait -> ( _twos_complement_of (1 _angleWait `s ]
-[; ;iRobotSerial.c: 225: load_iRScriptStack(3, iR_WAIT_ANGLE,
-[; ;iRobotSerial.c: 226: (((angleWait)>>8) & 0xFF), ((angleWait) & 0xFF));
-"226
+[; ;iRobotSerial.c: 209: load_iRScriptStack(3, iR_WAIT_ANGLE,
+[; ;iRobotSerial.c: 210: (((angleWait)>>8) & 0xFF), ((angleWait) & 0xFF));
+"210
 [e ( _load_iRScriptStack , , , (. -> -> 3 `i `uc -> . `E6829 14 `i & >> -> _angleWait `i -> 8 `i -> 255 `i & -> _angleWait `i -> 255 `i ]
-[; ;iRobotSerial.c: 227: }
-"227
+[; ;iRobotSerial.c: 211: }
+"211
 [e :UE 705 ]
 }
-"231
+"214
 [v _irobot_distance_wait `(v ~T0 @X0 1 ef1`s ]
 {
-[; ;iRobotSerial.c: 231: void irobot_distance_wait(INT16 distanceWait) {
+[; ;iRobotSerial.c: 214: void irobot_distance_wait(INT16 distanceWait){
 [e :U _irobot_distance_wait ]
 [v _distanceWait `s ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 232: distanceWait = twos_complement_of(distanceWait);
-"232
+[; ;iRobotSerial.c: 215: distanceWait = twos_complement_of(distanceWait);
+"215
 [e = _distanceWait -> ( _twos_complement_of (1 _distanceWait `s ]
-[; ;iRobotSerial.c: 234: load_iRScriptStack(3, iR_WAIT_DISTANCE,
-[; ;iRobotSerial.c: 235: (((distanceWait)>>8) & 0xFF), ((distanceWait) & 0xFF));
-"235
+[; ;iRobotSerial.c: 217: load_iRScriptStack(3, iR_WAIT_DISTANCE,
+[; ;iRobotSerial.c: 218: (((distanceWait)>>8) & 0xFF), ((distanceWait) & 0xFF));
+"218
 [e ( _load_iRScriptStack , , , (. -> -> 3 `i `uc -> . `E6829 13 `i & >> -> _distanceWait `i -> 8 `i -> 255 `i & -> _distanceWait `i -> 255 `i ]
-[; ;iRobotSerial.c: 236: }
-"236
+[; ;iRobotSerial.c: 219: }
+"219
 [e :UE 706 ]
 }
-"240
+"222
 [v _irobot_move `(v ~T0 @X0 1 ef3`uc`s`s ]
 {
-[; ;iRobotSerial.c: 240: void irobot_move(bool isScript, INT16 moveSpeed, INT16 moveTurnRadius) {
+[; ;iRobotSerial.c: 222: void irobot_move(bool isScript, INT16 moveSpeed, INT16 moveTurnRadius){
 [e :U _irobot_move ]
 [v _isScript `uc ~T0 @X0 1 r1 ]
 [v _moveSpeed `s ~T0 @X0 1 r2 ]
 [v _moveTurnRadius `s ~T0 @X0 1 r3 ]
 [f ]
-[; ;iRobotSerial.c: 241: moveSpeed = twos_complement_of(moveSpeed);
-"241
+[; ;iRobotSerial.c: 223: moveSpeed = twos_complement_of(moveSpeed);
+"223
 [e = _moveSpeed -> ( _twos_complement_of (1 _moveSpeed `s ]
-[; ;iRobotSerial.c: 242: moveTurnRadius = twos_complement_of(moveTurnRadius);
-"242
+[; ;iRobotSerial.c: 224: moveTurnRadius = twos_complement_of(moveTurnRadius);
+"224
 [e = _moveTurnRadius -> ( _twos_complement_of (1 _moveTurnRadius `s ]
-[; ;iRobotSerial.c: 244: if (isScript) {
-"244
+[; ;iRobotSerial.c: 226: if (isScript){
+"226
 [e $ ! != -> _isScript `i -> -> -> 0 `i `uc `i 708  ]
 {
-[; ;iRobotSerial.c: 245: load_iRScriptStack(5, iR_DRIVE,
-[; ;iRobotSerial.c: 246: (((moveSpeed)>>8) & 0xFF), ((moveSpeed) & 0xFF),
-[; ;iRobotSerial.c: 247: (((moveTurnRadius)>>8) & 0xFF), ((moveTurnRadius) & 0xFF));
-"247
+[; ;iRobotSerial.c: 227: load_iRScriptStack(5, iR_DRIVE,
+[; ;iRobotSerial.c: 228: (((moveSpeed)>>8) & 0xFF), ((moveSpeed) & 0xFF),
+[; ;iRobotSerial.c: 229: (((moveTurnRadius)>>8) & 0xFF), ((moveTurnRadius) & 0xFF));
+"229
 [e ( _load_iRScriptStack , , , , , (. -> -> 5 `i `uc -> . `E6829 2 `i & >> -> _moveSpeed `i -> 8 `i -> 255 `i & -> _moveSpeed `i -> 255 `i & >> -> _moveTurnRadius `i -> 8 `i -> 255 `i & -> _moveTurnRadius `i -> 255 `i ]
-"248
+"230
 }
-[; ;iRobotSerial.c: 248: } else {
+[; ;iRobotSerial.c: 230: }
 [e $U 709  ]
+"231
 [e :U 708 ]
+[; ;iRobotSerial.c: 231: else{
 {
-[; ;iRobotSerial.c: 249: eusart_putch(iR_DRIVE);
-"249
+[; ;iRobotSerial.c: 232: eusart_putch(iR_DRIVE);
+"232
 [e ( _eusart_putch (1 -> . `E6829 2 `uc ]
-[; ;iRobotSerial.c: 250: eusart_putch((((moveSpeed)>>8) & 0xFF));
-"250
+[; ;iRobotSerial.c: 233: eusart_putch((((moveSpeed)>>8) & 0xFF));
+"233
 [e ( _eusart_putch (1 -> & >> -> _moveSpeed `i -> 8 `i -> 255 `i `uc ]
-[; ;iRobotSerial.c: 251: eusart_putch(((moveSpeed) & 0xFF));
-"251
+[; ;iRobotSerial.c: 234: eusart_putch(((moveSpeed) & 0xFF));
+"234
 [e ( _eusart_putch (1 -> & -> _moveSpeed `i -> 255 `i `uc ]
-[; ;iRobotSerial.c: 252: eusart_putch((((moveTurnRadius)>>8) & 0xFF));
-"252
+[; ;iRobotSerial.c: 235: eusart_putch((((moveTurnRadius)>>8) & 0xFF));
+"235
 [e ( _eusart_putch (1 -> & >> -> _moveTurnRadius `i -> 8 `i -> 255 `i `uc ]
-[; ;iRobotSerial.c: 253: eusart_putch(((moveTurnRadius) & 0xFF));
-"253
+[; ;iRobotSerial.c: 236: eusart_putch(((moveTurnRadius) & 0xFF));
+"236
 [e ( _eusart_putch (1 -> & -> _moveTurnRadius `i -> 255 `i `uc ]
-"254
+"237
 }
 [e :U 709 ]
-[; ;iRobotSerial.c: 254: }
-[; ;iRobotSerial.c: 255: }
-"255
+[; ;iRobotSerial.c: 237: }
+[; ;iRobotSerial.c: 238: }
+"238
 [e :UE 707 ]
 }
-"259
+"241
 [v _irobot_leds `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 {
-[; ;iRobotSerial.c: 259: void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLuminosity) {
+[; ;iRobotSerial.c: 241: void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLuminosity){
 [e :U _irobot_leds ]
 [v _isScript `uc ~T0 @X0 1 r1 ]
 [v _LEDBit `uc ~T0 @X0 1 r2 ]
 [v _powerColour `uc ~T0 @X0 1 r3 ]
 [v _powerLuminosity `uc ~T0 @X0 1 r4 ]
 [f ]
-[; ;iRobotSerial.c: 260: if (isScript) {
-"260
+[; ;iRobotSerial.c: 242: if (isScript){
+"242
 [e $ ! != -> _isScript `i -> -> -> 0 `i `uc `i 711  ]
 {
-[; ;iRobotSerial.c: 261: load_iRScriptStack(4, iR_LEDS,
-[; ;iRobotSerial.c: 262: LEDBit, powerColour, powerLuminosity);
-"262
+[; ;iRobotSerial.c: 243: load_iRScriptStack(4, iR_LEDS,
+[; ;iRobotSerial.c: 244: LEDBit, powerColour, powerLuminosity);
+"244
 [e ( _load_iRScriptStack , , , , (. -> -> 4 `i `uc -> . `E6829 3 `i -> _LEDBit `i -> _powerColour `i -> _powerLuminosity `i ]
-"263
+"245
 }
-[; ;iRobotSerial.c: 263: } else {
+[; ;iRobotSerial.c: 245: }
 [e $U 712  ]
+"246
 [e :U 711 ]
+[; ;iRobotSerial.c: 246: else{
 {
-[; ;iRobotSerial.c: 264: eusart_putch(iR_LEDS);
-"264
+[; ;iRobotSerial.c: 247: eusart_putch(iR_LEDS);
+"247
 [e ( _eusart_putch (1 -> . `E6829 3 `uc ]
-[; ;iRobotSerial.c: 265: eusart_putch(LEDBit);
-"265
+[; ;iRobotSerial.c: 248: eusart_putch(LEDBit);
+"248
 [e ( _eusart_putch (1 _LEDBit ]
-[; ;iRobotSerial.c: 266: eusart_putch(powerColour);
-"266
+[; ;iRobotSerial.c: 249: eusart_putch(powerColour);
+"249
 [e ( _eusart_putch (1 _powerColour ]
-[; ;iRobotSerial.c: 267: eusart_putch(powerLuminosity);
-"267
+[; ;iRobotSerial.c: 250: eusart_putch(powerLuminosity);
+"250
 [e ( _eusart_putch (1 _powerLuminosity ]
-"268
+"251
 }
 [e :U 712 ]
-[; ;iRobotSerial.c: 268: }
-[; ;iRobotSerial.c: 269: }
-"269
+[; ;iRobotSerial.c: 251: }
+[; ;iRobotSerial.c: 252: }
+"252
 [e :UE 710 ]
 }
-"271
+"254
 [v _irobot_init_song_0 `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 271: void irobot_init_song_0(void) {
+[; ;iRobotSerial.c: 254: void irobot_init_song_0(void){
 [e :U _irobot_init_song_0 ]
 [f ]
-[; ;iRobotSerial.c: 272: eusart_putch(iR_SONG_INIT);
-"272
+[; ;iRobotSerial.c: 255: eusart_putch(iR_SONG_INIT);
+"255
 [e ( _eusart_putch (1 -> . `E6829 4 `uc ]
-[; ;iRobotSerial.c: 273: eusart_putch(0);
-"273
+[; ;iRobotSerial.c: 256: eusart_putch(0);
+"256
 [e ( _eusart_putch (1 -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 274: eusart_putch(1);
-"274
+[; ;iRobotSerial.c: 257: eusart_putch(1);
+"257
 [e ( _eusart_putch (1 -> -> 1 `i `uc ]
-[; ;iRobotSerial.c: 275: eusart_putch(60);
-"275
-[e ( _eusart_putch (1 -> -> 60 `i `uc ]
-[; ;iRobotSerial.c: 276: eusart_putch(4);
-"276
-[e ( _eusart_putch (1 -> -> 4 `i `uc ]
-[; ;iRobotSerial.c: 277: }
-"277
+[; ;iRobotSerial.c: 258: eusart_putch(70);
+"258
+[e ( _eusart_putch (1 -> -> 70 `i `uc ]
+[; ;iRobotSerial.c: 259: eusart_putch(64);
+"259
+[e ( _eusart_putch (1 -> -> 64 `i `uc ]
+[; ;iRobotSerial.c: 260: }
+"260
 [e :UE 713 ]
 }
-"294
-[v _irobot_song_play `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;iRobotSerial.c: 294: void irobot_song_play(UINT8 songNumber) {
-[e :U _irobot_song_play ]
-[v _songNumber `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;iRobotSerial.c: 295: eusart_putch(iR_SONG_PLAY);
-"295
-[e ( _eusart_putch (1 -> . `E6829 5 `uc ]
-[; ;iRobotSerial.c: 296: eusart_putch(songNumber);
-"296
-[e ( _eusart_putch (1 _songNumber ]
-[; ;iRobotSerial.c: 297: }
-"297
-[e :UE 714 ]
-}
-"301
-[v _irobot_rotate `(v ~T0 @X0 1 ef3`uc`s`s ]
-{
-[; ;iRobotSerial.c: 301: void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed) {
-[e :U _irobot_rotate ]
-[v _isScript `uc ~T0 @X0 1 r1 ]
-[v _rotateAngle `s ~T0 @X0 1 r2 ]
-[v _rotateSpeed `s ~T0 @X0 1 r3 ]
-[f ]
-"302
-[v _angleTotal `s ~T0 @X0 1 a ]
-[; ;iRobotSerial.c: 302: INT16 angleTotal = 0;
-[e = _angleTotal -> -> 0 `i `s ]
-"303
-[v _rotateDirection `s ~T0 @X0 1 a ]
-[; ;iRobotSerial.c: 303: INT16 rotateDirection;
-[; ;iRobotSerial.c: 305: (rotateAngle > 0) ? (rotateDirection = iR_CONST_CCW) : (rotateAngle = iR_CONST_CW);
-"305
-[e ? > -> _rotateAngle `i -> 0 `i : -> = _rotateDirection -> . `E6869 3 `s `i -> = _rotateAngle -> . `E6869 2 `s `i ]
-[; ;iRobotSerial.c: 306: if (isScript) {
-"306
-[e $ ! != -> _isScript `i -> -> -> 0 `i `uc `i 716  ]
-{
-[; ;iRobotSerial.c: 307: irobot_move(1, rotateSpeed, rotateDirection);
-"307
-[e ( _irobot_move (3 , , -> -> 1 `i `uc _rotateSpeed _rotateDirection ]
-"308
-}
-[; ;iRobotSerial.c: 308: } else {
-[e $U 717  ]
-[e :U 716 ]
-{
-[; ;iRobotSerial.c: 309: irobot_move(0, rotateSpeed, rotateDirection);
-"309
-[e ( _irobot_move (3 , , -> -> 0 `i `uc _rotateSpeed _rotateDirection ]
-[; ;iRobotSerial.c: 310: if (rotateSpeed > 0) {
-"310
-[e $ ! > -> _rotateSpeed `i -> 0 `i 718  ]
-{
-[; ;iRobotSerial.c: 311: while (angleTotal < rotateAngle) {
-"311
-[e $U 719  ]
-[e :U 720 ]
-{
-[; ;iRobotSerial.c: 312: update_angle();
-"312
-[e ( _update_angle ..  ]
-[; ;iRobotSerial.c: 313: angleTotal += iRAngle;
-"313
-[e =+ _angleTotal _iRAngle ]
-"314
-}
-[e :U 719 ]
-"311
-[e $ < -> _angleTotal `i -> _rotateAngle `i 720  ]
-[e :U 721 ]
-"315
-}
-[e :U 718 ]
-[; ;iRobotSerial.c: 314: }
-[; ;iRobotSerial.c: 315: }
-[; ;iRobotSerial.c: 316: if (rotateSpeed < 0) {
-"316
-[e $ ! < -> _rotateSpeed `i -> 0 `i 722  ]
-{
-[; ;iRobotSerial.c: 317: while (angleTotal < rotateAngle) {
-"317
-[e $U 723  ]
-[e :U 724 ]
-{
-[; ;iRobotSerial.c: 318: update_angle();
-"318
-[e ( _update_angle ..  ]
-[; ;iRobotSerial.c: 319: angleTotal += -iRAngle;
-"319
-[e =+ _angleTotal -> -U -> _iRAngle `i `s ]
-"320
-}
-[e :U 723 ]
-"317
-[e $ < -> _angleTotal `i -> _rotateAngle `i 724  ]
-[e :U 725 ]
-"321
-}
-[e :U 722 ]
-[; ;iRobotSerial.c: 320: }
-[; ;iRobotSerial.c: 321: }
-[; ;iRobotSerial.c: 322: irobot_stop_motion(0);
-"322
-[e ( _irobot_stop_motion (1 -> -> 0 `i `uc ]
-"323
-}
-[e :U 717 ]
-[; ;iRobotSerial.c: 323: }
-[; ;iRobotSerial.c: 324: }
-"324
-[e :UE 715 ]
-}
-"328
-[v _irobot_stop_motion `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;iRobotSerial.c: 328: void irobot_stop_motion(bool isScript) {
-[e :U _irobot_stop_motion ]
-[v _isScript `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;iRobotSerial.c: 329: (isScript) ? irobot_move(1, 0, 0) : irobot_move(0, 0, 0);
-"329
-[e ? != -> _isScript `i -> -> -> 0 `i `uc `i : ( _irobot_move (3 , , -> -> 1 `i `uc -> -> 0 `i `s -> -> 0 `i `s ( _irobot_move (3 , , -> -> 0 `i `uc -> -> 0 `i `s -> -> 0 `i `s ]
-[; ;iRobotSerial.c: 330: }
-"330
-[e :UE 726 ]
-}
-"334
+"263
 [v _irobot_led_power_on `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;iRobotSerial.c: 334: void irobot_led_power_on(UINT8 powerOnColour) {
+[; ;iRobotSerial.c: 263: void irobot_led_power_on(UINT8 powerOnColour){
 [e :U _irobot_led_power_on ]
 [v _powerOnColour `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 335: irobot_leds(0, 0, powerOnColour, iR_CONST_LED_ON);
-"335
+[; ;iRobotSerial.c: 264: irobot_leds(0, 0, powerOnColour, iR_CONST_LED_ON);
+"264
 [e ( _irobot_leds (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc _powerOnColour -> . `E6869 8 `uc ]
-[; ;iRobotSerial.c: 336: }
-"336
-[e :UE 727 ]
+[; ;iRobotSerial.c: 265: }
+"265
+[e :UE 714 ]
 }
-"340
+"268
 [v _irobot_led_power_off `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 340: void irobot_led_power_off(void) {
+[; ;iRobotSerial.c: 268: void irobot_led_power_off(void){
 [e :U _irobot_led_power_off ]
 [f ]
-[; ;iRobotSerial.c: 341: irobot_leds(0, 0, 0, 0);
-"341
+[; ;iRobotSerial.c: 269: irobot_leds(0, 0, 0, 0);
+"269
 [e ( _irobot_leds (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;iRobotSerial.c: 342: }
-"342
-[e :UE 728 ]
+[; ;iRobotSerial.c: 270: }
+"270
+[e :UE 715 ]
 }
-"346
+"287
+[v _irobot_song_play `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;iRobotSerial.c: 287: void irobot_song_play(UINT8 songNumber){
+[e :U _irobot_song_play ]
+[v _songNumber `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;iRobotSerial.c: 288: eusart_putch(iR_SONG_PLAY);
+"288
+[e ( _eusart_putch (1 -> . `E6829 5 `uc ]
+[; ;iRobotSerial.c: 289: eusart_putch(songNumber);
+"289
+[e ( _eusart_putch (1 _songNumber ]
+[; ;iRobotSerial.c: 290: }
+"290
+[e :UE 716 ]
+}
+"293
+[v _irobot_rotate_continuous `(v ~T0 @X0 1 ef2`s`s ]
+{
+[; ;iRobotSerial.c: 293: void irobot_rotate_continuous(INT16 rotateAngle, INT16 rotateSpeed){
+[e :U _irobot_rotate_continuous ]
+[v _rotateAngle `s ~T0 @X0 1 r1 ]
+[v _rotateSpeed `s ~T0 @X0 1 r2 ]
+[f ]
+"294
+[v __rotateDirection `s ~T0 @X0 1 a ]
+[; ;iRobotSerial.c: 294: INT16 _rotateDirection;
+[; ;iRobotSerial.c: 296: (rotateAngle > 0) ? (_rotateDirection = iR_CONST_CW) : (_rotateDirection = iR_CONST_CCW);
+"296
+[e ? > -> _rotateAngle `i -> 0 `i : -> = __rotateDirection -> . `E6869 2 `s `i -> = __rotateDirection -> . `E6869 3 `s `i ]
+[; ;iRobotSerial.c: 297: irobot_move(0, rotateSpeed, _rotateDirection);
+"297
+[e ( _irobot_move (3 , , -> -> 0 `i `uc _rotateSpeed __rotateDirection ]
+[; ;iRobotSerial.c: 298: }
+"298
+[e :UE 717 ]
+}
+"301
 [v _irobot_move_straight `(v ~T0 @X0 1 ef1`s ]
 {
-[; ;iRobotSerial.c: 346: void irobot_move_straight(INT16 straightSpeed) {
+[; ;iRobotSerial.c: 301: void irobot_move_straight(INT16 straightSpeed){
 [e :U _irobot_move_straight ]
 [v _straightSpeed `s ~T0 @X0 1 r1 ]
 [f ]
-[; ;iRobotSerial.c: 347: irobot_move(0, straightSpeed, iR_CONST_STRAIGHT_2);
-"347
+[; ;iRobotSerial.c: 302: irobot_move(0, straightSpeed, iR_CONST_STRAIGHT_2);
+"302
 [e ( _irobot_move (3 , , -> -> 0 `i `uc _straightSpeed -> . `E6869 1 `s ]
-[; ;iRobotSerial.c: 348: }
-"348
-[e :UE 729 ]
+[; ;iRobotSerial.c: 303: }
+"303
+[e :UE 718 ]
 }
-"352
+"306
+[v _irobot_stop_motion `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;iRobotSerial.c: 306: void irobot_stop_motion(bool isScript){
+[e :U _irobot_stop_motion ]
+[v _isScript `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;iRobotSerial.c: 307: (isScript) ? irobot_move(1,0,0) : irobot_move(0,0,0);
+"307
+[e ? != -> _isScript `i -> -> -> 0 `i `uc `i : ( _irobot_move (3 , , -> -> 1 `i `uc -> -> 0 `i `s -> -> 0 `i `s ( _irobot_move (3 , , -> -> 0 `i `uc -> -> 0 `i `s -> -> 0 `i `s ]
+[; ;iRobotSerial.c: 308: delay_ms(200);
+"308
+[e ( _delay_ms (1 -> -> 200 `i `us ]
+[; ;iRobotSerial.c: 309: }
+"309
+[e :UE 719 ]
+}
+"312
 [v _update_bump_and_cliff `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 352: void update_bump_and_cliff() {
+[; ;iRobotSerial.c: 312: void update_bump_and_cliff(void){
 [e :U _update_bump_and_cliff ]
 [f ]
-[; ;iRobotSerial.c: 353: irobot_query_and_update(5, iR_PKT_BUMP_DROP,
-[; ;iRobotSerial.c: 354: iR_PKT_CLIFF_L, iR_PKT_CLIFF_FL,
-[; ;iRobotSerial.c: 355: iR_PKT_CLIFF_FR, iR_PKT_CLIFF_R);
-"355
+[; ;iRobotSerial.c: 313: irobot_query_and_update(5, iR_PKT_BUMP_DROP,
+[; ;iRobotSerial.c: 314: iR_PKT_CLIFF_L, iR_PKT_CLIFF_FL,
+[; ;iRobotSerial.c: 315: iR_PKT_CLIFF_FR, iR_PKT_CLIFF_R);
+"315
 [e ( _irobot_query_and_update , , , , , (. -> -> 5 `i `uc -> . `E6847 0 `i -> . `E6847 2 `i -> . `E6847 3 `i -> . `E6847 4 `i -> . `E6847 5 `i ]
-[; ;iRobotSerial.c: 356: }
-"356
-[e :UE 730 ]
+[; ;iRobotSerial.c: 316: }
+"316
+[e :UE 720 ]
 }
-"360
+"319
+[v _update_bump `(v ~T0 @X0 1 ef ]
+{
+[; ;iRobotSerial.c: 319: void update_bump(void){
+[e :U _update_bump ]
+[f ]
+[; ;iRobotSerial.c: 320: irobot_query_and_update(1, iR_PKT_BUMP_DROP);
+"320
+[e ( _irobot_query_and_update , (. -> -> 1 `i `uc -> . `E6847 0 `i ]
+[; ;iRobotSerial.c: 321: }
+"321
+[e :UE 721 ]
+}
+"324
 [v _update_distance `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 360: void update_distance(void) {
+[; ;iRobotSerial.c: 324: void update_distance(void){
 [e :U _update_distance ]
 [f ]
-[; ;iRobotSerial.c: 361: irobot_query_and_update(1, iR_PKT_DISTANCE);
-"361
+[; ;iRobotSerial.c: 325: irobot_query_and_update(1, iR_PKT_DISTANCE);
+"325
 [e ( _irobot_query_and_update , (. -> -> 1 `i `uc -> . `E6847 7 `i ]
-[; ;iRobotSerial.c: 362: }
-"362
-[e :UE 731 ]
+[; ;iRobotSerial.c: 326: }
+"326
+[e :UE 722 ]
 }
-"366
+"329
 [v _update_angle `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 366: void update_angle(void) {
+[; ;iRobotSerial.c: 329: void update_angle(void){
 [e :U _update_angle ]
 [f ]
-[; ;iRobotSerial.c: 367: irobot_query_and_update(1, iR_PKT_ANGLE);
-"367
+[; ;iRobotSerial.c: 330: irobot_query_and_update(1, iR_PKT_ANGLE);
+"330
 [e ( _irobot_query_and_update , (. -> -> 1 `i `uc -> . `E6847 8 `i ]
-[; ;iRobotSerial.c: 368: }
-"368
-[e :UE 732 ]
+[; ;iRobotSerial.c: 331: }
+"331
+[e :UE 723 ]
 }
-"375
-[v _irobot_move_to_simple `(v ~T0 @X0 1 ef2`s`s ]
+"333
+[v _update_virtual_wall `(v ~T0 @X0 1 ef ]
 {
-[; ;iRobotSerial.c: 375: void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed) {
-[e :U _irobot_move_to_simple ]
-[v _moveToDistance `s ~T0 @X0 1 r1 ]
-[v _moveToSpeed `s ~T0 @X0 1 r2 ]
+[; ;iRobotSerial.c: 333: void update_virtual_wall(void){
+[e :U _update_virtual_wall ]
 [f ]
-[; ;iRobotSerial.c: 376: irobot_move(1, moveToSpeed, iR_CONST_STRAIGHT_2);
-"376
-[e ( _irobot_move (3 , , -> -> 1 `i `uc _moveToSpeed -> . `E6869 1 `s ]
-[; ;iRobotSerial.c: 377: irobot_distance_wait(moveToDistance);
-"377
-[e ( _irobot_distance_wait (1 _moveToDistance ]
-[; ;iRobotSerial.c: 378: irobot_stop_motion(1);
-"378
-[e ( _irobot_stop_motion (1 -> -> 1 `i `uc ]
-[; ;iRobotSerial.c: 379: }
-"379
-[e :UE 733 ]
-}
-"383
-[v _irobot_rotate_to `(v ~T0 @X0 1 ef2`s`s ]
-{
-[; ;iRobotSerial.c: 383: void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed) {
-[e :U _irobot_rotate_to ]
-[v _rotateToAngle `s ~T0 @X0 1 r1 ]
-[v _rotateSpeed `s ~T0 @X0 1 r2 ]
-[f ]
-[; ;iRobotSerial.c: 384: irobot_rotate(1, rotateToAngle, rotateSpeed);
-"384
-[e ( _irobot_rotate (3 , , -> -> 1 `i `uc _rotateToAngle _rotateSpeed ]
-[; ;iRobotSerial.c: 385: irobot_angle_wait(rotateToAngle);
-"385
-[e ( _irobot_angle_wait (1 _rotateToAngle ]
-[; ;iRobotSerial.c: 386: irobot_stop_motion(1);
-"386
-[e ( _irobot_stop_motion (1 -> -> 1 `i `uc ]
-[; ;iRobotSerial.c: 387: }
-"387
-[e :UE 734 ]
+[; ;iRobotSerial.c: 334: irobot_query_and_update(1, iR_PKT_V_WALL);
+"334
+[e ( _irobot_query_and_update , (. -> -> 1 `i `uc -> . `E6847 6 `i ]
+[; ;iRobotSerial.c: 335: }
+"335
+[e :UE 724 ]
 }

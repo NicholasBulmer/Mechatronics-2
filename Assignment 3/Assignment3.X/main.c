@@ -96,7 +96,6 @@ int currentPos;
 char currentPosChar;
 
 // Prototype functions
-void printToConsole();
 void update_IR_distance(void);
 UINT16 get_apparentDistance(UINT16 distanceDesired);
 void follow_wall(INT16 followSpeed, UINT16 apparentDistance);
@@ -121,6 +120,9 @@ void rotateSouth();
 void rotateWest();
 void rotateEast();
 bool safeToMove();
+void printToConsole();
+void addVirtualWall(int i, int j);
+void init();
 
 //Function Definitions - will not work in an external library cause MXK is fucked
 ////////////////////////////////////////////////////////////////////////////////
@@ -490,8 +492,11 @@ void printToConsole(){
         }
 }
 
+void addVirtualWall(int i, int j){
+    maze[i][j] = 155;
+}
 
-void main(){
+void init(){
 //Program Initialisation
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -526,16 +531,10 @@ void main(){
 
     
     irobot_init_song_0();
-    
-    delay_ms(20);
-    irobot_move_cell();
-    irobot_rotate_to(85, DEFAULT_SPEED);
-    irobot_move_cell();
-    irobot_rotate_to(85, DEFAULT_SPEED);
-    irobot_move_cell();
-    irobot_rotate_to(-85, DEFAULT_SPEED);
-//Main Program Loop
-////////////////////////////////////////////////////////////////////////////////	
+}
+
+void main(){
+    init();	
     loop(){
         update_IR_distance();
         update_SSD(IRValue);
