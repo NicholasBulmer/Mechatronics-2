@@ -462,7 +462,7 @@ void printToConsole(){
         // Prints maze to console
         for (int i = 1; i < 10; i++) {
                 for (int j = 1;  j < 12; j++) {
-                        currentPos = mazeConsole[i][j];
+                        currentPos = maze[i][j];
                         if (i == xPos && j == yPos) {
                                 currentPosChar = '*';
                         }
@@ -528,9 +528,10 @@ void init(){
 	//Init PIC EUSART and iRobot Comms
     eusart_init();                                                              
     irobot_init();   
-
+    irobot_led_power_on(0xA);
     
     irobot_init_song_0();
+    delay_ms(20);
 }
 
 void main(){
