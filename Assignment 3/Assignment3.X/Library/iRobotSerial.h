@@ -92,17 +92,19 @@ void irobot_leds(bool isScript, UINT8 LEDBit, UINT8 powerColour, UINT8 powerLumi
 void irobot_led_power_on(UINT8 powerOnColour);
 void irobot_led_power_off(void);
 void irobot_move_to_simple(INT16 moveToDistance, INT16 moveToSpeed);
-void irobot_rotate_to(INT16 rotateToAngle, INT16 rotateSpeed);
 
 //ASSIGNMENT 2 FUNCTIONS
 ////////////////////////////////////////////////////////////////////////////////
 
-void irobot_rotate(bool isScript, INT16 rotateAngle, INT16 rotateSpeed);
-void irobot_stop_motion(bool isScript);
 void irobot_move_straight(INT16 straightSpeed);
+void irobot_rotate_continuous(INT16 rotateAngle, INT16 rotateSpeed);
+void irobot_stop_motion(bool isScript);
 void update_bump_and_cliff(void);
 void update_distance(void);
 void update_angle(void);
+void update_bump(void);
+void update_virtual_wall(void);
+
 void irobot_init_song_0(void);
 void irobot_song_play(UINT8 songNumber);
 
@@ -111,9 +113,12 @@ void irobot_song_play(UINT8 songNumber);
 
 extern INT16
 	iRDistance,																	//Distance in mm since last call/update
-	iRAngle;																	//Angle in degrees since last call/update
+	distanceTotal,
+	iRAngle,																	//Angle in degrees since last call/update
+	angleTotal;
 
 extern UINT8 
+	iRBumpDrop,
 	iRWall,
 	iRCliffL,
 	iRCliffFL,
