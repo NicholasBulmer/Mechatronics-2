@@ -43,6 +43,25 @@
 #define ANGLE_WALL_FOLLOW   72 //degrees; 90 degrees means the sensor is perp. to the wall (dont want that,)
 #define INVERSE_STEP_AMOUNT 2 //half step
 
+////////////////////////////////////////////////////////////////////////////////
+//Store songs to irobot... the functions have been added to irobotserial.c
+irobot_song_1();
+irobot_song_2();
+irobot_song_3();
+irobot_song_4();
+/*use the following to play the songs (delay yet to be optimised)
+irobot_song_play(1);
+delay_ms(100);
+irobot_song_play(2);
+delay_ms(100);
+irobot_song_play(3);
+delay_ms(100);
+irobot_song_play(4);
+delay_ms(100);*/
+///////////////////////////////////////////////////////////////////////
+
+
+
 /* A 2D array is used to store information regarding the maze.
  * 155 - Wall
  * 154 - Unexplored
