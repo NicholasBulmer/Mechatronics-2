@@ -8916,7 +8916,7 @@ extern double round(double);
 # 52 "main.c"
 int maze[9][11] = {
 {155,155,155,155,155,155,155,155,155,155,155},
-{155,154,154,154,155,154,155,0,154,154,155},
+{155,154,154,154,155,154,155, 0 ,154,154,155},
 {155,154,155,155,155,154,155,155,155,154,155},
 {155,154,154,154,154,154,154,154,154,154,155},
 {155,155,155,155,155,154,155,155,155,154,155},
@@ -8958,6 +8958,8 @@ int xPosNext;
 int yPosNext;
 int gridSize = 100;
 int currentPos;
+int posValue;
+int lowestDirection;
 char currentPosChar;
 
 
@@ -8988,6 +8990,8 @@ bool safeToMove();
 void printToConsole();
 void addVirtualWall(int i, int j);
 void init();
+void goHome();
+void atHome();
 
 
 
@@ -8996,7 +9000,7 @@ void update_IR_distance(void){
 extern ADC ADC_AN0;
 float IRCumulative = 0;
 UINT8 IRSamples = 20;
-for (UINT16 i = 0; i <= IRSamples; i++){
+for (UINT16 i = 0; i <= IRSamples; i++) {
 ADC_Start(&ADC_AN0);
 IRCumulative += (590 / ADC_Voltage(&ADC_AN0));
 }
@@ -9014,9 +9018,9 @@ void follow_wall(INT16 followSpeed, UINT16 apparentDistance){
 UINT16 i, _d1=apparentDistance-80, _d2=apparentDistance-30, _d3=apparentDistance+30;
 
 
-if (!stepperMoved){
+if (!stepperMoved) {
 move_stepper_neutral();
-if (rightWall){
+if (rightWall) {
 move_stepper_to(72);
 }
 else{
@@ -9035,14 +9039,14 @@ else if (IRValue > _d3) {irobot_move(0, followSpeed, 750*i);}
 else {irobot_move(0, followSpeed, 1000*i);}
 
 
-if (IRValue > 800){rightWall = !rightWall; stepperMoved = 0;}
+if (IRValue > 800) {rightWall = !rightWall; stepperMoved = 0;}
 }
 
 
 void irobot_centralise(void){
 INT16 differenceDistance;
 update_IR_distance();
-if (IRValue < 800){
+if (IRValue < 800) {
 differenceDistance = IRValue - 500;
 (differenceDistance > 0) ?
 irobot_move_to_straight(differenceDistance, 250) :
@@ -9057,7 +9061,8 @@ printf("%c", (char)35);
 printf("Var1: %d\n", angleTotal);
 Console_Render();
 if (MXK_Release())
-MXK_Dequeue();}
+MXK_Dequeue();
+}
 }
 
 
@@ -9066,7 +9071,8 @@ if (MXK_SwitchTo(eMXK_HMI)) {
 HMI_SetNumber(renderSSD);
 HMI_Render();
 if (MXK_Release())
-MXK_Dequeue();}
+MXK_Dequeue();
+}
 return;
 }
 
@@ -9078,12 +9084,13 @@ return (int)((2*stepperDegrees)/1.8);
 
 void move_stepper_to(INT16 moveStepperTo){
 localSensorAngle += moveStepperTo;
-if (localSensorAngle >= 360 || localSensorAngle <= -360){localSensorAngle = 0;}
+if (localSensorAngle >= 360 || localSensorAngle <= -360) {localSensorAngle = 0;}
 
 if (MXK_BlockSwitchTo(eMXK_Motor)) {
 Motor_Move(&Stepper, degrees_to_steps(moveStepperTo));
 if (MXK_Release())
-MXK_Dequeue();}
+MXK_Dequeue();
+}
 
 delay_ms(75);
 }
@@ -9098,7 +9105,7 @@ INT16 reverseDistance;
 distanceTotal = 0;
 iRDistance = 0; iRVirtualWall = 0;
 rightWall = 1; stepperMoved = 0;
-while ((distanceTotal <= moveToDistance) && !iRVirtualWall){
+while ((distanceTotal <= moveToDistance) && !iRVirtualWall) {
 follow_wall(moveToSpeed, get_apparentDistance(550));
 update_distance();
 distanceTotal += iRDistance;
@@ -9107,7 +9114,7 @@ update_virtual_wall();
 irobot_stop_motion(0);
 reverseDistance = -distanceTotal;
 
-if (iRVirtualWall){
+if (iRVirtualWall) {
 irobot_song_play(0);
 move_stepper_neutral();
 delay_ms(200);
@@ -9121,14 +9128,14 @@ void irobot_move_to_straight(INT16 moveToDistance, INT16 moveToSpeed){
 distanceTotal = 0;
 iRDistance = 0;
 irobot_move_straight(moveToSpeed);
-if (moveToDistance > 0){
-while (distanceTotal <= moveToDistance){
+if (moveToDistance > 0) {
+while (distanceTotal <= moveToDistance) {
 update_distance();
 distanceTotal += iRDistance;
 }
 }
 else{
-while (distanceTotal >= moveToDistance){
+while (distanceTotal >= moveToDistance) {
 update_distance();
 distanceTotal += iRDistance;
 }
@@ -9150,7 +9157,7 @@ iRAngle = 0;
 
 irobot_rotate_continuous(rotateToAngle, rotateToSpeed);
 
-if (rotateToAngle > 0){
+if (rotateToAngle > 0) {
 while (angleTotal >= -rotateToAngle) {
 update_angle();
 angleTotal += iRAngle;
@@ -9196,7 +9203,7 @@ irobot_move_straight(gridSize);
 irobot_stop_motion(0);
 
 
-int posValue = maze[xPos][yPos];
+posValue = maze[yPos][xPos];
 switch (bearing) {
 case 1:
 yPos -= 2;
@@ -9211,8 +9218,8 @@ case 4:
 xPos -= 2;
 break;
 }
-if (posValue < maze[xPos][yPos]) {
-maze[xPos][yPos] = posValue++;
+if (posValue < maze[yPos][xPos]) {
+maze[yPos][xPos] = posValue++;
 }
 }
 void rotateNorth(){
@@ -9298,7 +9305,7 @@ case 4:
 xPosNext--;
 break;
 }
-if(yPosNext <= 0 || yPosNext >= 11 || xPosNext <= 0 || xPosNext >= 9 || maze[xPosNext][yPosNext] == 155) {
+if(xPosNext <= 0 || xPosNext >= 11 || yPosNext <= 0 || yPosNext >= 9 || maze[yPosNext][xPosNext] == 155) {
 return 0;
 }
 switch (bearing) {
@@ -9315,7 +9322,7 @@ case 4:
 xPosNext--;
 break;
 }
-if(yPosNext <= 0 || yPosNext >= 11 || xPosNext <= 0 || xPosNext >= 9 || maze[xPosNext][yPosNext] == 155) {
+if(xPosNext <= 0 || xPosNext >= 11 || yPosNext <= 0 || yPosNext >= 9 || maze[yPosNext][xPosNext] == 155) {
 return 0;
 }
 return 1;
@@ -9327,7 +9334,7 @@ printf("%c", (char)35);
 
 for (int i = 1; i < 10; i++) {
 for (int j = 1; j < 12; j++) {
-currentPos = mazeConsole[i][j];
+currentPos = maze[i][j];
 if (i == xPos && j == yPos) {
 currentPosChar = '*';
 }
@@ -9357,9 +9364,11 @@ MXK_Dequeue();
 }
 }
 
+
 void addVirtualWall(int i, int j){
 maze[i][j] = 155;
 }
+
 
 void init(){
 
@@ -9393,9 +9402,32 @@ ADC_Start(&ADC_AN0);
 
 eusart_init();
 irobot_init();
-
+irobot_led_power_on(0xA);
 
 irobot_init_song_0();
+delay_ms(20);
+}
+
+void goHome(){
+posValue = maze[yPos][xPos];
+while (posValue != 0) {
+if ((yPos - 2 > 0){
+if (maze[xPos][yPos - 2] == posValue--){
+lowestDirection = 1;
+}
+}
+if ((yPos + 2 < 11){
+if (maze[xPos][yPos + 2] == posValue--){
+lowestDirection = 3;
+}
+}
+posValue = maze[yPos][xPos];
+}
+}
+
+
+void atHome(){
+
 }
 
 void main(){

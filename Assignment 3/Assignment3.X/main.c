@@ -51,7 +51,7 @@
 
 int maze[9][11] = {
         {155,155,155,155,155,155,155,155,155,155,155},
-        {155,154,154,154,155,154,155, 0 ,154,154,155},
+        {155,154,154,154,155,154,155, 0,154,154,155},
         {155,154,155,155,155,154,155,155,155,154,155},
         {155,154,154,154,154,154,154,154,154,154,155},
         {155,155,155,155,155,154,155,155,155,154,155},
@@ -93,6 +93,8 @@ int xPosNext;
 int yPosNext;
 int gridSize = 100;
 int currentPos;
+int posValue;
+int lowestDirection;
 char currentPosChar;
 
 // Prototype functions
@@ -123,6 +125,8 @@ bool safeToMove();
 void printToConsole();
 void addVirtualWall(int i, int j);
 void init();
+void goHome();
+void atHome();
 
 //Function Definitions - will not work in an external library cause MXK is fucked
 ////////////////////////////////////////////////////////////////////////////////
@@ -334,7 +338,7 @@ void moveStraight(){
         irobot_stop_motion(0);
 
         // update array and current positioning
-        int posValue = maze[xPos][yPos];
+        posValue = maze[yPos][xPos];
         switch (bearing) {
         case 1:
                 yPos -= 2;
@@ -349,8 +353,8 @@ void moveStraight(){
                 xPos -= 2;
                 break;
         }
-        if (posValue < maze[xPos][yPos]) {
-                maze[xPos][yPos] = posValue++;
+        if (posValue < maze[yPos][xPos]) {
+                maze[yPos][xPos] = posValue++;
         }
 }
 void rotateNorth(){
@@ -436,7 +440,7 @@ bool safeToMove(){
                 xPosNext--;
                 break;
         }
-        if(yPosNext <= 0 || yPosNext >= 11 || xPosNext <= 0 || xPosNext >= 9 || maze[xPosNext][yPosNext] == 155) {
+        if(xPosNext <= 0 || xPosNext >= 11 || yPosNext <= 0 || yPosNext >= 9 || maze[yPosNext][xPosNext] == 155) {
                 return false;
         }
         switch (bearing) {
@@ -453,7 +457,7 @@ bool safeToMove(){
                 xPosNext--;
                 break;
         }
-        if(yPosNext <= 0 || yPosNext >= 11 || xPosNext <= 0 || xPosNext >= 9 || maze[xPosNext][yPosNext] == 155) {
+        if(xPosNext <= 0 || xPosNext >= 11 || yPosNext <= 0 || yPosNext >= 9 || maze[yPosNext][xPosNext] == 155) {
                 return false;
         }
         return true;
@@ -495,13 +499,15 @@ void printToConsole(){
         }
 }
 
+// Adds a virtual wall at the specified pos
 void addVirtualWall(int i, int j){
         maze[i][j] = 155;
 }
 
+// Program Initialisation
 void init(){
-//Program Initialisation
-////////////////////////////////////////////////////////////////////////////////
+
+
 
         //Init MXK Pins
         MXK_Init();
@@ -535,6 +541,53 @@ void init(){
 
         irobot_init_song_0();
         delay_ms(20);
+}
+
+void goHome(){
+        posValue = maze[yPos][xPos];
+        while (posValue != 0) {
+                if ((yPos - 2) > 0) {
+                        if (maze[yPos - 2][xPos] == posValue--) {
+                                lowestDirection = 1;
+                        }
+                }
+                if ((yPos + 2) < 11) {
+                        if (maze[yPos + 2][xPos] == posValue--) {
+                                lowestDirection = 3;
+                        }
+                }
+                if ((xPos - 2) > 0) {
+                        if (maze[yPos][xPos - 2] == posValue--) {
+                                lowestDirection = 4;
+                        }
+                }
+                if ((yPos + 2) < 11) {
+                        if (maze[yPos][xPos + 2] == posValue--) {
+                                lowestDirection = 2;
+                        }
+                }
+                switch (lowestDirection) {
+                case 1:
+                        rotateNorth();
+                        break;
+                case 2:
+                        rotateEast();
+                        break;
+                case 3:
+                        rotateSouth();
+                        break;
+                case 4:
+                        rotateWest();
+                        break;
+                }
+                moveStraight();
+                posValue = maze[yPos][xPos];
+        }
+}
+
+// Called when the iRobot completes the maze and retrns home
+void atHome(){
+
 }
 
 void main(){
