@@ -467,10 +467,10 @@ bool safeToMove(){
 void printToConsole(){
         printf("%c", ENDOFTEXT);
         // Prints maze to console
-        for (int i = 1; i < 10; i++) {
-                for (int j = 1; j < 12; j++) {
-                        currentPos = maze[i][j];
-                        if (i == xPos && j == yPos) {
+        for (int j = 1; j < 10; j++) {
+                for (int i = 1; i < 12; i++) {
+                        currentPos = maze[j][i];
+                        if (i == yPos && j == xPos) {
                                 currentPosChar = '*';
                         }
                         else {
@@ -501,7 +501,7 @@ void printToConsole(){
 
 // Adds a virtual wall at the specified pos
 void addVirtualWall(int i, int j){
-        maze[i][j] = 155;
+        maze[j][i] = 155;
 }
 
 // Program Initialisation
