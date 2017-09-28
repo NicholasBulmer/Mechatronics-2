@@ -258,7 +258,112 @@ void irobot_init_song_0(void){													//Define Song 0
 	eusart_putch(70);															//Aryana's Serenade in C maj
 	eusart_putch(64);															//Check out my soundcloud
 }
-
+void irobot_song_1(void){
+        eusart_putch(iR_SONG_INIT);
+        eusart_putch(1);
+        eusart_putch(11);
+        eusart_putch(47);															
+        eusart_putch(6);
+        eusart_putch(59);															
+        eusart_putch(4);
+        eusart_putch(71);															
+        eusart_putch(4);
+        eusart_putch(59);															
+        eusart_putch(6);
+        eusart_putch(77);															
+        eusart_putch(4);
+        eusart_putch(74);															
+        eusart_putch(4);
+        eusart_putch(47);															
+        eusart_putch(6);
+        eusart_putch(71);															
+        eusart_putch(4);
+        eusart_putch(77);															
+        eusart_putch(4);
+        eusart_putch(59);															
+        eusart_putch(6);
+        eusart_putch(74);															
+        eusart_putch(4);
+    }
+    void irobot_song_2(void){
+        eusart_putch(iR_SONG_INIT);
+        eusart_putch(2);
+        eusart_putch(11);
+        eusart_putch(48);															
+        eusart_putch(6);
+        eusart_putch(72);															
+        eusart_putch(10);
+        eusart_putch(66);															
+        eusart_putch(10);
+        eusart_putch(91);															
+        eusart_putch(10);
+        eusart_putch(60);															
+        eusart_putch(6);
+        eusart_putch(53);															
+        eusart_putch(10);
+        eusart_putch(48);															
+        eusart_putch(6);
+        eusart_putch(84);															
+        eusart_putch(10);
+        eusart_putch(91);															
+        eusart_putch(10);
+        eusart_putch(40);															
+        eusart_putch(6);
+        eusart_putch(88);															
+        eusart_putch(10);
+    }
+    void irobot_song_3(void){
+        eusart_putch(iR_SONG_INIT);
+        eusart_putch(3);
+        eusart_putch(11);
+        eusart_putch(47);															
+        eusart_putch(2);
+        eusart_putch(72);															
+        eusart_putch(4);
+        eusart_putch(32);															
+        eusart_putch(4);
+        eusart_putch(59);															
+        eusart_putch(2);
+        eusart_putch(91);															
+        eusart_putch(4);
+        eusart_putch(88);															
+        eusart_putch(4);
+        eusart_putch(74);															
+        eusart_putch(2);
+        eusart_putch(84);															
+        eusart_putch(4);
+        eusart_putch(91);															
+        eusart_putch(4);
+        eusart_putch(40);															
+        eusart_putch(2);
+        eusart_putch(88);															
+        eusart_putch(4);
+    }
+    void irobot_song_4(void){
+        eusart_putch(iR_SONG_INIT);
+        eusart_putch(4);
+        eusart_putch(10);
+        eusart_putch(72);															
+        eusart_putch(4);
+        eusart_putch(76);															
+        eusart_putch(4);
+        eusart_putch(79);															
+        eusart_putch(4);
+        eusart_putch(59);															
+        eusart_putch(4);
+        eusart_putch(83);															
+        eusart_putch(4);
+        eusart_putch(81);															
+        eusart_putch(10);
+        eusart_putch(83);															
+        eusart_putch(4);
+        eusart_putch(81);															
+        eusart_putch(10);
+        eusart_putch(83);															
+        eusart_putch(4);
+        eusart_putch(81);															
+        eusart_putch(10);        
+    }
 //DIRECT INPUT FUNCTION
 void irobot_led_power_on(UINT8 powerOnColour){									//Turn power LED on to given colour
 	irobot_leds(0, 0, powerOnColour, iR_CONST_LED_ON);
